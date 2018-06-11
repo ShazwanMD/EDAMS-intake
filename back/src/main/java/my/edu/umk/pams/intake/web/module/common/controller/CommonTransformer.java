@@ -575,4 +575,23 @@ public class CommonTransformer {
         vo.setDeletedDate(metaObject.getMetadata().getDeletedDate());
     }
 
+    // ====================================================================================================
+    // EMPLOYMENT TYPE CODE
+    // ====================================================================================================
+
+    public EmploymentTypeCode toEmploymentTypeCodeVo(InEmploymentTypeCode e) {
+    	EmploymentTypeCode vo = new EmploymentTypeCode();
+        vo.setId(e.getId());
+        vo.setCode(e.getCode());
+        vo.setDescriptionMs(e.getDescriptionMs());
+        vo.setDescriptionEn(e.getDescriptionEn());
+        return vo;
+    }
+
+    public List<EmploymentTypeCode> toEmploymentTypeCodeVos(List<InEmploymentTypeCode> e) {
+        List<EmploymentTypeCode> vos = e.stream().map((e1) -> toEmploymentTypeCodeVo(e1)).collect(Collectors.toList());
+        return vos;
+    }
+
+    
 }

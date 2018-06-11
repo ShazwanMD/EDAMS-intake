@@ -124,6 +124,9 @@ public class CommonServiceImpl implements CommonService {
 
     @Autowired
     private InEmploymentSectorCodeDao employmentSectorCodeDao;
+    
+    @Autowired
+    private InEmploymentTypeCodeDao employmentTypeCodeDao;
 
     @Autowired
     private InStudyModeDao studyModeDao;
@@ -2351,5 +2354,59 @@ public class CommonServiceImpl implements CommonService {
         programFieldCodeDao.delete(programCode, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().flush();
     }
+    
+  //====================================================================================================
+  // EMPLOYMENT TYPE CODE
+  //====================================================================================================
+
+    @Override
+    public InEmploymentTypeCode findEmploymentTypeCodeById(Long id) {
+        return employmentTypeCodeDao.findById(id);
+    }
+
+    @Override
+    public InEmploymentTypeCode findEmploymentTypeCodeByCode(String code) {
+        return employmentTypeCodeDao.findByCode(code);
+    }
+
+    @Override
+    public List<InEmploymentTypeCode> findEmploymentTypeCodes() {
+        return employmentTypeCodeDao.find();
+    }
+
+    @Override
+    public List<InEmploymentTypeCode> findEmploymentTypeCodes(String filter, Integer offset, Integer limit) {
+        return employmentTypeCodeDao.find(filter, offset, limit);
+    }
+
+    @Override
+    public Integer countEmploymentTypeCode() {
+        return employmentTypeCodeDao.count();
+    }
+
+    @Override
+    public Integer countEmploymentTypeCode(String filter) {
+        return employmentTypeCodeDao.count(filter);
+    }
+
+    @Override
+    public void saveEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode) {
+    	employmentTypeCodeDao.save(employmentTypeCode, securityService.getCurrentUser());
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    @Override
+    public void updateEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode) {
+    	employmentTypeCodeDao.update(employmentTypeCode, securityService.getCurrentUser());
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    @Override
+    public void removeEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode) {
+    	employmentTypeCodeDao.delete(employmentTypeCode, securityService.getCurrentUser());
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    
 
 }

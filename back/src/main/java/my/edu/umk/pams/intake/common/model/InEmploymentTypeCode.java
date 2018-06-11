@@ -7,10 +7,14 @@ public interface InEmploymentTypeCode extends InMetaObject {
 	  String getCode();
 
 	  void setCode(String code);
+	  
+	  String getDescriptionMs();
 
-	  String getDescription();
+	  void setDescriptionMs(String descriptionMs);
 
-	  void setDescription(String description);
+	  String getDescriptionEn();
+
+	  void setDescriptionEn(String descriptionEn);
 }
 
 

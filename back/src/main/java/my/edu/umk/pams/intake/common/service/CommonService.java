@@ -819,12 +819,11 @@ public interface CommonService {
 
 	// todo: find supervisoroffering by faculty
 	List<InSupervisorOffering> findSupervisorOfferings(InFacultyCode facultyCode);
-	
-	 List<InSupervisorOffering> findSupervisorOfferings(String filter, Integer
-	 offset, Integer limit);
 
-	List<InSupervisorOffering> findSupervisorOfferingsByProgramLevel(InProgramLevel inProgramLevel, String filter, Integer offset,
-			Integer limit);
+	List<InSupervisorOffering> findSupervisorOfferings(String filter, Integer offset, Integer limit);
+
+	List<InSupervisorOffering> findSupervisorOfferingsByProgramLevel(InProgramLevel inProgramLevel, String filter,
+			Integer offset, Integer limit);
 
 	Integer countSupervisorOffering();
 
@@ -904,4 +903,28 @@ public interface CommonService {
 	void updateProgramFieldCode(InProgramFieldCode programCode);
 
 	void removeProgramFieldCode(InProgramFieldCode programCode);
+
+	// ====================================================================================================
+	// EMPLOYMENT TYPE CODE
+	// ====================================================================================================
+
+	InEmploymentTypeCode findEmploymentTypeCodeById(Long id);
+
+	InEmploymentTypeCode findEmploymentTypeCodeByCode(String code);
+
+	List<InEmploymentTypeCode> findEmploymentTypeCodes();
+
+	List<InEmploymentTypeCode> findEmploymentTypeCodes(String filter, Integer offset, Integer limit);
+
+	Integer countEmploymentTypeCode();
+
+	Integer countEmploymentTypeCode(String filter);
+
+	void saveEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode);
+
+	void updateEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode);
+
+	void removeEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode);
+	
+	
 }

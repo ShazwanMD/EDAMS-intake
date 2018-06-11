@@ -1502,6 +1502,55 @@ public class CommonController {
         return new ResponseEntity<String>("Success", HttpStatus.OK);
     }
 
+  //====================================================================================================
+  // EMPLOYMENT_TYPE_CODE
+  //====================================================================================================
+
+    @RequestMapping(value = "/employmentTypeCodes", method = RequestMethod.GET)
+    public ResponseEntity<List<EmploymentTypeCode>> findEmploymentTypeCodes() {
+        return new ResponseEntity<List<EmploymentTypeCode>>(commonTransformer.toEmploymentTypeCodeVos(
+        		commonService.findEmploymentTypeCodes("%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/employmentTypeCodes/{code}", method = RequestMethod.GET)
+    public ResponseEntity<EmploymentTypeCode> findEmploymentTypeCodeByCode(@PathVariable String code) {
+        return new ResponseEntity<EmploymentTypeCode>(commonTransformer.toEmploymentTypeCodeVo(
+                commonService.findEmploymentTypeCodeByCode(code)), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/employmentTypeCodes", method = RequestMethod.POST)
+    public ResponseEntity<String> saveEmploymentTypeCode(@RequestBody EmploymentTypeCode vo) {
+        dummyLogin();
+
+        InEmploymentTypeCode employmentTypeCode = new InEmploymentTypeCodeImpl();
+        employmentTypeCode.setCode(vo.getCode());
+        employmentTypeCode.setDescriptionMs(vo.getDescriptionMs());
+        employmentTypeCode.setDescriptionEn(vo.getDescriptionEn());
+        commonService.saveEmploymentTypeCode(employmentTypeCode);
+        return new ResponseEntity<String>("Success", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/employmentTypeCodes/{code}", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateEmploymentTypeCode(@PathVariable String code, @RequestBody EmploymentTypeCode vo) {
+        dummyLogin();
+
+        InEmploymentTypeCode employmentTypeCode = commonService.findEmploymentTypeCodeById(vo.getId());
+        employmentTypeCode.setCode(vo.getCode());
+        employmentTypeCode.setDescriptionMs(vo.getDescriptionMs());
+        employmentTypeCode.setDescriptionEn(vo.getDescriptionEn());
+        commonService.updateEmploymentTypeCode(employmentTypeCode);
+        return new ResponseEntity<String>("Success", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/employmentTypeCodes/{code}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> removeEmploymentTypeCode(@PathVariable String code) {
+        dummyLogin();
+
+        InEmploymentTypeCode employmentTypeCode = commonService.findEmploymentTypeCodeByCode(code);
+        commonService.removeEmploymentTypeCode(employmentTypeCode);
+        return new ResponseEntity<String>("Success", HttpStatus.OK);
+    }
+
 
     
 }
