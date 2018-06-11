@@ -12,44 +12,33 @@
         <template md-tab-label>Detail Of Candidate</template>
 
         <td-expansion-panel label="Program Choices">
+         
           <pams-program-choice [intakeApplication]="_intakeApplication">
           </pams-program-choice>
 
-          <md-input-container fxFlex="calc(100%-25px)">
-          
-         <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <md-input-container fxFlex="calc(100%-25px)">
-              <td class="md-title tc-grey-600">Your Research Title :</td> <br>
-              <input mdInput formControlName="researchTitle" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('researchTitle').invalid && applicationForm.get('researchTitle').touched">
-            Research title is required!
-           </div>
-        </div>
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+          <pams-study-center-code-select [placeholder]="'StudyCenter'" [innerFormControl]="applicationForm.controls.studyCenterCode"
+            fxFlex="calc(50%-25px)" class="pad-bottom">
+          </pams-study-center-code-select>
+          </div>
 
-
-        
-
-          </md-input-container>
-         
-          
         </td-expansion-panel>
 
         <template md-tab-label>Applicant Personal Information</template>
+
         <td-expansion-panel label="Personal Details">
         <div>
         <md-card-subtitle>Applicant Personal Information</md-card-subtitle>
         </div>
         <md-divider></md-divider>
 
-        <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+        <!-- <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
         <div layout="row" layout-align="start center">
         <button md-raised-button color="primary" (click)="promoCodeDialog(_intakeApplication)">
             Enter Promo Code (if applicable)
         </button>
         </div>
-        </div>
+        </div> -->
 
         <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
             <!-- first column -->
@@ -61,13 +50,6 @@
         <md-input-container fxFlex="calc(50%-25px)">
         <input mdInput placeholder="Email" formControlName="email"/>
         </md-input-container>
-<!-- 
-        <md-input-container fxFlex="calc(50%-25px)">
-        <input mdInput placeholder="Enter Promo Code (if applicable)" formControlName="promoCode"/>
-        </md-input-container> -->
-        <!-- <md-input-container fxFlex="calc(50%-25px)">
-        <md-button class = "md-raised"  (click)="">Enter Promo Code (if applicable)</md-button>
-       </md-input-container> -->
 
         <md-input-container fxFlex="calc(50%-25px)">
         <input mdInput formControlName="credentialNo" placeholder="NRIC/Passport *">
@@ -85,15 +67,18 @@
               Your Birth Date is required!
         </div>
 
+        <md-input-container fxFlex="calc(50%-25px)">
+          <input mdInput placeholder="Place of Birth" formControlName="placeOfBirth"/>
+        </md-input-container>
+
+        <md-input-container fxFlex="calc(50%-25px)">
+          <input mdInput placeholder="Age" formControlName="age"/>
+        </md-input-container>
 
         <pams-nationality-code-select [placeholder]="'Nationality *'"
                                           [innerFormControl]="applicationForm.controls.nationalityCode"
                                           fxFlex="calc(50%-25px)" class="pad-bottom">
         </pams-nationality-code-select>
-        <!-- <div class="error" class="tc-red-600"
-                 *ngIf="applicationForm.get('nationalityCode').invalid && applicationForm.get('nationalityCode').touched">
-              Please add your nationality!
-        </div> -->
 
         <pams-residency-code-select [placeholder]="'Residency *'" 
                                      [innerFormControl]="applicationForm.controls.residencyCode"
@@ -134,16 +119,16 @@
                                         fxFlex="calc(50%-25px)" class="pad-bottom">
         </pams-ethnicity-code-select>
 
-            <pams-gender-code-select [placeholder]="'Gender'"
+        <pams-gender-code-select [placeholder]="'Gender'"
                                      [innerFormControl]="applicationForm.controls.genderCode"
                                      fxFlex="calc(50%-25px)" class="pad-bottom">
-            </pams-gender-code-select>
+        </pams-gender-code-select>
 
-            <pams-religion-code-select [placeholder]="'Religion'"
+        <pams-religion-code-select [placeholder]="'Religion'"
                                        [innerFormControl]="applicationForm.controls.religionCode"
                                        fxFlex="calc(50%-25px)" class="pad-bottom">
-            </pams-religion-code-select>
-          </div>
+        </pams-religion-code-select>
+        </div>
 
         </td-expansion-panel>
       </md-tab>
@@ -259,11 +244,77 @@
       </md-tab>
 
         <md-tab>
-          <template md-tab-label >Working Experience</template>
-         
-          <td-expansion-panel label="Working Experience">
+          <template md-tab-label >Occupation Information</template>
+
+           <td-expansion-panel label="Occupation Information">
+          <br>
+          <!-- <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
+              <b>*Please fill in Official and Mailing Address.</b>
+          </div> -->
+          <br>
+          
+          <!-- <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
+          Official Address           
+          </div> -->
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+
+            <pams-state-code-select [placeholder]="'Employment Type'"
+              [innerFormControl]="applicationForm.controls.employmentTypeCode"
+              fxFlex="calc(50%-25px)"
+              class="pad-bottom">
+            </pams-state-code-select>
+
+            <pams-state-code-select [placeholder]="'Employment Sector'"
+            [innerFormControl]="applicationForm.controls.employmentSectorCode"
+            fxFlex="calc(50%-25px)"
+            class="pad-bottom">
+           </pams-state-code-select>
+
+           <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Income per month *" formControlName="income" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Position *" formControlName="position" flex/>
+            </md-input-container>
+
+            <!-- <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Employment Sector *" formControlName="position" flex/>
+            </md-input-container> -->
+                
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 1 *" formControlName="employerAddress1" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 2 *" formControlName="employerAddress2" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 3" formControlName="employerAddress3" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Postcode *" formControlName="employerPostcode" flex/>
+            </md-input-container>
+            
+
+            <pams-state-code-select [placeholder]="'State'"
+                                    [innerFormControl]="applicationForm.controls.employerState"
+                                    fxFlex="calc(50%-25px)"
+                                    class="pad-bottom">
+            </pams-state-code-select>
+
+            <md-input-container fxFlex="calc(50%-25px)">
+                <input mdInput placeholder="Phone No *" formControlName="employerNo" flex/>
+            </md-input-container>
+
+          </div>
+        </td-expansion-panel>
+
+        <td-expansion-panel label="Working Experience">
             <pams-employment-list [intakeApplication]="_intakeApplication" [employments]="employments$ | async"></pams-employment-list>
-          </td-expansion-panel>
+        </td-expansion-panel>
         </md-tab>
 
         <md-tab>

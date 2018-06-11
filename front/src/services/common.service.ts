@@ -1,3 +1,4 @@
+import { EmploymentTypeCode } from './../app/shared/model/common/employment-type-code.interface';
 import { VenueCode } from './../app/shared/model/common/venue-code.interface';
 import {ParliamentCode} from '../app/shared/model/common/parliament-code.interface';
 import {StudyCenterCode} from '../app/shared/model/common/study-center-code.interface';
@@ -937,4 +938,36 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
     return this._http.delete(this.COMMON_API + '/gradeCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
+
+  // ====================================================================================================
+  // EMPLOYMENT TYPE CODES
+  // ====================================================================================================
+
+  findEmploymentTypeCodes(): Observable<EmploymentTypeCode[]> {
+    console.log('findEmploymentTypeCodes');
+    return this._http.get(this.COMMON_API + '/employmentTypeCodes')
+      .map((res: Response) => <EmploymentTypeCode[]>res.json());
+  }
+
+  findEmploymentTypeCodeByCode(code: string): Observable<EmploymentTypeCode> {
+    console.log('findEmploymentTypeCodeByCode');
+    return this._http.get(this.COMMON_API + '/employmentTypeCodes/' + code)
+      .map((res: Response) => <EmploymentTypeCode>res.json());
+  }
+
+  saveEmploymentTypeCode(code: EmploymentTypeCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/employmentTypeCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateEmploymentTypeCode(code: EmploymentTypeCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/employmentTypeCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeEmploymentTypeCode(code: GradeCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/employmentTypeCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+  
 }

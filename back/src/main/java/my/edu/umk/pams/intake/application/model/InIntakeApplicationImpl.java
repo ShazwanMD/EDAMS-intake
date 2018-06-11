@@ -75,6 +75,9 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
 
+    @Column(name = "PLACE_OF_BIRTH")
+    private String placeOfBirth;
+    
     // todo(ashraf): do we need this?
     @NotNull
     @Column(name = "AGE")
@@ -162,7 +165,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     @Column(name = "PASSPORT_COPY_ATTACHED")
     private Boolean passportCopyAttached = false;
 
-
     @Column(name = "VERIFIED", nullable = false)
     private Boolean verified = false;
 
@@ -186,6 +188,7 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     @ManyToOne(targetEntity = InStateCodeImpl.class)
     @JoinColumn(name = "MAILING_STATE_CODE_ID")
     private InStateCode mailingStateCode;
+    
     @Column(name = "OFFICIAL_ADDRESS1")
     private String officialAddress1;
 
@@ -285,6 +288,41 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     @ManyToOne(targetEntity = InApplicantImpl.class)
     @JoinColumn(name = "APPLICANT_ID")
     private InApplicant applicant;
+    
+    //occupation info
+    
+    @Column(name = "POSITION")
+    private String position;
+    
+    @Column(name = "INCOME")
+    private String income;
+    
+    @ManyToOne(targetEntity = InEmploymentSectorCodeImpl.class)
+    @JoinColumn(name = "EMPLOYMENT_SECTOR_CODE_ID")
+    private InEmploymentSectorCode employmentSectorCode;
+    
+    @ManyToOne(targetEntity = InEmploymentTypeCodeImpl.class)
+    @JoinColumn(name = "EMPLOYMENT_TYPE_CODE_ID")
+    private InEmploymentTypeCode employmentTypeCode;
+    
+    @Column(name = "EMPLOYER_ADDRESS1")
+    private String employerAddress1;
+    
+    @Column(name = "EMPLOYER_ADDRESS2")
+    private String employerAddress2;
+    
+    @Column(name = "EMPLOYER_ADDRESS3")
+    private String employerAddress3;
+    
+    @Column(name = "EMPLOYER_POSTCODE")
+    private String employerPostcode;
+    
+    @ManyToOne(targetEntity = InStateCodeImpl.class)
+    @JoinColumn(name = "EMPLOYER_STATE_ID")
+    private InStateCode employerState;
+    
+    @Column(name = "EMPLOYER_NO")
+    private String employerNo;   
 
     @OneToMany(targetEntity = InResultImpl.class, mappedBy = "application")
     private List<InResult> results;
@@ -446,6 +484,27 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
         this.birthDate = birthDate;
     }
 
+    @Override
+    public String getPlaceOfBirth() {
+        return placeOfBirth;
+    }
+
+    @Override
+    public void setPlaceOfBirth(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
+    }
+    
+    
+    @Override
+    public String getIncome() {
+        return income;
+    }
+
+    @Override
+    public void setIncome(String income) {
+        this.income = income;
+    }
+    
     @Override
     public String getCredentialNo() {
         return credentialNo;
@@ -1005,6 +1064,16 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     public void setStudyCenterCode(InStudyCenterCode studyCenterCode) {
         this.studyCenterCode = studyCenterCode;
     }
+    
+    @Override
+    public InEmploymentSectorCode getEmploymentSectorCode() {
+        return employmentSectorCode;
+    }
+
+    @Override
+    public void setEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode) {
+        this.employmentSectorCode = employmentSectorCode;
+    }
 
     @Override
     public InIntake getIntake() {
@@ -1131,6 +1200,92 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
     public Class<?> getInterfaceClass() {
         return InIntakeApplication.class;
     }
+
+	@Override
+	public String getPosition() {
+		return position;
+	}
+
+	@Override
+	public void setPosition(String position) {
+		this.position = position;
+		
+	}
+
+	@Override
+	public String getEmployerAddress1() {
+		return employerAddress1;
+	}
+
+	@Override
+	public void setEmployerAddress1(String employerAddress1) {
+		this.employerAddress1 = employerAddress1;
+		
+	}
+
+	@Override
+	public String getEmployerAddress2() {
+		return employerAddress2;
+	}
+
+	@Override
+	public void setEmployerAddress2(String employerAddress2) {
+		this.employerAddress2 = employerAddress2;
+	}
+
+	@Override
+	public String getEmployerAddress3() {
+		return employerAddress3;
+	}
+
+	@Override
+	public void setEmployerAddress3(String employerAddress3) {
+		this.employerAddress3 = employerAddress3;
+		
+	}
+
+	@Override
+	public String getEmployerPostcode() {
+		return employerPostcode;
+	}
+
+	@Override
+	public void setEmployerPostcode(String employerPostcode) {
+		this.employerPostcode = employerPostcode;
+		
+	}
+
+	@Override
+	public InStateCode getEmployerState() {
+		return employerState;
+	}
+
+	@Override
+	public void setEmployerState(InStateCode employerState) {
+		this.employerState = employerState;
+		
+	}
+
+	@Override
+	public String getEmployerNo() {
+		return employerNo;
+	}
+
+	@Override
+	public void setEmployerNo(String employerNo) {
+		this.employerNo = employerNo;
+	}
+
+	@Override
+	public InEmploymentTypeCode getEmploymentTypeCode() {
+		return employmentTypeCode;
+	}
+
+	@Override
+	public void setEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode) {
+		this.employmentTypeCode = employmentTypeCode;
+		
+	}
 
 
 }

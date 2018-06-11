@@ -345,7 +345,52 @@ public interface InIntakeApplication extends InMetaObject {
 	void setMuetResultAttached(Boolean muetResultAttached);
 
 	void setPromoCode(InPromoCode promoCode);
+	
+	String getPlaceOfBirth();
 
+    void setPlaceOfBirth(String placeOfBirth);
+    
+    String getPosition();
 
+    void setPosition(String position);
+    
+    String getIncome();
+
+    void setIncome(String income);
+    
+    InEmploymentSectorCode getEmploymentSectorCode();
+
+    void setEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
+    
+    InEmploymentTypeCode getEmploymentTypeCode();
+    
+    void setEmploymentTypeCode (InEmploymentTypeCode employmentTypeCode);
+    
+    String getEmployerAddress1();
+    
+    void setEmployerAddress1(String employerAddress1);
+    
+    String getEmployerAddress2();
+    
+    void setEmployerAddress2(String employerAddress2);
+    
+    String getEmployerAddress3();
+    
+    void setEmployerAddress3(String employerAddress3);
+    
+    String getEmployerPostcode();
+    
+    void setEmployerPostcode(String employerPostcode);
+    
+    InStateCode getEmployerState();
+
+    void setEmployerState(InStateCode employerState);
+    
+    String getEmployerNo();
+    
+    void setEmployerNo(String employerNo);
+    
+    
+    
 }
 

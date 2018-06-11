@@ -1,3 +1,5 @@
+import { EmploymentTypeCode } from './../../../../shared/model/common/employment-type-code.interface';
+import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
 import { ResidencyCode } from './../../../../shared/model/common/residency-code.interface';
 import { Attachment } from './../../../../shared/model/application/attachment.interface';
 import { Result } from '../../../../shared/model/application/result.interface';
@@ -89,6 +91,7 @@ export class CpsIntakeApplicationPanel implements OnInit {
       name: ['', Validators.required],
       credentialNo: ['', Validators.required],
       birthDate: [undefined, Validators.required],
+      placeOfBirth: [''],
       mobile: ['', Validators.required],
       okuNo: [''],
       email:['', Validators.required],
@@ -96,6 +99,18 @@ export class CpsIntakeApplicationPanel implements OnInit {
       fax: [''],
       age: [0],
       passExpDate: [''],
+
+      income: [''],
+      position: [''],
+      employmentSectorCode: [<EmploymentSectorCode>{}, Validators.required],
+      employmentTypeCode: [<EmploymentTypeCode>{}, Validators.required],
+      employerAddress1 : [''],
+      employerAddress2 : [''],
+      employerAddress3 : [''],
+      employerPostcode : [''],
+      employerState : [<StateCode>{}, Validators.required],
+      employerNo : [''],
+
       mailingAddress1: ['', Validators.required],
       mailingAddress2: ['', Validators.required],
       mailingAddress3: [''],

@@ -558,4 +558,25 @@ export class CommonActions {
       payload: codes
     };
   }
+
+  static FIND_EMPLOYMENT_TYPE_CODES = '[Common] Find EmploymentTypeCodes';
+
+  findEmploymentTypeCodes(): Action {
+    console.log("findEmploymentTypeCodes");
+    return {
+      type: CommonActions.FIND_EMPLOYMENT_TYPE_CODES
+    };
+  }
+
+  static FIND_EMPLOYMENT_TYPE_CODES_SUCCESS = '[Common] Find EmploymentTypeCodes Success';
+
+  findEmploymentTypeCodesSuccess(codes): Action {
+    console.log("findEmploymentTypeCodesSuccess");
+    return {
+      type: CommonActions.FIND_EMPLOYMENT_TYPE_CODES_SUCCESS,
+      payload: codes
+    };
+  }
+
+
 }

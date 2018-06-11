@@ -5,7 +5,7 @@ import my.edu.umk.pams.intake.core.InMetadata;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Deprecated
+
 @Entity(name = "InEmploymentSectorCode")
 @Table(name = "IN_EMPT_SCTR_CODE")
 public class InEmploymentSectorCodeImpl implements InEmploymentSectorCode {

@@ -150,13 +150,13 @@ export class CommonEffects {
     .map(codes => this.commonActions.findNationalityCodesSuccess(codes));
 
 
-  @Effect() findResidencyCodes$ = this.actions$
+    @Effect() findResidencyCodes$ = this.actions$
     .ofType(CommonActions.FIND_RESIDENCY_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findResidencyCodes())
     .map(codes => this.commonActions.findResidencyCodesSuccess(codes));
 
-  @Effect() findLanguageCodes$ = this.actions$
+    @Effect() findLanguageCodes$ = this.actions$
     .ofType(CommonActions.FIND_LANGUAGE_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findLanguageCodes())
@@ -167,5 +167,11 @@ export class CommonEffects {
     .map(action => action.payload)
     .switchMap(() => this.commonService.findSubjectCodes())
     .map(codes => this.commonActions.findSubjectCodesSuccess(codes));
+
+    @Effect() findEmploymentTypeCodes$ = this.actions$
+    .ofType(CommonActions.FIND_EMPLOYMENT_TYPE_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findEmploymentTypeCodes())
+    .map(codes => this.commonActions.findEmploymentTypeCodesSuccess(codes));
 
 }

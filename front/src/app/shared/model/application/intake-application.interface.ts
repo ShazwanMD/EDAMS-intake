@@ -1,3 +1,5 @@
+import { EmploymentTypeCode } from './../common/employment-type-code.interface';
+import { EmploymentSectorCode } from './../common/employment-sector-code.interface';
 import { CountryCode } from '../common/country-code.interface';
 import { StateCode } from '../common/state-code.interface';
 import {EthnicityCode} from '../common/ethnicity-code.interface';
@@ -36,10 +38,22 @@ export interface IntakeApplication extends MetaObject {
   fax: string;
   age: number;
   birthDate: Date;
+  placeOfBirth: string;
   gender: string;
   religion: string;
   race: string;
   marital: string;
+
+  position: string;
+  income: string;
+  employmentSectorCode: EmploymentSectorCode;
+  empploymentTypeCode: EmploymentTypeCode;
+  employerAddress1 : string;
+  employerAddress2 : string;
+  employerAddress3 : string;
+  employerPostcode : string;
+  employerState : StateCode;
+  employerNo : string;
 
   mailingAddress1: string;
   mailingAddress2: string;

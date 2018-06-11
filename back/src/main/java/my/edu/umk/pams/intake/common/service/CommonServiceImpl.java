@@ -1912,7 +1912,7 @@ public class CommonServiceImpl implements CommonService {
 
     @Override
     public void removeEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode) {
-        employmentSectorCodeDao.remove(employmentSectorCode, securityService.getCurrentUser());
+        employmentSectorCodeDao.delete(employmentSectorCode, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().flush();
     }
 
