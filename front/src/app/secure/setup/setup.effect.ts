@@ -879,4 +879,34 @@ export class SetupEffects {
     .map((message) => this.setupActions.removeGradeCodeSuccess(message))
     .mergeMap((action) => from([action, this.setupActions.findGradeCodes()]));
 
+  // ====================================================================================================
+  // EMPLOYMENT TYPE CODE
+  // ====================================================================================================
+
+  @Effect() findEmploymentTypeCode$ = this.actions$
+  .ofType(SetupActions.FIND_EMPLOYMENT_TYPE_CODES)
+  .map((action) => action.payload)
+  .switchMap(() => this.commonService.findEmploymentTypeCodes())
+  .map((codes) => this.setupActions.findEmploymentTypeCodesSuccess(codes));
+
+@Effect() saveEmploymentTypeCodes$ = this.actions$
+  .ofType(SetupActions.SAVE_EMPLOYMENT_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.saveEmploymentTypeCode(payload))
+  .map((message) => this.setupActions.saveEmploymentTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentTypeCodes()]));
+
+@Effect() updateEmploymentTypeCodes$ = this.actions$
+  .ofType(SetupActions.UPDATE_EMPLOYMENT_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.updateEmploymentTypeCode(payload))
+  .map((message) => this.setupActions.updateEmploymentTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentTypeCodes()]));
+
+@Effect() removeEmploymentTypeCode$ = this.actions$
+  .ofType(SetupActions.REMOVE_EMPLOYMENT_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.removeEmploymentTypeCode(payload))
+  .map((message) => this.setupActions.removeEmploymentTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentTypeCodes()]));
 }

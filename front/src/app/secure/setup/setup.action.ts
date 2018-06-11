@@ -2349,4 +2349,86 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
+//=================================================================================//
+//  EMPLOYMENT_TYPE_CODES                                                                      //
+//=================================================================================//
+
+  static FIND_EMPLOYMENT_TYPE_CODES = '[Setup] Find Employment Type Codes';
+
+  findEmploymentTypeCodes(): Action {
+    console.log('findEmploymentTypeCodes');
+    return {
+      type: SetupActions.FIND_EMPLOYMENT_TYPE_CODES,
+    };
+  }
+
+  static FIND_EMPLOYMENT_TYPE_CODES_SUCCESS = '[Setup] Find Employment Type Codes Success';
+
+  findEmploymentTypeCodesSuccess(codes): Action {
+    console.log('findEmploymentTypeCodesSuccess');
+    return {
+      type: SetupActions.FIND_EMPLOYMENT_TYPE_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_EMPLOYMENT_TYPE_CODE = '[Setup] Save Employment Type Code';
+
+  saveEmploymentTypeCode(code): Action {
+    console.log('saveEmploymentTypeCode');
+    return {
+      type: SetupActions.SAVE_EMPLOYMENT_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_EMPLOYMENT_TYPE_CODE_SUCCESS = '[Setup] Save Employment Type Code Success';
+
+  saveEmploymentTypeCodeSuccess(message): Action {
+    console.log('saveEmploymentTypeCodeSuccess');
+    return {
+      type: SetupActions.SAVE_EMPLOYMENT_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_EMPLOYMENT_TYPE_CODE = '[Setup] Update Employment Type Code';
+
+  updateEmploymentTypeCode(code): Action {
+    console.log('updateEmploymentTypeCode');
+    return {
+      type: SetupActions.UPDATE_EMPLOYMENT_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_EMPLOYMENT_TYPE_CODE_SUCCESS = '[Setup] Update Employment Type Code  Success';
+
+  updateEmploymentTypeCodeSuccess(message): Action {
+    console.log('updateEmploymentTypeCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_EMPLOYMENT_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_EMPLOYMENT_TYPE_CODE = '[Setup] Remove Employment Type Code';
+
+  removeEmploymentTypeCode(code): Action {
+    console.log('removeEmploymentTypeCode');
+    return {
+      type: SetupActions.REMOVE_EMPLOYMENT_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_EMPLOYMENT_TYPE_CODE_SUCCESS = '[Setup] Remove Employment Type Code  Success';
+
+  removeEmploymentTypeCodeSuccess(message): Action {
+    console.log('removeEmploymentTypeCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_EMPLOYMENT_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
 }

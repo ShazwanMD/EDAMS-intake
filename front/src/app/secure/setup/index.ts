@@ -1,3 +1,8 @@
+import { EmploymentTypeCodesComponent } from './employment-type-codes/component/employment-type-code';
+import { EmploymentTypeCodeEditorDialog } from './employment-type-codes/dialog/employment-type-code-editor.dialog';
+import { EmploymentTypeCodeListPage } from './employment-type-codes/employment-type-code-list.page';
+import { EmploymentTypeCode } from './../../shared/model/common/employment-type-code.interface';
+import { EmploymentTypeCodeListState, employmentTypeCodeListReducer } from './../../common/employment-type-codes/employment-type-code-list.reducer';
 import { GradeCodesComponent } from './grade-codes/component/grade-code';
 import { GenderCodesComponent } from './gender-codes/component/gender-code';
 import { DistrictCodesComponent } from './district-codes/component/district-code';
@@ -183,6 +188,7 @@ export interface SetupModuleState {
   languageCodes: LanguageCodeListState;
   subjectCodes: SubjectCodeListState;
   gradeCodes: GradeCodeListState;
+  employmentTypeCodes: EmploymentTypeCodeListState;
 
 };
 
@@ -217,6 +223,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     languageCodes: <LanguageCode[]>[],
     subjectCodes: <SubjectCode[]>[],
     gradeCodes: <GradeCode[]>[],
+    employmentTypeCodes: <EmploymentTypeCode[]>[],
 
   };
 
@@ -250,6 +257,7 @@ export const setupModuleReducers = {
   languageCodes: languageCodeListReducer,
   subjectCodes: subjectCodeListReducer,
   gradeCodes: gradeCodeListReducer,
+  employmentTypeCodes: employmentTypeCodeListReducer,
 
 };
 
@@ -295,6 +303,7 @@ export const setupModuleReducers = {
     ResidencyCodeListPage,
     SubjectCodeListPage,
     GradeCodeListPage,
+    EmploymentTypeCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -325,6 +334,7 @@ export const setupModuleReducers = {
     ResidencyCodeEditorDialog,
     SubjectCodeEditorDialog,
     GradeCodeEditorDialog,
+    EmploymentTypeCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -353,6 +363,7 @@ export const setupModuleReducers = {
     SupervisorCodesComponent,
     SupervisorOfferingsComponent,
     VenueCodesComponent,
+    EmploymentTypeCodesComponent,
     
 
   ],
@@ -388,6 +399,7 @@ export const setupModuleReducers = {
     SubjectCodeEditorDialog,
     GradeCodeEditorDialog,
     RaceCodeEditorDialog,
+    EmploymentTypeCodeEditorDialog,
 
   ],
 })
