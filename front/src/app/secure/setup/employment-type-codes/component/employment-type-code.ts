@@ -40,6 +40,7 @@ export class EmploymentTypeCodesComponent implements OnChanges {
   constructor(private _dataTableService: TdDataTableService,
               private snackBar: MdSnackBar) {
   }
+
   ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
     if (changes['employmentTypeCodes']){
         this.filteredData = changes['employmentTypeCodes'].currentValue; 
@@ -47,6 +48,7 @@ export class EmploymentTypeCodesComponent implements OnChanges {
         this.filter();
       }
     }
+
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
     this.sortBy = sortEvent.name;
     this.sortOrder = sortEvent.order;

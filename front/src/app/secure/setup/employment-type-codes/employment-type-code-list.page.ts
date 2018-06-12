@@ -23,7 +23,7 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from "@angular/material";
 })
 export class EmploymentTypeCodeListPage implements OnInit{
   private EMPLOYMENT_TYPE_CODES = "setupModuleState.employmentTypeCodes".split(".");
-  private empoymentTypeCodes$: Observable<EmploymentTypeCode[]>;
+  private employmentTypeCodes$: Observable<EmploymentTypeCode[]>;
   private creatorDialogRef: MdDialogRef<EmploymentTypeCodeEditorDialog>;
 
   constructor(private actions: SetupActions,
@@ -32,7 +32,7 @@ export class EmploymentTypeCodeListPage implements OnInit{
               private dialog: MdDialog) {
 
 
-    this.empoymentTypeCodes$ = this.store.select(...this.EMPLOYMENT_TYPE_CODES);
+    this.employmentTypeCodes$ = this.store.select(...this.EMPLOYMENT_TYPE_CODES);
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findEmploymentTypeCodes());
