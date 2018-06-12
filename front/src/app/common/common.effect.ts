@@ -174,4 +174,9 @@ export class CommonEffects {
     .switchMap(() => this.commonService.findEmploymentTypeCodes())
     .map(codes => this.commonActions.findEmploymentTypeCodesSuccess(codes));
 
+    @Effect() findEmploymentSectorCodes$ = this.actions$
+    .ofType(CommonActions.FIND_EMPLOYMENT_SECTOR_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findEmploymentSectorCodes())
+    .map(codes => this.commonActions.findEmploymentSectorCodesSuccess(codes));
 }

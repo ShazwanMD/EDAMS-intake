@@ -1,3 +1,8 @@
+import { EmploymentSectorCodesComponent } from './employment-sector-codes/component/employment-sector-code';
+import { EmploymentSectorCodeEditorDialog } from './employment-sector-codes/dialog/employment-sector-code-editor.dialog';
+import { EmploymentSectorCodeListPage } from './employment-sector-codes/employment-sector-code-list.page';
+import { EmploymentSectorCode } from './../../shared/model/common/employment-sector-code.interface';
+import { EmploymentSectorCodeListState, employmentSectorCodeListReducer } from './employment-sector-codes/employment-sector-code-list.reducer';
 import { EmploymentTypeCodesComponent } from './employment-type-codes/component/employment-type-code';
 import { EmploymentTypeCodeEditorDialog } from './employment-type-codes/dialog/employment-type-code-editor.dialog';
 import { EmploymentTypeCodeListPage } from './employment-type-codes/employment-type-code-list.page';
@@ -189,6 +194,7 @@ export interface SetupModuleState {
   subjectCodes: SubjectCodeListState;
   gradeCodes: GradeCodeListState;
   employmentTypeCodes: EmploymentTypeCodeListState;
+  employmentSectorCodes: EmploymentSectorCodeListState;
 
 };
 
@@ -224,6 +230,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     subjectCodes: <SubjectCode[]>[],
     gradeCodes: <GradeCode[]>[],
     employmentTypeCodes: <EmploymentTypeCode[]>[],
+    employmentSectorCodes: <EmploymentSectorCode[]>[],
 
   };
 
@@ -258,6 +265,7 @@ export const setupModuleReducers = {
   subjectCodes: subjectCodeListReducer,
   gradeCodes: gradeCodeListReducer,
   employmentTypeCodes: employmentTypeCodeListReducer,
+  employmentSectorCodes: employmentSectorCodeListReducer,
 
 };
 
@@ -304,6 +312,7 @@ export const setupModuleReducers = {
     SubjectCodeListPage,
     GradeCodeListPage,
     EmploymentTypeCodeListPage,
+    EmploymentSectorCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -335,6 +344,7 @@ export const setupModuleReducers = {
     SubjectCodeEditorDialog,
     GradeCodeEditorDialog,
     EmploymentTypeCodeEditorDialog,
+    EmploymentSectorCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -364,6 +374,7 @@ export const setupModuleReducers = {
     SupervisorOfferingsComponent,
     VenueCodesComponent,
     EmploymentTypeCodesComponent,
+    EmploymentSectorCodesComponent,
     
 
   ],
@@ -400,6 +411,7 @@ export const setupModuleReducers = {
     GradeCodeEditorDialog,
     RaceCodeEditorDialog,
     EmploymentTypeCodeEditorDialog,
+    EmploymentSectorCodeEditorDialog,
 
   ],
 })

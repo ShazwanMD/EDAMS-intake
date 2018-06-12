@@ -1,3 +1,4 @@
+import { EmploymentSectorCode } from './../app/shared/model/common/employment-sector-code.interface';
 import { EmploymentTypeCode } from './../app/shared/model/common/employment-type-code.interface';
 import { VenueCode } from './../app/shared/model/common/venue-code.interface';
 import {ParliamentCode} from '../app/shared/model/common/parliament-code.interface';
@@ -965,9 +966,39 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-  removeEmploymentTypeCode(code: GradeCode): Observable<String> {
+  removeEmploymentTypeCode(code: EmploymentTypeCode): Observable<String> {
     return this._http.delete(this.COMMON_API + '/employmentTypeCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
   
+    // ====================================================================================================
+  // EMPLOYMENT SECTOR CODES
+  // ====================================================================================================
+
+  findEmploymentSectorCodes(): Observable<EmploymentSectorCode[]> {
+    console.log('findEmploymentSectorCodes');
+    return this._http.get(this.COMMON_API + '/employmentSectorCodes')
+      .map((res: Response) => <EmploymentSectorCode[]>res.json());
+  }
+
+  findEmploymentSectorCodeByCode(code: string): Observable<EmploymentSectorCode> {
+    console.log('findEmploymentSectorCodeByCode');
+    return this._http.get(this.COMMON_API + '/employmentSectorCodes/' + code)
+      .map((res: Response) => <EmploymentSectorCode>res.json());
+  }
+
+  saveEmploymentSectorCode(code: EmploymentSectorCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/employmentSectorCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateEmploymentSectorCode(code: EmploymentSectorCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/employmentSectorCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeEmploymentSectorCode(code: EmploymentSectorCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/employmentSectorCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
 }

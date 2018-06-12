@@ -2,6 +2,7 @@ import { EmploymentTypeCode } from './../../../shared/model/common/employment-ty
 import {Action} from '@ngrx/store';
 import {SetupActions} from '../setup.action';
 
+
 export type EmploymentTypeCodeListState = EmploymentTypeCode[];
 
 const initialState: EmploymentTypeCodeListState = <EmploymentTypeCode[]>[];

@@ -909,4 +909,35 @@ export class SetupEffects {
   .switchMap((payload) => this.commonService.removeEmploymentTypeCode(payload))
   .map((message) => this.setupActions.removeEmploymentTypeCodeSuccess(message))
   .mergeMap((action) => from([action, this.setupActions.findEmploymentTypeCodes()]));
+
+  // ====================================================================================================
+  // EMPLOYMENT SECTOR CODE
+  // ====================================================================================================
+
+  @Effect() findEmploymentSectorCode$ = this.actions$
+  .ofType(SetupActions.FIND_EMPLOYMENT_SECTOR_CODES)
+  .map((action) => action.payload)
+  .switchMap(() => this.commonService.findEmploymentSectorCodes())
+  .map((codes) => this.setupActions.findEmploymentSectorCodesSuccess(codes));
+
+@Effect() saveEmploymentSectorCodes$ = this.actions$
+  .ofType(SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.saveEmploymentSectorCode(payload))
+  .map((message) => this.setupActions.saveEmploymentSectorCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentSectorCodes()]));
+
+@Effect() updateEmploymentSectorCodes$ = this.actions$
+  .ofType(SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.updateEmploymentSectorCode(payload))
+  .map((message) => this.setupActions.updateEmploymentSectorCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentSectorCodes()]));
+
+@Effect() removeEmploymentSectorCode$ = this.actions$
+  .ofType(SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.removeEmploymentSectorCode(payload))
+  .map((message) => this.setupActions.removeEmploymentSectorCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findEmploymentSectorCodes()]));
 }

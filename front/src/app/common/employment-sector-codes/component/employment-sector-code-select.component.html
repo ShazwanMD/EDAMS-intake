@@ -1,0 +1,9 @@
+<md-select
+  [placeholder]="placeholder"
+  (change)="selectChangeEvent($event.value)" flex>
+
+  <md-option *ngFor="let employmentSectorCode of employmentSectorCodes$ | async" [value]="employmentSectorCode">
+    {{employmentSectorCode.descriptionEn}}
+
+  </md-option>
+</md-select>

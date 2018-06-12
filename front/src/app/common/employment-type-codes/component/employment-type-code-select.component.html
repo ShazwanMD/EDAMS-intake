@@ -2,7 +2,7 @@
   [placeholder]="placeholder"
   (change)="selectChangeEvent($event.value)" flex>
 
-  <md-option *ngFor="let employmentTypeCode of employmentTypeCodes$ | async" [value]="stateCode">
+  <md-option *ngFor="let employmentTypeCode of employmentTypeCodes$ | async" [value]="employmentTypeCode">
     {{employmentTypeCode.descriptionEn}}
 
   </md-option>

@@ -1,3 +1,6 @@
+import { EmploymentSectorCodeSelectComponent } from './employment-sector-codes/component/employment-sector-code-select.component';
+import { EmploymentSectorCodeListState, employmentSectorCodeListReducer } from './employment-sector-codes/employment-sector-code-list.reducer';
+import { EmploymentTypeCodeListState, employmentTypeCodeListReducer } from './employment-type-codes/employment-type-code-list.reducer';
 import {SubjectCodeSelectComponent} from './subject-codes/component/subject-code-select.component';
 import {subjectCodeListReducer, SubjectCodeListState} from './subject-codes/subject-code-list.reducer';
 import {EthnicityCodeSelectComponent} from './ethnicity-codes/component/ethnicity-code-select.component';
@@ -86,6 +89,8 @@ export interface CommonModuleState {
   subjectCodes: SubjectCodeListState;
   gradeCodes: GradeCodeListState;
   dunCodes: DunCodeListState;
+  employmentTypeCodes: EmploymentTypeCodeListState;
+  employmentSectorCodes: EmploymentSectorCodeListState;
 }
 ;
 
@@ -119,6 +124,8 @@ export const commonModuleReducers = {
   subjectCodes: subjectCodeListReducer,
   gradeCodes: gradeCodeListReducer,
   dunCodes: dunCodeListReducer,
+  employmentTypeCodes: employmentTypeCodeListReducer,
+  employmentSectorCodes: employmentSectorCodeListReducer,
 };
 
 @NgModule({
@@ -155,6 +162,7 @@ export const commonModuleReducers = {
     SubjectCodeSelectComponent,
     GradeCodeSelectComponent,
     DunCodeSelectComponent,
+    EmploymentSectorCodeSelectComponent,
 
   ],
   exports: [
@@ -183,6 +191,7 @@ export const commonModuleReducers = {
     SubjectCodeSelectComponent,
     GradeCodeSelectComponent,
     DunCodeSelectComponent,
+    EmploymentSectorCodeSelectComponent,
 
   ],
 })

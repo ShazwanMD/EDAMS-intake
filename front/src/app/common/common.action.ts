@@ -578,5 +578,22 @@ export class CommonActions {
     };
   }
 
+  static FIND_EMPLOYMENT_SECTOR_CODES = '[Common] Find EmploymentSectorCodes';
 
+  findEmploymentSectorCodes(): Action {
+    console.log("findEmploymentSectorCodes");
+    return {
+      type: CommonActions.FIND_EMPLOYMENT_SECTOR_CODES
+    };
+  }
+
+  static FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS = '[Common] Find EmploymentSectorCodes Success';
+
+  findEmploymentSectorCodesSuccess(codes): Action {
+    console.log("findEmploymentSectorCodesSuccess");
+    return {
+      type: CommonActions.FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS,
+      payload: codes
+    };
+  }
 }

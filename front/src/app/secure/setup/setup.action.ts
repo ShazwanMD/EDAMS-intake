@@ -2431,4 +2431,87 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
+
+//=================================================================================
+//  EMPLOYMENT_SECTOR_CODES                                                                      //
+//=================================================================================
+
+static FIND_EMPLOYMENT_SECTOR_CODES = '[Setup] Find Employment Sector Codes';
+
+findEmploymentSectorCodes(): Action {
+  console.log('findEmploymentSectorCodes');
+  return {
+    type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES,
+  };
+}
+
+static FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS = '[Setup] Find Employment Sector Codes Success';
+
+findEmploymentSectorCodesSuccess(codes): Action {
+  console.log('findEmploymentSectorCodesSuccess');
+  return {
+    type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS,
+    payload: codes,
+  };
+}
+
+static SAVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Save Employment Sector Code';
+
+saveEmploymentSectorCode(code): Action {
+  console.log('saveEmploymentSectorCode');
+  return {
+    type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE,
+    payload: code,
+  };
+}
+
+static SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Save Employment Sector Code Success';
+
+saveEmploymentSectorCodeSuccess(message): Action {
+  console.log('saveEmploymentSectorCodeSuccess');
+  return {
+    type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static UPDATE_EMPLOYMENT_SECTOR_CODE = '[Setup] Update Employment Sector Code';
+
+updateEmploymentSectorCode(code): Action {
+  console.log('updateEmploymentSectorCode');
+  return {
+    type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE,
+    payload: code,
+  };
+}
+
+static UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Update Employment Sector Code  Success';
+
+updateEmploymentSectorCodeSuccess(message): Action {
+  console.log('updateEmploymentSectorCodeSuccess');
+  return {
+    type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static REMOVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Remove Employment Sector Code';
+
+removeEmploymentSectorCode(code): Action {
+  console.log('removeEmploymentSectorCode');
+  return {
+    type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE,
+    payload: code,
+  };
+}
+
+static REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Remove Employment Sector Code  Success';
+
+removeEmploymentSectorCodeSuccess(message): Action {
+  console.log('removeEmploymentSectorCodeSuccess');
+  return {
+    type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+    payload: message,
+  };
+}
 }

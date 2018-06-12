@@ -1,3 +1,4 @@
+import { EmploymentSectorCodeListPage } from './employment-sector-codes/employment-sector-code-list.page';
 import { EmploymentTypeCodeListPage } from './employment-type-codes/employment-type-code-list.page';
 import {VenueCodeListPage} from './venue-codes/venue-code-list.page';
 import {ResidencyCodeListPage} from './residency-codes/residency-code-list-page';
@@ -66,7 +67,7 @@ export const setupModuleRoutes: Routes = [
       {path: 'field-codes', component: FieldCodeListPage},
       {path: 'program-field-codes', component: ProgramFieldCodeListPage},
       {path: 'employment-type-codes', component: EmploymentTypeCodeListPage},
-
+      {path: 'employment-sector-codes', component: EmploymentSectorCodeListPage},
     ],
   },
 
