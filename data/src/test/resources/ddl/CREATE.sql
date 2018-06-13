@@ -427,8 +427,9 @@ create table IN_ACTR (
     ); 
     create table IN_EMPT_SCTR_CODE (
         ID int8 not null,
-        CODE varchar(2),
-        DESCRIPTION varchar(255),
+        CODE varchar(255) not null,
+        DESCRIPTION_EN varchar(255),
+        DESCRIPTION_MS varchar(255),
         C_TS timestamp,
         C_ID int8,
         D_TS timestamp,

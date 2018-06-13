@@ -324,6 +324,7 @@
                                 <srcFile>src/test/resources/data/IN_SPVR_CODE.sql</srcFile>
                                 <srcFile>src/test/resources/data/IN_SPVR_OFRG.sql</srcFile>
                                 <srcFile>src/test/resources/data/IN_EMPT_TYPE_CODE.sql</srcFile>
+                                <srcFile>src/test/resources/data/IN_EMPT_SCTR_CODE.sql</srcFile>
                             </srcFiles>
                         </configuration>
                     </execution>
