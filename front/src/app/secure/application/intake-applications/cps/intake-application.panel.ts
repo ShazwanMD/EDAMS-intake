@@ -163,6 +163,9 @@ export class CpsIntakeApplicationPanel implements OnInit {
       bankStatement: [true],
       refereeForm: [true],
       declared: [true, Validators.requiredTrue],
+      passportImageAttached:[true],
+      apelCertificateAttached:[true],
+      employmentVerificationAttached:[true],
       copyAddress: [false],
     });
     this.applicationForm.patchValue(this._intakeApplication);

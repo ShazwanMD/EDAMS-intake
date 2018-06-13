@@ -9,7 +9,7 @@ const initialState: EmploymentTypeCodeListState = <EmploymentTypeCode[]>[];
 
 export function employmentTypeCodeListReducer(state = initialState, action: Action): EmploymentTypeCodeListState {
   switch (action.type) {
-    case SetupActions.FIND_EMPLOYMENT_TYPE_CODES_SUCCESS: {
+    case CommonActions.FIND_EMPLOYMENT_TYPE_CODES_SUCCESS: {
       return action.payload;
     }
     default: {

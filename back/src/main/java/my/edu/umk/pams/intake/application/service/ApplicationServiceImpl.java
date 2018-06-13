@@ -700,6 +700,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 		else if (attachment.getAttachmentType() == InAttachmentType.MASTER_EQUIVALENT) {
 			application.setMasterResultAttached(true);
 		} 
+		else if (attachment.getAttachmentType() == InAttachmentType.PASSPORT_IMAGE) {
+			application.setPassportImageAttached(true);
+		} 
+		else if (attachment.getAttachmentType() == InAttachmentType.EMPLOYMENT_VERIFICATION) {
+			application.setEmploymentVerificationAttached(true);
+		} 
+		else if (attachment.getAttachmentType() == InAttachmentType.APEL_CERTIFICATE) {
+			application.setApelCertificateAttached(true);
+		} 
+		
 		
 		this.updateIntakeApplication(application);
 
@@ -766,6 +776,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 			application.setStamResultAttached(false);
 		} else if (attachment.getAttachmentType() == InAttachmentType.MUET) {
 			application.setMuetResultAttached(false);
+		} else if (attachment.getAttachmentType() == InAttachmentType.PASSPORT_IMAGE) {
+			application.setPassportImageAttached(false);
+		} else if (attachment.getAttachmentType() == InAttachmentType.EMPLOYMENT_VERIFICATION) {
+			application.setEmploymentVerificationAttached(false);
+		} else if (attachment.getAttachmentType() == InAttachmentType.APEL_CERTIFICATE) {
+			application.setApelCertificateAttached(false);
 		}
 
 		this.updateIntakeApplication(application);

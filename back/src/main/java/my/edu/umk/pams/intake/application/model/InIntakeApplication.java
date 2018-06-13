@@ -390,6 +390,18 @@ public interface InIntakeApplication extends InMetaObject {
     
     void setEmployerNo(String employerNo);
     
+    Boolean isPassportImageAttached();
+
+    void setPassportImageAttached(Boolean passportImageAttached);
+    
+    Boolean isEmploymentVerificationAttached();
+
+    void setEmploymentVerificationAttached(Boolean employmentVerificationAttached);
+    
+    Boolean isApelCertificateAttached();
+
+    void setApelCertificateAttached(Boolean apelCertificateAttached);
+    
     
     
 }

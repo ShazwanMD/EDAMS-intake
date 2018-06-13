@@ -325,11 +325,11 @@
             </pams-result-list>
           </td-expansion-panel>
 
-          <td-expansion-panel label="Proficiency in Language">
+          <!-- <td-expansion-panel label="Proficiency in Language">
             <pams-language-list [intakeApplication]="_intakeApplication" [languages]="languages$ | async">
             </pams-language-list>
 
-          </td-expansion-panel>
+          </td-expansion-panel> -->
       </md-tab>
 
       <md-tab>
@@ -359,18 +359,25 @@
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="processingFeeAttached">
                 <div layout="column" flex>
-                   Processing fees Receipt
+                   Processing fees RM100 (Payment can be make at any Malayan Banking Berhad (Maybank) 
+                   using SLIP BILL PAYMENT (553038019271))
                 </div>
               </md-checkbox>
             </div>
 
             <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="passportImageAttached">
+                <div layout="column" flex>Two passport sized photographs</div>
+              </md-checkbox>
+            </div>
+
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="languageResultAttached">
                 <div layout="column" flex>
                   Language Result
                 </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="icCopyAttached">
@@ -378,36 +385,36 @@
               </md-checkbox>
             </div>
 
-            <div layout="row" class="pad-bottom" flex>
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="passportCopyAttached">
                 <div layout="column" flex>Copy of Passport </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
 
-            <div layout="row" class="pad-bottom" flex>
+            <!-- <div layout="row" class="pad-bottom" flex>
                 <md-checkbox formControlName="muetResultAttached">
                   <div layout="column" flex>
                     MUET Result
                   </div>
                 </md-checkbox>
-              </div>
+              </div> -->
 
-            <div layout="row" class="pad-bottom" flex>
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="toeflResultAttached">
                 <div layout="row" flex>
                   TOEFL (Foreign Only)
                 </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
-            <div layout="row" class="pad-bottom" flex>
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="ieltsResultAttached">
                 <div layout="row" flex>
                   IELTS Result (Foreign Only)
                 </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="spmResultAttached">
@@ -462,6 +469,12 @@
             </div>
 
             <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="employmentVerificationAttached">
+                <div layout="column" flex>Employment Verification</div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="sponsorLetterAttached">
                 <div layout="column" flex>
                   Letter From Sponsor
@@ -478,20 +491,29 @@
             </div>
 
             <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="apelCertificateAttached">
+                <div layout="column" flex>
+                  APEL Certificate
+                </div>
+              </md-checkbox>
+            </div>
+
+
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="refereeFormAttached">
                 <div layout="column" flex>
                   Referee Form
                 </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
-            <div layout="row" class="pad-bottom" flex>
+            <!-- <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="researchProposalAttached">
                 <div layout="column" flex>
                   Research Proposal
                 </div>
               </md-checkbox>
-            </div>
+            </div> -->
 
           </div>
 
