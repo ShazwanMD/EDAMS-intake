@@ -21,8 +21,12 @@ public class InEmploymentSectorCodeImpl implements InEmploymentSectorCode {
     private String code;
 
     @NotNull
-    @Column(name = "DESCRIPTION")
-    private String description;
+    @Column(name = "DESCRIPTION_EN")
+    private String descriptionEn;
+    
+    @NotNull
+    @Column(name = "DESCRIPTION_MS")
+    private String descriptionMs;
 
     @Embedded
     private InMetadata metadata;
@@ -47,13 +51,23 @@ public class InEmploymentSectorCodeImpl implements InEmploymentSectorCode {
     }
 
     @Override
-    public String getDescription() {
-        return description;
+    public String getDescriptionEn() {
+        return descriptionEn;
     }
 
     @Override
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionEn(String descriptionEn) {
+        this.descriptionEn = descriptionEn;
+    }
+    
+    @Override
+    public String getDescriptionMs() {
+        return descriptionMs;
+    }
+
+    @Override
+    public void setDescriptionMs(String descriptionMs) {
+        this.descriptionMs = descriptionMs;
     }
 
     @Override
@@ -70,4 +84,5 @@ public class InEmploymentSectorCodeImpl implements InEmploymentSectorCode {
     public Class<?> getInterfaceClass() {
         return InEmploymentSectorCode.class;
     }
+
 }

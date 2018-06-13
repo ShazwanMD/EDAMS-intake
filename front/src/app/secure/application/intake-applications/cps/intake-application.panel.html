@@ -258,17 +258,17 @@
           </div> -->
           <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
 
-            <pams-state-code-select [placeholder]="'Employment Type'"
+            <pams-employment-type-code-select [placeholder]="'Employment Type'"
               [innerFormControl]="applicationForm.controls.employmentTypeCode"
               fxFlex="calc(50%-25px)"
               class="pad-bottom">
-            </pams-state-code-select>
+            </pams-employment-type-code-select>
 
-            <pams-state-code-select [placeholder]="'Employment Sector'"
+            <pams-employment-sector-code-select [placeholder]="'Employment Sector'"
             [innerFormControl]="applicationForm.controls.employmentSectorCode"
             fxFlex="calc(50%-25px)"
             class="pad-bottom">
-           </pams-state-code-select>
+           </pams-employment-sector-code-select>
 
            <md-input-container fxFlex="calc(50%-25px)">
               <input mdInput placeholder="Income per month *" formControlName="income" flex/>

@@ -710,30 +710,6 @@ public interface CommonService {
 	void removeEmploymentLevelCode(InEmploymentLevelCode employmentlevelCode);
 
 	// ====================================================================================================
-	// EMPLOYMENT SECTOR CODE
-	// ====================================================================================================
-
-	InEmploymentSectorCode findEmploymentSectorCodeById(Long id);
-
-	InEmploymentSectorCode findEmploymentSectorCodeByCode(String code);
-
-	List<InEmploymentSectorCode> findEmploymentSectorCodes();
-
-	List<InEmploymentSectorCode> findEmploymentSectorCodes(Integer offset, Integer limit);
-
-	List<InEmploymentSectorCode> findEmploymentSectorCodes(String filter, Integer offset, Integer limit);
-
-	Integer countEmploymentSectorCode();
-
-	Integer countEmploymentSectorCode(String filter);
-
-	void saveEmploymentSectorCode(InEmploymentSectorCode employmentsectorCode);
-
-	void updateEmploymentSectorCode(InEmploymentSectorCode employmentsectorCode);
-
-	void removeEmploymentSectorCode(InEmploymentSectorCode employmentsectorCode);
-
-	// ====================================================================================================
 	// DUN CODE
 	// ====================================================================================================
 
@@ -925,6 +901,29 @@ public interface CommonService {
 	void updateEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode);
 
 	void removeEmploymentTypeCode(InEmploymentTypeCode employmentTypeCode);
-	
-	
+
+	// ====================================================================================================
+	// EMPLOYMENT SECTOR CODE
+	// ====================================================================================================
+
+	InEmploymentSectorCode findEmploymentSectorCodeById(Long id);
+
+	InEmploymentSectorCode findEmploymentSectorCodeByCode(String code);
+
+	List<InEmploymentSectorCode> findEmploymentSectorCodes();
+
+	List<InEmploymentSectorCode> findEmploymentSectorCodes(Integer offset, Integer limit);
+
+	List<InEmploymentSectorCode> findEmploymentSectorCodes(String filter, Integer offset, Integer limit);
+
+	Integer countEmploymentSectorCode();
+
+	Integer countEmploymentSectorCode(String filter);
+
+	void saveEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
+
+	void updateEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
+
+	void removeEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
+
 }

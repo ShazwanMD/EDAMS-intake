@@ -47,7 +47,7 @@ export interface IntakeApplication extends MetaObject {
   position: string;
   income: string;
   employmentSectorCode: EmploymentSectorCode;
-  empploymentTypeCode: EmploymentTypeCode;
+  employmentTypeCode: EmploymentTypeCode;
   employerAddress1 : string;
   employerAddress2 : string;
   employerAddress3 : string;

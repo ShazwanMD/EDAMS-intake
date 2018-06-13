@@ -1552,6 +1552,55 @@ public class CommonController {
     }
 
 
+    //====================================================================================================
+    // EMPLOYMENT_SECTOR_CODE
+    //====================================================================================================
+
+      @RequestMapping(value = "/employmentSectorCodes", method = RequestMethod.GET)
+      public ResponseEntity<List<EmploymentSectorCode>> findEmploymentSectorCodes() {
+          return new ResponseEntity<List<EmploymentSectorCode>>(commonTransformer.toEmploymentSectorCodeVos(
+          		commonService.findEmploymentSectorCodes("%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
+      }
+
+      @RequestMapping(value = "/employmentSectorCodes/{code}", method = RequestMethod.GET)
+      public ResponseEntity<EmploymentSectorCode> findEmploymentSectorCodeByCode(@PathVariable String code) {
+          return new ResponseEntity<EmploymentSectorCode>(commonTransformer.toEmploymentSectorCodeVo(
+                  commonService.findEmploymentSectorCodeByCode(code)), HttpStatus.OK);
+      }
+      
+      @RequestMapping(value = "/employmentSectorCodes", method = RequestMethod.POST)
+      public ResponseEntity<String> saveEmploymentSectorCode(@RequestBody EmploymentSectorCode vo) {
+          dummyLogin();
+
+          InEmploymentSectorCode employmentSectorCode = new InEmploymentSectorCodeImpl();
+          employmentSectorCode.setCode(vo.getCode());
+          employmentSectorCode.setDescriptionMs(vo.getDescriptionMs());
+          employmentSectorCode.setDescriptionEn(vo.getDescriptionEn());
+          commonService.saveEmploymentSectorCode(employmentSectorCode);
+          return new ResponseEntity<String>("Success", HttpStatus.OK);
+      }
+
+      @RequestMapping(value = "/employmentSectorCodes/{code}", method = RequestMethod.PUT)
+      public ResponseEntity<String> updateEmploymentSectorCode(@PathVariable String code, @RequestBody EmploymentSectorCode vo) {
+          dummyLogin();
+
+          InEmploymentSectorCode employmentSectorCode = commonService.findEmploymentSectorCodeById(vo.getId());
+          employmentSectorCode.setCode(vo.getCode());
+          employmentSectorCode.setDescriptionMs(vo.getDescriptionMs());
+          employmentSectorCode.setDescriptionEn(vo.getDescriptionEn());
+          commonService.updateEmploymentSectorCode(employmentSectorCode);
+          return new ResponseEntity<String>("Success", HttpStatus.OK);
+      }
+
+      @RequestMapping(value = "/employmentSectorCodes/{code}", method = RequestMethod.DELETE)
+      public ResponseEntity<String> removeEmploymentSectorCode(@PathVariable String code) {
+          dummyLogin();
+
+          InEmploymentSectorCode employmentSectorCode = commonService.findEmploymentSectorCodeByCode(code);
+          commonService.removeEmploymentSectorCode(employmentSectorCode);
+          return new ResponseEntity<String>("Success", HttpStatus.OK);
+      }
+
     
 }
 

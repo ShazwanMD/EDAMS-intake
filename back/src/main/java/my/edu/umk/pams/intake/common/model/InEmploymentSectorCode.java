@@ -9,7 +9,11 @@ public interface InEmploymentSectorCode extends InMetaObject {
 
     void setCode(String code);
 
-    String getDescription();
+    String getDescriptionEn();
 
-    void setDescription(String description);
+    void setDescriptionEn(String descriptionEn);
+    
+    String getDescriptionMs();
+
+    void setDescriptionMs(String descriptionMs);
 }

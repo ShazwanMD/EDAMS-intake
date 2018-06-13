@@ -1,3 +1,4 @@
+import { EmploymentTypeCodeSelectComponent } from './employment-type-codes/component/employment-type-code-select.component';
 import { EmploymentSectorCodeSelectComponent } from './employment-sector-codes/component/employment-sector-code-select.component';
 import { EmploymentSectorCodeListState, employmentSectorCodeListReducer } from './employment-sector-codes/employment-sector-code-list.reducer';
 import { EmploymentTypeCodeListState, employmentTypeCodeListReducer } from './employment-type-codes/employment-type-code-list.reducer';
@@ -162,6 +163,7 @@ export const commonModuleReducers = {
     SubjectCodeSelectComponent,
     GradeCodeSelectComponent,
     DunCodeSelectComponent,
+    EmploymentTypeCodeSelectComponent,
     EmploymentSectorCodeSelectComponent,
 
   ],
@@ -191,6 +193,7 @@ export const commonModuleReducers = {
     SubjectCodeSelectComponent,
     GradeCodeSelectComponent,
     DunCodeSelectComponent,
+    EmploymentTypeCodeSelectComponent,
     EmploymentSectorCodeSelectComponent,
 
   ],

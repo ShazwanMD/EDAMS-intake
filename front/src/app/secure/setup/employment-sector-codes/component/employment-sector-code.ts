@@ -1,3 +1,4 @@
+import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
 import {
   Component, 
   Input, 
@@ -8,14 +9,9 @@ import {
   OnChanges, 
   SimpleChange
 } from '@angular/core';
-import {
-TdDataTableSortingOrder,
-TdDataTableService,
-ITdDataTableSortChangeEvent,
-IPageChangeEvent
+import {TdDataTableSortingOrder,TdDataTableService,ITdDataTableSortChangeEvent,IPageChangeEvent
 } from '@covalent/core';
 import {MdSnackBar} from '@angular/material';
-import { EmploymentSectorCode } from '../../../../shared/model/common/employment-sector-code.interface';
 
 @Component({
 selector: 'pams-employment-sector-code-list',
@@ -23,14 +19,12 @@ templateUrl: './employment-sector-code.html',
 changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmploymentSectorCodesComponent implements OnChanges {
-
 private columns: any[] = [
   {name: 'code', label: 'Code'},
   {name: 'descriptionMs', label: 'DescriptionMs'},
   {name: 'descriptionEn', label: 'DescriptionEn'},
   {name: 'action', label: ''}
 ];
-
 filteredData: any[];
 filteredTotal: number;
 searchTerm: string = '';
@@ -40,18 +34,17 @@ pageSize: number = 5;
 sortBy: string = 'code';
 sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
 
-@Input() employmentSectorCodes: EmploymentSectorCode[];
+@Input() employmentSectorCodes:EmploymentSectorCode[];
 @Output() editDialog: EventEmitter<EmploymentSectorCode> = new EventEmitter<EmploymentSectorCode>();
 @Output() delete: EventEmitter<EmploymentSectorCode> = new EventEmitter<EmploymentSectorCode>();
-
 constructor(private _dataTableService: TdDataTableService,
             private snackBar: MdSnackBar) {
 }
 
 ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
-  if (changes['employmentSectorCode']){
-      this.filteredData = changes['employmentSectorCode'].currentValue; 
-      this.filteredTotal = changes['employmentSectorCode'].currentValue.length;
+  if (changes['employmentSectorCodes']){
+      this.filteredData = changes['employmentSectorCodes'].currentValue; 
+      this.filteredTotal = changes['employmentSectorCodes'].currentValue.length;
       this.filter();
     }
   }
@@ -61,19 +54,16 @@ sort(sortEvent: ITdDataTableSortChangeEvent): void {
   this.sortOrder = sortEvent.order;
   this.filter();
 }
-
 search(searchTerm: string): void {
   this.searchTerm = searchTerm;
   this.filter();
 }
-
 page(pagingEvent: IPageChangeEvent): void {
   this.fromRow = pagingEvent.fromRow;
   this.currentPage = pagingEvent.page;
   this.pageSize = pagingEvent.pageSize;
   this.filter();
 }
-
 filter(): void {
   let newData: any[] = this.employmentSectorCodes;
   newData = this._dataTableService.filterData(newData, this.searchTerm, true);

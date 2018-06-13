@@ -1,5 +1,4 @@
 import { EmploymentSectorCode } from './../../../shared/model/common/employment-sector-code.interface';
-import { EmploymentTypeCode } from './../../../shared/model/common/employment-type-code.interface';
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
