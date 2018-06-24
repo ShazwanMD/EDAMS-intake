@@ -588,6 +588,8 @@ public class CommonTransformer {
 	// ====================================================================================================
 
 	public EmploymentTypeCode toEmploymentTypeCodeVo(InEmploymentTypeCode e) {
+		if (null == e)
+			return null;
 		EmploymentTypeCode vo = new EmploymentTypeCode();
 		vo.setId(e.getId());
 		vo.setCode(e.getCode());
@@ -606,6 +608,8 @@ public class CommonTransformer {
 	// ====================================================================================================
 
 	public EmploymentSectorCode toEmploymentSectorCodeVo(InEmploymentSectorCode e) {
+		if (null == e)
+			return null;
 		EmploymentSectorCode vo = new EmploymentSectorCode();
 		vo.setId(e.getId());
 		vo.setCode(e.getCode());
