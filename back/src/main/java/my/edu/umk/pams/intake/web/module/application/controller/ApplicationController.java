@@ -249,8 +249,23 @@ public class ApplicationController {
 		application.setSponsored(vo.getSponsored());
 		application.setPaid(vo.getProcessingFeeAttached());
 		application.setDeclared(vo.getDeclared());
+		application.setPlaceOfBirth(vo.getPlaceOfBirth());
+				
+		//employment
+		application.setPosition(vo.getPosition());
+		application.setIncome(vo.getIncome());
+		application.setEmployerAddress1(vo.getEmployerAddress1());
+		application.setEmployerAddress2(vo.getEmployerAddress2());
+		application.setEmployerAddress3(vo.getEmployerAddress3());
+		application.setEmployerNo(vo.getEmployerNo());
+		application.setEmployerPostcode(vo.getEmployerPostcode());
+		if (null != vo.getEmployerState())
+			application.setEmployerState(commonService.findStateCodeById(vo.getEmployerState().getId()));
+		if (null != vo.getEmploymentSectorCode())
+			application.setEmploymentSectorCode(commonService.findEmploymentSectorCodeById(vo.getEmploymentSectorCode().getId()));
+		if (null != vo.getEmploymentTypeCode())
+			application.setEmploymentTypeCode(commonService.findEmploymentTypeCodeById(vo.getEmploymentTypeCode().getId()));
 		
-
 		// check list
 		application.setSpmResultAttached(vo.getSpmResultAttached());
 		application.setStpmResultAttached(vo.getStpmResultAttached());
@@ -270,7 +285,10 @@ public class ApplicationController {
 		application.setSponsorLetterAttached(vo.getSponsorLetterAttached());
 		application.setIcCopyAttached(vo.getIcCopyAttached());
 		application.setPassportCopyAttached(vo.getPassportCopyAttached());
-
+		application.setPassportImageAttached(vo.getPassportImageAttached());
+		application.setApelCertificateAttached(vo.getApelCertificateAttached());
+		application.setEmploymentVerificationAttached(vo.getEmploymentVerificationAttached());
+	
 		// mailing address
 		application.setMailingAddress1(vo.getMailingAddress1());
 		application.setMailingAddress2(vo.getMailingAddress2());

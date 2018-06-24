@@ -51,6 +51,7 @@ public class ApplicationTransformer {
 		vo.setSponsored(e.isSponsored());
 		vo.setMerit(e.getMerit());
 		vo.setSelfSponsored(e.isSelfSponsored());
+		vo.setPlaceOfBirth(e.getPlaceOfBirth());
 		
 		vo.setSpmResultAttached(e.isSpmResultAttached());
 		vo.setStpmResultAttached(e.isStpmResultAttached());
@@ -71,6 +72,10 @@ public class ApplicationTransformer {
 		vo.setMasterResultAttached(e.isMasterResultAttached());
 		vo.setPhdResultAttached(e.isPhdResultAttached());
 
+		vo.setApelCertificateAttached(e.isApelCertificateAttached());
+		vo.setPassportImageAttached(e.isPassportImageAttached());
+		vo.setEmploymentVerificationAttached(e.isEmploymentVerificationAttached());
+		
 		// address
 		vo.setMailingAddress1(e.getMailingAddress1());
 		vo.setMailingAddress2(e.getMailingAddress2());
@@ -85,7 +90,17 @@ public class ApplicationTransformer {
 		vo.setOfficialStateCode(commonTransformer.toStateCodeVo(e.getOfficialStateCode()));
 		vo.setOfficialCountryCode(commonTransformer.toCountryCodeVo(e.getOfficialCountryCode()));
 		
-		
+		// employment
+		vo.setPosition(e.getPosition());
+		vo.setIncome(e.getIncome());
+		vo.setEmployerNo(e.getEmployerNo());
+		vo.setEmployerAddress1(e.getEmployerAddress1());
+		vo.setEmployerAddress2(e.getEmployerAddress2());
+		vo.setEmployerAddress3(e.getEmployerAddress3());
+		vo.setEmployerPostcode(e.getEmployerPostcode());
+		vo.setEmployerState(commonTransformer.toStateCodeVo(e.getEmployerState()));
+		vo.setEmploymentSectorCode(commonTransformer.toEmploymentSectorCodeVo(e.getEmploymentSectorCode()));
+		vo.setEmploymentTypeCode(commonTransformer.toEmploymentTypeCodeVo(e.getEmploymentTypeCode()));	
 		
 		vo.setBidType(BidType.get(e.getBidType().ordinal()));
 		vo.setBidStatus(InCandidateStatus.get(e.getBidStatus().ordinal()));
