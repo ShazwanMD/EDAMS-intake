@@ -24,21 +24,12 @@
 
         </td-expansion-panel>
 
-        <template md-tab-label>Applicant Personal Information</template>
-
+        <!-- <template md-tab-label>Applicant Personal Information</template> -->
         <td-expansion-panel label="Personal Details">
         <div>
         <md-card-subtitle>Applicant Personal Information</md-card-subtitle>
         </div>
         <md-divider></md-divider>
-
-        <!-- <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-        <div layout="row" layout-align="start center">
-        <button md-raised-button color="primary" (click)="promoCodeDialog(_intakeApplication)">
-            Enter Promo Code (if applicable)
-        </button>
-        </div>
-        </div> -->
 
         <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
             <!-- first column -->
@@ -131,120 +122,114 @@
         </div>
 
         </td-expansion-panel>
+
+        <td-expansion-panel label="Address Detail">
+            <br>
+            <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
+                <b>*Please fill in Official and Mailing Address.</b>
+            </div>
+            <br>
+            
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
+            Official Address           
+            </div>
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 1 *" formControlName="officialAddress1" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
+              official Address 1 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 2 *" formControlName="officialAddress2" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
+              official Address 2 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 3" formControlName="officialAddress3" flex/>
+              </md-input-container>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Postcode *" formControlName="officialPostcode" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
+              official Postcode is required!
+             </div>
+  
+              <pams-state-code-select [placeholder]="'State'"
+                                      [innerFormControl]="applicationForm.controls.officialStateCode"
+                                      fxFlex="calc(50%-25px)"
+                                      class="pad-bottom">
+              </pams-state-code-select>
+  
+              <pams-country-code-select [placeholder]="'Country'"
+                                        [innerFormControl]="applicationForm.controls.officialCountryCode"
+                                        fxFlex="calc(50%-25px)"
+                                        class="pad-bottom">
+              </pams-country-code-select>
+            </div>
+  
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset"> 
+            Mailing Address
+            </div>
+
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 1 *" formControlName="mailingAddress1"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
+              mailing Address 1 is required!
+             </div>
+
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 2 *" formControlName="mailingAddress2"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
+              mailing Address 2 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 3" formControlName="mailingAddress3" flex/>
+              </md-input-container>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Postcode *" formControlName="mailingPostcode"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
+              mailing Postcode is required!
+             </div>
+  
+              <pams-state-code-select [placeholder]="'State'"
+                                      [innerFormControl]="applicationForm.controls.mailingStateCode"
+                                      fxFlex="calc(50%-25px)"
+                                      class="pad-bottom">
+              </pams-state-code-select>
+  
+              <pams-country-code-select [placeholder]="'Country'"
+                                        [innerFormControl]="applicationForm.controls.mailingCountryCode"
+                                        fxFlex="calc(50%-25px)"
+                                        class="pad-bottom">
+              </pams-country-code-select>
+            </div>
+          </td-expansion-panel>
+
+          <td-expansion-panel label="Guardian Information">
+
+
+          </td-expansion-panel>
       </md-tab>
 
       <md-tab>
-        <template md-tab-label>Address Information</template>
-        <td-expansion-panel label="Address Detail">
-          <br>
-          <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
-              <b>*Please fill in Official and Mailing Address.</b>
-          </div>
-          <br>
-          
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
-          Official Address           
-          </div>
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 1 *" formControlName="officialAddress1" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
-            official Address 1 is required!
-           </div>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 2 *" formControlName="officialAddress2" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
-            official Address 2 is required!
-           </div>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 3" formControlName="officialAddress3" flex/>
-            </md-input-container>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Postcode *" formControlName="officialPostcode" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
-            official Postcode is required!
-           </div>
-
-            <pams-state-code-select [placeholder]="'State'"
-                                    [innerFormControl]="applicationForm.controls.officialStateCode"
-                                    fxFlex="calc(50%-25px)"
-                                    class="pad-bottom">
-            </pams-state-code-select>
-
-            <pams-country-code-select [placeholder]="'Country'"
-                                      [innerFormControl]="applicationForm.controls.officialCountryCode"
-                                      fxFlex="calc(50%-25px)"
-                                      class="pad-bottom">
-            </pams-country-code-select>
-          </div>
-
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset"> 
-          Mailing Address
-          </div>
-
-          <!-- <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
-                <md-checkbox formControlName="copyAddress" (click)="copyAddress(intakeApplication)">
-                  Check if mailing address and official address is same
-                </md-checkbox>
-          </div> -->
-
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 1 *" formControlName="mailingAddress1"/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
-            mailing Address 1 is required!
-           </div>
-
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 2 *" formControlName="mailingAddress2"/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
-            mailing Address 2 is required!
-           </div>
-
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 3" formControlName="mailingAddress3" flex/>
-            </md-input-container>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Postcode *" formControlName="mailingPostcode"/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
-            mailing Postcode is required!
-           </div>
-
-            <pams-state-code-select [placeholder]="'State'"
-                                    [innerFormControl]="applicationForm.controls.mailingStateCode"
-                                    fxFlex="calc(50%-25px)"
-                                    class="pad-bottom">
-            </pams-state-code-select>
-
-            <pams-country-code-select [placeholder]="'Country'"
-                                      [innerFormControl]="applicationForm.controls.mailingCountryCode"
-                                      fxFlex="calc(50%-25px)"
-                                      class="pad-bottom">
-            </pams-country-code-select>
-          </div>
-        </td-expansion-panel>
-      </md-tab>
-
-        <md-tab>
-          <template md-tab-label >Occupation Information</template>
+          <template md-tab-label >Employment</template>
 
            <td-expansion-panel label="Occupation Information">
           <br>
@@ -317,6 +302,7 @@
         </td-expansion-panel>
         </md-tab>
 
+
         <md-tab>
           <template md-tab-label>Academic Qualification</template>
          
@@ -333,25 +319,46 @@
       </md-tab>
 
       <md-tab>
+        <template md-tab-label>Financial Support</template>
+
+        <td-expansion-panel label="Financial Support">
+          <p>
+          <md-card-subtitle>Please tick (/) where applicable</md-card-subtitle></p>
+          <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
+            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+              <md-checkbox formControlName="sponsored">
+                <div layout="column" flex>
+                  Sponsor by Employer / Government / Private. Please attach letter from Sponsor.
+                </div>
+              </md-checkbox>
+            </div>
+
+            <br><br>
+
+            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+              <md-checkbox formControlName="selfSponsored">
+                <div layout="column" flex>
+                  Self Supporting . Please enclose financial guarantee or bank statement.
+                </div>
+              </md-checkbox>
+            </div>
+          </div>
+        </td-expansion-panel>
+      </md-tab>
+
+      <md-tab>
         <template md-tab-label>Documents</template>
        <md-card-subtitle></md-card-subtitle>
         <md-card-subtitle>Kindly attached all related documents with Certified True Copy</md-card-subtitle>
         <md-card-subtitle>* Foreign applicant need to submit TOEFL/IELTS result together with the application form
         </md-card-subtitle>
-        <!-- <md-card-subtitle>* Please attach referee form</md-card-subtitle> -->
-        <!--   <td-expansion-panel label="Referees">
-             <pams-referee-list [intakeApplication]="_intakeApplication" [referees]="referees$ | async">
-             </pams-referee-list>
-           </td-expansion-panel> -->
 
-      
         <td-expansion-panel label="Attachments"> 
           <pams-attachment-list [intakeApplication]="_intakeApplication" [attachments]="attachments$ | async">
           </pams-attachment-list>
         </td-expansion-panel>
 
-        
-          <td-expansion-panel label="Document Checklist"><p>
+        <td-expansion-panel label="Document Checklist"><p>
             <md-card-subtitle><b>Please check all the uploaded attachments below</b></md-card-subtitle></p>
 
             <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
@@ -371,50 +378,11 @@
               </md-checkbox>
             </div>
 
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="languageResultAttached">
-                <div layout="column" flex>
-                  Language Result
-                </div>
-              </md-checkbox>
-            </div> -->
-
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="icCopyAttached">
                 <div layout="column" flex>Copy of IC </div>
               </md-checkbox>
             </div>
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="passportCopyAttached">
-                <div layout="column" flex>Copy of Passport </div>
-              </md-checkbox>
-            </div> -->
-
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="muetResultAttached">
-                  <div layout="column" flex>
-                    MUET Result
-                  </div>
-                </md-checkbox>
-              </div> -->
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="toeflResultAttached">
-                <div layout="row" flex>
-                  TOEFL (Foreign Only)
-                </div>
-              </md-checkbox>
-            </div> -->
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="ieltsResultAttached">
-                <div layout="row" flex>
-                  IELTS Result (Foreign Only)
-                </div>
-              </md-checkbox>
-            </div> -->
 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="spmResultAttached">
@@ -497,55 +465,9 @@
                 </div>
               </md-checkbox>
             </div>
-
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="refereeFormAttached">
-                <div layout="column" flex>
-                  Referee Form
-                </div>
-              </md-checkbox>
-            </div> -->
-
-            <!-- <div layout="row" class="pad-bottom" flex>
-              <md-checkbox formControlName="researchProposalAttached">
-                <div layout="column" flex>
-                  Research Proposal
-                </div>
-              </md-checkbox>
-            </div> -->
-
           </div>
 
           </td-expansion-panel>
-      </md-tab>
-
-      <md-tab>
-        <template md-tab-label>Financial Support</template>
-
-        <td-expansion-panel label="Financial Support">
-          <p>
-          <md-card-subtitle>Please tick (/) where applicable</md-card-subtitle></p>
-          <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
-            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
-              <md-checkbox formControlName="sponsored">
-                <div layout="column" flex>
-                  Sponsor by Employer / Government / Private. Please attach letter from Sponsor.
-                </div>
-              </md-checkbox>
-            </div>
-
-            <br><br>
-
-            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
-              <md-checkbox formControlName="selfSponsored">
-                <div layout="column" flex>
-                  Self Supporting . Please enclose financial guarantee or bank statement.
-                </div>
-              </md-checkbox>
-            </div>
-          </div>
-        </td-expansion-panel>
       </md-tab>
 
       <md-tab>
