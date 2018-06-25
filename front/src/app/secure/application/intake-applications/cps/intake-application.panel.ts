@@ -1,3 +1,4 @@
+import { StudyCenterCode } from './../../../../shared/model/common/study-center-code.interface';
 import { EmploymentTypeCode } from './../../../../shared/model/common/employment-type-code.interface';
 import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
 import { ResidencyCode } from './../../../../shared/model/common/residency-code.interface';
@@ -99,6 +100,7 @@ export class CpsIntakeApplicationPanel implements OnInit {
       fax: [''],
       age: [0],
       passExpDate: [''],
+      studyCenterCode: [<StudyCenterCode>{}, Validators.required],
 
       income: [''],
       position: [''],
