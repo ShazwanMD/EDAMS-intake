@@ -72,6 +72,8 @@ public interface ApplicationService {
     void addGuardian(InIntakeApplication application, InGuardian guardian);
 
     void deleteGuardian(InIntakeApplication application, InGuardian guardian);
+    
+    void updateGuardian(InIntakeApplication application, InGuardian guardian);
 
     void addAttachment(InIntakeApplication application, InAttachment attachment);
 

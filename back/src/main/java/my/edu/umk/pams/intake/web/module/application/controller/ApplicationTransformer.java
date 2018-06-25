@@ -3,6 +3,7 @@ package my.edu.umk.pams.intake.web.module.application.controller;
 import my.edu.umk.pams.intake.application.model.*;
 import my.edu.umk.pams.intake.web.module.application.vo.*;
 import my.edu.umk.pams.intake.web.module.common.controller.CommonTransformer;
+import my.edu.umk.pams.intake.web.module.common.vo.StateCode;
 import my.edu.umk.pams.intake.web.module.core.vo.MetaState;
 import my.edu.umk.pams.intake.web.module.policy.controller.PolicyTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,14 +166,41 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
+	public List<IntakeApplication> toSimpleIntakeApplicationVos(List<InIntakeApplication> e) {
+		List<IntakeApplication> vos = e.stream().map((e1) -> toSimpleIntakeApplicationVo(e1))
+				.collect(Collectors.toList());
+		return vos;
+	}
+	
+	public List<IntakeApplication> toIntakeApplicationVos(List<InIntakeApplication> e) {
+		List<IntakeApplication> vos = e.stream().map((e1) -> toIntakeApplicationVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+
+	//GUARDIAN
 	public Guardian toGuardianVo(InGuardian e) {
 		Guardian vo = new Guardian();
 		vo.setId(e.getId());
-		// todo(uda): more props
+		vo.setName(e.getName());
+		vo.setGuardianNo(e.getGuardianNo());
+		vo.setGuardianAddress1(e.getGuardianAddress1());
+		vo.setGuardianAddress2(e.getGuardianAddress2());
+		vo.setGuardianAddress3(e.getGuardianAddress3());
+		vo.setGuardianPostcode(e.getGuardianPostcode());
+		vo.setGuardianType(GuardianType.get(e.getType().ordinal()));
+		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
+		vo.setSalary(e.getSalary());
+		vo.setIdentityNo(e.getIdentityNo());
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
 		return vo;
 	}
+	
+	public List<Guardian> toGuardianVos(List<InGuardian> e) {
+		List<Guardian> vos = e.stream().map((e1) -> toGuardianVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
 
+	//GUARANTOR
 	public Guarantor toGuarantorVo(InGuarantor e) {
 		Guarantor vo = new Guarantor();
 		vo.setId(e.getId());
@@ -181,6 +209,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
+	//CONTACT
 	public Contact toContactVo(InContact e) {
 		Contact vo = new Contact();
 		vo.setId(e.getId());
@@ -189,6 +218,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
+	//ATTACHMENT
 	public Attachment toAttachmentVo(InAttachment e) {
 		Attachment vo = new Attachment();
 		vo.setId(e.getId());
@@ -201,7 +231,13 @@ public class ApplicationTransformer {
 		
 		return vo;
 	}
+	
+	public List<Attachment> toAttachmentVos(List<InAttachment> e) {
+		List<Attachment> vos = e.stream().map((e1) -> toAttachmentVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
 
+	//EDUCATION
 	public Education toEducationVo(InEducation e) {
 		Education vo = new Education();
 		vo.setId(e.getId());
@@ -217,6 +253,7 @@ public class ApplicationTransformer {
 		return vos;
 	}
 
+	//EMPLOYMENT
 	public Employment toEmploymentVo(InEmployment e) {
 		Employment vo = new Employment();
 		vo.setId(e.getId());
@@ -230,6 +267,12 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
+	public List<Employment> toEmploymentVos(List<InEmployment> e) {
+		List<Employment> vos = e.stream().map((e1) -> toEmploymentVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+	
+	//LANGUAGE
 	public Language toLanguageVo(InLanguage e) {
 		Language vo = new Language();
 		vo.setId(e.getId());
@@ -240,21 +283,12 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
-	public List<Employment> toEmploymentVos(List<InEmployment> e) {
-		List<Employment> vos = e.stream().map((e1) -> toEmploymentVo(e1)).collect(Collectors.toList());
-		return vos;
-	}
-
 	public List<Language> toLanguageVos(List<InLanguage> e) {
 		List<Language> vos = e.stream().map((e1) -> toLanguageVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
 
-	public List<Attachment> toAttachmentVos(List<InAttachment> e) {
-		List<Attachment> vos = e.stream().map((e1) -> toAttachmentVo(e1)).collect(Collectors.toList());
-		return vos;
-	}
-
+	//INVOLVEMENT
 	public Involvement toInvolvementVo(InInvolvement e) {
 		Involvement vo = new Involvement();
 		vo.setId(e.getId());
@@ -263,6 +297,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
+	//REFEREE
 	public Referee toRefereeVo(InReferee e) {
 		Referee vo = new Referee();
 		vo.setId(e.getId());
@@ -280,17 +315,7 @@ public class ApplicationTransformer {
 		return vos;
 	}
 
-	public List<IntakeApplication> toIntakeApplicationVos(List<InIntakeApplication> e) {
-		List<IntakeApplication> vos = e.stream().map((e1) -> toIntakeApplicationVo(e1)).collect(Collectors.toList());
-		return vos;
-	}
-
-	public List<IntakeApplication> toSimpleIntakeApplicationVos(List<InIntakeApplication> e) {
-		List<IntakeApplication> vos = e.stream().map((e1) -> toSimpleIntakeApplicationVo(e1))
-				.collect(Collectors.toList());
-		return vos;
-	}
-
+	//RESULT
 	public Result toResultVo(InResult e) {
 		Result vo = new Result();
 		vo.setId(e.getId());
@@ -310,4 +335,6 @@ public class ApplicationTransformer {
 		List<Result> vos = e.stream().map((e1) -> toResultVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
+	
+	
 }

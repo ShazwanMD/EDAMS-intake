@@ -9,7 +9,7 @@ public interface InGuardian extends InMetaObject {
 
 	String getIdentityNo();
 
-	void setIdentityNo(String noIc);
+	void setIdentityNo(String identityNo);
 
 	String getName();
 
@@ -42,6 +42,10 @@ public interface InGuardian extends InMetaObject {
 	InStateCode getGuardianState();
 
 	void setGuardianState(InStateCode guardianState);
+	
+	String getGuardianNo();
+	
+	void setGuardianNo(String guardianNo);
 
 	InIntakeApplication getApplication();
 

@@ -822,6 +822,16 @@ public class InIntakeApplicationDaoImpl extends GenericDaoSupport<Long, InIntake
     }
 
     @Override
+    public void updateGuardian(InIntakeApplication application, InGuardian guardian, InUser user) {
+        Validate.notNull(application, "Application cannot be null");
+        Validate.notNull(guardian, "Guardian cannot be null");
+        Validate.notNull(user, "User cannot be null");
+
+        Session session = sessionFactory.getCurrentSession();
+        session.update(guardian);
+    }
+    
+    @Override
     public void updateLanguage(InIntakeApplication application, InLanguage language, InUser user) {
         Validate.notNull(application, "Application cannot be null");
         Validate.notNull(language, "Language cannot be null");

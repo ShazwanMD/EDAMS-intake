@@ -86,10 +86,9 @@ public class ApplicationController {
 
 	@Autowired
 	private InCandidateDao candidateDao;
-	
+
 	@Autowired
 	private CommonTransformer commonTransformer;
-	
 
 	// ====================================================================================================
 	// INTAKE
@@ -112,11 +111,11 @@ public class ApplicationController {
 		InIntake intake = policyService.findIntakeByReferenceNo(referenceNo);
 		return new ResponseEntity<Intake>(policyTransformer.toIntakeVo(intake), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/intakes/candidates/{referenceNo}", method = RequestMethod.GET)
 	public ResponseEntity<Intake> findIntakeByCandidateReferenceNo(@PathVariable String referenceNo) {
 		InCandidate candidate = admissionService.findCandidateByReferenceNo(referenceNo);
-		
+
 		InIntake intake = policyService.findIntakeByReferenceNo(candidate.getIntake().getReferenceNo());
 		return new ResponseEntity<Intake>(policyTransformer.toIntakeVo(intake), HttpStatus.OK);
 	}
@@ -219,13 +218,14 @@ public class ApplicationController {
 		return new ResponseEntity<IntakeApplication>(applicationTransformer.toIntakeApplicationVo(intakeApplication),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/intakeApplication/candidate/{referenceNo}", method = RequestMethod.GET)
 	public ResponseEntity<IntakeApplication> findIntakeApplicationByCandidate(@PathVariable String referenceNo) {
 		InCandidate candidate = admissionService.findCandidateByReferenceNo(referenceNo);
 		LOG.debug("candidate {} ref NO ", referenceNo);
 		LOG.debug("candidate {} ref NO ", candidate.getApplication().getReferenceNo());
-		InIntakeApplication intakeApplication = applicationService.findIntakeApplicationByReferenceNo(candidate.getApplication().getReferenceNo());
+		InIntakeApplication intakeApplication = applicationService
+				.findIntakeApplicationByReferenceNo(candidate.getApplication().getReferenceNo());
 		return new ResponseEntity<IntakeApplication>(applicationTransformer.toIntakeApplicationVo(intakeApplication),
 				HttpStatus.OK);
 	}
@@ -250,8 +250,8 @@ public class ApplicationController {
 		application.setPaid(vo.getProcessingFeeAttached());
 		application.setDeclared(vo.getDeclared());
 		application.setPlaceOfBirth(vo.getPlaceOfBirth());
-				
-		//employment
+
+		// employment
 		application.setPosition(vo.getPosition());
 		application.setIncome(vo.getIncome());
 		application.setEmployerAddress1(vo.getEmployerAddress1());
@@ -262,10 +262,12 @@ public class ApplicationController {
 		if (null != vo.getEmployerState())
 			application.setEmployerState(commonService.findStateCodeById(vo.getEmployerState().getId()));
 		if (null != vo.getEmploymentSectorCode())
-			application.setEmploymentSectorCode(commonService.findEmploymentSectorCodeById(vo.getEmploymentSectorCode().getId()));
+			application.setEmploymentSectorCode(
+					commonService.findEmploymentSectorCodeById(vo.getEmploymentSectorCode().getId()));
 		if (null != vo.getEmploymentTypeCode())
-			application.setEmploymentTypeCode(commonService.findEmploymentTypeCodeById(vo.getEmploymentTypeCode().getId()));
-		
+			application.setEmploymentTypeCode(
+					commonService.findEmploymentTypeCodeById(vo.getEmploymentTypeCode().getId()));
+
 		// check list
 		application.setSpmResultAttached(vo.getSpmResultAttached());
 		application.setStpmResultAttached(vo.getStpmResultAttached());
@@ -288,7 +290,7 @@ public class ApplicationController {
 		application.setPassportImageAttached(vo.getPassportImageAttached());
 		application.setApelCertificateAttached(vo.getApelCertificateAttached());
 		application.setEmploymentVerificationAttached(vo.getEmploymentVerificationAttached());
-	
+
 		// mailing address
 		application.setMailingAddress1(vo.getMailingAddress1());
 		application.setMailingAddress2(vo.getMailingAddress2());
@@ -406,42 +408,44 @@ public class ApplicationController {
 			candidate.setDescriptionEn(application.getIntake().getDescriptionEn());
 			candidate.setDescriptionMs(application.getIntake().getDescriptionMs());
 			candidateDao.save(candidate, securityService.getCurrentUser());
-			
+
 			admissionService.startCandidateTask(candidate);
-			
+
 			applicationService.selectIntakeApplication(intake, application);
-			
-//			List<InIntakeApplication> applications = applicationService.findIntakeApplications(intake);
-//			for (InIntakeApplication applicationCPS : applications) {
-//
-//				LOG.debug("{}", applicationCPS.getName());
-//				candidate = new InCandidateImpl();
-//				candidate.setSourceNo(UUID.randomUUID().toString());
-//				candidate.setAuditNo(UUID.randomUUID().toString());
-//				candidate.setIntake(applicationCPS.getIntake());
-//				candidate.setName(applicationCPS.getName());
-//				candidate.setIdentityNo(applicationCPS.getCredentialNo());
-//				candidate.setEmail(applicationCPS.getEmail());
-//				candidate.setStudyModeSelection(applicationCPS.getStudyModeSelection());
-//				candidate.setStatus(InCandidateStatus.SELECTED);
-//				candidate.setProgramSelection(applicationCPS.getProgramSelection());
-//				candidate.setSupervisorSelection(applicationCPS.getSupervisorSelection());
-//				candidate.setRegistration(false);
-//				candidate.setApplication(applicationCPS);
-//				candidate.setAuditNo(applicationCPS.getIntake().getAuditNo() + applicationCPS.getApplicant().getIdentityNo());
-//				candidate.setReferenceNo(applicationCPS.getIntake().getReferenceNo());
-//				candidate.setCancelComment(applicationCPS.getIntake().getCancelComment());
-//				candidate.setSourceNo(applicationCPS.getIntake().getSourceNo());
-//				candidate.setDescriptionEn(applicationCPS.getIntake().getDescriptionEn());
-//				candidate.setDescriptionMs(applicationCPS.getIntake().getDescriptionMs());
-//				candidateDao.save(candidate, securityService.getCurrentUser());
-//				LOG.debug("After Save Candidate");
-//				
-//				LOG.debug("After Start Candidate Task");
-//			}
-			
-//			admissionService.startCandidateTask(candidate);
-//			applicationService.selectIntakeApplication(intake, application);
+
+			// List<InIntakeApplication> applications =
+			// applicationService.findIntakeApplications(intake);
+			// for (InIntakeApplication applicationCPS : applications) {
+			//
+			// LOG.debug("{}", applicationCPS.getName());
+			// candidate = new InCandidateImpl();
+			// candidate.setSourceNo(UUID.randomUUID().toString());
+			// candidate.setAuditNo(UUID.randomUUID().toString());
+			// candidate.setIntake(applicationCPS.getIntake());
+			// candidate.setName(applicationCPS.getName());
+			// candidate.setIdentityNo(applicationCPS.getCredentialNo());
+			// candidate.setEmail(applicationCPS.getEmail());
+			// candidate.setStudyModeSelection(applicationCPS.getStudyModeSelection());
+			// candidate.setStatus(InCandidateStatus.SELECTED);
+			// candidate.setProgramSelection(applicationCPS.getProgramSelection());
+			// candidate.setSupervisorSelection(applicationCPS.getSupervisorSelection());
+			// candidate.setRegistration(false);
+			// candidate.setApplication(applicationCPS);
+			// candidate.setAuditNo(applicationCPS.getIntake().getAuditNo() +
+			// applicationCPS.getApplicant().getIdentityNo());
+			// candidate.setReferenceNo(applicationCPS.getIntake().getReferenceNo());
+			// candidate.setCancelComment(applicationCPS.getIntake().getCancelComment());
+			// candidate.setSourceNo(applicationCPS.getIntake().getSourceNo());
+			// candidate.setDescriptionEn(applicationCPS.getIntake().getDescriptionEn());
+			// candidate.setDescriptionMs(applicationCPS.getIntake().getDescriptionMs());
+			// candidateDao.save(candidate, securityService.getCurrentUser());
+			// LOG.debug("After Save Candidate");
+			//
+			// LOG.debug("After Start Candidate Task");
+			// }
+
+			// admissionService.startCandidateTask(candidate);
+			// applicationService.selectIntakeApplication(intake, application);
 		}
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
@@ -477,12 +481,16 @@ public class ApplicationController {
 		applicationService.updateIntakeApplication(application);
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
-	
-    @RequestMapping(value = "/programLevel/{levelCode}/supervisorOfferings", method = RequestMethod.GET)
-    public ResponseEntity<List<SupervisorOffering>> findSupervisorOfferingsByProgramLevel(@PathVariable String levelCode) {
-        InProgramLevel inProgramLevel = policyService.findProgramLevelByCode(levelCode);
-        return new ResponseEntity<List<SupervisorOffering>>(commonTransformer.toSupervisorOfferingVos(commonService.findSupervisorOfferingsByProgramLevel(inProgramLevel,"%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
-    }
+
+	@RequestMapping(value = "/programLevel/{levelCode}/supervisorOfferings", method = RequestMethod.GET)
+	public ResponseEntity<List<SupervisorOffering>> findSupervisorOfferingsByProgramLevel(
+			@PathVariable String levelCode) {
+		InProgramLevel inProgramLevel = policyService.findProgramLevelByCode(levelCode);
+		return new ResponseEntity<List<SupervisorOffering>>(
+				commonTransformer.toSupervisorOfferingVos(
+						commonService.findSupervisorOfferingsByProgramLevel(inProgramLevel, "%", 0, Integer.MAX_VALUE)),
+				HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/studyModeOfferingSelection", method = RequestMethod.POST)
 	public ResponseEntity<String> submitIntakeApplication(@PathVariable String referenceNo,
@@ -855,6 +863,59 @@ public class ApplicationController {
 
 		return new ResponseEntity<IntakeApplication>(applicationTransformer.toIntakeApplicationVo(generatedApplication),
 				HttpStatus.OK);
+	}
+
+	// ====================================================================================================
+	// GUARDIANS
+	// ====================================================================================================
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/guardians", method = RequestMethod.GET)
+	public ResponseEntity<List<Guardian>> findGuardiansByIntakeApplication(@PathVariable String referenceNo) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		List<InGuardian> guardians = applicationService.findGuardians(application);
+		return new ResponseEntity<List<Guardian>>(applicationTransformer.toGuardianVos(guardians), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/guardians", method = RequestMethod.POST)
+	public ResponseEntity<String> addGuardian(@PathVariable String referenceNo, @RequestBody Guardian vo) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		InGuardian guardian = new InGuardianImpl();
+		guardian.setName(vo.getName());
+		guardian.setSalary(vo.getSalary());
+		guardian.setGuardianAddress1(vo.getGuardianAddress1());
+		guardian.setGuardianAddress2(vo.getGuardianAddress2());
+		guardian.setGuardianAddress3(vo.getGuardianAddress3());
+		guardian.setGuardianPostcode(vo.getGuardianPostcode());
+		guardian.setGuardianNo(vo.getGuardianNo());
+		guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		applicationService.addGuardian(application, guardian);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/guardians/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Boolean> deleteGuardian(@PathVariable String referenceNo, @PathVariable Long id) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		InGuardian guardian = applicationService.findGuardianById(id);
+		applicationService.deleteGuardian(application, guardian);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/guardians/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Boolean> updateGuardian(@PathVariable String referenceNo, @PathVariable Long id,
+			@RequestBody Guardian vo) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		InGuardian guardian = applicationService.findGuardianById(id);
+		guardian.setName(vo.getName());
+		guardian.setSalary(vo.getSalary());
+		guardian.setGuardianAddress1(vo.getGuardianAddress1());
+		guardian.setGuardianAddress2(vo.getGuardianAddress2());
+		guardian.setGuardianAddress3(vo.getGuardianAddress3());
+		guardian.setGuardianPostcode(vo.getGuardianPostcode());
+		guardian.setGuardianNo(vo.getGuardianNo());
+		guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		applicationService.updateGuardian(application, guardian);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
 	// ====================================================================================================

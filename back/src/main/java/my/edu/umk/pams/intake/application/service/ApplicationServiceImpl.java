@@ -323,6 +323,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 		intakeApplicationDao.deleteGuardian(application, guardian, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
+	
+	@Override
+	public void updateGuardian(InIntakeApplication application, InGuardian guardian) {
+		intakeApplicationDao.updateGuardian(application, guardian, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
 
 	@Override
 	public void addReferee(InIntakeApplication application, InReferee referee) {

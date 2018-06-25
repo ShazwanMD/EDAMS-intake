@@ -44,6 +44,9 @@ public class InGuardianImpl implements InGuardian {
     @Column(name = "GUARDIAN_TYPE")
     private InGuardianType type;
     
+    @Column(name = "GRDN_NO", nullable = false)
+    private String guardianNo;
+    
     @ManyToOne(targetEntity = InStateCodeImpl.class)
 	@JoinColumn(name = "GRDN_STATE_CODE_ID")
 	private InStateCode guardianState;
@@ -184,7 +187,16 @@ public class InGuardianImpl implements InGuardian {
 
 	}
 
-	
+	@Override
+	public String getGuardianNo() {
+		return guardianNo;
+	}
+
+	@Override
+	public void setGuardianNo(String guardianNo) {
+		this.guardianNo = guardianNo;
+		
+	}
    
 	
 }

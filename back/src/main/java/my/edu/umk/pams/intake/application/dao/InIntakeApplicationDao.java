@@ -151,6 +151,8 @@ public interface InIntakeApplicationDao extends GenericDao<Long, InIntakeApplica
 
     void deleteGuardian(InIntakeApplication application, InGuardian guardian, InUser user);
 
+    void updateGuardian(InIntakeApplication application, InGuardian guardian, InUser user);
+    
     void addGuarantor(InIntakeApplication application, InGuarantor guarantor, InUser user);
 
     void deleteGuarantor(InIntakeApplication application, InGuarantor guarantor, InUser user);
