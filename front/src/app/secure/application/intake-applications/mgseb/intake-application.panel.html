@@ -1,408 +1,512 @@
-
 <td-layout-card-over>
   <form [formGroup]="applicationForm" novalidate>
-    <div layout="row" layout-align="start center">
+    <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
       <div>
         <md-card-title>Intake Application</md-card-title>
-        <md-card-subtitle><b>Intake Registration for Session {{intakeApplication?.intake?.intakeSession?.code}}</b> </md-card-subtitle>
+        <md-card-subtitle><b>Intake Registration for Session {{intakeApplication?.intake?.intakeSession?.code}} </b></md-card-subtitle>
       </div>
     </div>
     <md-divider></md-divider>
-      
-    <md-tab-group (selectChange)="onTabChange($event)" [selectedIndex]="tabIndex$ | async">
-    
-      <md-tab label="detailCandidate">
+    <md-tab-group (selectChange)="onTabChange($event)"[selectedIndex]="tabIndex$ | async">
+      <md-tab>
         <template md-tab-label>Detail Of Candidate</template>
-        <td-expansion-panel label="Program Choices">
-          <pams-study-center-choice [intakeApplication]="_intakeApplication">
-          </pams-study-center-choice>
 
-          <pams-study-center-code-select [placeholder]="'StudyCenter'" [innerFormControl]="applicationForm.controls.studyCenterCode"
-          fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-study-center-code-select>
+        <td-expansion-panel label="Program Choices">
+         
+          <pams-program-choice [intakeApplication]="_intakeApplication">
+          </pams-program-choice>
+
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+          <pams-study-center-code-select [placeholder]="'Choose Study Center'" [innerFormControl]="applicationForm.controls.studyCenterCode"
+            fxFlex="calc(50%-25px)" class="pad-bottom">
+          </pams-study-center-code-select>
+          </div>
+
         </td-expansion-panel>
 
-        <template md-tab-label>Applicant Personal Information</template>
+        <!-- <template md-tab-label>Applicant Personal Information</template> -->
         <td-expansion-panel label="Personal Details">
+        <div>
+        <!-- <md-card-subtitle>Applicant Personal Information</md-card-subtitle> -->
+        </div>
+        <md-divider></md-divider>
 
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-              <div layout="row" layout-align="start center">
-                  <button md-raised-button color="primary" (click)="promoCodeDialog(_intakeApplication)">
-                      Enter Promo Code (if applicable)
-                  </button>
-                  </div>
-              </div>
-
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+        <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
             <!-- first column -->
+            
+        <md-input-container fxFlex="calc(100%-25px)">
+        <input mdInput placeholder="Name" formControlName="name"/>
+        </md-input-container>
 
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Full Name *" formControlName="name" />
-            </md-input-container>
+        <md-input-container fxFlex="calc(50%-25px)">
+        <input mdInput placeholder="Email" formControlName="email"/>
+        </md-input-container>
 
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput placeholder="Email *" formControlName="email" />
-            </md-input-container>
-
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput placeholder="NRIC/Passport *" formControlName="credentialNo" />
-            </md-input-container>
-            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('credentialNo').invalid && applicationForm.get('credentialNo').touched">
-              Your Ic or Passport Number is required!
-            </div>
-
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput type="date" placeholder="Date of Birth *" formControlName="birthDate" />
-            </md-input-container>
-            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('birthDate').invalid && applicationForm.get('birthDate').touched">
+        <md-input-container fxFlex="calc(50%-25px)">
+        <input mdInput formControlName="credentialNo" placeholder="NRIC/Passport *">
+        </md-input-container>
+        <div class="error" class="tc-red-600"
+         *ngIf="applicationForm.get('credentialNo').invalid && applicationForm.get('credentialNo').touched">
+         Your Ic or Passport Number is required!
+        </div>
+        
+        <md-input-container fxFlex="calc(50%-25px)">
+        <input mdInput type="date" formControlName="birthDate" placeholder="Date of Birth *"/>
+        </md-input-container>
+        <div class="error" class="tc-red-600"
+          *ngIf="applicationForm.get('birthDate').invalid && applicationForm.get('birthDate').touched">
               Your Birth Date is required!
-            </div>
+        </div>
 
-            <pams-nationality-code-select [placeholder]="'Nationality'" [innerFormControl]="applicationForm.controls.nationalityCode"
-              fxFlex="calc(50%-25px)" class="pad-bottom">
-            </pams-nationality-code-select>
-            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('nationalityCode').invalid && applicationForm.get('nationalityCode').touched">
-              Please add your nationality!
-            </div>
+        <md-input-container fxFlex="calc(50%-25px)">
+          <input mdInput placeholder="Place of Birth" formControlName="placeOfBirth"/>
+        </md-input-container>
 
-            <pams-residency-code-select [placeholder]="'Residency *'" 
-            [innerFormControl]="applicationForm.controls.residencyCode"
-            fxFlex="calc(50%-25px)" class="pad-bottom">
-</pams-residency-code-select>
-             
-            <pams-race-code-select [placeholder]="'Race'" [innerFormControl]="applicationForm.controls.raceCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-race-code-select>
+        <md-input-container fxFlex="calc(50%-25px)">
+          <input mdInput placeholder="Age" formControlName="age"/>
+        </md-input-container>
 
+        <pams-nationality-code-select [placeholder]="'Nationality *'"
+                                          [innerFormControl]="applicationForm.controls.nationalityCode"
+                                          fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-nationality-code-select>
 
-            <pams-marital-code-select [placeholder]="'Marital'" [innerFormControl]="applicationForm.controls.maritalCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-marital-code-select>
+        <pams-residency-code-select [placeholder]="'Residency *'" 
+                                     [innerFormControl]="applicationForm.controls.residencyCode"
+                                     fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-residency-code-select>
 
-            <md-input-container fxFlex="calc(50%-25px)">
+        <pams-race-code-select [placeholder]="'Race'" [innerFormControl]="applicationForm.controls.raceCode"
+                                   fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-race-code-select>
+
+        <pams-marital-code-select [placeholder]="'Marital'"
+                                      [innerFormControl]="applicationForm.controls.maritalCode"
+                                      fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-marital-code-select>
+
+        <md-input-container fxFlex="calc(50%-25px)">
               <input mdInput type="date" placeholder="Passport Expired Date" formControlName="passExpDate" flex/>
-            </md-input-container>
+        </md-input-container>
 
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput placeholder="Mobile Number *" formControlName="mobile" />
-            </md-input-container>
-            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
-              Please add your mobile Number number!
-            </div>
-
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput placeholder="Phone Number" formControlName="phone" flex/>
-            </md-input-container>
-
-
-            <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput placeholder="Fax No" formControlName="fax" flex/>
-            </md-input-container>
-
-            <pams-ethnicity-code-select [placeholder]="'Ethnicity'" required md-maxlength="10" [innerFormControl]="applicationForm.controls.ethnicityCode"
-              fxFlex="calc(50%-25px)" class="pad-bottom">
-            </pams-ethnicity-code-select>
-
-            <pams-gender-code-select [placeholder]="'Gender'"   [innerFormControl]="applicationForm.controls.genderCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-gender-code-select>
-
-            <pams-religion-code-select [placeholder]="'Religion'" [innerFormControl]="applicationForm.controls.religionCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-religion-code-select>
+        <md-input-container fxFlex="calc(50%-25px)">
+        <input mdInput placeholder="Mobile Number *" formControlName="mobile"/>
+        </md-input-container>
+          <div class="error" class="tc-red-600"
+                 *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
+              Please add your mobile number!
           </div>
-     </td-expansion-panel>
-      </md-tab>
 
-      <md-tab label="addressDetail">
-        <template md-tab-label>Address Information</template>
+        <md-input-container fxFlex="calc(50%-25px)">
+            <input mdInput placeholder="Phone Number" formControlName="phone" flex/>
+        </md-input-container>
+
+        <md-input-container fxFlex="calc(50%-25px)">
+            <input mdInput placeholder="Fax No" formControlName="fax" flex/>
+        </md-input-container>
+
+        <pams-ethnicity-code-select [placeholder]="'Ethnicity'" required md-maxlength="10"
+                                        [innerFormControl]="applicationForm.controls.ethnicityCode"
+                                        fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-ethnicity-code-select>
+
+        <pams-gender-code-select [placeholder]="'Gender'"
+                                     [innerFormControl]="applicationForm.controls.genderCode"
+                                     fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-gender-code-select>
+
+        <pams-religion-code-select [placeholder]="'Religion'"
+                                       [innerFormControl]="applicationForm.controls.religionCode"
+                                       fxFlex="calc(50%-25px)" class="pad-bottom">
+        </pams-religion-code-select>
+        </div>
+
+        </td-expansion-panel>
+
         <td-expansion-panel label="Address Detail">
             <br>
             <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
-              <b>*Please fill in Official and Mailing Address.</b></div>
+                <b>*Please fill in Official and Mailing Address.</b>
+            </div>
             <br>
+            
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
+            Official Address           
+            </div>
             <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-           Official Address
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 1 *" formControlName="officialAddress1" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
+              official Address 1 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 2 *" formControlName="officialAddress2" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
+              official Address 2 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 3" formControlName="officialAddress3" flex/>
+              </md-input-container>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Postcode *" formControlName="officialPostcode" flex/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
+              official Postcode is required!
+             </div>
+  
+              <pams-state-code-select [placeholder]="'State'"
+                                      [innerFormControl]="applicationForm.controls.officialStateCode"
+                                      fxFlex="calc(50%-25px)"
+                                      class="pad-bottom">
+              </pams-state-code-select>
+  
+              <pams-country-code-select [placeholder]="'Country'"
+                                        [innerFormControl]="applicationForm.controls.officialCountryCode"
+                                        fxFlex="calc(50%-25px)"
+                                        class="pad-bottom">
+              </pams-country-code-select>
+            </div>
+  
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset"> 
+            Mailing Address
             </div>
 
+            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 1 *" formControlName="mailingAddress1"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
+              mailing Address 1 is required!
+             </div>
+
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 2 *" formControlName="mailingAddress2"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
+              mailing Address 2 is required!
+             </div>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Address 3" formControlName="mailingAddress3" flex/>
+              </md-input-container>
+  
+              <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Postcode *" formControlName="mailingPostcode"/>
+              </md-input-container>
+              <div class="error" class="tc-red-600"
+              *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
+              mailing Postcode is required!
+             </div>
+  
+              <pams-state-code-select [placeholder]="'State'"
+                                      [innerFormControl]="applicationForm.controls.mailingStateCode"
+                                      fxFlex="calc(50%-25px)"
+                                      class="pad-bottom">
+              </pams-state-code-select>
+  
+              <pams-country-code-select [placeholder]="'Country'"
+                                        [innerFormControl]="applicationForm.controls.mailingCountryCode"
+                                        fxFlex="calc(50%-25px)"
+                                        class="pad-bottom">
+              </pams-country-code-select>
+            </div>
+          </td-expansion-panel>
+
+          <td-expansion-panel label="Guardian Information">
+
+
+          </td-expansion-panel>
+      </md-tab>
+
+      <md-tab>
+          <template md-tab-label >Employment</template>
+
+           <td-expansion-panel label="Occupation Information">
+          <br>
+          <!-- <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
+              <b>*Please fill in Official and Mailing Address.</b>
+          </div> -->
+          <br>
+          
+          <!-- <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
+          Official Address           
+          </div> -->
           <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 1 *" formControlName="officialAddress1" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
-            official Address 1 is required!
-           </div>
 
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 2 *" formControlName="officialAddress2" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
-            official Address 2 is required!
-           </div>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 3" formControlName="officialAddress3" flex/>
-            </md-input-container>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Postcode *" formControlName="officialPostcode" flex/>
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
-            official Postcode is required!
-           </div>
-
-            <pams-state-code-select [placeholder]="'State'" [innerFormControl]="applicationForm.controls.officialStateCode" fxFlex="calc(50%-25px)"
+            <pams-employment-type-code-select [placeholder]="'Employment Type'"
+              [innerFormControl]="applicationForm.controls.employmentTypeCode"
+              fxFlex="calc(50%-25px)"
               class="pad-bottom">
-            </pams-state-code-select>
+            </pams-employment-type-code-select>
 
-            <pams-country-code-select [placeholder]="'Country'" [innerFormControl]="applicationForm.controls.officialCountryCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-country-code-select>
-          </div>
+            <pams-employment-sector-code-select [placeholder]="'Employment Sector'"
+            [innerFormControl]="applicationForm.controls.employmentSectorCode"
+            fxFlex="calc(50%-25px)"
+            class="pad-bottom">
+           </pams-employment-sector-code-select>
 
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-          Mailing Address
-          </div>
-          <!-- <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
-         <md-checkbox formControlName="copyAddressed" (click)="copyAddress(intakeApplication)">
-        Check if mailing address and official address is same</md-checkbox>
-         </div> -->
-
-          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 1 *" formControlName="mailingAddress1" />
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
-            mailing Address 1 is required!
-           </div>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 2 *" formControlName="mailingAddress2" />
-            </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
-            mailing Address 2 is required!
-           </div>
-
-            <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 3" formControlName="mailingAddress3" flex/>
+           <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Income per month *" formControlName="income" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Postcode *" formControlName="mailingPostcode" />
+              <input mdInput placeholder="Position *" formControlName="position" flex/>
             </md-input-container>
-            <div class="error" class="tc-red-600"
-            *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
-            mailing Postcode is required!
-           </div>
+
+            <!-- <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Employment Sector *" formControlName="position" flex/>
+            </md-input-container> -->
+                
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 1 *" formControlName="employerAddress1" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 2 *" formControlName="employerAddress2" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Address 3" formControlName="employerAddress3" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Postcode *" formControlName="employerPostcode" flex/>
+            </md-input-container>
             
 
-            <pams-state-code-select [placeholder]="'State'" [innerFormControl]="applicationForm.controls.mailingStateCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
+            <pams-state-code-select [placeholder]="'State'"
+                                    [innerFormControl]="applicationForm.controls.employerState"
+                                    fxFlex="calc(50%-25px)"
+                                    class="pad-bottom">
             </pams-state-code-select>
 
-            <pams-country-code-select [placeholder]="'Country'" [innerFormControl]="applicationForm.controls.mailingCountryCode" fxFlex="calc(50%-25px)"
-              class="pad-bottom">
-            </pams-country-code-select>
+            <md-input-container fxFlex="calc(50%-25px)">
+                <input mdInput placeholder="Phone No *" formControlName="employerNo" flex/>
+            </md-input-container>
 
           </div>
         </td-expansion-panel>
-      </md-tab>
 
-      <md-tab label="workingDetails">
-         <template md-tab-label>Working Experience</template>
+        <td-expansion-panel label="Working Experience">
+            <pams-employment-list [intakeApplication]="_intakeApplication" [employments]="employments$ | async"></pams-employment-list>
+        </td-expansion-panel>
+        </md-tab>
 
-           
-        <b><td-expansion-panel label="Working Experience" class="bgc-light-blue-400" class="accent" > 
-            <pams-employment-list [intakeApplication]="_intakeApplication" [employments]="employments$ | async" ></pams-employment-list>
-            </td-expansion-panel>
-        </b>
-       
-      </md-tab>
 
-      <md-tab label="academicDetails">
+        <md-tab>
           <template md-tab-label>Academic Qualification</template>
-
+         
           <td-expansion-panel label="Results">
             <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
             </pams-result-list>
           </td-expansion-panel>
 
-          <td-expansion-panel label="Proficiency in Language">
+          <!-- <td-expansion-panel label="Proficiency in Language">
             <pams-language-list [intakeApplication]="_intakeApplication" [languages]="languages$ | async">
             </pams-language-list>
-          </td-expansion-panel>
+
+          </td-expansion-panel> -->
       </md-tab>
 
-      <md-tab label="attachmentDetails">
+      <md-tab>
+        <template md-tab-label>Financial Support</template>
 
-          <template md-tab-label>Documents</template>
+        <td-expansion-panel label="Financial Support">
+          <p>
+          <md-card-subtitle>Please tick (/) where applicable</md-card-subtitle></p>
+          <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
+            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+              <md-checkbox formControlName="sponsored">
+                <div layout="column" flex>
+                  Sponsor by Employer / Government / Private. Please attach letter from Sponsor.
+                </div>
+              </md-checkbox>
+            </div>
 
-          <md-card-subtitle>Kindly attached all related documents with Certified True Copy</md-card-subtitle>
-          <md-card-subtitle>* Foreign applicant need to submit TOEFL/IELTS result together with the application form
-          </md-card-subtitle>
+            <br><br>
 
-          <td-expansion-panel label="Attachments">
-              <pams-attachment-list [intakeApplication]="_intakeApplication" [attachments]="attachments$ | async">
-              </pams-attachment-list>
-          </td-expansion-panel>
+            <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+              <md-checkbox formControlName="selfSponsored">
+                <div layout="column" flex>
+                  Self Supporting . Please enclose financial guarantee or bank statement.
+                </div>
+              </md-checkbox>
+            </div>
+          </div>
+        </td-expansion-panel>
+      </md-tab>
 
-          <td-expansion-panel label="Document Checklist">
-            
-            <md-card-subtitle>Please check all the uploaded attachments below</md-card-subtitle>
+      <md-tab>
+        <template md-tab-label>Documents</template>
+       <md-card-subtitle></md-card-subtitle>
+        <md-card-subtitle>Kindly attached all related documents with Certified True Copy</md-card-subtitle>
+        <md-card-subtitle>* Foreign applicant need to submit TOEFL/IELTS result together with the application form
+        </md-card-subtitle>
+
+        <td-expansion-panel label="Attachments"> 
+          <pams-attachment-list [intakeApplication]="_intakeApplication" [attachments]="attachments$ | async">
+          </pams-attachment-list>
+        </td-expansion-panel>
+
+        <td-expansion-panel label="Document Checklist"><p>
+            <md-card-subtitle><b>Please check all the uploaded attachments below</b></md-card-subtitle></p>
 
             <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
 
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="processingFeeAttached" aria-label="Processing fees Receipt">
-                  <div layout="column" flex> Processing fees Receipt</div>
-                </md-checkbox>
-              </div>
-            
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="languageResultAttached">
-                  <div layout="column" flex> Language Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="icCopyAttached">
-                  <div layout="column" flex>Copy of IC </div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="passportCopyAttached">
-                  <div layout="column" flex>Copy of Passport </div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                  <md-checkbox formControlName="muetResultAttached">
-                    <div layout="column" flex>
-                      MUET Result
-                    </div>
-                  </md-checkbox>
-                </div>  
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="toeflResultAttached">
-                  <div layout="row" flex>TOEFL (Foreign Only)</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="ieltsResultAttached">
-                  <div layout="row" flex> IELTS Result (Foreign Only)</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="spmResultAttached">
-                  <div layout="column" flex>SPM Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                  <md-checkbox formControlName="stamResultAttached">
-                    <div layout="column" flex>
-                      STAM Result
-                    </div>
-                  </md-checkbox>
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="processingFeeAttached">
+                <div layout="column" flex>
+                   Processing fees RM100 (Payment can be make at any Malayan Banking Berhad (Maybank) 
+                   using SLIP BILL PAYMENT (553038019271))
                 </div>
-  
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="stpmResultAttached">
-                  <div layout="column" flex>STPM Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="diplomaResultAttached">
-                  <div layout="column" flex> Diploma /Diploma Equivalent Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="bachelorResultAttached">
-                  <div layout="column" flex>Bachelor / Bachelor Equivalent Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="masterResultAttached">
-                  <div layout="column" flex>Master / Master Equivalent Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="phdResultAttached">
-                  <div layout="column" flex>Phd / Phd Equivalent Result</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="sponsorLetterAttached">
-                  <div layout="column" flex> Letter From Sponsor</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="bankStatementAttached">
-                  <div layout="column" flex>Bank Statement</div>
-                </md-checkbox>
-              </div>
-
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="refereeFormAttached">
-                  <div layout="column" flex> Referee Form</div>
-                </md-checkbox>
-              </div>
-
-            
-              <div layout="row" class="pad-bottom" flex>
-                <md-checkbox formControlName="researchProposalAttached">
-                  <div layout="column" flex> Research Proposal</div>
-                </md-checkbox>
-              </div>
-            
+              </md-checkbox>
             </div>
-            </td-expansion-panel>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="passportImageAttached">
+                <div layout="column" flex>Two passport sized photographs</div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="icCopyAttached">
+                <div layout="column" flex>Copy of IC </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="spmResultAttached">
+                <div layout="column" flex>
+                  SPM Result
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+                <md-checkbox formControlName="stamResultAttached">
+                  <div layout="column" flex>
+                    STAM Result
+                  </div>
+                </md-checkbox>
+              </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="stpmResultAttached">
+                <div layout="column" flex>
+                  STPM Result
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="diplomaResultAttached">
+                <div layout="column" flex>
+                  Diploma / Diploma Equivalent Result
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="bachelorResultAttached">
+                <div layout="column" flex>
+                  Bachelor / Bachelor Equivalent Result
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="masterResultAttached">
+                <div layout="column" flex>Master / Master Equivalent Result</div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="phdResultAttached">
+                <div layout="column" flex>Phd / Phd Equivalent Result</div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="employmentVerificationAttached">
+                <div layout="column" flex>Employment Verification</div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="sponsorLetterAttached">
+                <div layout="column" flex>
+                  Letter From Sponsor
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="bankStatementAttached">
+                <div layout="column" flex>
+                  Bank Statement
+                </div>
+              </md-checkbox>
+            </div>
+
+            <div layout="row" class="pad-bottom" flex>
+              <md-checkbox formControlName="apelCertificateAttached">
+                <div layout="column" flex>
+                  APEL Certificate
+                </div>
+              </md-checkbox>
+            </div>
+          </div>
+
+          </td-expansion-panel>
       </md-tab>
 
-      <md-tab label="submitApplication">
+      <md-tab>
         <template md-tab-label>Submit Application</template>
         <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
           <div class="push-top-sm"></div>
           <md-card-title>Declaration</md-card-title>
+
           <md-card-subtitle>Submit Application for Intake September 2017</md-card-subtitle>
-           <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+          <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
             <md-checkbox formControlName="declared">
               <div layout="column" flex>
-                I declare that the statements made in this application form are correct. I am fully aware that UMK reserves the right to
-                reject my application or terminate my candidature if the information given above is incorrect or incomplete.
+                I declare that the statements made in this application form are correct. I am fully aware that UMK
+                reserves the right to
+                reject my application or terminate my candidature if the information given above is incorrect or
+                incomplete.
               </div>
-              <div class="error" class="tc-red-600" *ngIf="applicationForm.get('declared').invalid && applicationForm.get('declared').touched">
+              <div class="error" class="tc-red-600"
+                   *ngIf="applicationForm.get('declared').invalid && applicationForm.get('declared').touched">
                 Please click declaration before submit the application!
               </div>
             </md-checkbox>
-          </div> 
+          </div>
           <md-card-subtitle>*Please fill all the required form before submit your application</md-card-subtitle>
 
           <div layout="row" layout-align="start center">
-            <!--{{applicationForm.valid}}-->
-            <button md-raised-button color="accent" (click)="submit(applicationForm.value, applicationForm.valid)" [disabled] = "!applicationForm.valid">
-                Submit
-              </button>
+            <button md-raised-button color="accent" (click)="submit(applicationForm.value, applicationForm.valid)"
+                    [disabled]="!applicationForm.valid">
+              Submit
+            </button>
           </div>
         </div>
         <div class="push-top-sm"></div>
       </md-tab>
+
     </md-tab-group>
-    <router-outlet></router-outlet>
+    <md-tab>
+      <div>
+      </div>
+    </md-tab>
   </form>
 </td-layout-card-over>

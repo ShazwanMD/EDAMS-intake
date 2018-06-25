@@ -1,30 +1,31 @@
-
 import { StudyCenterCode } from './../../../../shared/model/common/study-center-code.interface';
+import { EmploymentTypeCode } from './../../../../shared/model/common/employment-type-code.interface';
+import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
+import { ResidencyCode } from './../../../../shared/model/common/residency-code.interface';
 import { Attachment } from './../../../../shared/model/application/attachment.interface';
 import { Result } from '../../../../shared/model/application/result.interface';
+import { ReligionCode } from '../../../../shared/model/common/religion-code.interface';
+import { MaritalCode } from '../../../../shared/model/common/marital-code.interface';
 import { RaceCode } from '../../../../shared/model/common/race-code.interface';
 import { GenderCode } from '../../../../shared/model/common/gender-code.interface';
-import { CountryCode } from '../../../../shared/model/common/country-code.interface';
-import { StateCode } from '../../../../shared/model/common/state-code.interface';
-import { EthnicityCode } from '../../../../shared/model/common/ethnicity-code.interface';
-import { DisabilityCode } from '../../../../shared/model/common/disability-code.interface';
 import { Referee } from '../../../../shared/model/application/referee.interface';
 import { Employment } from '../../../../shared/model/application/employment.interface';
-import { Component, Input,OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input ,ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ApplicationModuleState } from '../../index';
 import { IntakeApplicationActions } from '../intake-application.action';
-import { Observable } from 'rxjs/Observable';
+import { Observable} from 'rxjs/Observable';
 import { IntakeApplication } from '../../../../shared/model/application/intake-application.interface';
 import { Language } from '../../../../shared/model/application/language.interface';
 import { NationalityCode } from '../../../../shared/model/common/nationality-code.interface';
-import { MaritalCode } from '../../../../shared/model/common/marital-code.interface';
-import { ReligionCode } from '../../../../shared/model/common/religion-code.interface';
-import { MdSnackBar, MdTabChangeEvent, MdDialogConfig, MdDialog, MdDialogRef } from '@angular/material';
+import { DisabilityCode } from '../../../../shared/model/common/disability-code.interface';
+import { EthnicityCode } from '../../../../shared/model/common/ethnicity-code.interface';
+import { CountryCode } from '../../../../shared/model/common/country-code.interface';
+import { StateCode } from '../../../../shared/model/common/state-code.interface';
+import { MdSnackBar, MdSnackBarRef, MdTabChangeEvent, SimpleSnackBar, MdDialogConfig, MdDialogRef, MdDialog } from '@angular/material';
 import { PromoCodeDialog } from "../dialog/promo-code.dialog";
-import { ResidencyCode } from '../../../../shared/model/common/residency-code.interface';
 
 @Component({
   selector: 'pams-mgseb-intake-application',
@@ -35,7 +36,9 @@ export class MgsebIntakeApplicationPanel implements OnInit {
 
   private editorDialogRef: MdDialogRef<PromoCodeDialog>; 
 
-  @Input() languages: Language[];
+  [x: string]: any;
+
+  @Input() intakeApplications: IntakeApplication;
 
   private TAB_INDEX: string[] = 'applicationModuleState.tabIndex'.split('.');
   private EMPLOYMENTS: string[] = 'applicationModuleState.employments'.split('.');
@@ -57,13 +60,12 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private vcf: ViewContainerRef,
-    private snackBar: MdSnackBar,
     private dialog: MdDialog,
     private actions: IntakeApplicationActions,
+    private snackBar: MdSnackBar,
     private store: Store<ApplicationModuleState>) {
 
     this.attachments$ = this.store.select(...this.ATTACHMENTS);
-
     this.employments$ = this.store.select(...this.EMPLOYMENTS);
     this.languages$ = this.store.select(...this.LANGUAGES);
     this.referees$ = this.store.select(...this.REFEREES);
@@ -79,25 +81,38 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     this._intakeApplication = value;
   }
 
-
   ngOnInit(): void {
     this.applicationForm = this.formBuilder.group({
       id: [undefined],
       referenceNo: [''],
-      researchTitle: [''],
+      researchTitle: ['', Validators.required],
+      promoCode: [''],
       rank: [0],
       merit: [0],
-
-      name:  ['', Validators.required],
+      name: ['', Validators.required],
       credentialNo: ['', Validators.required],
       birthDate: [undefined, Validators.required],
-      passExpDate: [''],
+      placeOfBirth: [''],
       mobile: ['', Validators.required],
       okuNo: [''],
-      email:  ['', Validators.required],
+      email:['', Validators.required],
       phone: [''],
       fax: [''],
       age: [0],
+      passExpDate: [''],
+      studyCenterCode: [<StudyCenterCode>{}, Validators.required],
+
+      income: [''],
+      position: [''],
+      employmentSectorCode: [<EmploymentSectorCode>{}, Validators.required],
+      employmentTypeCode: [<EmploymentTypeCode>{}, Validators.required],
+      employerAddress1 : [''],
+      employerAddress2 : [''],
+      employerAddress3 : [''],
+      employerPostcode : [''],
+      employerState : [<StateCode>{}, Validators.required],
+      employerNo : [''],
+
       mailingAddress1: ['', Validators.required],
       mailingAddress2: ['', Validators.required],
       mailingAddress3: [''],
@@ -106,6 +121,22 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       officialAddress2: ['', Validators.required],
       officialAddress3: [''],
       officialPostcode: ['', Validators.required],
+      genderCode: [<GenderCode>{}, Validators.required],
+      maritalCode: [<MaritalCode>{}, Validators.required],
+      disabilityCode: [<DisabilityCode>{}, Validators.required],
+      ethnicityCode: [<EthnicityCode>{}, Validators.required],
+      raceCode: [<RaceCode>{}, Validators.required],
+      religionCode: [<ReligionCode>{}, Validators.required],
+      nationalityCode: [<NationalityCode>{}, Validators.required],
+      residencyCode: [<ResidencyCode>{}, Validators.required],
+      mailingStateCode: [<StateCode>{}, Validators.required],
+      mailingCountryCode: [<CountryCode>{}, Validators.required],
+      officialStateCode: [<StateCode>{}, Validators.required],
+      officialCountryCode: [<CountryCode>{}, Validators.required],
+      verified: [true],
+      sponsored: [true],
+      selfSponsored: [true],
+      paid: [true],
 
       spmResultAttached: [true],
       stpmResultAttached: [true],
@@ -125,22 +156,6 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       sponsorLetterAttached: [true],
       icCopyAttached: [true],
       passportCopyAttached: [true],
-      
-      genderCode: [<GenderCode>{}, Validators.required],
-      maritalCode: [<MaritalCode>{}, Validators.required],
-      raceCode: [<RaceCode>{}, Validators.required],
-      ethnicityCode: [<EthnicityCode>{}, Validators.required],
-      disabilityCode: [<DisabilityCode>{}, Validators.required],
-      religionCode: [<ReligionCode>{}, Validators.required],
-      nationalityCode: [<NationalityCode>{}, Validators.required],
-      residencyCode: [<ResidencyCode>{}, Validators.required],
-      mailingStateCode: [<StateCode>{}, Validators.required],
-      mailingCountryCode: [<CountryCode>{}, Validators.required ],
-      officialStateCode: [<StateCode>{}, Validators.required],
-      officialCountryCode: [<CountryCode>{}, Validators.required],
-      verified: [true],
-      sponsored: [true],
-      selfSponsored: [true],
       processingReceipt: [true],
       foreignResult: [true],
       educationResult: [true],
@@ -150,12 +165,12 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       bankStatement: [true],
       refereeForm: [true],
       declared: [true, Validators.requiredTrue],
-      copyAddressed: [true],
-      studyModeSelection:['',Validators.required],
-      programSelection:['', Validators.required],
-      studyCenterCode: [<StudyCenterCode>{},Validators.required],
+      passportImageAttached:[true],
+      apelCertificateAttached:[true],
+      employmentVerificationAttached:[true],
+      copyAddress: [false],
     });
-    this.applicationForm.patchValue(this._intakeApplication);    
+    this.applicationForm.patchValue(this._intakeApplication);
   }
 
   onTabChange(event: MdTabChangeEvent): void {
@@ -164,34 +179,43 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     this.store.dispatch(this.actions.updateIntakeApplication(this.applicationForm.value));
   }
 
-  promoCodeDialog(intakeApplication : IntakeApplication): void {
-    console.log('promoCodeDialog');
-   let config: MdDialogConfig = new MdDialogConfig();
-    config.viewContainerRef = this.vcf;
-    config.role = 'dialog';
-    config.width = '70%';
-   config.height = '65%';
-    config.position = {top: '0px'};
-   this.editorDialogRef = this.dialog.open(PromoCodeDialog, config);
-   this.editorDialogRef.componentInstance.intakeApplications = intakeApplication;
-    this.editorDialogRef.afterClosed().subscribe((res) => {
-      console.log('close dialog');
-   });
-  }
-
   submit(application: IntakeApplication, isValid: boolean) {
     if (confirm('Confirm to Submit this application?')) {
       this.store.dispatch(this.actions.submitIntakeApplication(application));
-      let snackBarRef = this.snackBar.open('Your application has been successfully submitted','', {duration: 3000,});
+      let snackBarRef = this.snackBar.open('Your application has been successfully submitted!','', {duration: 3000,});
       snackBarRef.afterDismissed().subscribe(() => {
         this.goBack();
       });
       
-    
     } else {
       return false;
     }
   }
+
+   promoCodeDialog(intakeApplication : IntakeApplication): void {
+     console.log('promoCodeDialog');
+    let config: MdDialogConfig = new MdDialogConfig();
+     config.viewContainerRef = this.vcf;
+     config.role = 'dialog';
+     config.width = '70%';
+    config.height = '65%';
+     config.position = {top: '0px'};
+    this.editorDialogRef = this.dialog.open(PromoCodeDialog, config);
+    this.editorDialogRef.componentInstance.intakeApplications = intakeApplication;
+     this.editorDialogRef.afterClosed().subscribe((res) => {
+       console.log('close dialog');
+    });
+   }
+
+  // copyAddress(application: IntakeApplication): void {
+  //   this.store.dispatch(this.actions.updateIntakeApplication(this.applicationForm.value));
+  //   let snackBarRef: MdSnackBarRef<SimpleSnackBar> = this.snackBar.open('Confirm to Copy this address?', 'Ok');
+  //   snackBarRef.afterDismissed().subscribe(() => {
+  //     if (!application.id) this.store.dispatch(this.actions.updateIntakeApplication(application));
+  //     else this.store.dispatch(this.actions.copyAddressApplication(application));
+  //     this.goBack();
+  //   });
+  // }
 
   // copyAddress(application: IntakeApplication) {
   //   // this.store.dispatch(this.actions.updateIntakeApplication(this.applicationForm.value));
@@ -203,20 +227,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
   //   }
   // }
 
-
-  // copyAddress(application: IntakeApplication) {
-  //   // this.store.dispatch(this.actions.updateIntakeApplication(this.applicationForm.value));
-  //   let snackBarRef = this.snackBar.open('Confirm to Copy this address?', 'Ok');
-  //   snackBarRef.afterDismissed().subscribe(() => {
-  //     if (!application.id) this.store.dispatch(this.actions.updateIntakeApplication(application));
-  //     else
-  //        this.store.dispatch(this.actions.copyAddressApplication(application));  
-  //     // this.goBack();
-  //   });
-  // }
-  
   goBack(): void {
     this.router.navigate(['/secure']);
   }
 }
-
