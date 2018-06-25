@@ -223,9 +223,66 @@
           </td-expansion-panel>
 
           <td-expansion-panel label="Guardian Information">
+      
+              <md-divider></md-divider>
 
+              <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
 
-          </td-expansion-panel>
+                  <md-input-container fxFlex="calc(100%-25px)">
+                      <input mdInput placeholder="Name" formControlName="name"/>
+                      </md-input-container>
+
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 1 *" formControlName="mailingAddress1"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
+                  mailing Address 1 is required!
+                 </div>
+    
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 2 *" formControlName="mailingAddress2"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
+                  mailing Address 2 is required!
+                 </div>
+      
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 3" formControlName="mailingAddress3" flex/>
+                  </md-input-container>
+      
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Postcode *" formControlName="mailingPostcode"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
+                  mailing Postcode is required!
+                 </div>
+      
+                  <pams-state-code-select [placeholder]="'State'"
+                                          [innerFormControl]="applicationForm.controls.mailingStateCode"
+                                          fxFlex="calc(50%-25px)"
+                                          class="pad-bottom">
+                  </pams-state-code-select>
+      
+                  <pams-country-code-select [placeholder]="'Country'"
+                                            [innerFormControl]="applicationForm.controls.mailingCountryCode"
+                                            fxFlex="calc(50%-25px)"
+                                            class="pad-bottom">
+                  </pams-country-code-select>
+
+                  <md-input-container fxFlex="calc(50%-25px)">
+                      <input mdInput placeholder="Mobile Number *" formControlName="mobile"/>
+                      </md-input-container>
+                        <div class="error" class="tc-red-600"
+                               *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
+                            Please add your mobile number!
+                        </div>
+
+                      
+                </div>
+      </td-expansion-panel>
       </md-tab>
 
       <md-tab>

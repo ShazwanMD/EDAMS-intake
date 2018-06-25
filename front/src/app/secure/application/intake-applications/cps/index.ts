@@ -1,3 +1,4 @@
+
 import { PhdResultEditorDialog } from './../dialog/phd-result-editor.dialog';
 import { PhdResultComponent } from './../component/phd-result.component';
 import { MasterResultComponent } from './../component/master-result.component';
@@ -38,6 +39,7 @@ import {LanguageListComponent} from '../component/language-list.component';
 import {AttachmentCreatorDialog} from '../dialog/attachment-creator.dialog';
 import {AttachmentListComponent} from '../component/attachment-list.component';
 import {SpmResultComponent} from '../component/spm-result.component';
+import { GuardiansTypeSelectComponent } from '../component/guardian-type-select.component';
 
 @NgModule({
   imports: [
@@ -70,6 +72,7 @@ import {SpmResultComponent} from '../component/spm-result.component';
     PhdResultComponent,
     BachelorResultComponent,
     ResultTypeSelectComponent,
+    GuardiansTypeSelectComponent,
 
     // dialogs
     EmploymentEditorDialog,
@@ -104,6 +107,7 @@ import {SpmResultComponent} from '../component/spm-result.component';
     DiplomaResultComponent,
     MasterResultComponent,
     CpsIntakeApplicationPanel,
+    GuardiansTypeSelectComponent,
   ],
 
   entryComponents: [
