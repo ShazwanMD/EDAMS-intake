@@ -1,5 +1,7 @@
 package my.edu.umk.pams.intake.application.model;
 
+import my.edu.umk.pams.intake.common.model.InStateCode;
+import my.edu.umk.pams.intake.common.model.InStateCodeImpl;
 import my.edu.umk.pams.intake.core.InMetadata;
 
 import javax.persistence.*;
@@ -20,18 +22,32 @@ public class InGuardianImpl implements InGuardian {
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @NotNull
     @Column(name = "IDENTITY_NO", nullable = false)
     private String identityNo;
 
     @Column(name = "SALARY", nullable = false)
     private BigDecimal salary;
+    
+    @Column(name = "GRDN_ADDRS1", nullable = false)
+    private String guardianAddress1;
+    
+    @Column(name = "GRDN_ADDRS2", nullable = false)
+    private String guardianAddress2;
+    
+    @Column(name = "GRDN_ADDRS3", nullable = false)
+    private String guardianAddress3;
 
+    @Column(name = "GRDN_POSTCODE", nullable = false)
+    private String guardianPostcode;
+    
     @NotNull
     @Column(name = "GUARDIAN_TYPE")
     private InGuardianType type;
     
-
+    @ManyToOne(targetEntity = InStateCodeImpl.class)
+	@JoinColumn(name = "GRDN_STATE_CODE_ID")
+	private InStateCode guardianState;
+    
     @ManyToOne(targetEntity = InIntakeApplicationImpl.class)
     @JoinColumn(name = "APPLICATION_ID")
     private InIntakeApplication application;
@@ -113,6 +129,62 @@ public class InGuardianImpl implements InGuardian {
         return InGuardian.class;
     }
 
+	@Override
+	public String getGuardianAddress1() {
+		return guardianAddress1;
+	}
+
+	@Override
+	public void setGuardianAddress1(String guardianAddress1) {
+		 this.guardianAddress1 = guardianAddress1;
+		
+	}
+
+	@Override
+	public String getGuardianAddress2() {
+		return guardianAddress2;
+	}
+
+	@Override
+	public void setGuardianAddress2(String guardianAddress2) {
+		 this.guardianAddress2 = guardianAddress2;
+		
+	}
+
+	@Override
+	public String getGuardianAddress3() {
+		return guardianAddress3;
+	}
+
+	@Override
+	public void setGuardianAddress3(String guardianAddress3) {
+		this.guardianAddress3 = guardianAddress3;
+		
+	}
+
+	@Override
+	public String getGuardianPostcode() {
+		return guardianPostcode;
+	}
+
+	@Override
+	public void setGuardianPostcode(String guardianPostcode) {
+		this.guardianPostcode = guardianPostcode;
+		
+	}
+
+	@Override
+	public InStateCode getGuardianState() {
+		return guardianState;
+	}
+
+	@Override
+	public void setGuardianState(InStateCode guardianState) {
+		this.guardianState = guardianState;
+
+	}
+
+	
    
 	
 }

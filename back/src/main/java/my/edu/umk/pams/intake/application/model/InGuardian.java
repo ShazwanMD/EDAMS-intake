@@ -1,33 +1,50 @@
 package my.edu.umk.pams.intake.application.model;
 
+import my.edu.umk.pams.intake.common.model.InStateCode;
 import my.edu.umk.pams.intake.core.InMetaObject;
 
 import java.math.BigDecimal;
 
 public interface InGuardian extends InMetaObject {
 
-    String getIdentityNo();
+	String getIdentityNo();
 
-    void setIdentityNo(String noIc);
+	void setIdentityNo(String noIc);
 
-    String getName();
+	String getName();
 
-    void setName(String name);
+	void setName(String name);
 
-    BigDecimal getSalary();
+	BigDecimal getSalary();
 
-    void setSalary(BigDecimal salary);
+	void setSalary(BigDecimal salary);
 
-    InGuardianType getType();
+	InGuardianType getType();
 
-    void setType(InGuardianType type);
+	void setType(InGuardianType type);
 
-    // TODO: occupation
- 
-    // TODO: commitment
+	String getGuardianAddress1();
 
-    InIntakeApplication getApplication();
+	void setGuardianAddress1(String guardianAddress1);
 
-    void setApplication(InIntakeApplication application);
+	String getGuardianAddress2();
+
+	void setGuardianAddress2(String guardianAddress2);
+
+	String getGuardianAddress3();
+
+	void setGuardianAddress3(String guardianAddress3);
+
+	String getGuardianPostcode();
+
+	void setGuardianPostcode(String guardianPostcode);
+
+	InStateCode getGuardianState();
+
+	void setGuardianState(InStateCode guardianState);
+
+	InIntakeApplication getApplication();
+
+	void setApplication(InIntakeApplication application);
 
 }
