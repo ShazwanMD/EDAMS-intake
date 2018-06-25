@@ -269,9 +269,9 @@
                         </goals>
                         <configuration>
                             <driver>org.postgresql.Driver</driver>
-                            <url>jdbc:postgresql://localhost:5432/intake</url>
-                            <username>intake</username>
-                            <password>intake</password>
+                            <url>jdbc:postgresql://localhost:5432/edams</url>
+                            <username>edams</username>
+                            <password>edams</password>
 
                             <autocommit>true</autocommit>
                             <srcFiles>
