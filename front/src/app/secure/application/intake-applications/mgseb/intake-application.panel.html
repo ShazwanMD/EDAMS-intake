@@ -268,19 +268,19 @@
             </md-input-container> -->
                 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 1 *" formControlName="employerAddress1" flex/>
+              <input mdInput placeholder="Company Address 1" formControlName="employerAddress1" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 2 *" formControlName="employerAddress2" flex/>
+              <input mdInput placeholder="Company Address 2" formControlName="employerAddress2" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Address 3" formControlName="employerAddress3" flex/>
+              <input mdInput placeholder="Company Address 3" formControlName="employerAddress3" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Postcode *" formControlName="employerPostcode" flex/>
+              <input mdInput placeholder="Postcode" formControlName="employerPostcode" flex/>
             </md-input-container>
             
 
@@ -476,7 +476,7 @@
           <div class="push-top-sm"></div>
           <md-card-title>Declaration</md-card-title>
 
-          <md-card-subtitle>Submit Application for Intake September 2017</md-card-subtitle>
+          <md-card-subtitle>Submit Application for Intake {{intakeApplication?.intake?.intakeSession?.year}}</md-card-subtitle>
           <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
             <md-checkbox formControlName="declared">
               <div layout="column" flex>
