@@ -57,8 +57,8 @@ export interface IntakeApplication extends MetaObject {
   employerNo : string;
 
   guardianName : string;
-  identityNo : string;
-  phoneNo : string;
+  guardianIdentityNo : string;
+  guardianPhoneNo : string;
   guardianAddress1 : string;
   guardianAddress2 : string;
   guardianAddress3 : string;

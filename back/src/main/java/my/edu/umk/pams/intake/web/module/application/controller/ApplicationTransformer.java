@@ -163,7 +163,7 @@ public class ApplicationTransformer {
 		
 		// guardian
 		vo.setGuardianName(e.getGuardianName());
-	//	vo.setGuardianIdentityNo(e.getGuardianIdentityNo());
+		vo.setGuardianIdentityNo(e.getGuardianIdentityNo());
 		vo.setGuardianPhoneNo(e.getGuardianPhoneNo());
 		vo.setGuardianAddress1(e.getGuardianAddress1());
 		vo.setGuardianAddress2(e.getGuardianAddress2());

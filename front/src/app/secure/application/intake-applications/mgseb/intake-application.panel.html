@@ -236,6 +236,10 @@
                       </md-input-container> 
 
                   <md-input-container fxFlex="calc(100%-25px)">
+                     <input mdInput placeholder="NRIC" formControlName="guardianIdentityNo"/>
+                  </md-input-container> 
+
+                  <md-input-container fxFlex="calc(100%-25px)">
                     <input mdInput placeholder="Address 1 *" formControlName="guardianAddress1"/>
                   </md-input-container>
                   <div class="error" class="tc-red-600"
@@ -283,12 +287,12 @@
                   </pams-guardian-type-select>     
                   
                   <md-input-container fxFlex="calc(50%-25px)">
-                      <input mdInput placeholder="Mobile Number *" formControlName="phoneNo"/>
+                      <input mdInput placeholder="Mobile Number *" formControlName="guardianPhoneNo"/>
                       </md-input-container>
-                        <div class="error" class="tc-red-600"
-                               *ngIf="applicationForm.get('phoneNo').invalid && applicationForm.get('phoneNo').touched">
+                        <!-- <div class="error" class="tc-red-600"
+                               *ngIf="applicationForm.get('guardianPhoneNo').invalid && applicationForm.get('guardianPhoneNo').touched">
                             Please add your mobile number!
-                        </div>
+                        </div> -->
                       
                 </div>
 

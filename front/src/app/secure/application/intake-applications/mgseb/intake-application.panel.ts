@@ -116,8 +116,8 @@ export class MgsebIntakeApplicationPanel implements OnInit {
 
 
       guardianName : [''],
-      identityNo : [''],
-      phoneNo : [''],
+      guardianIdentityNo : [''],
+      guardianPhoneNo : [''],
       guardianAddress1 : [''],
       guardianAddress2 : [''],
       guardianAddress3 : [''],
