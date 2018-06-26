@@ -80,6 +80,20 @@ public class IntakeApplication extends MetaObject {
 	private StateCode employerState;
 	private EmploymentSectorCode employmentSectorCode;
 	private EmploymentTypeCode employmentTypeCode;
+	
+	//guardian	
+	private String guardianName;
+	private String identityNo;
+	private String phoneNo;
+	private String guardianAddress1;
+	private String guardianAddress2;
+	private String guardianAddress3;
+	private String guardianPostcode;
+	private StateCode guardianState;
+	private CountryCode guardianCountryCode;
+	private GuardianType guardianType;
+	
+	
 
 	// address
 	private String mailingAddress1;
@@ -666,6 +680,8 @@ public class IntakeApplication extends MetaObject {
 		this.employmentVerificationAttached = employmentVerificationAttached;
 	}
 	
+	
+
 	public Boolean getPassportImageAttached() {
 		return passportImageAttached;
 	}
@@ -754,6 +770,86 @@ public class IntakeApplication extends MetaObject {
 		this.employmentTypeCode = employmentTypeCode;
 	}
 	
+	public String getGuardianName() {
+		return guardianName;
+	}
+
+	public void setGuardianName(String guardianName) {
+		this.guardianName= guardianName;
+	}
+	
+	public String getIdentityNo() {
+		return identityNo;
+	}
+
+	public void setIdentityNo(String identityNo) {
+		this.identityNo = identityNo;
+	}
+	
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo= phoneNo;
+	}
+	
+	public String getGuardianAddress1() {
+		return guardianAddress1;
+	}
+
+	public void setGuardianAddress1(String guardianAddress1) {
+		this.guardianAddress1 = guardianAddress1;
+	}
+	
+	public String getGuardianAddress2() {
+		return guardianAddress2;
+	}
+
+	public void setGuardianAddress2(String guardianAddress2) {
+		this.guardianAddress2 = guardianAddress2;
+	}
+	
+	public String getGuardianAddress3() {
+		return guardianAddress3;
+	}
+
+	public void setGuardianAddress3(String guardianAddress3) {
+		this.guardianAddress3 = guardianAddress3;
+	}
+	
+	public String getGuardianPostcode() {
+		return guardianPostcode;
+	}
+
+	public void setGuardianPostcode(String guardianPostcode) {
+		this.guardianPostcode = guardianPostcode;
+	}
+	
+	public StateCode getGuardianState() {
+		return guardianState;
+	}
+
+	public void setGuardianState(StateCode guardianState) {
+		this.guardianState = guardianState;
+	}
+	
+	public CountryCode getGuardianCountryCode() {
+		return guardianCountryCode;
+	}
+
+	public void setGuardianCountryCode(CountryCode guardianCountryCode) {
+		this.guardianCountryCode = guardianCountryCode;
+	}
+	
+	public GuardianType getGuardianType() {
+		return guardianType;
+	}
+
+	public void setGuardianType(GuardianType guardianType) {
+		this.guardianType = guardianType;
+	}
+	
 	@JsonCreator
 	public static IntakeApplication create(String jsonString) {
 		IntakeApplication o = null;
@@ -765,4 +861,6 @@ public class IntakeApplication extends MetaObject {
 		}
 		return o;
 	}
+
+	
 }

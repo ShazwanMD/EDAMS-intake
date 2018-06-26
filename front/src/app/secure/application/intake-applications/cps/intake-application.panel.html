@@ -272,6 +272,12 @@
                                             class="pad-bottom">
                   </pams-country-code-select>
 
+                  <pams-guardian-type-select [placeholder]="'Guardian Type'"
+                        [innerFormControl]="applicationForm.controls.guardianType"
+                        fxFlex="calc(50%-25px)"
+                        class="pad-bottom">
+                  </pams-guardian-type-select>     
+                  
                   <md-input-container fxFlex="calc(50%-25px)">
                       <input mdInput placeholder="Mobile Number *" formControlName="mobile"/>
                       </md-input-container>
@@ -279,7 +285,6 @@
                                *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
                             Please add your mobile number!
                         </div>
-
                       
                 </div>
       </td-expansion-panel>

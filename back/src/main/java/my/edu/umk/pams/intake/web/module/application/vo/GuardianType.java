@@ -1,7 +1,6 @@
 package my.edu.umk.pams.intake.web.module.application.vo;
 
 public enum GuardianType {
-
 	MOTHER, 
 	FATHER, 
 	GUARDIAN;

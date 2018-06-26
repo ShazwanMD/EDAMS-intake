@@ -19,6 +19,7 @@ import {GenderCode} from '../common/gender-code.interface';
 import {PromoCode} from '../common/promo-code.interface';
 import {BidStatus} from './bid-status.enum';
 import {BidType} from './bid-type.enum';
+import { GuardianType } from './guardian-type.enum';
 
 export interface IntakeApplication extends MetaObject {
     id: number;
@@ -54,6 +55,17 @@ export interface IntakeApplication extends MetaObject {
   employerPostcode : string;
   employerState : StateCode;
   employerNo : string;
+
+  guardianName : string;
+  identityNo : string;
+  phoneNo : string;
+  guardianAddress1 : string;
+  guardianAddress2 : string;
+  guardianAddress3 : string;
+  guardianPostcode : string;
+  guardianState : StateCode;
+  guardianCountryCode: CountryCode;
+  guardianType: GuardianType;
 
   mailingAddress1: string;
   mailingAddress2: string;

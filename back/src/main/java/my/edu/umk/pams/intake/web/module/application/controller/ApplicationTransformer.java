@@ -101,11 +101,23 @@ public class ApplicationTransformer {
 		vo.setEmployerPostcode(e.getEmployerPostcode());
 		vo.setEmployerState(commonTransformer.toStateCodeVo(e.getEmployerState()));
 		vo.setEmploymentSectorCode(commonTransformer.toEmploymentSectorCodeVo(e.getEmploymentSectorCode()));
-		vo.setEmploymentTypeCode(commonTransformer.toEmploymentTypeCodeVo(e.getEmploymentTypeCode()));	
-		
+		vo.setEmploymentTypeCode(commonTransformer.toEmploymentTypeCodeVo(e.getEmploymentTypeCode()));			
 		vo.setBidType(BidType.get(e.getBidType().ordinal()));
 		vo.setBidStatus(InCandidateStatus.get(e.getBidStatus().ordinal()));
-				
+		
+		
+//		vo.setGuardianName(e.getGuardianName());
+//		vo.setIdentityNo(e.getIdentityNo());
+//		vo.setPhoneNo(e.getPhoneNo());
+//		vo.setGuardianAddress1(e.getGuardianAddress1());
+//		vo.setGuardianAddress2(e.getGuardianAddress2());
+//		vo.setGuardianAddress3(e.getGuardianAddress3());
+//		vo.setGuardianPostcode(e.getGuardianPostcode());
+//		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
+//		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
+	//	vo.setGuardianType(GuardianType.get(e.getGuardianType().ordinal()));
+		
+		
 		vo.setGenderCode(commonTransformer.toGenderCodeVo(e.getGenderCode()));
 		vo.setRaceCode(commonTransformer.toRaceCodeVo(e.getRaceCode()));
 		vo.setReligionCode(commonTransformer.toReligionCodeVo(e.getReligionCode()));
@@ -148,6 +160,18 @@ public class ApplicationTransformer {
 		vo.setSupervisorSelection(policyTransformer.toSupervisorOfferingVo(e.getSupervisorSelection()));
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
 		vo.setIntake(policyTransformer.toIntakeVo(e.getIntake()));
+		
+		// guardian
+//		vo.setGuardianName(e.getGuardianName());
+//		vo.setIdentityNo(e.getIdentityNo());
+//		vo.setPhoneNo(e.getPhoneNo());
+//		vo.setGuardianAddress1(e.getGuardianAddress1());
+//		vo.setGuardianAddress2(e.getGuardianAddress2());
+//		vo.setGuardianAddress3(e.getGuardianAddress3());
+//		vo.setGuardianPostcode(e.getGuardianPostcode());
+//		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
+//		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
+//		vo.setGuardianType(GuardianType.get(e.getGuardianType().ordinal()));		
 		
 		// address
 		vo.setMailingAddress1(e.getMailingAddress1());

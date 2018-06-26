@@ -250,6 +250,25 @@ public class ApplicationController {
 		application.setPaid(vo.getProcessingFeeAttached());
 		application.setDeclared(vo.getDeclared());
 		application.setPlaceOfBirth(vo.getPlaceOfBirth());
+		
+//		application.setGuardianName(vo.getGuardianName());
+//		application.setIdentityNo(vo.getIdentityNo());
+//		application.setPhoneNo(vo.getPhoneNo());
+//		application.setGuardianAddress1(vo.getGuardianAddress1());
+//		application.setGuardianAddress2(vo.getGuardianAddress2());
+//		application.setGuardianAddress3(vo.getGuardianAddress3());
+//		application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
+//		
+//		
+//		application.setGuardianPostcode(vo.getGuardianPostcode());
+//		if (null != vo.getGuardianState())
+//			application.setGuardianState(commonService.findStateCodeById(vo.getGuardianState().getId()));
+//		if (null != vo.getGuardianCountryCode())
+//			application.setGuardianCountryCode(commonService.findCountryCodeById(vo.getGuardianCountryCode().getId()));
+//		
+		
+		
+		
 
 		// employment
 		application.setPosition(vo.getPosition());
@@ -258,6 +277,7 @@ public class ApplicationController {
 		application.setEmployerAddress2(vo.getEmployerAddress2());
 		application.setEmployerAddress3(vo.getEmployerAddress3());
 		application.setEmployerNo(vo.getEmployerNo());
+		
 		application.setEmployerPostcode(vo.getEmployerPostcode());
 		if (null != vo.getEmployerState())
 			application.setEmployerState(commonService.findStateCodeById(vo.getEmployerState().getId()));
