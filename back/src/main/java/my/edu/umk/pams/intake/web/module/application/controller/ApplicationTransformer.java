@@ -162,16 +162,16 @@ public class ApplicationTransformer {
 		vo.setIntake(policyTransformer.toIntakeVo(e.getIntake()));
 		
 		// guardian
-//		vo.setGuardianName(e.getGuardianName());
-//		vo.setIdentityNo(e.getIdentityNo());
-//		vo.setPhoneNo(e.getPhoneNo());
-//		vo.setGuardianAddress1(e.getGuardianAddress1());
-//		vo.setGuardianAddress2(e.getGuardianAddress2());
-//		vo.setGuardianAddress3(e.getGuardianAddress3());
-//		vo.setGuardianPostcode(e.getGuardianPostcode());
-//		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
-//		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
-//		vo.setGuardianType(GuardianType.get(e.getGuardianType().ordinal()));		
+		vo.setGuardianName(e.getGuardianName());
+	//	vo.setGuardianIdentityNo(e.getGuardianIdentityNo());
+		vo.setGuardianPhoneNo(e.getGuardianPhoneNo());
+		vo.setGuardianAddress1(e.getGuardianAddress1());
+		vo.setGuardianAddress2(e.getGuardianAddress2());
+		vo.setGuardianAddress3(e.getGuardianAddress3());
+		vo.setGuardianPostcode(e.getGuardianPostcode());
+		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
+		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
+		vo.setGuardianType(GuardianType.get(e.getGuardianType().ordinal()));		
 		
 		// address
 		vo.setMailingAddress1(e.getMailingAddress1());

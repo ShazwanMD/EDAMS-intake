@@ -83,8 +83,8 @@ public class IntakeApplication extends MetaObject {
 	
 	//guardian	
 	private String guardianName;
-	private String identityNo;
-	private String phoneNo;
+	private String guardianIdentityNo;
+	private String guardianPhoneNo;
 	private String guardianAddress1;
 	private String guardianAddress2;
 	private String guardianAddress3;
@@ -778,20 +778,20 @@ public class IntakeApplication extends MetaObject {
 		this.guardianName= guardianName;
 	}
 	
-	public String getIdentityNo() {
-		return identityNo;
+	public String getGuardianIdentityNo() {
+		return guardianIdentityNo;
 	}
 
-	public void setIdentityNo(String identityNo) {
-		this.identityNo = identityNo;
+	public void setGuardianIdentityNo(String guardianidentityNo) {
+		this.guardianIdentityNo = guardianidentityNo;
 	}
 	
-	public String getPhoneNo() {
-		return phoneNo;
+	public String getGuardianPhoneNo() {
+		return guardianPhoneNo;
 	}
 
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo= phoneNo;
+	public void setGuardianPhoneNo(String guardianPhoneNo) {
+		this.guardianPhoneNo= guardianPhoneNo;
 	}
 	
 	public String getGuardianAddress1() {

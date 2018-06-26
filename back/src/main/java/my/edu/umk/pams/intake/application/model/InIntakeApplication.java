@@ -408,13 +408,13 @@ public interface InIntakeApplication extends InMetaObject {
     
     void setGuardianName(String guardianName); 
     
-    String getIdentityNo();
+    String getGuardianIdentityNo();
     
-    void setIdentityNo(String identityNo); 
+    void setGuardianIdentityNo(String guardianIdentityNo); 
     
-    String getPhoneNo();
+    String getGuardianPhoneNo();
     
-    void setPhoneNo(String phoneNo); 
+    void setGuardianPhoneNo(String guardianphoneNo); 
     
 	String getGuardianAddress1();
 	    

@@ -336,11 +336,11 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@Column(name = "GUARDIAN_NAME")
 	private String guardianName;
 	
-	@Column(name = "IDENTITY_NO" )
-	private String identityNo;
+	@Column(name = "GUARDIAN_IDENTITY_NO" )
+	private String guardianIdentityNo;
 	
-	@Column(name = "PHONE_NO")
-	private String phoneNo;
+	@Column(name = "GUARDIAN_PHONE_NO")
+	private String guardianPhoneNo;
 	
 	@Column(name = "GUARDIAN_ADDRESS1")
 	private String guardianAddress1;
@@ -1371,23 +1371,23 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	}
 	
 	@Override
-	public String getIdentityNo() {
-		return identityNo;
+	public String getGuardianIdentityNo() {
+		return guardianIdentityNo;
 	}
 
 	@Override
-	public void setIdentityNo(String identityNo) {
-	     this.identityNo = identityNo;
+	public void setGuardianIdentityNo(String guardianIdentityNo) {
+	     this.guardianIdentityNo = guardianIdentityNo;
 	}
 	
 	@Override
-	public String getPhoneNo() {
-		return phoneNo;
+	public String getGuardianPhoneNo() {
+		return guardianPhoneNo;
 	}
 
 	@Override
-	public void setPhoneNo(String phoneNo) {
-	     this.phoneNo = phoneNo;
+	public void setGuardianPhoneNo(String guardianPhoneNo) {
+	     this.guardianPhoneNo = guardianPhoneNo;
 	}
 
 	@Override
