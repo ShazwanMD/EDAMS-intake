@@ -402,6 +402,51 @@ public interface InIntakeApplication extends InMetaObject {
 
     void setApelCertificateAttached(Boolean apelCertificateAttached);
     
+    // guardian
+	
+	String getGuardianName();
+    
+    void setGuardianName(String guardianName); 
+    
+    String getIdentityNo();
+    
+    void setIdentityNo(String identityNo); 
+    
+    String getPhoneNo();
+    
+    void setPhoneNo(String phoneNo); 
+    
+	String getGuardianAddress1();
+	    
+	void setGuardianAddress1(String guardianAddress1);
+	    
+	String getGuardianAddress2();
+	    
+	void setGuardianAddress2(String guardianAddress2);
+	    
+	String getGuardianAddress3();
+	    
+	void setGuardianAddress3(String guardianAddress3);
+	    
+	String getGuardianPostcode();
+	    
+	void setGuardianPostcode(String guardianPostcode);
+	    
+	InStateCode getGuardianState();
+
+	void setGuardianState(InStateCode guardianState);
+	
+	InCountryCode getGuardianCountryCode();
+
+	void setGuardianCountryCode(InCountryCode guardianCountryCode);
+	
+	InGuardianType getGuardianType();
+
+	void setGuardianType(InGuardianType guardianType);
+
+	
+	    	
+    
     
     
 }

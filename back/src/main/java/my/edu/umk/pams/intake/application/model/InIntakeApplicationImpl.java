@@ -63,11 +63,9 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@Column(name = "CREDENTIAL_NO")
 	private String credentialNo;
 
-	// todo(ashraf): do we need this?
 	@Column(name = "OKU_NO")
 	private String okuNo;
 
-	// todo(ashraf): do we need this?
 	@NotNull
 	@Column(name = "PAYMENT_SOURCE_NO")
 	private String paymentSourceNo;
@@ -78,7 +76,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@Column(name = "PLACE_OF_BIRTH")
 	private String placeOfBirth;
 
-	// todo(ashraf): do we need this?
 	@NotNull
 	@Column(name = "AGE")
 	private Integer age = 0;
@@ -95,6 +92,7 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "VISA_TYPE", nullable = false)
 	private InVisaType visaType = InVisaType.NON_APPLICABLE;
+	
 
 	@Column(name = "PAID")
 	private Boolean paid = false;
@@ -332,6 +330,43 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 
 	@Column(name = "EMPLOYER_NO")
 	private String employerNo;
+	
+	// guardian
+	
+	@Column(name = "GUARDIAN_NAME")
+	private String guardianName;
+	
+	@Column(name = "IDENTITY_NO" )
+	private String identityNo;
+	
+	@Column(name = "PHONE_NO")
+	private String phoneNo;
+	
+	@Column(name = "GUARDIAN_ADDRESS1")
+	private String guardianAddress1;
+
+	@Column(name = "GUARDIAN_ADDRESS2")
+	private String guardianAddress2;
+
+	@Column(name = "GUARDIAN_ADDRESS3")
+	private String guardianAddress3;
+
+	@Column(name = "GUARDIAN_POSTCODE")
+	private String guardianPostcode;
+
+	@ManyToOne(targetEntity = InStateCodeImpl.class)
+	@JoinColumn(name = "GUARDIAN_STATE_ID")
+	private InStateCode guardianState;
+	
+	@ManyToOne(targetEntity = InCountryCodeImpl.class)
+	@JoinColumn(name = "GUARDIAN_COUNTRY_CODE_ID")
+	private InCountryCode guardianCountryCode;
+	
+	@NotNull
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "GUARDIAN_TYPE")
+	private InGuardianType guardianType;
+
 
 	@OneToMany(targetEntity = InResultImpl.class, mappedBy = "application")
 	private List<InResult> results;
@@ -1033,6 +1068,7 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	public void setVisaType(InVisaType visaType) {
 		this.visaType = visaType;
 	}
+	
 
 	@Override
 	public InProgramOffering getProgramSelection() {
@@ -1322,6 +1358,119 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	public void setApelCertificateAttached(Boolean apelCertificateAttached) {
 		this.apelCertificateAttached = apelCertificateAttached;
 	}
+
+	@Override
+	public String getGuardianName() {
+		return guardianName;
+	}
+
+	@Override
+	public void setGuardianName(String guardianName) {
+		this.guardianName = guardianName;
+		
+	}
+	
+	@Override
+	public String getIdentityNo() {
+		return identityNo;
+	}
+
+	@Override
+	public void setIdentityNo(String identityNo) {
+	     this.identityNo = identityNo;
+	}
+	
+	@Override
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	@Override
+	public void setPhoneNo(String phoneNo) {
+	     this.phoneNo = phoneNo;
+	}
+
+	@Override
+	public String getGuardianAddress1() {
+		
+		return guardianAddress1;
+	}
+
+	@Override
+	public void setGuardianAddress1(String guardianAddress1) {
+		this.guardianAddress1 =guardianAddress1;
+		
+	}
+
+	@Override
+	public String getGuardianAddress2() {
+		
+		return guardianAddress2;
+	}
+
+	@Override
+	public void setGuardianAddress2(String guardianAddress2) {
+		this.guardianAddress2 =guardianAddress2;
+		
+	}
+
+	@Override
+	public String getGuardianAddress3() {
+	
+		return guardianAddress3;
+	}
+
+	@Override
+	public void setGuardianAddress3(String guardianAddress3) {
+		this.guardianAddress3 = guardianAddress3;
+		
+	}
+
+	@Override
+	public String getGuardianPostcode() {
+		
+		return guardianPostcode;
+	}
+
+	@Override
+	public void setGuardianPostcode(String guardianPostcode) {
+	this.guardianPostcode = guardianPostcode;
+		
+	}
+
+	@Override
+	public InStateCode getGuardianState() {
+		
+		return guardianState;
+	}
+
+	@Override
+	public void setGuardianState(InStateCode guardianState) {
+		this. guardianState =  guardianState;
+	}
+
+	@Override
+	public InCountryCode getGuardianCountryCode() {
+		
+		return guardianCountryCode;
+	}
+
+	@Override
+	public void setGuardianCountryCode(InCountryCode guardianCountryCode) {
+		this.guardianCountryCode = guardianCountryCode;
+	}
+	
+	@Override
+	public InGuardianType getGuardianType() {
+		return guardianType;
+	}
+
+	@Override
+	public void setGuardianType(InGuardianType guardianType) {
+		this.guardianType = guardianType;
+	}
+	
+	
 	
 
 }

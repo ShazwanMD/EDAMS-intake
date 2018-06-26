@@ -113,6 +113,7 @@ export class CpsIntakeApplicationPanel implements OnInit {
       employerState : [<StateCode>{}, Validators.required],
       employerNo : [''],
 
+
       mailingAddress1: ['', Validators.required],
       mailingAddress2: ['', Validators.required],
       mailingAddress3: [''],

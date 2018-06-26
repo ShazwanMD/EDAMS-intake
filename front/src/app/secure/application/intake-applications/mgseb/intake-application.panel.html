@@ -119,6 +119,9 @@
                                        [innerFormControl]="applicationForm.controls.religionCode"
                                        fxFlex="calc(50%-25px)" class="pad-bottom">
         </pams-religion-code-select>
+
+
+
         </div>
 
         </td-expansion-panel>
@@ -223,9 +226,73 @@
           </td-expansion-panel>
 
           <td-expansion-panel label="Guardian Information">
+      
+              <md-divider></md-divider>
 
+              <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
 
-          </td-expansion-panel>
+                   <md-input-container fxFlex="calc(100%-25px)">
+                      <input mdInput placeholder="Guardian Name" formControlName="guardianName"/>
+                      </md-input-container> 
+
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 1 *" formControlName="guardianAddress1"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('guardianAddress1').invalid && applicationForm.get('guardianAddress1').touched">
+                  guardian Address 1 is required!
+                 </div>
+    
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 2 *" formControlName="guardianAddress2"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('guardianAddress2').invalid && applicationForm.get('guardianAddress2').touched">
+                  guardian Address 2 is required!
+                 </div>
+      
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Address 3" formControlName="guardianAddress3" flex/>
+                  </md-input-container>
+      
+                  <md-input-container fxFlex="calc(100%-25px)">
+                    <input mdInput placeholder="Postcode *" formControlName="guardianPostcode"/>
+                  </md-input-container>
+                  <div class="error" class="tc-red-600"
+                  *ngIf="applicationForm.get('guardianPostcode').invalid && applicationForm.get('guardianPostcode').touched">
+                  guardian Postcode is required!
+                 </div>
+                 
+      
+                  <pams-state-code-select [placeholder]="'State'"
+                                          [innerFormControl]="applicationForm.controls.guardianStateCode"
+                                          fxFlex="calc(50%-25px)"
+                                          class="pad-bottom">
+                  </pams-state-code-select>
+      
+                  <pams-country-code-select [placeholder]="'Country'"
+                                            [innerFormControl]="applicationForm.controls.guardianCountryCode"
+                                            fxFlex="calc(50%-25px)"
+                                            class="pad-bottom">
+                  </pams-country-code-select>
+
+                  <pams-guardian-type-select [placeholder]="'Guardian Type'"
+                        [innerFormControl]="applicationForm.controls.guardianType"
+                        fxFlex="calc(50%-25px)"
+                        class="pad-bottom">
+                  </pams-guardian-type-select>     
+                  
+                  <md-input-container fxFlex="calc(50%-25px)">
+                      <input mdInput placeholder="Mobile Number *" formControlName="phoneNo"/>
+                      </md-input-container>
+                        <div class="error" class="tc-red-600"
+                               *ngIf="applicationForm.get('phoneNo').invalid && applicationForm.get('phoneNo').touched">
+                            Please add your mobile number!
+                        </div>
+                      
+                </div>
+
+      </td-expansion-panel>
       </md-tab>
 
       <md-tab>
