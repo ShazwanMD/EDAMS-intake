@@ -90,7 +90,7 @@
           </template>
         </div>
       </md-tab>
-      <md-tab label="CPS Open Intakes">
+      <!-- <md-tab label="CPS Open Intakes">
         <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
           <div *ngIf="(intakes$ | async)?.length === 0">
             <span>There is no open intake at the moment. Please check again later</span>
@@ -102,7 +102,6 @@
               <div *ngIf="intake.graduateCenter.code === 'CPS' ">
                 <div *ngIf="intake.flowState === 'PUBLISHED' || intake.flowState === 'EVALUATED' ">
                   <md-card href class="md-card-colored" flex>
-                    <!-- <md-card-title>{{intake.startDate | date:'MMM' | uppercase}} {{intake.startDate | date:'y'}} INTAKE </md-card-title> -->
                   <md-card-title>{{intake.descriptionEn}}</md-card-title>
                     <md-toolbar class="bgc-red-700 " layout="column" layout-align="center center" layout-padding>
                       <md-card-subtitle> {{intake.graduateCenter.code}} {{intake.programLevel.code}}</md-card-subtitle>
@@ -122,8 +121,8 @@
                       </div>
                     </md-card-content>
                   </md-card>
-                </div>
-                <div *ngIf="intake.graduateCenter.code === 'MGSEB' ">
+                </div> -->
+                <!-- <div *ngIf="intake.graduateCenter.code === 'MGSEB' ">
                     <md-card href class="md-card-colored" flex>
                       <md-card-title>{{intake.startDate | date:'MMM' | uppercase}} {{intake.startDate | date:'y'}} INTAKE </md-card-title>
                       <md-toolbar class="bgc-red-700 " layout="column" layout-align="center center" layout-padding>
@@ -145,15 +144,15 @@
                         </div>
                       </md-card-content>
                     </md-card>
-                  </div>
-              </div>
+                  </div>-->
+              <!-- </div> 
             </div>
           </template>
         </div>
-      </md-tab>
+      </md-tab> -->
 
 
-      <md-tab label="MGSEB Open Intakes">
+      <md-tab label="Open Intakes">
         <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
           <div *ngIf="(publishedIntakes$ | async)?.length === 0">
             <span>There is no open intake at the moment. Please check again later</span>
