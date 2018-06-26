@@ -362,7 +362,7 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@JoinColumn(name = "GUARDIAN_COUNTRY_CODE_ID")
 	private InCountryCode guardianCountryCode;
 	
-	@NotNull
+	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "GUARDIAN_TYPE")
 	private InGuardianType guardianType;

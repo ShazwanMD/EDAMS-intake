@@ -259,7 +259,6 @@ public class ApplicationController {
 		application.setGuardianAddress2(vo.getGuardianAddress2());
 		application.setGuardianAddress3(vo.getGuardianAddress3());
 		//application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
-		
 		application.setGuardianPostcode(vo.getGuardianPostcode());
 		if (null != vo.getGuardianState())
 			application.setGuardianState(commonService.findStateCodeById(vo.getGuardianState().getId()));
