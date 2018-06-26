@@ -34,7 +34,7 @@ export class ProgramOfferingEditorDialog implements OnInit {
       interview: true,
       generalCriteria: '',
       specificCriteria: '',
-      programFieldCode: <ProgramFieldCode>{},
+      programCode: <ProgramCode>{},
     });
   }
 

@@ -2,11 +2,11 @@
 <md-dialog-content>
   <form [formGroup]="editorForm">
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
-      <pams-program-field-code-select
+      <pams-program-code-select
       	[programLevel]='intake.programLevel'
-        [placeholder]="'Program Field Codes'"
-        [innerFormControl]="editorForm.controls['programFieldCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
-      </pams-program-field-code-select>
+        [placeholder]="'Program Codes'"
+        [innerFormControl]="editorForm.controls['programCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-program-code-select>
       <md-input-container fxFlex="calc(50%-25px)">
         <input mdInput
                type="number"

@@ -44,7 +44,7 @@ export class IntakeApplicationFormPanel implements OnInit {
         if (intakeApplication.intake.graduateCenter.code === 'CPS') {
           componentFactory = this.cfr.resolveComponentFactory(CpsIntakeApplicationPanel);
           console.log('test IA detail 2');
-        } else if (intakeApplication.intake.graduateCenter.code === 'MGSEB') {
+        } else if (intakeApplication.intake.graduateCenter.code === 'UMKCEE') {
           componentFactory = this.cfr.resolveComponentFactory(MgsebIntakeApplicationPanel);
           console.log('test IA detail 3');
         }

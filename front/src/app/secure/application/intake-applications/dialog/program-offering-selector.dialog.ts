@@ -45,7 +45,7 @@ export class ProgramOfferingSelectorDialog implements OnInit {
   }
 
   select(offering: ProgramOffering) {
-    console.log('selecting ' + offering.programFieldCode.programCode.code);
+    console.log('selecting ' + offering.programCode.code);
     this.store.dispatch(this.actions.selectProgramOffering(this._intakeApplication, offering));
     this.dialog.close();
   }

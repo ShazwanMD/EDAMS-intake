@@ -461,7 +461,7 @@ public class PolicyServiceImpl implements PolicyService {
         List<InProgramOffering> programOfferings = intakeDao.findProgramOfferings(oldIntake);
         for (InProgramOffering o : programOfferings) {
             InProgramOffering offering = new InProgramOfferingImpl();
-            offering.setProgramFieldCode(o.getProgramFieldCode());
+            offering.setProgramCode(o.getProgramCode());
             offering.setProjection(o.getProjection());
             offering.setSpecificCriteria(o.getSpecificCriteria());
             offering.setGeneralCriteria(o.getGeneralCriteria());

@@ -42,7 +42,7 @@ public class WhenIListIntakeProgramsOffered extends Stage<WhenIListIntakeProgram
         Assert.notEmpty(programOfferings, "programOfferings cannot be empty");
 
         for (InProgramOffering program : programOfferings) {
-            LOG.debug(program.getProgramFieldCode().getCode());
+//            LOG.debug(program.getProgramFieldCode().getCode());
         }
 
         return self();

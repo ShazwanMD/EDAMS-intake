@@ -72,7 +72,7 @@ export class ProgramOfferingListComponent {
   }
 
   private showDialog2(programOffering: ProgramOffering): void {
-    console.log('showDialog2 code :' + programOffering.programFieldCode.id);
+    console.log('showDialog2 code :' + programOffering.programCode.id);
     let config = new MdDialogConfig();
     config.viewContainerRef = this.vcf;
     config.role = 'dialog';

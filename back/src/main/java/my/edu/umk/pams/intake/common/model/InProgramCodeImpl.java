@@ -38,6 +38,10 @@ public class InProgramCodeImpl implements InProgramCode {
     @JoinColumn(name = "GRADUATE_CENTER_ID", nullable = false)
     private InGraduateCenter graduateCenter;
     
+	@ManyToOne(targetEntity = InFacultyCodeImpl.class)
+    @JoinColumn(name = "FACULTY_CODE_ID")
+    private InFacultyCode facultyCode;
+    
     @OneToMany(targetEntity = InProgramFieldCodeImpl.class, mappedBy = "programCode")
     private List<InProgramFieldCode> programFieldCodes;
 
@@ -122,8 +126,17 @@ public class InProgramCodeImpl implements InProgramCode {
     public void setMetadata(InMetadata metadata) {
         this.metadata = metadata;
     }
-
+    
     @Override
+    public InFacultyCode getFacultyCode() {
+		return facultyCode;
+	}
+    @Override
+	public void setFacultyCode(InFacultyCode facultyCode) {
+		this.facultyCode = facultyCode;
+	}
+
+	@Override
     public Class<?> getInterfaceClass() {
         return InProgramCode.class;
     }

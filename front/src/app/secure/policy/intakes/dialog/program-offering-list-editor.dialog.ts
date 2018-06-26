@@ -37,7 +37,7 @@ export class ProgramOfferingListEditorDialog {
   }
 
   set programOffering(programOffering: ProgramOffering) {
-    console.log('programOffering.id :' + programOffering.programFieldCode.programCode.id);
+    console.log('programOffering.id :' + programOffering.programCode.id);
     this._programOffering = programOffering;
     this.edit = true;
   }
@@ -55,9 +55,9 @@ export class ProgramOfferingListEditorDialog {
       interview: true,
       generalCriteria: '',
       specificCriteria: '',
-      programFieldCode: <ProgramFieldCode>{},
+      programCode: <ProgramCode>{},
     });
-    console.log('this._programOffering :' + this._programOffering.programFieldCode.programCode);
+    console.log('this._programOffering :' + this._programOffering.programCode.code);
     console.log('this._intake :' + this._intake.id);
     if (this.edit) this.editorForm.patchValue(this._programOffering);
   }

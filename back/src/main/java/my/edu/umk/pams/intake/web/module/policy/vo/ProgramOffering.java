@@ -16,7 +16,7 @@ public class ProgramOffering extends MetaObject {
 
     private Boolean interview;
     private Integer projection;
-    private ProgramFieldCode programFieldCode;
+    private ProgramCode programCode;
     private String generalCriteria;
     private String specificCriteria;
 
@@ -36,14 +36,6 @@ public class ProgramOffering extends MetaObject {
         this.projection = projection;
     }
 
-    public ProgramFieldCode getProgramFieldCode() {
-		return programFieldCode;
-	}
-
-	public void setProgramFieldCode(ProgramFieldCode programFieldCode) {
-		this.programFieldCode = programFieldCode;
-	}
-
 	public void setGeneralCriteria (String generalCriteria){
     	this.generalCriteria = generalCriteria;
     }
@@ -59,8 +51,16 @@ public class ProgramOffering extends MetaObject {
     public String getSpecificCriteria(){
     	return specificCriteria;
     }
+    
+    public ProgramCode getProgramCode() {
+		return programCode;
+	}
 
-    @JsonCreator
+	public void setProgramCode(ProgramCode programCode) {
+		this.programCode = programCode;
+	}
+
+	@JsonCreator
     public static ProgramOffering create(String jsonString) {
         ProgramOffering o = null;
         try {

@@ -118,12 +118,12 @@ public class IntakeFlowProcessTest {
         // preload program offering
         //InProgramCode mck = commonService.findProgramFieldCodeByCode("MCK");
         InProgramOffering mckOffering = new InProgramOfferingImpl();
-        mckOffering.setProgramFieldCode(null);
+//        mckOffering.setProgramFieldCode(null);
         policyService.addProgramOffering(intake, mckOffering);
 
         //InProgramCode mcn = commonService.findProgramFieldCodeByCode("MCN");
         InProgramOffering mcnOffering = new InProgramOfferingImpl();
-        mcnOffering.setProgramFieldCode(null);
+//        mcnOffering.setProgramFieldCode(null);
         policyService.addProgramOffering(intake, mcnOffering);
 
         // preload studymode offering

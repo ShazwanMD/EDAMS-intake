@@ -69,7 +69,7 @@ public class WhenIOfferMGSEBProgramsInIntake extends Stage<WhenIOfferMGSEBProgra
         	 offerings = new ArrayList<>();
 
         		 InProgramOffering offering = new InProgramOfferingImpl();
-                 offering.setProgramFieldCode(null);
+//                 offering.setProgramFieldCode(null);
                  policyService.addProgramOffering(intake, offering);
                  offerings.add(offering); 	 
 			

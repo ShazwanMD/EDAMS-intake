@@ -8,4 +8,5 @@ export interface ProgramCode extends MetaObject {
   descriptionMs: string;
   programLevel: ProgramLevel;
   graduateCenter: GraduateCenter;
+  facultyCode:FacultyCode;
 }

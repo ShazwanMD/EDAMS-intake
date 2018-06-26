@@ -78,7 +78,7 @@ public class WhenIAddPrograms extends Stage<WhenIAddPrograms> {
             //Assert.notNull(programCode, code + " ProgramCode cannot be null");
 
             InProgramOffering offering = new InProgramOfferingImpl();
-            offering.setProgramFieldCode(null);
+//            offering.setProgramFieldCode(null);
             policyService.addProgramOffering(intake, offering);
             programOfferings.add(offering);
         }

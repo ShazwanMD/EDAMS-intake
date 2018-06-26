@@ -911,6 +911,7 @@ create table IN_ACTR (
         M_ST int4,
         GRADUATE_CENTER_ID int8 not null,
         PROGRAM_LEVEL_ID int8 not null,
+        FACULTY_CODE_ID int8 not null,
         primary key (ID)
     ); 
     create table IN_PRGM_FILD_CODE (
@@ -956,7 +957,7 @@ create table IN_ACTR (
         PROJECTION int4,
         SPECIFIC_CRITERIA varchar(255),
         INTAKE_ID int8,
-        PRGM_FILD_CODE_ID int8 not null,
+        PRGM_CODE_ID int8 not null,
         STUDY_CENTER_CODE_ID int8,
         primary key (ID)
     ); 
@@ -1606,6 +1607,10 @@ create table IN_ACTR (
         add constraint FKF88EAF742DDFADD6 
         foreign key (FACULTY_CODE_ID) 
         references IN_FCTY_CODE; 
+    alter table IN_PRGM_CODE 
+        add constraint FKF88EAF742DDF9090ADD6 
+        foreign key (FACULTY_CODE_ID) 
+        references IN_FCTY_CODE;     
     alter table IN_PRGM_FILD_CODE 
         add constraint FKF88EAF742216DFB9 
         foreign key (FILD_ID) 
@@ -1622,8 +1627,8 @@ create table IN_ACTR (
         references IN_INTK; 
     alter table IN_PRGM_OFRG 
         add constraint FK6B9F329E49A9710 
-        foreign key (PRGM_FILD_CODE_ID) 
-        references IN_PRGM_FILD_CODE; 
+        foreign key (PRGM_CODE_ID) 
+        references IN_PRGM_CODE; 
     alter table IN_PRGM_OFRG 
         add constraint FK6B9F3295C8D6997 
         foreign key (STUDY_CENTER_CODE_ID) 

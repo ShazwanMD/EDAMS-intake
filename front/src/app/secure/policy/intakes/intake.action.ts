@@ -502,7 +502,7 @@ export class IntakeActions {
   updateProgramOffering(intake: Intake, programOffering: ProgramOffering) {
       console.log('updateProgramOffering');
       console.log('intake id :' + intake.id);
-      console.log('programOffering programCode id :' + programOffering.programFieldCode.programCode.id);
+      console.log('programOffering programCode id :' + programOffering.programCode.code);
       return {
       type: IntakeActions.UPDATE_PROGRAM_OFFERING,
       payload: {intake: intake, programOffering: programOffering},

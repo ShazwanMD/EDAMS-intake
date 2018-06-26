@@ -40,9 +40,9 @@ public class InProgramOfferingImpl implements InProgramOffering {
     @JoinColumn(name = "INTAKE_ID")
     private InIntake intake;
 
-    @ManyToOne(targetEntity = InProgramFieldCodeImpl.class)
-    @JoinColumn(name = "PRGM_FILD_CODE_ID", nullable = false)
-    private InProgramFieldCode programFieldCode;
+    @ManyToOne(targetEntity = InProgramCodeImpl.class)
+    @JoinColumn(name = "PRGM_CODE_ID", nullable = false)
+    private InProgramCode programCode;
 
     @ManyToOne(targetEntity = InStudyCenterCodeImpl.class)
     @JoinColumn(name = "STUDY_CENTER_CODE_ID") // nullable?
@@ -111,13 +111,13 @@ public class InProgramOfferingImpl implements InProgramOffering {
     }
 
     @Override
-    public InProgramFieldCode getProgramFieldCode() {
-		return programFieldCode;
+    public InProgramCode getProgramCode() {
+		return programCode;
 	}
 
     @Override
-	public void setProgramFieldCode(InProgramFieldCode programFieldCode) {
-		this.programFieldCode = programFieldCode;
+	public void setProgramCode(InProgramCode programCode) {
+		this.programCode = programCode;
 	}
 
 	@Override

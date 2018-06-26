@@ -64,7 +64,7 @@ public class WhenIOfferCPSProgramsInIntake extends Stage<WhenIOfferCPSProgramsIn
         	 offerings = new ArrayList<>();
 
         		 InProgramOffering offering = new InProgramOfferingImpl();
-                 offering.setProgramFieldCode(null);
+//                 offering.setProgramFieldCode(null);
                  policyService.addProgramOffering(intake, offering);
                  offerings.add(offering); 	 
 			

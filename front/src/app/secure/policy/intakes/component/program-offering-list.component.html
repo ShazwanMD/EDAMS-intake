@@ -13,8 +13,9 @@
     <template ngFor let-programOfferings [ngForOf]="programOfferings">
       <a md-list-item>
         <md-icon md-list-avatar>label</md-icon>
-        <h3 md-line> {{programOfferings.programFieldCode?.programCode?.descriptionEn}}({{programOfferings.programFieldCode?.fieldCode.descriptionEn}}) </h3>
-        <p md-line> {{programOfferings.programFieldCode?.code}} </p>
+        <h3 md-line> {{programOfferings.programCode?.descriptionEn}}</h3>
+        <p md-line> {{programOfferings.programCode?.descriptionMs}} </p>
+        <p md-line> {{programOfferings.programCode?.code}} </p>
 
         <button md-icon-button [md-menu-trigger-for]="menu">
           <md-icon>more_vert</md-icon>

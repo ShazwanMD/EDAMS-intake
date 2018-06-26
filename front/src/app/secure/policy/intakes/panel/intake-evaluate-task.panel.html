@@ -114,7 +114,7 @@
         <md-divider></md-divider>
         <md-nav-list dense>
 
-          <div *ngIf="intakeTask?.intake.graduateCenter.code === 'MGSEB'">
+          
 
         <div *ngIf="(intakeSubmittedApplications$ | async)?.length <= 0 && (intakeVerifiedApplications$ | async)?.length <= 0 ">
           <md-list-item (click)="process()">
@@ -122,7 +122,7 @@
             <h4 md-line>Process</h4>
             <p md-line>Process this intake</p>
           </md-list-item>
-    </div>
+   
     </div>
           <md-list-item (click)="copy()">
             <md-icon md-list-avatar>content_copy</md-icon>

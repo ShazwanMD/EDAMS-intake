@@ -33,8 +33,8 @@ public interface InProgramOffering extends InMetaObject {
 
     void setIntake(InIntake intake);
 
-	InProgramFieldCode getProgramFieldCode();
+	InProgramCode getProgramCode();
 
-	void setProgramFieldCode(InProgramFieldCode programFieldCode);
+	void setProgramCode(InProgramCode programCode);
 
 }

@@ -65,7 +65,7 @@ public class WhenCompleteApplication extends Stage<WhenCompleteApplication> {
         offering.setSpecificCriteria("TODO ADD SPECIFIC CRIT");
         offering.setInterview(true);
         offering.setStudyCenterCode(commonService.findStudyCenterCodeByCode("A")); 
-        offering.setProgramFieldCode(null); 
+//        offering.setProgramFieldCode(null); 
         policyService.addProgramOffering(intake, offering);
         
         

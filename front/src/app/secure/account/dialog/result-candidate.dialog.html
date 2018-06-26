@@ -2,7 +2,7 @@
 
 <div>
     <template let-myIntakeApplication let-last="last" ngFor [ngForOf]="myIntakeApplications$ | async ">
-        <div *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'MGSEB'">
+        <div *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'UMKCEE'">
       <md-card-subtitle *ngIf="myIntakeApplication.bidStatus === 'SELECTED'">
       <p></p>
         <br>
@@ -20,7 +20,7 @@
         <md-card-subtitle *ngIf="myIntakeApplication.candidate?.status != null">
         <md-card-subtitle>Candidates Result Information For : {{myIntakeApplication.intake.intakeSession.descriptionEn}}</md-card-subtitle>
         <md-card-subtitle>Candidates Name : {{myIntakeApplication.candidate?.name}}</md-card-subtitle>
-        <md-card-subtitle>Candidates Program : {{myIntakeApplication.candidate?.programSelection?.programFieldCode?.programCode.descriptionEn}}</md-card-subtitle>
+        <md-card-subtitle>Candidates Program : {{myIntakeApplication.candidate?.programSelection?.programCode.descriptionEn}}</md-card-subtitle>
         <md-card-subtitle>Candidates Identity Number : {{myIntakeApplication.candidate?.identityNo}} </md-card-subtitle>
         <md-card-subtitle>Candidates Application Reference Number : {{myIntakeApplication.candidate?.application?.referenceNo}}</md-card-subtitle>
         </md-card-subtitle>
@@ -78,7 +78,7 @@
     <md-card-subtitle *ngIf="myIntakeApplication.candidate?.status === 'OFFERED'">
                       <div layout="row" layout-margin>
                         <div flex>
-                        <md-card-subtitle *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'MGSEB'">
+                        <md-card-subtitle *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'UMKCEE'">
                         <div layout="row" layout-margin>
                         <div flex></div> 
                         </div>
@@ -140,7 +140,7 @@
           <md-card-subtitle *ngIf="myIntakeApplication.candidate?.status != null">
           <md-card-subtitle>Candidates Result Information For : {{myIntakeApplication.intake.intakeSession.descriptionEn}}</md-card-subtitle>
           <md-card-subtitle>Candidates Name : {{myIntakeApplication.candidate?.name}}</md-card-subtitle>
-          <md-card-subtitle>Candidates Program : {{myIntakeApplication.candidate?.programSelection?.programFieldCode?.programCode.descriptionEn}}</md-card-subtitle>
+          <md-card-subtitle>Candidates Program : {{myIntakeApplication.candidate?.programSelection?.programCode.descriptionEn}}</md-card-subtitle>
           <md-card-subtitle>Candidates Identity Number : {{myIntakeApplication.candidate?.identityNo}} </md-card-subtitle>
           <md-card-subtitle>Candidates Application Reference Number : {{myIntakeApplication.candidate?.application?.referenceNo}}</md-card-subtitle>
           </md-card-subtitle>
@@ -198,7 +198,7 @@
       <md-card-subtitle *ngIf="myIntakeApplication.candidate?.status === 'OFFERED'">
                         <div layout="row" layout-margin>
                           <div flex>
-                          <md-card-subtitle *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'MGSEB'">
+                          <md-card-subtitle *ngIf="myIntakeApplication.candidate?.application?.intake?.graduateCenter?.code === 'UMKCEE'">
                           <div layout="row" layout-margin>
                           <div flex></div> 
                           </div>

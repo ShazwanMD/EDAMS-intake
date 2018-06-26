@@ -281,13 +281,13 @@ public class PolicyController {
             LOG.debug("addProgramOfferings");
             InIntake intake = policyService.findIntakeByReferenceNo(referenceNo);
             
-            InProgramFieldCode programFieldCode = commonService.findProgramFieldCodeById(vo.getProgramFieldCode().getId());
+            InProgramCode programCode = commonService.findProgramCodeById(vo.getProgramCode().getId());
             InProgramOffering offering = new InProgramOfferingImpl();
             offering.setProjection(vo.getProjection());
             offering.setInterview(vo.getInterview());
             offering.setGeneralCriteria("TODO");
             offering.setSpecificCriteria("TODO");
-            offering.setProgramFieldCode(programFieldCode);
+            offering.setProgramCode(programCode);
             // todo: offering.setStudyCenterCode();
             policyService.addProgramOffering(intake, offering);
             
@@ -304,7 +304,7 @@ public class PolicyController {
     public ResponseEntity<String> updateProgramOfferings(@PathVariable String referenceNo, @RequestBody ProgramOffering vo) {
         InIntake intake = policyService.findIntakeByReferenceNo(referenceNo);
         InProgramOffering offering = policyService.findProgramOfferingById(vo.getId());
-        InProgramFieldCode programFieldCode = commonService.findProgramFieldCodeById(vo.getProgramFieldCode().getId());
+        InProgramCode programCode = commonService.findProgramCodeById(vo.getProgramCode().getId());
         System.out.println("vo.getInterview() :" + vo.getInterview());
         System.out.println("vo.getGeneralCriteria() :" + vo.getGeneralCriteria());
         System.out.println("vo.getSpecificCriteria() :" + vo.getSpecificCriteria());
@@ -312,7 +312,7 @@ public class PolicyController {
         offering.setInterview(vo.getInterview());
         offering.setGeneralCriteria(vo.getGeneralCriteria());
         offering.setSpecificCriteria(vo.getSpecificCriteria());
-        offering.setProgramFieldCode(programFieldCode);
+        offering.setProgramCode(programCode);
 
         policyService.updateProgramOfferings(intake, offering);
         
