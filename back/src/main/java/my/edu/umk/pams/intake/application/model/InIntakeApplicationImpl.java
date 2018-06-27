@@ -21,6 +21,11 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@GeneratedValue(generator = "SQ_IN_INTK_APLN")
 	@SequenceGenerator(name = "SQ_IN_INTK_APLN", sequenceName = "SQ_IN_INTK_APLN", allocationSize = 1)
 	private Long id;
+	
+	public InIntakeApplicationImpl() {
+		super();
+		setGuardianType(InGuardianType.FATHER);
+	}
 
 	@NotNull
 	@Column(name = "RANK", nullable = false)
@@ -361,7 +366,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@ManyToOne(targetEntity = InCountryCodeImpl.class)
 	@JoinColumn(name = "GUARDIAN_COUNTRY_CODE_ID")
 	private InCountryCode guardianCountryCode;
-	
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "GUARDIAN_TYPE")

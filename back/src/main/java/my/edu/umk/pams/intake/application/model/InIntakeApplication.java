@@ -444,10 +444,6 @@ public interface InIntakeApplication extends InMetaObject {
 
 	void setGuardianType(InGuardianType guardianType);
 
-	
-	    	
-    
-    
     
 }
 
