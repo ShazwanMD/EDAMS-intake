@@ -2,6 +2,6 @@ export enum GuardianType {
 	MOTHER, 
 	FATHER, 
 	GUARDIAN,
-	NA,
+	NOT_APPLICABLE,
   }
   

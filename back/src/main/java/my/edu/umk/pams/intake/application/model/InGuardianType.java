@@ -4,7 +4,7 @@ public enum InGuardianType {
 	MOTHER, 
 	FATHER, 
 	GUARDIAN,
-	NA;
+	NOT_APPLICABLE;
 	
 	public static InGuardianType get(int index) {
         return values()[index];

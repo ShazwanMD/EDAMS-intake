@@ -24,7 +24,7 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	
 	public InIntakeApplicationImpl() {
 		super();
-		setGuardianType(InGuardianType.FATHER);
+		setGuardianType(InGuardianType.NOT_APPLICABLE);
 	}
 
 	@NotNull

@@ -4,7 +4,7 @@ public enum GuardianType {
 	MOTHER, 
 	FATHER, 
 	GUARDIAN,
-	NA;
+	NOT_APPLICABLE;
 	  
 	public static GuardianType get(int index) {
         return values()[index];
