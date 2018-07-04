@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer letter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc959bd2-627c-4620-bf05-51189df59de5">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1133"/>
+	<parameter name="reference_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     in_intk."id" AS in_intk_id,
+     in_intk."description_en" AS in_intk_description_en,
+     in_intk."description_ms" AS in_intk_description_ms,
+     in_intk."reference_no" AS in_intk_reference_no,
+     in_intk."session_id" AS in_intk_session_id,
+     in_intk_apln."id" AS in_intk_apln_id,
+     in_intk_apln."age" AS in_intk_apln_age,
+     in_intk_apln."birth_date" AS in_intk_apln_birth_date,
+     in_intk_apln."copy_addressed" AS in_intk_apln_copy_addressed,
+     in_intk_apln."credential_no" AS in_intk_apln_credential_no,
+     in_intk_apln."declared" AS in_intk_apln_declared,
+     in_intk_apln."diploma_result_attached" AS in_intk_apln_diploma_result_attached,
+     in_intk_apln."email" AS in_intk_apln_email,
+     in_intk_apln."fax" AS in_intk_apln_fax,
+     in_intk_apln."ic_copy_attached" AS in_intk_apln_ic_copy_attached,
+     in_intk_apln."ielts_result_attached" AS in_intk_apln_ielts_result_attached,
+     in_intk_apln."language_result_attached" AS in_intk_apln_language_result_attached,
+     in_intk_apln."mailing_address1" AS in_intk_apln_mailing_address1,
+     in_intk_apln."mailing_address2" AS in_intk_apln_mailing_address2,
+     in_intk_apln."mailing_address3" AS in_intk_apln_mailing_address3,
+     in_intk_apln."mailing_postcode" AS in_intk_apln_mailing_postcode,
+     in_intk_apln."merit" AS in_intk_apln_merit,
+     in_intk_apln."c_ts" AS in_intk_apln_c_ts,
+     in_intk_apln."c_id" AS in_intk_apln_c_id,
+     in_intk_apln."d_ts" AS in_intk_apln_d_ts,
+     in_intk_apln."d_id" AS in_intk_apln_d_id,
+     in_intk_apln."m_ts" AS in_intk_apln_m_ts,
+     in_intk_apln."m_id" AS in_intk_apln_m_id,
+     in_intk_apln."m_st" AS in_intk_apln_m_st,
+     in_intk_apln."mobile" AS in_intk_apln_mobile,
+     in_intk_apln."muet_result_attached" AS in_intk_apln_muet_result_attached,
+     in_intk_apln."name" AS in_intk_apln_name,
+     in_intk_apln."official_address1" AS in_intk_apln_official_address1,
+     in_intk_apln."official_address2" AS in_intk_apln_official_address2,
+     in_intk_apln."official_address3" AS in_intk_apln_official_address3,
+     in_intk_apln."official_postcode" AS in_intk_apln_official_postcode,
+     in_intk_apln."oku_no" AS in_intk_apln_oku_no,
+     in_intk_apln."paid" AS in_intk_apln_paid,
+     in_intk_apln."passport_expdate" AS in_intk_apln_passport_expdate,
+     in_intk_apln."passport_no" AS in_intk_apln_passport_no,
+     in_intk_apln."passport_copy_attached" AS in_intk_apln_passport_copy_attached,
+     in_intk_apln."payment_source_no" AS in_intk_apln_payment_source_no,
+     in_intk_apln."phone" AS in_intk_apln_phone,
+     in_intk_apln."processing_fee_attached" AS in_intk_apln_processing_fee_attached,
+     in_intk_apln."rank" AS in_intk_apln_rank,
+     in_intk_apln."reason" AS in_intk_apln_reason,
+     in_intk_apln."referee_form_attached" AS in_intk_apln_referee_form_attached,
+     in_intk_apln."reference_no" AS in_intk_apln_reference_no,
+     in_intk_apln."research_proposal_attached" AS in_intk_apln_research_proposal_attached,
+     in_intk_apln."research_title" AS in_intk_apln_research_title,
+     in_intk_apln."self_sponsored" AS in_intk_apln_self_sponsored,
+     in_intk_apln."spm_result_attached" AS in_intk_apln_spm_result_attached,
+     in_intk_apln."sponsor_letter_attached" AS in_intk_apln_sponsor_letter_attached,
+     in_intk_apln."sponsored" AS in_intk_apln_sponsored,
+     in_intk_apln."stam_result_attached" AS in_intk_apln_stam_result_attached,
+     in_intk_apln."stpm_result_attached" AS in_intk_apln_stpm_result_attached,
+     in_intk_apln."toefl_result_attached" AS in_intk_apln_toefl_result_attached,
+     in_intk_apln."verified" AS in_intk_apln_verified,
+     in_intk_apln."visa_type" AS in_intk_apln_visa_type,
+     in_intk_apln."guardian_name" AS in_intk_apln_guardian_name,
+     in_intk_apln."guardian_phone_no" AS in_intk_apln_guardian_phone_no,
+     in_intk_apln."guardian_identity_no" AS in_intk_apln_guardian_identity_no,
+     in_intk_apln."guardian_address1" AS in_intk_apln_guardian_address1,
+     in_intk_apln."guardian_address2" AS in_intk_apln_guardian_address2,
+     in_intk_apln."guardian_address3" AS in_intk_apln_guardian_address3,
+     in_intk_apln."guardian_postcode" AS in_intk_apln_guardian_postcode,
+     in_intk_apln."guardian_state_code_id" AS in_intk_apln_guardian_state_code_id,
+     in_intk_apln."guardian_country_code_id" AS in_intk_apln_guardian_country_code_id,
+     in_intk_apln."guardian_type" AS in_intk_apln_guardian_type,
+     in_intk_apln."applicant_id" AS in_intk_apln_applicant_id,
+     in_intk_apln."bank_code_id" AS in_intk_apln_bank_code_id,
+     in_intk_apln."disability_code_id" AS in_intk_apln_disability_code_id,
+     in_intk_apln."ethnicity_code_id" AS in_intk_apln_ethnicity_code_id,
+     in_intk_apln."gender_code_id" AS in_intk_apln_gender_code_id,
+     in_intk_apln."intake_id" AS in_intk_apln_intake_id,
+     in_intk_apln."mailing_country_code_id" AS in_intk_apln_mailing_country_code_id,
+     in_intk_apln."mailing_state_code_id" AS in_intk_apln_mailing_state_code_id,
+     in_intk_apln."marital_code_id" AS in_intk_apln_marital_code_id,
+     in_intk_apln."nationality_code_id" AS in_intk_apln_nationality_code_id,
+     in_intk_apln."official_country_code_id" AS in_intk_apln_official_country_code_id,
+     in_intk_apln."official_state_code_id" AS in_intk_apln_official_state_code_id,
+     in_intk_apln."program_selection_id" AS in_intk_apln_program_selection_id,
+     in_intk_apln."promo_code_id" AS in_intk_apln_promo_code_id,
+     in_intk_apln."race_code_id" AS in_intk_apln_race_code_id,
+     in_intk_apln."religion_code_id" AS in_intk_apln_religion_code_id,
+     in_intk_apln."residency_code_id" AS in_intk_apln_residency_code_id,
+     in_intk_apln."study_center_code_id" AS in_intk_apln_study_center_code_id,
+     in_intk_apln."study_mode_selection_id" AS in_intk_apln_study_mode_selection_id,
+     in_intk_apln."supervisor_selection_id" AS in_intk_apln_supervisor_selection_id,
+     in_intk_apln."apel_certificate_attached" AS in_intk_apln_apel_certificate_attached,
+     in_intk_apln."employer_address1" AS in_intk_apln_employer_address1,
+     in_intk_apln."employer_address2" AS in_intk_apln_employer_address2,
+     in_intk_apln."employer_address3" AS in_intk_apln_employer_address3,
+     in_intk_apln."employer_no" AS in_intk_apln_employer_no,
+     in_intk_apln."employer_postcode" AS in_intk_apln_employer_postcode,
+     in_intk_apln."employment_verification_attached" AS in_intk_apln_employment_verification_attached,
+     in_intk_apln."income" AS in_intk_apln_income,
+     in_intk_apln."master_result_attached" AS in_intk_apln_master_result_attached,
+     in_intk_apln."passport_image_attached" AS in_intk_apln_passport_image_attached,
+     in_intk_apln."phd_result_attached" AS in_intk_apln_phd_result_attached,
+     in_intk_apln."place_of_birth" AS in_intk_apln_place_of_birth,
+     in_intk_apln."position" AS in_intk_apln_position,
+     in_prgm_ofrg."id" AS in_prgm_ofrg_id,
+     in_prgm_ofrg."prgm_code_id" AS in_prgm_ofrg_prgm_code_id,
+     in_prgm_ofrg."study_center_code_id" AS in_prgm_ofrg_study_center_code_id,
+     in_prgm_code."id" AS in_prgm_code_id,
+     in_prgm_code."description_en" AS in_prgm_code_description_en,
+     in_prgm_code."description_ms" AS in_prgm_code_description_ms,
+     in_prgm_code."code" AS in_prgm_code_code,
+     in_prgm_code."faculty_code_id" AS in_prgm_code_faculty_code_id,
+     in_fcty_code."code" AS in_fcty_code_code,
+     in_fcty_code."id" AS in_fcty_code_id,
+     in_fcty_code."description_en" AS in_fcty_code_description_en,
+     in_fcty_code."description_ms" AS in_fcty_code_description_ms,
+     in_intk_sesn."id" AS in_intk_sesn_id,
+     in_intk_sesn."description_ms" AS in_intk_sesn_description_ms,
+     in_intk_sesn."description_en" AS in_intk_sesn_description_en,
+     in_intk_sesn."code" AS in_intk_sesn_code,
+     in_venu_code."id" AS in_venu_code_id,
+     in_venu_code."code" AS in_venu_code_code,
+     in_venu_code."end_time_en" AS in_venu_code_end_time_en,
+     in_venu_code."end_time_ms" AS in_venu_code_end_time_ms,
+     in_venu_code."registration_date" AS in_venu_code_registration_date,
+     in_venu_code."registration_location" AS in_venu_code_registration_location,
+     in_venu_code."start_time_en" AS in_venu_code_start_time_en,
+     in_venu_code."start_time_ms" AS in_venu_code_start_time_ms,
+     in_stte_code."id" AS in_stte_code_id,
+     in_stte_code."code" AS in_stte_code_code,
+     in_stte_code."description_en" AS in_stte_code_description_en,
+     in_stte_code."description_ms" AS in_stte_code_description_ms,
+     in_stte_code."c_ts" AS in_stte_code_c_ts,
+     in_stte_code."c_id" AS in_stte_code_c_id,
+     in_stte_code."d_ts" AS in_stte_code_d_ts,
+     in_stte_code."d_id" AS in_stte_code_d_id,
+     in_stte_code."m_ts" AS in_stte_code_m_ts,
+     in_stte_code."m_id" AS in_stte_code_m_id,
+     in_stte_code."m_st" AS in_stte_code_m_st,
+     in_stte_code."country_code_id" AS in_stte_code_country_code_id,
+     in_intk_sesn."label" AS in_intk_sesn_label
+FROM
+     "public"."in_intk" in_intk INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_intk."id" = in_intk_apln."intake_id"
+     INNER JOIN "public"."in_prgm_ofrg" in_prgm_ofrg ON in_intk_apln."program_selection_id" = in_prgm_ofrg."id"
+     INNER JOIN "public"."in_stte_code" in_stte_code ON in_intk_apln."mailing_state_code_id" = in_stte_code."id"
+     INNER JOIN "public"."in_prgm_code" in_prgm_code ON in_prgm_ofrg."prgm_code_id" = in_prgm_code."id"
+     INNER JOIN "public"."in_fcty_code" in_fcty_code ON in_prgm_code."faculty_code_id" = in_fcty_code."id"
+     INNER JOIN "public"."in_intk_sesn" in_intk_sesn ON in_intk."session_id" = in_intk_sesn."id",
+     "public"."in_venu_code" in_venu_code]]>
+	</queryString>
+	<field name="in_intk_id" class="java.lang.Long"/>
+	<field name="in_intk_description_en" class="java.lang.String"/>
+	<field name="in_intk_description_ms" class="java.lang.String"/>
+	<field name="in_intk_reference_no" class="java.lang.String"/>
+	<field name="in_intk_session_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_age" class="java.lang.Integer"/>
+	<field name="in_intk_apln_birth_date" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_copy_addressed" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_credential_no" class="java.lang.String"/>
+	<field name="in_intk_apln_declared" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_diploma_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_email" class="java.lang.String"/>
+	<field name="in_intk_apln_fax" class="java.lang.String"/>
+	<field name="in_intk_apln_ic_copy_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_ielts_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_language_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_mailing_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_merit" class="java.math.BigDecimal"/>
+	<field name="in_intk_apln_c_ts" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_c_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_d_ts" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_d_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_m_ts" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_m_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_m_st" class="java.lang.Integer"/>
+	<field name="in_intk_apln_mobile" class="java.lang.String"/>
+	<field name="in_intk_apln_muet_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_name" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_official_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_oku_no" class="java.lang.String"/>
+	<field name="in_intk_apln_paid" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_passport_expdate" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_passport_no" class="java.lang.String"/>
+	<field name="in_intk_apln_passport_copy_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_payment_source_no" class="java.lang.String"/>
+	<field name="in_intk_apln_phone" class="java.lang.String"/>
+	<field name="in_intk_apln_processing_fee_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_rank" class="java.lang.Integer"/>
+	<field name="in_intk_apln_reason" class="java.lang.String"/>
+	<field name="in_intk_apln_referee_form_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_reference_no" class="java.lang.String"/>
+	<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_research_title" class="java.lang.String"/>
+	<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_verified" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_visa_type" class="java.lang.Integer"/>
+	<field name="in_intk_apln_guardian_name" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_phone_no" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_identity_no" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_guardian_type" class="java.lang.Integer"/>
+	<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_ethnicity_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_gender_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_intake_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_mailing_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_mailing_state_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_marital_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_nationality_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_official_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_official_state_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_program_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_promo_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_race_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_religion_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_residency_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_study_center_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_study_mode_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_supervisor_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_apel_certificate_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_employer_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_employer_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_employer_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_employer_no" class="java.lang.String"/>
+	<field name="in_intk_apln_employer_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_employment_verification_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_income" class="java.lang.String"/>
+	<field name="in_intk_apln_master_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_passport_image_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_phd_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_place_of_birth" class="java.lang.String"/>
+	<field name="in_intk_apln_position" class="java.lang.String"/>
+	<field name="in_prgm_ofrg_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_prgm_code_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_study_center_code_id" class="java.lang.Long"/>
+	<field name="in_prgm_code_id" class="java.lang.Long"/>
+	<field name="in_prgm_code_description_en" class="java.lang.String"/>
+	<field name="in_prgm_code_description_ms" class="java.lang.String"/>
+	<field name="in_prgm_code_code" class="java.lang.String"/>
+	<field name="in_prgm_code_faculty_code_id" class="java.lang.Long"/>
+	<field name="in_fcty_code_code" class="java.lang.String"/>
+	<field name="in_fcty_code_id" class="java.lang.Long"/>
+	<field name="in_fcty_code_description_en" class="java.lang.String"/>
+	<field name="in_fcty_code_description_ms" class="java.lang.String"/>
+	<field name="in_intk_sesn_id" class="java.lang.Long"/>
+	<field name="in_intk_sesn_description_ms" class="java.lang.String"/>
+	<field name="in_intk_sesn_description_en" class="java.lang.String"/>
+	<field name="in_intk_sesn_code" class="java.lang.String"/>
+	<field name="in_venu_code_id" class="java.lang.Long"/>
+	<field name="in_venu_code_code" class="java.lang.String"/>
+	<field name="in_venu_code_end_time_en" class="java.lang.String"/>
+	<field name="in_venu_code_end_time_ms" class="java.lang.String"/>
+	<field name="in_venu_code_registration_date" class="java.sql.Timestamp"/>
+	<field name="in_venu_code_registration_location" class="java.lang.String"/>
+	<field name="in_venu_code_start_time_en" class="java.lang.String"/>
+	<field name="in_venu_code_start_time_ms" class="java.lang.String"/>
+	<field name="in_stte_code_id" class="java.lang.Long"/>
+	<field name="in_stte_code_code" class="java.lang.String"/>
+	<field name="in_stte_code_description_en" class="java.lang.String"/>
+	<field name="in_stte_code_description_ms" class="java.lang.String"/>
+	<field name="in_stte_code_c_ts" class="java.sql.Timestamp"/>
+	<field name="in_stte_code_c_id" class="java.lang.Long"/>
+	<field name="in_stte_code_d_ts" class="java.sql.Timestamp"/>
+	<field name="in_stte_code_d_id" class="java.lang.Long"/>
+	<field name="in_stte_code_m_ts" class="java.sql.Timestamp"/>
+	<field name="in_stte_code_m_id" class="java.lang.Long"/>
+	<field name="in_stte_code_m_st" class="java.lang.Integer"/>
+	<field name="in_stte_code_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_sesn_label" class="java.lang.String"/>
+	<filterExpression><![CDATA[$F{in_intk_apln_reference_no}.equals( $P{reference_no} )]]></filterExpression>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="144" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="10" width="505" height="20" uuid="b0b2f758-b342-4b8e-9516-482ec00c2103"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_name}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="30" width="505" height="20" uuid="dd4890ff-b6c3-45c2-b9ff-69500a4b307f"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address1}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="50" width="505" height="20" uuid="4fc48987-816e-4ba8-a99a-4524eb5f63ec"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address2}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="70" width="505" height="20" uuid="beb9fc50-389c-4228-9b23-83b3c14e6674"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{in_intk_apln_mailing_address3}==null)? "-": $F{in_intk_apln_mailing_address3}.toUpperCase())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="88" width="505" height="20" uuid="c4fcee2b-84a3-4f37-8a9a-8d4422aee813"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_postcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="108" width="505" height="20" uuid="f2482a32-6866-4d4c-b274-9a896923adb7"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stte_code_description_en}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="0" width="100" height="20" uuid="fa2291f2-5c88-40de-b1cd-a67ee8f972ef"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Tuan/Puan,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="20" width="505" height="21" uuid="fccf6744-a5f0-4faa-b880-410e1627381a"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAWARAN KEMASUKAN KE PROGRAM PENGAJIAN PASCASISWAZAH UNIVERSITI MALAYSIA KELANTAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="41" width="505" height="20" uuid="57938e41-ea0f-4f9e-8ab4-1378e09b3bab"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BAGI "+$F{in_intk_sesn_description_en}.toUpperCase()+" "+$F{in_intk_sesn_label}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="73" width="315" height="20" uuid="4a8aeb73-e347-4a91-9df5-8f5d32cb55d1"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Dengan segala hormatnya, saya diarah merujuk perkara di atas.
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="509" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="12" width="505" height="20" uuid="9637b07c-80e5-4c4a-9384-763363d04206"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[2.         Tahniah, sukacita dimaklumkan bahawa permohonan tuan/puan untuk mengikuti Program ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="32" width="505" height="20" uuid="44b7c14a-63f4-4fa8-891e-b7bc3da62995"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pengajian Separuh Masa Universiti Malaysia Kelantan berikut telah BERJAYA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="64" width="136" height="15" uuid="bab91906-dacd-4343-9130-3a396727938f"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Program ( Kod )          ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="119" width="136" height="15" uuid="a39d9834-90c8-4c1d-9081-456e015d38b2"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fakulti/Pusat         ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="134" width="136" height="15" uuid="de3e4ff4-41b3-4f25-9d36-484380f5f845"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Semester Kemasukkan          ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="149" width="136" height="15" uuid="9fe00a09-2452-4952-b3d7-08d998b1c385"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tempoh Pengajian ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="207" width="136" height="15" uuid="9303f5a8-17d6-4bf8-b60d-08448c7ae9bc"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yuran Pengajian     ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="90" width="184" height="15" uuid="b63f05a6-1a56-4980-8d66-51f89f8937f1"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{in_prgm_code_code})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="119" width="323" height="15" uuid="3730faf6-1812-421c-a77c-4071c6131854"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_fcty_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="207" width="25" height="15" uuid="181a59fb-e71f-4561-8bed-c5bb873dfdd0"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="149" width="25" height="15" uuid="aa92b6cd-453e-4c9e-bc3b-e28b576b6f03"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="134" width="25" height="15" uuid="dcbe13f0-8d3e-4205-9e24-046fa963c3a4"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="119" width="25" height="15" uuid="351d1d11-2fdd-483d-91a2-1b918f7ed3fb"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="64" width="25" height="15" uuid="45c80432-6d2f-4671-bfee-27823932d43e"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="134" width="323" height="15" uuid="bb9e7dd9-0601-467e-b569-0ce26c5c5a86"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_sesn_description_ms}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="218" y="149" width="323" height="15" uuid="238f8814-46e4-471e-8929-ae3cfc5c2292"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[04 Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="207" width="124" height="15" uuid="b02ba319-68fd-401b-a963-7d30c71c771b"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sila Rujuk Lampiran 1     ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="164" width="136" height="15" uuid="ba548616-1c48-4d1d-bda4-2b2935fea2bd"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tarikh Mendaftar / Masa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="164" width="25" height="15" uuid="bfddbe78-1a7d-4b7f-85d4-48a25179d1fd"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="218" y="164" width="45" height="15" isPrintWhenDetailOverflows="true" uuid="bbb48bd2-e5a3-463e-97ab-d3ee17fc7ed1"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_venu_code_registration_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="193" width="136" height="15" uuid="42006688-c69b-488f-b509-e4316fd1299c"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tempat Mendaftar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="192" width="25" height="15" uuid="d749400d-d5ff-4213-8f69-0a8159325cc9"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="218" y="192" width="323" height="13" isPrintWhenDetailOverflows="true" uuid="5c233ebf-242d-4135-9904-5ff7d8e56fbb"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_venu_code_registration_location}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="222" width="136" height="15" uuid="6ee19c13-4519-4d20-b756-e831075da6c3"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kemudahan Kolej Kediaman      ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="222" width="25" height="15" uuid="7327782f-0b37-45c8-82a9-06bc015e59a6"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="222" width="124" height="15" uuid="d64bea7e-ba17-4d9b-89a3-fbb2987f9dcb"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tidak Disediakan ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="259" width="207" height="15" uuid="3d7efa70-745b-4ad8-b82d-7118502335cf"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kemudahan Kolej Kediaman      ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="275" width="366" height="15" uuid="0dbb50b3-d350-4bb4-b040-5a82081c3e9d"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Anda dikehendaki membayar yuran semester pertama seperti berikut  :     ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="32" y="302" width="488" height="174" uuid="06ca7e70-6117-4460-ad3d-635c978ac952"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="32" y="315" width="488" height="1" uuid="ef650fa1-02f1-4121-b10f-c52547670541"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="32" y="329" width="488" height="1" uuid="c8109e84-00e8-407e-9210-ab04fad2a6e5"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="200" y="302" width="1" height="28" uuid="b9d77c20-43be-4fbd-b992-3a2060b7e9a7"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="363" y="302" width="1" height="28" uuid="b778c59d-1919-49c3-bacf-2bdb10a69827"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="35" y="301" width="162" height="15" uuid="b423bf40-877c-4c8b-b364-b9b7ba680671"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yuran Pendaftaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="301" width="153" height="15" uuid="29603e50-7962-40f1-b577-885d4a93baa8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yuran Pengajian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="301" width="158" height="15" uuid="98459505-1fa8-450b-a50d-45c7ea6f23ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yuran Pekhidmatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="316" width="162" height="13" uuid="1c97257b-e55d-495b-9b81-4a7edafcb342"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RM 100.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="316" width="152" height="13" uuid="0b55a506-3a7a-419a-ac81-1f138ae07fb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RM 160/ kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="316" width="158" height="13" uuid="3731c951-8e2c-4984-80fb-e2f13b8001c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RM 305.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="336" width="493" height="54" uuid="b0fcba79-2919-4978-9184-0406a0a97485"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[
+            1. Yuran pengajian tertakluk kepada jumlah kredit yang diambil dalam senarai kursus yang ditawarkan.
+            2. Semua yuran perlu dijelaskan sebelum semester berakhir.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="398" width="460" height="78" uuid="9a5d136a-0afe-44d7-8ab4-05792ddc9d30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1. Tawaran ini adalah tertakluk kepada syarat-syarat tawaran kemasukkan seperti yang terdapat panduan Kemasukan Sesi 2018/ 2019.
+2. Email rasmi anda adalah dan akan diaktifkan apabila anda berdaftar.
+3. Jika anda menerima/ menolak tawaran ini, sila jawab melalui laman web (http:// sistem baharu CCI akan sediakan pada UMKCEE) sebelum atau pada 30 Ogos 2018.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="330" width="55" height="15" uuid="83041160-a6f3-4d46-bd70-56265ad52a62"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota :     ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="380" width="55" height="15" uuid="e829ccf4-3a8a-44e4-a781-7701f0e0ad06"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mustahak :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="481" width="411" height="15" uuid="780725b8-497f-4fde-b894-ac8a34a6841a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Seluruh warga kampus mengalu-alukan kedatangan anda ke Universiti Malaysia Kelantan.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="64" width="305" height="45" uuid="556c4334-c978-4e55-85c3-c1eadbb6d70b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_prgm_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="179" width="323" height="20" uuid="e818bf0e-7ae7-44d7-8f9f-610b86377582"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_venu_code_start_time_ms}+ "a.m" + " - " +$F{in_venu_code_end_time_ms}+ "p.m"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="104" width="136" height="15" uuid="15a79e72-304d-4e7d-b972-094bd8828571"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="104" width="25" height="15" uuid="3c0daafe-bb0d-4c9f-ac03-c7dc423357ec"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="104" width="305" height="15" uuid="84652ebe-fb65-4abf-86f4-968de4da0fa7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_sesn_label}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="381" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="132" width="488" height="193" uuid="ebcd5d02-283a-410f-9f55-497049fb8ca1"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Sekian, terima kasih.
+
+
+
+
+
+Saya yang menurut perintah,
+
+
+
+
+Pusat Pendidikan Luar UMK (UMKCEE)
+Universiti Malaysia Kelantan
+
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="14" width="488" height="46" forecolor="#000000" uuid="84b8dbd0-4464-48c2-aed8-516d89174741"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[3.	Tawaran kemasukan ini adalah tertakluk kepada Akta dan Peraturan Universiti. Semua pembayaran yuran pengajian perlu dibuat dengan mendepositkan jumlah yuran yang dikenakan ke dalam akaun Malayan Banking Berhad (Maybank) atas nama Universiti Malaysia Kelantan. Nombor akaun bank ialah 553038019271.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="73" width="488" height="51" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[4.	Tuan/ Puan dikehendaki mendaftarkan diri pada tarikh sebagaimana yang dinyatakan di atas. Sebarang pertanyaan lanjut mengenai tawaran ini, sila hubungi  En. Zainuzzi bin Ismail ditalian 09-7717050 atau En. Mohd Azrul bin Zakaria di talian 09-7717053.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="257" width="242" height="15" uuid="8c93b58f-a76f-49f5-a685-fe759f61192a"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROF. DR. MOHAMED DAHLAN BIN IBRAHIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="144" width="200" height="41" uuid="686f651f-aa1a-422b-a1de-8d420d79bd65"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+“RAJA BERDAULAT, NEGERI BERKAT”
+”BERKHIDMAT UNTUK NEGARA”]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
