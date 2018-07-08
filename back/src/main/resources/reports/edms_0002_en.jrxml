@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer letter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc959bd2-627c-4620-bf05-51189df59de5">
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="29"/>
+	<property name="ireport.y" value="629"/>
 	<parameter name="reference_no" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
@@ -357,22 +357,21 @@ FROM
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[TAWARAN KEMASUKAN KE PROGRAM PENGAJIAN SEPARUH MASA UNIVERSITI MALAYSIA KELANTAN]]></text>
+				<text><![CDATA[OFFER OF PART TIME STUDIES PROGRAM UNIVERSITI MALAYSIA KELANTAN ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="32" y="41" width="505" height="20" uuid="57938e41-ea0f-4f9e-8ab4-1378e09b3bab"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BAGI "+$F{in_intk_sesn_description_en}.toUpperCase()+" "+$F{in_intk_sesn_label}.toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["FOR "+$F{in_intk_sesn_description_en}.toUpperCase()+" "+$F{in_intk_sesn_label}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="32" y="73" width="315" height="20" uuid="4a8aeb73-e347-4a91-9df5-8f5d32cb55d1"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
-				<text><![CDATA[Dengan segala hormatnya, saya diarah merujuk perkara di atas.
-]]></text>
+				<text><![CDATA[With all due respect, I am directed to refer the above matter.]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -383,49 +382,49 @@ FROM
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
-				<text><![CDATA[2.         Tahniah, sukacita dimaklumkan bahawa permohonan tuan/puan untuk mengikuti Program ]]></text>
+				<text><![CDATA[Congratulations, please be informed that the application sir / madam for Part-Time Study Program]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="32" width="505" height="20" uuid="44b7c14a-63f4-4fa8-891e-b7bc3da62995"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Pengajian Separuh Masa Universiti Malaysia Kelantan berikut telah BERJAYA:]]></text>
+				<text><![CDATA[Universiti Malaysia Kelantan has SUCCESSFUL following:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="63" y="64" width="136" height="15" uuid="bab91906-dacd-4343-9130-3a396727938f"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Program ( Kod )          ]]></text>
+				<text><![CDATA[Programme Code          ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="63" y="119" width="136" height="15" uuid="a39d9834-90c8-4c1d-9081-456e015d38b2"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fakulti/Pusat         ]]></text>
+				<text><![CDATA[Faculty         ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="63" y="134" width="136" height="15" uuid="de3e4ff4-41b3-4f25-9d36-484380f5f845"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Semester Kemasukkan          ]]></text>
+				<text><![CDATA[Semester of Admission          ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="63" y="149" width="136" height="15" uuid="9fe00a09-2452-4952-b3d7-08d998b1c385"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tempoh Pengajian ]]></text>
+				<text><![CDATA[Duration Of Study]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="63" y="207" width="136" height="15" uuid="9303f5a8-17d6-4bf8-b60d-08448c7ae9bc"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Yuran Pengajian     ]]></text>
+				<text><![CDATA[Fee Payable]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="218" y="90" width="184" height="15" uuid="b63f05a6-1a56-4980-8d66-51f89f8937f1"/>
@@ -491,18 +490,11 @@ FROM
 				<text><![CDATA[04 Tahun]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="207" width="124" height="15" uuid="b02ba319-68fd-401b-a963-7d30c71c771b"/>
-				<textElement>
-					<font fontName="SansSerif" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Sila Rujuk Lampiran 1     ]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="63" y="164" width="136" height="15" uuid="ba548616-1c48-4d1d-bda4-2b2935fea2bd"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tarikh Mendaftar / Masa]]></text>
+				<text><![CDATA[Registration Date]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="200" y="164" width="25" height="15" uuid="bfddbe78-1a7d-4b7f-85d4-48a25179d1fd"/>
@@ -523,7 +515,7 @@ FROM
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tempat Mendaftar]]></text>
+				<text><![CDATA[Registration Vanue]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="200" y="192" width="25" height="15" uuid="d749400d-d5ff-4213-8f69-0a8159325cc9"/>
@@ -544,7 +536,7 @@ FROM
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Kemudahan Kolej Kediaman      ]]></text>
+				<text><![CDATA[Residential College Facility]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="200" y="222" width="25" height="15" uuid="7327782f-0b37-45c8-82a9-06bc015e59a6"/>
@@ -554,25 +546,25 @@ FROM
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="222" width="124" height="15" uuid="d64bea7e-ba17-4d9b-89a3-fbb2987f9dcb"/>
+				<reportElement x="218" y="222" width="169" height="15" uuid="d64bea7e-ba17-4d9b-89a3-fbb2987f9dcb"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tidak Disediakan ]]></text>
+				<text><![CDATA[Not Provided]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="259" width="207" height="15" uuid="3d7efa70-745b-4ad8-b82d-7118502335cf"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Kemudahan Kolej Kediaman      ]]></text>
+				<text><![CDATA[Residential College Facility]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="275" width="366" height="15" uuid="0dbb50b3-d350-4bb4-b040-5a82081c3e9d"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Anda dikehendaki membayar yuran semester pertama seperti berikut  :     ]]></text>
+				<text><![CDATA[You are required to pay the first semester fee as follows:]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="32" y="302" width="488" height="174" uuid="06ca7e70-6117-4460-ad3d-635c978ac952"/>
@@ -609,21 +601,21 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Yuran Pendaftaran]]></text>
+				<text><![CDATA[Registration fees]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="209" y="301" width="153" height="15" uuid="29603e50-7962-40f1-b577-885d4a93baa8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Yuran Pengajian]]></text>
+				<text><![CDATA[Study Fees]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="362" y="301" width="158" height="15" uuid="98459505-1fa8-450b-a50d-45c7ea6f23ce"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Yuran Pekhidmatan]]></text>
+				<text><![CDATA[Services fees]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="35" y="316" width="162" height="13" uuid="1c97257b-e55d-495b-9b81-4a7edafcb342"/>
@@ -652,17 +644,17 @@ FROM
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[
-            1. Yuran pengajian tertakluk kepada jumlah kredit yang diambil dalam senarai kursus yang ditawarkan.
-            2. Semua yuran perlu dijelaskan sebelum semester berakhir.]]></text>
+            1. Tuition fees are subject to the amount of credit taken in the list of courses offered.
+            2. All fees need to be settled before the semester ends.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="58" y="398" width="460" height="78" uuid="9a5d136a-0afe-44d7-8ab4-05792ddc9d30"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
-				<text><![CDATA[1. Tawaran ini adalah tertakluk kepada syarat-syarat tawaran kemasukkan seperti yang terdapat panduan Kemasukan Sesi 2018/ 2019.
-2. Email rasmi anda adalah dan akan diaktifkan apabila anda berdaftar.
-3. Jika anda menerima/ menolak tawaran ini, sila jawab melalui laman web (http:// sistem baharu CCI akan sediakan pada UMKCEE) sebelum atau pada 30 Ogos 2018.
+				<text><![CDATA[1. This offer is subject to admission offer conditions as provided in the Session Admission Guide 2018/2019.
+2. Your official email will be activated when you are registered.
+3. If you accept / reject this offer, please reply through the website (http: // CCI's new system will be available at UMKCEE) before or on August 30, 2018.
 ]]></text>
 			</staticText>
 			<staticText>
@@ -684,7 +676,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Seluruh warga kampus mengalu-alukan kedatangan anda ke Universiti Malaysia Kelantan.]]></text>
+				<text><![CDATA[ Welcome to Universiti Malaysia kelantan.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="218" y="64" width="305" height="45" uuid="556c4334-c978-4e55-85c3-c1eadbb6d70b"/>
@@ -705,7 +697,7 @@ FROM
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tahun]]></text>
+				<text><![CDATA[Year]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="200" y="104" width="25" height="15" uuid="3c0daafe-bb0d-4c9f-ac03-c7dc423357ec"/>
@@ -721,6 +713,13 @@ FROM
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_sesn_label}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="218" y="207" width="102" height="15" uuid="3ed1a29d-2bf0-433c-b95e-b11c01e33931"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[As Enclosed]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<summary>
@@ -730,13 +729,13 @@ FROM
 				<textElement>
 					<font fontName="SansSerif" isBold="false" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[Sekian, terima kasih.
+				<text><![CDATA[Thank you.
 
 
 
 
 
-Saya yang menurut perintah,
+I was in command,
 
 
 
@@ -753,15 +752,14 @@ Universiti Malaysia Kelantan
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif"/>
 				</textElement>
-				<text><![CDATA[3.	Tawaran kemasukan ini adalah tertakluk kepada Akta dan Peraturan Universiti. Semua pembayaran yuran pengajian perlu dibuat dengan mendepositkan jumlah yuran yang dikenakan ke dalam akaun Malayan Banking Berhad (Maybank) atas nama Universiti Malaysia Kelantan. Nombor akaun bank ialah 553038019271.
-]]></text>
+				<text><![CDATA[3.	This entry offer is subject to the University Act and Regulations. All payment of tuition fees must be made by depositing the amount of fees charged into the Malayan Banking Berhad (Maybank) account in the name of Universiti Malaysia Kelantan. Bank account number is 553038019271.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="73" width="488" height="51" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif"/>
 				</textElement>
-				<text><![CDATA[4.	Tuan/ Puan dikehendaki mendaftarkan diri pada tarikh sebagaimana yang dinyatakan di atas. Sebarang pertanyaan lanjut mengenai tawaran ini, sila hubungi  En. Zainuzzi bin Ismail ditalian 09-7717050 atau En. Mohd Azrul bin Zakaria di talian 09-7717053.]]></text>
+				<text><![CDATA[4.	Dear Sir / Madam required to enroll on the date as specified above. For further inquiries regarding this offer, please contact En. Zainuzzi bin Ismail in 09-7717050 or En. Mohd Azrul bin Zakaria at 09-7717053.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="257" width="242" height="15" uuid="8c93b58f-a76f-49f5-a685-fe759f61192a"/>
