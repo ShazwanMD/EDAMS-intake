@@ -1,14 +1,14 @@
-<h2 md-dialog-title>Intake Session Creator</h2>
+<h2 md-dialog-title>Sesi Pengambilan</h2>
 <md-dialog-content>
   <form [formGroup]="createForm">
     <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
       <div layout="column" class="pad-right" flex>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput #description placeholder="Code" formControlName="code" flex/>
+            <input mdInput #description placeholder="Kod" formControlName="code" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
-          *ngIf="createForm.get('code').invalid && createForm.get('code').touched">Code is Required!
+          *ngIf="createForm.get('code').invalid && createForm.get('code').touched">Kod Wajib Diisi!
           </div>  
         </div>
         <div layout="row">
@@ -16,38 +16,38 @@
             <input mdInput placeholder="label" formControlName="label" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
-          *ngIf="createForm.get('label').invalid && createForm.get('label').touched">Label is Required!
+          *ngIf="createForm.get('label').invalid && createForm.get('label').touched">Label Wajib Diisi!
           </div>  
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Description (MS)" formControlName="descriptionMs" flex/>
+            <input mdInput placeholder="Keterangan BM" formControlName="descriptionMs" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
-          *ngIf="createForm.get('descriptionMs').invalid && createForm.get('descriptionMs').touched">Description Ms is Required!
+          *ngIf="createForm.get('descriptionMs').invalid && createForm.get('descriptionMs').touched">Keterangan BM Wajib Diisi!
           </div> 
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Description (EN)" formControlName="descriptionEn" flex/>
+            <input mdInput placeholder="Keterangan EN" formControlName="descriptionEn" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
-          *ngIf="createForm.get('descriptionEn').invalid && createForm.get('descriptionEn').touched">Description En is Required!
+          *ngIf="createForm.get('descriptionEn').invalid && createForm.get('descriptionEn').touched">Keterangan EN Wajib Diisi!
           </div> 
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput type="number" placeholder="Year" formControlName="year" flex/>
+            <input mdInput type="number" placeholder="Tahun" formControlName="year" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
-          *ngIf="createForm.get('year').invalid && createForm.get('year').touched">Year is Required!
+          *ngIf="createForm.get('year').invalid && createForm.get('year').touched">Tahun Wajib Diisi!
           </div> 
         </div>
 
         <div layout="row" class="pad-bottom">
           <md-checkbox formControlName="current">
             <div layout="column" flex>
-              Open Session
+              Buka Sesi Pengambilan
             </div>
           </md-checkbox>
         </div>
@@ -57,5 +57,5 @@
   </form>
 </md-dialog-content>
 <md-dialog-actions align="end">
-  <button md-raised-button color="accent" (click)="save(createForm.value, createForm.valid)"[disabled]="!createForm.valid">Save</button>
+  <button md-raised-button color="accent" (click)="save(createForm.value, createForm.valid)"[disabled]="!createForm.valid">Simpan</button>
 </md-dialog-actions>

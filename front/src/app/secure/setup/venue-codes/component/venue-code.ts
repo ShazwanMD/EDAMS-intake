@@ -23,13 +23,13 @@ import { VenueCode } from './../../../../shared/model/common/venue-code.interfac
 })
 export class VenueCodesComponent implements OnChanges {
   private columns: any[] = [
-    { name: 'code', label: 'Code' },
-    { name: 'registrationDate', label: 'Registration Date' },
-    { name: 'registrationLocation', label: 'Registration Location' },
-    { name: 'startTimeEn', label: 'Start Time (En)' },
-    { name: 'startTimeMs', label: 'Start Time (Ms)' },
-    { name: 'endTimeEn', label: 'End Time (En)' },
-    { name: 'endTimeMs', label: 'End Time (Ms)' },
+    { name: 'code', label: 'Kod' },
+    { name: 'registrationDate', label: 'Tarikh Pendaftaran' },
+    { name: 'registrationLocation', label: 'Lokasi Pendaftaran' },
+    { name: 'startTimeEn', label: 'Waktu Mula (EN)' },
+    { name: 'startTimeMs', label: 'Waktu Mula (BM)' },
+    { name: 'endTimeEn', label: 'Waktu Tamat (EN)' },
+    { name: 'endTimeMs', label: 'Waktu Tamat (BM)' },
     { name: 'action', label: '' }
   ];
   filteredData: any[];

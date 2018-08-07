@@ -26,9 +26,9 @@ import { FacultyCode } from './../../../../shared/model/common/faculty-code.inte
 export class FacultyCodesComponent implements OnChanges {
 
   private columns: any[] = [
-    {name: 'code', label: 'Code'},
-    {name: 'descriptionMs', label: 'DescriptionMs'},
-    {name: 'descriptionEn', label: 'DescriptionEn'},
+    {name: 'code', label: 'Kod'},
+    {name: 'descriptionMs', label: 'Keterangan BM'},
+    {name: 'descriptionEn', label: 'Keterangan EN'},
     {name: 'action', label: ''}
   ];
 

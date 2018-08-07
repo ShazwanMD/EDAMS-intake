@@ -26,11 +26,11 @@ import { ProgramCode } from './../../../../shared/model/common/program-code.inte
 export class ProgramCodesComponent implements OnChanges {
 
   private columns: any[] = [
-    {name: 'code', label: 'Code'},
-    {name: 'descriptionMs', label: 'DescriptionMs'},
-    {name: 'descriptionEn', label: 'DescriptionEn'},
-    {name: 'programLevel.code', label: 'Program Level'},
-    {name: 'graduateCenter.code', label: 'Graduate Center'},
+    {name: 'code', label: 'Kod'},
+    {name: 'descriptionMs', label: 'Keterangan BM'},
+    {name: 'descriptionEn', label: 'Keterangan EN'},
+    {name: 'programLevel.code', label: 'Tahap Pengajian'},
+    {name: 'facultyCode.descriptionMs', label: 'Fakulti'},
     {name: 'action', label: ''}
   ];
 

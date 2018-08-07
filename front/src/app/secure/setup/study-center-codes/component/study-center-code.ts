@@ -24,8 +24,8 @@ import { StudyCenterCode } from './../../../../shared/model/common/study-center-
 export class StudyCenterCodesComponent implements OnChanges {
   private columns: any[] = [
     {name: 'code', label: 'Code'},
-    {name: 'descriptionMs', label: 'DescriptionMs'},
-    {name: 'descriptionEn', label: 'DescriptionEn'},
+    {name: 'descriptionMs', label: 'Keterangan BM'},
+    {name: 'descriptionEn', label: 'Keterangan EN'},
     {name: 'action', label: ''}
   ];
   filteredData: any[];

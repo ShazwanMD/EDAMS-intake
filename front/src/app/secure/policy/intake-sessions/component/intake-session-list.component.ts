@@ -38,13 +38,12 @@ export class IntakeSessionListComponent implements AfterViewInit, OnChanges {
   private creatorDialogRef: MdDialogRef<IntakeSessionEditorDialog>;
 
   private columns: any[] = [
-    {name: 'code', label: 'Code'},
-    {name: 'descriptionMs', label: 'Description (MS)'},
-    {name: 'descriptionEn', label: 'Description (EN)'},
-    {name: 'year', label: 'Year'},
-    {name: 'current', label: 'Current'},
+    {name: 'code', label: 'Kod'},
+    {name: 'descriptionMs', label: 'Keterangan BM'},
+    {name: 'descriptionEn', label: 'Keterangan EN'},
+    {name: 'year', label: 'Tahun'},
+    {name: 'current', label: 'Status'},
     {name: 'label', label: 'Label'},
-    {name: 'id', label: 'id'},
     {name: 'action', label: ''},
   ];
 
