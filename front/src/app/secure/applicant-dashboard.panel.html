@@ -161,7 +161,7 @@
             <div flex-md="60" flex-gt-md="40" layout="column">
               <div *ngIf="intake.graduateCenter.code === 'UMKCEE' ">
                 <md-card href class="md-card-colored" flex>
-                  <md-card-title>{{intake.startDate | date:'MMM' | uppercase}} {{intake.startDate | date:'y'}} INTAKE </md-card-title>
+                  <md-card-title>{{intake.descriptionMs | uppercase}} {{intake.intakeSession.year}}</md-card-title>
                   <md-toolbar class="bgc-red-700 " layout="column" layout-align="center center" layout-padding>
                     <md-card-subtitle> {{intake.graduateCenter.code}} {{intake.programLevel.code}}</md-card-subtitle>
                     <md-icon class="md-icon-font-xl tc-white">assignment</md-icon>
@@ -170,12 +170,12 @@
                     <div fxLayout="row" fxLayoutAlign="space-around center">
                       <span flex></span>
                       <div>
-                        <small class="bb"> From: {{intake.startDate | date:'EEEE d MMMM'}} To: {{intake.endDate | date:'EEEE d MMMM'}} </small>
+                        <small class="bb"> Bermula: {{intake.startDate | date:'EEEE d MMMM'}} To: {{intake.endDate | date:'EEEE d MMMM'}} </small>
                       </div>
 
                       <div>
                         <button *ngIf="intake.flowState === 'PUBLISHED'" [routerLink]="['/secure/applicant/application/intake-detail/', intake.referenceNo]"
-                          md-button color="primary">Apply Now!
+                          md-button color="primary">Mohon Sekarang!
                         </button>
                       </div>
                     </div>
@@ -203,7 +203,7 @@
   </md-nav-list>
   <md-divider></md-divider>
   <md-card-actions>
-    <a href="assets\attachment\APPLICANT.pdf" target="_blank">User Manual</a>
+    <a href="assets\attachment\APPLICANT.pdf" target="_blank">Panduan Penggunaan</a>
     <!--a href="http://www.umk.edu.my" target="_blank" md-button color="primary">Contact CCI-UMK</a>
 <p>
   Contact Info :
