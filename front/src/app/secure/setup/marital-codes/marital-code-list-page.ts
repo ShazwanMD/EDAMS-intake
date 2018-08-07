@@ -36,7 +36,7 @@ export class MaritalCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findMaritalCodes());
-    this.store.dispatch(this.actions.changeTitle("Marital Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Status Perkahwinan"));
   }
   createDialog(): void {
     this.showDialog(null);

@@ -413,6 +413,7 @@ public class CommonController {
         programCode.setDescriptionMs(vo.getDescriptionMs());
         programCode.setGraduateCenter(commonService.findGraduateCenterById(vo.getGraduateCenter().getId()));
         programCode.setProgramLevel(policyService.findProgramLevelById(vo.getProgramLevel().getId()));
+        programCode.setFacultyCode(commonService.findFacultyCodeById(vo.getFacultyCode().getId()));
         commonService.saveProgramCode(programCode);
         return new ResponseEntity<String>("Success", HttpStatus.OK);
     }
@@ -427,6 +428,7 @@ public class CommonController {
         programCode.setDescriptionMs(vo.getDescriptionMs());
         programCode.setGraduateCenter(commonService.findGraduateCenterById(vo.getGraduateCenter().getId()));
         programCode.setProgramLevel(policyService.findProgramLevelById(vo.getProgramLevel().getId()));
+        programCode.setFacultyCode(commonService.findFacultyCodeById(vo.getFacultyCode().getId()));
         commonService.updateProgramCode(programCode);
         return new ResponseEntity<String>("Success", HttpStatus.OK);
     }

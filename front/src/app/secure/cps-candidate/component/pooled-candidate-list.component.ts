@@ -20,9 +20,8 @@ export class PooledCandidateListComponent {
                             {name: 'referenceNo', label: 'ReferenceNo'},
                             {name: 'candidateIntake.identityNo', label: 'Identity No'},
                             {name: 'candidateIntake.name', label: 'Name'},
-                            {name: 'studyMode.studyMode.descriptionEn', label: 'Study Mode'},
-                            {name: 'programSelection.programFieldCode.fieldCode.descriptionEn', label: 'Field Code'},
-                            {name: 'intakeSession.descriptionEn', label: 'Intake'},
+                            {name: 'candidateIntake.programSelection.programCode.facultyCode.descriptionMs', label: 'Faculty'},
+                            {name: 'intakeSession.descriptionMs', label: 'Intake'},
                             {name: 'flowState', label: 'Status'},
                             {name: 'action', label: ''},
   ];

@@ -59,7 +59,7 @@ export class FacultyCodeListPage implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(this.actions.findFacultyCodes());
-    this.store.dispatch(this.actions.changeTitle('Faculty Codes'));
+    this.store.dispatch(this.actions.changeTitle('Kod Fakulti'));
   }
 
   createDialog(): void {

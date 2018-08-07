@@ -1,4 +1,4 @@
-<h2 md-dialog-title>Program Code</h2>
+<h2 md-dialog-title>Kod Program</h2>
 <md-dialog-content>
   <form [formGroup]="editorForm">
     <div layout="row" class="inset" flex>
@@ -38,6 +38,12 @@
         [placeholder]="'Graduate Center'"
         [innerFormControl]="editorForm.controls.graduateCenter">
       </pams-graduate-center-select>
+    </div>
+    <div layout="row" class="pad-top">
+      <pams-faculty-code-select
+        [placeholder]="'Faculty Code'"
+        [innerFormControl]="editorForm.controls['facultyCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-faculty-code-select>
     </div>
   </form>
 </md-dialog-content>

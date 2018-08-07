@@ -13,16 +13,16 @@ export class CandidateFlowStatePipe implements PipeTransform{
 
         switch(FlowState[value.toString()]){
             case FlowState.DRAFTED:{
-                return 'Pre-Approved';
+                return 'SELECTED';
             }
             case FlowState.VERIFIED:{
-                return 'Approved';
+                return 'RECOMMENDED';
             }
             case FlowState.PUBLISHED:{
-                return 'Offered';
+                return 'OFFERED';
             }
             case FlowState.COMPLETED:{
-                return 'Registered';
+                return 'REGISTERED';
             }
             default:{
                 return value;

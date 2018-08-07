@@ -33,7 +33,7 @@ public class CandidateRouterService extends RouterServiceSupport {
 
     static {
         strategies.put("MGSEB", new MGSEBCandidateRouterStrategy());
-        strategies.put("CPS", new CPSCandidateRouterStrategy());
+        strategies.put("UMKCEE", new CPSCandidateRouterStrategy());
     }
 
     @Autowired

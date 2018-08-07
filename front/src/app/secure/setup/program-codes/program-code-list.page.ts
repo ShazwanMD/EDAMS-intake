@@ -36,7 +36,7 @@ export class ProgramCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findProgramCodes());
-    this.store.dispatch(this.actions.changeTitle("Program Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Program"));
   }
   createDialog(): void {
     this.showDialog(null);

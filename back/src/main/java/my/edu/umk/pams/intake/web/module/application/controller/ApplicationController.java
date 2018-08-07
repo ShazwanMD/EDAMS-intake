@@ -399,11 +399,6 @@ public class ApplicationController {
 			application.setVerified(true);
 		}
 
-		if (intake.getGraduateCenter().getCode().equals("MGSEB")) {
-			applicationService.selectIntakeApplication(intake, application);
-		} else {
-			LOG.debug("CPS");
-
 			InCandidate candidate = new InCandidateImpl();
 			candidate.setSourceNo(UUID.randomUUID().toString());
 			candidate.setAuditNo(UUID.randomUUID().toString());
@@ -429,40 +424,6 @@ public class ApplicationController {
 
 			applicationService.selectIntakeApplication(intake, application);
 
-			// List<InIntakeApplication> applications =
-			// applicationService.findIntakeApplications(intake);
-			// for (InIntakeApplication applicationCPS : applications) {
-			//
-			// LOG.debug("{}", applicationCPS.getName());
-			// candidate = new InCandidateImpl();
-			// candidate.setSourceNo(UUID.randomUUID().toString());
-			// candidate.setAuditNo(UUID.randomUUID().toString());
-			// candidate.setIntake(applicationCPS.getIntake());
-			// candidate.setName(applicationCPS.getName());
-			// candidate.setIdentityNo(applicationCPS.getCredentialNo());
-			// candidate.setEmail(applicationCPS.getEmail());
-			// candidate.setStudyModeSelection(applicationCPS.getStudyModeSelection());
-			// candidate.setStatus(InCandidateStatus.SELECTED);
-			// candidate.setProgramSelection(applicationCPS.getProgramSelection());
-			// candidate.setSupervisorSelection(applicationCPS.getSupervisorSelection());
-			// candidate.setRegistration(false);
-			// candidate.setApplication(applicationCPS);
-			// candidate.setAuditNo(applicationCPS.getIntake().getAuditNo() +
-			// applicationCPS.getApplicant().getIdentityNo());
-			// candidate.setReferenceNo(applicationCPS.getIntake().getReferenceNo());
-			// candidate.setCancelComment(applicationCPS.getIntake().getCancelComment());
-			// candidate.setSourceNo(applicationCPS.getIntake().getSourceNo());
-			// candidate.setDescriptionEn(applicationCPS.getIntake().getDescriptionEn());
-			// candidate.setDescriptionMs(applicationCPS.getIntake().getDescriptionMs());
-			// candidateDao.save(candidate, securityService.getCurrentUser());
-			// LOG.debug("After Save Candidate");
-			//
-			// LOG.debug("After Start Candidate Task");
-			// }
-
-			// admissionService.startCandidateTask(candidate);
-			// applicationService.selectIntakeApplication(intake, application);
-		}
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 

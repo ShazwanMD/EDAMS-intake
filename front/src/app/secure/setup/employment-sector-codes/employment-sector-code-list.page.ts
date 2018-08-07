@@ -36,7 +36,7 @@ export class EmploymentSectorCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findEmploymentSectorCodes());
-    this.store.dispatch(this.actions.changeTitle("Employment Sector Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Sektor Pekerjaan"));
   }
   createDialog(): void {
     this.showDialog(null);

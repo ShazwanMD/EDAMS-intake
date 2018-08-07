@@ -56,7 +56,7 @@ export class GraduateCenterListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findGraduateCenters());
-    this.store.dispatch(this.actions.changeTitle("Graduate Centers"));
+    this.store.dispatch(this.actions.changeTitle("Pusat Pengijazahan"));
   }
   createDialog(): void {
     this.showDialog(null);

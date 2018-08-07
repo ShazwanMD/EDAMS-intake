@@ -21,9 +21,8 @@ export class ArchivedCandidateListComponent {
     {name: 'referenceNo', label: 'ReferenceNo'},
     {name: 'identityNo', label: 'Identity No'},
     {name: 'name', label: 'Name'},
-    {name: 'studyMode.studyMode.descriptionEn', label: 'Study Mode'},
-    {name: 'programSelection.programFieldCode.fieldCode.descriptionEn', label: 'Field Code'},
-    {name: 'intake.intakeSession.descriptionEn', label: 'Intake'},
+    {name: 'application.programSelection.programCode.facultyCode.descriptionMs', label: 'Faculty'},
+    {name: 'intake.intakeSession.descriptionMs', label: 'Intake'},
     {name: 'flowState', label: 'Status'},
     {name: 'action', label: ''},
   ];

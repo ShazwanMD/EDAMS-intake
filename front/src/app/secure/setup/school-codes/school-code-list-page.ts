@@ -35,7 +35,7 @@ export class SchoolCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findSchoolCodes());
-    this.store.dispatch(this.actions.changeTitle("School Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Sekolah"));
   }
   createDialog(): void {
     this.showDialog(null);

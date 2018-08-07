@@ -16,6 +16,7 @@ public class ProgramCode extends MetaObject {
     private String descriptionMs;
     private GraduateCenter graduateCenter;
     private ProgramLevel programLevel;
+    private FacultyCode facultyCode;
 
     public String getCode() {
         return code;
@@ -56,8 +57,16 @@ public class ProgramCode extends MetaObject {
     public void setProgramLevel(ProgramLevel programLevel) {
         this.programLevel = programLevel;
     }
+    
+    public FacultyCode getFacultyCode() {
+		return facultyCode;
+	}
 
-    @JsonCreator
+	public void setFacultyCode(FacultyCode facultyCode) {
+		this.facultyCode = facultyCode;
+	}
+
+	@JsonCreator
     public static ProgramCode create(String jsonString) {
         ProgramCode o = null;
         try {

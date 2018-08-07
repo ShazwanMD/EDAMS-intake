@@ -35,7 +35,7 @@ export class StudyCenterCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findStudyCenterCodes());
-    this.store.dispatch(this.actions.changeTitle("Study Center Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Pusat Pengajian"));
   }
   createDialog(): void {
     this.showDialog(null);

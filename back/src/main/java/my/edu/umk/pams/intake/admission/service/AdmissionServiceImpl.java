@@ -329,7 +329,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 		// payload
 
 //		InProgramCode programCode = candidate.getProgramSelection().getProgramCode();
-//		
+//
 //		CandidatePayload payload = new CandidatePayload();
 //		payload.setName(candidate.getName());
 //		payload.setMatricNo(candidate.getMatricNo());
@@ -341,7 +341,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 //		programCodePayload.setDescriptionMs(programCode.getDescriptionMs());
 //		payload.setProgramCode(programCodePayload);
 //
-//		
+//
 //		InFacultyCode facultyCode = programCode.getFacultyCode();
 //
 //		FacultyCodePayload facultyCodePayload = new FacultyCodePayload();
@@ -382,7 +382,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 //		payload.setProgramCode(programCodePayload);
 //		// <program_code>-CHRT-<academic_session_code>
 //
-//		
+//
 //		String cohortCode = facultyCode.getCode() + "-" + programCode.getProgramLevel().getCode() + "-"
 //				+ programCode.getCode() + "-CHRT-" + candidate.getIntake().getSession().getCode();
 //
