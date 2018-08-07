@@ -548,6 +548,8 @@ public class ApplicationController {
 		employment.setStartDate(vo.getStartDate());
 		employment.setEndDate(vo.getEndDate());
 		employment.setEmploymentType(InEmploymentType.get(vo.getEmploymentType().ordinal()));
+		employment.setWorkingDuration(InEmploymentWorkingDuration.get(vo.getWorkingDuration().ordinal()));
+		employment.setSectorCode(commonService.findEmploymentSectorCodeById(vo.getEmploymentSectorCode().getId()));
 		System.out.println("vo.getEmploymentType().ordinal() :" + vo.getEmploymentType().ordinal());
 		if (vo.getEmploymentType().ordinal() == 0) {
 			employment.setCurrent(true);

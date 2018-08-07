@@ -20,7 +20,7 @@ public interface InEmployment extends InMetaObject {
     Date getEndDate();
 
     void setEndDate(Date endDate);
-
+    
     String getEmployer();
 
     void setEmployer(String employer);
@@ -48,6 +48,10 @@ public interface InEmployment extends InMetaObject {
     InEmploymentType getEmploymentType();
 
     void setEmploymentType(InEmploymentType employmentType);
+    
+    InEmploymentWorkingDuration getWorkingDuration();
+    
+    void setWorkingDuration(InEmploymentWorkingDuration workingDuration);
 	
 
 }

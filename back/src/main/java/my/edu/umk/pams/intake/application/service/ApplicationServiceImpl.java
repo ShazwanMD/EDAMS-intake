@@ -24,6 +24,7 @@ import my.edu.umk.pams.intake.application.model.InContact;
 import my.edu.umk.pams.intake.application.model.InContactType;
 import my.edu.umk.pams.intake.application.model.InEducation;
 import my.edu.umk.pams.intake.application.model.InEmployment;
+import my.edu.umk.pams.intake.application.model.InEmploymentType;
 import my.edu.umk.pams.intake.application.model.InGuarantor;
 import my.edu.umk.pams.intake.application.model.InGuarantorType;
 import my.edu.umk.pams.intake.application.model.InGuardian;
@@ -139,6 +140,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 		}
 
 	}
+	
 
 	@Override
 	public String applyIntake(InIntake intake, InIntakeApplication application) throws Exception {
@@ -236,10 +238,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Override
 	public void addEmployment(InIntakeApplication application, InEmployment employment) {
 		LOG.debug("employment.getCurrent :" + employment.isCurrent());
+		
 		intakeApplicationDao.addEmployment(application, employment, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
-
+	
+	
 	@Override
 	public void addLanguage(InIntakeApplication application, InLanguage language) {
 		intakeApplicationDao.addLanguage(application, language, securityService.getCurrentUser());
@@ -793,5 +797,6 @@ public class ApplicationServiceImpl implements ApplicationService {
 		this.updateIntakeApplication(application);
 
 	}
+
 
 }

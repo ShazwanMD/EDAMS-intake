@@ -39,6 +39,11 @@ public class InEmploymentImpl implements InEmployment {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "EMPLOYMENY_TYPE")
     private InEmploymentType employmentType;
+    
+    @NotNull
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "WORKING_DURATION")
+    private InEmploymentWorkingDuration workingDuration;
 
     @NotNull
     @Column(name = "ACTIVE", nullable = false)
@@ -164,6 +169,16 @@ public class InEmploymentImpl implements InEmployment {
 	public void setEmploymentType(InEmploymentType employmentType) {
 		this.employmentType = employmentType;
 	}
+	
+	  
+    @Override
+    public InEmploymentWorkingDuration getWorkingDuration() {
+		return workingDuration;
+	}
+
+	public void setWorkingDuration(InEmploymentWorkingDuration workingDuration) {
+		this.workingDuration = workingDuration;
+	}
 
 	@Override
     public InIntakeApplication getApplication() {
@@ -187,4 +202,5 @@ public class InEmploymentImpl implements InEmployment {
     public Class<?> getInterfaceClass() {
         return InEmployment.class;
     }
+
 }

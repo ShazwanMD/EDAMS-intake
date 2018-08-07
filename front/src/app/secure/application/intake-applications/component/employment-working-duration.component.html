@@ -1,0 +1,8 @@
+<md-select
+  [placeholder]="placeholder"
+  (change)="selectChangeEvent($event.value)" flex>
+
+  <md-option *ngFor="let employmentWorkingDuration of employmentWorkingDurations" [value]="employmentWorkingDuration">
+    {{employmentWorkingDuration}}
+  </md-option>
+</md-select>

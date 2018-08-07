@@ -1,4 +1,4 @@
-
+import { EmploymentWorkingDurationComponent } from './../component/employment-working-duration.component';
 import { PhdResultEditorDialog } from './../dialog/phd-result-editor.dialog';
 import { PhdResultComponent } from './../component/phd-result.component';
 import { MasterResultComponent } from './../component/master-result.component';
@@ -62,6 +62,7 @@ import { GuardiansTypeSelectComponent } from '../component/guardian-type-select.
     AttachmentListComponent,
     ProgramChoiceComponent,
     EmploymentTypeSelectComponent,
+    EmploymentWorkingDurationComponent,
     AttachmentTypeSelectComponent,
     RefereeTypeSelectComponent,
     ResultListComponent,
@@ -96,6 +97,7 @@ import { GuardiansTypeSelectComponent } from '../component/guardian-type-select.
     AttachmentListComponent,
     ProgramChoiceComponent,
     EmploymentTypeSelectComponent,
+    EmploymentWorkingDurationComponent,
     RefereeTypeSelectComponent,
     ResultListComponent,
     AttachmentTypeSelectComponent,

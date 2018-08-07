@@ -1,3 +1,5 @@
+import { EmploymentWorkingDuration } from './../../../../shared/model/application/employment-working-duration.enum';
+import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
 import {Component, ViewContainerRef, OnInit, Input} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {FormBuilder} from '@angular/forms';
@@ -41,7 +43,7 @@ export class EmploymentEditorDialog implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editForm = this.formBuilder.group(<Employment>{
+    this.editForm = this.formBuilder.group({
       id: null,
       startDate: null,
       endDate: null,
@@ -49,6 +51,8 @@ export class EmploymentEditorDialog implements OnInit {
       designation: '',
       current: false,
       employmentType: EmploymentType.CURRENTLY_EMPLOYED,
+      workingDuration: EmploymentWorkingDuration.DUA_TAHUN,
+      employmentSectorCode: [<EmploymentSectorCode>{}],
     });
     if (this.edit) this.editForm.patchValue(this._employment);
   }
