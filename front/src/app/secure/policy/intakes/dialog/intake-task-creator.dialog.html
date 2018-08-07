@@ -1,55 +1,55 @@
-<h2 md-dialog-title>Intake Task Creator</h2>
+<h2 md-dialog-title>Cipta Pengambilan</h2>
 
 <form [formGroup]="createForm" novalidate>
   <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
     <md-input-container fxFlex="calc(100%-25px)">
-      <input mdInput placeholder="DescriptionEn" formControlName="descriptionEn"  />
+      <input mdInput placeholder="Keterangan EN" formControlName="descriptionEn"  />
     </md-input-container>
   </div>
   <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
     <md-input-container fxFlex="calc(100%-25px)">
-      <input mdInput placeholder="DescriptionMs" formControlName="descriptionMs" />
+      <input mdInput placeholder="Keterangan BM" formControlName="descriptionMs" />
     </md-input-container>
   </div>  
   <div>
     <md-input-container fxFlex="calc(33%-25px)">
-      <input mdInput type="number" placeholder="Projection" formControlName="projection" />
+      <input mdInput type="number" placeholder="Unjuran" formControlName="projection" />
     </md-input-container>
   </div>
   <div>
     <md-input-container fxFlex="calc(33%-25px)">
-      <input mdInput type="date" placeholder="Start Date" formControlName="startDate" />
+      <input mdInput type="date" placeholder="Tarikh Buka" formControlName="startDate" />
     </md-input-container>
   </div>
   <div>
     <md-input-container fxFlex="calc(33%-25px)">
-      <input mdInput type="date" placeholder="End Date" formControlName="endDate" />
+      <input mdInput type="date" placeholder="Tarikh Tutup" formControlName="endDate" />
     </md-input-container>
 
     <div class="error" class="tc-red-600" *ngIf="createForm.controls.endDate.errors?.CheckDate">
     </div>
     <div class="error" class="tc-red-600" *ngIf="createForm.get('endDate').invalid && createForm.get('endDate').touched">
-      End Date should be greater and not equal to start date!
+      Tarikh Tutup Harus Melebihi Tarikh Buka Dan Tidak Sama!
     </div>
   </div>
 
   <div>
-    <pams-program-level-select [placeholder]="'Program Level'" [innerFormControl]="createForm.controls.programLevel" fxFlex="calc(100%-25px)"
+    <pams-program-level-select [placeholder]="'Tahap Pengajian'" [innerFormControl]="createForm.controls.programLevel" fxFlex="calc(100%-25px)"
       class="pad-bottom">
     </pams-program-level-select>
   </div>
   <div>
-    <pams-graduate-center-select [placeholder]="'Graduate Center'" [innerFormControl]="createForm.controls.graduateCenter" fxFlex="calc(100%-25px)"
+    <pams-graduate-center-select [placeholder]="'Pusat Pengijazahan'" [innerFormControl]="createForm.controls.graduateCenter" fxFlex="calc(100%-25px)"
       class="pad-bottom">
     </pams-graduate-center-select>
   </div>
   <div>
-    <pams-intake-session-select [placeholder]="'Intake Session'" [innerFormControl]="createForm.controls.intakeSession" fxFlex="calc(100%-25px)"
+    <pams-intake-session-select [placeholder]="'Sesi Pengambilan'" [innerFormControl]="createForm.controls.intakeSession" fxFlex="calc(100%-25px)"
       class="pad-bottom">
     </pams-intake-session-select>
   </div>
 </form>
 
 <md-dialog-actions align="end">
-  <button md-raised-button color="accent" (click)="submit(createForm.value, createForm.valid )" [disabled]="!createForm.valid">Save</button>
+  <button md-raised-button color="accent" (click)="submit(createForm.value, createForm.valid )" [disabled]="!createForm.valid">Simpan</button>
 </md-dialog-actions>

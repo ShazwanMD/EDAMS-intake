@@ -3,6 +3,6 @@
   (change)="selectChangeEvent($event.value)" flex>
 
   <md-option *ngFor="let studyMode of studyModes$ | async" [value]="studyMode">
-    {{studyMode.code}}: {{studyMode.descriptionEn }}
+    {{studyMode.code}}: {{studyMode.descriptionMs }}
   </md-option>
 </md-select>

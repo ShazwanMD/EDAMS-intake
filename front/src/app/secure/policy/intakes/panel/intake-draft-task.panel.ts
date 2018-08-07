@@ -45,7 +45,7 @@ export class IntakeDraftTaskPanel implements OnInit {
   }
 
   verify(): void {
-      if (confirm('Verify this intake?')) {
+      if (confirm('Anda ingin sahkan sesi pengambilan ini?')) {
       this.store.dispatch(this.actions.completeIntakeTask(this.intakeTask));
          this.goBack();
     } else {
@@ -54,7 +54,7 @@ export class IntakeDraftTaskPanel implements OnInit {
   }
 
   remove(): void {
-    if(confirm('Confirm remove this intake?')){
+    if(confirm('Anda ingin padam sesi pengambilan ini?')){
     this.store.dispatch(this.actions.removeIntakeTask(this.intakeTask));
     this.goBack();
  } 

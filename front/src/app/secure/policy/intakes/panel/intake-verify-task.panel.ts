@@ -45,7 +45,7 @@ export class IntakeVerifyTaskPanel implements OnInit {
   }
 
   publish() {
-    if (confirm('Publish this intake?')) {
+    if (confirm('Terbit Sesi Pengambilan?')) {
       this.store.dispatch(this.actions.completeIntakeTask(this.intakeTask));
          this.goBack();
     } else {
@@ -68,7 +68,7 @@ export class IntakeVerifyTaskPanel implements OnInit {
   }
 
   remove(): void {
-    if(confirm('Confirm remove this intake?')){
+    if(confirm('Padam Sesi Pengambilan?')){
     this.store.dispatch(this.actions.removeIntakeTask(this.intakeTask));
     this.goBack();
     }else {

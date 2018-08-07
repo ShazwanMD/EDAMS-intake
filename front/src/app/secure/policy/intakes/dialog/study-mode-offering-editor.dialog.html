@@ -1,15 +1,15 @@
-<h2 md-dialog-title>Study Mode Offering Editor for {{intake?.referenceNo}}</h2>
+<h2 md-dialog-title>Penawaran Mod Pengajian Bagi ({{intake?.descriptionMs}}/{{intake?.intakeSession.year}})</h2>
 <md-dialog-content>
   <form [formGroup]="editorForm">
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
       <pams-study-mode-select
-        [placeholder]="'Study Mode'"
+        [placeholder]="'Mod Pengajian'"
         [innerFormControl]="editorForm.controls['studyMode']" fxFlex="calc(100%-25px)" class="pad-bottom">
       </pams-study-mode-select>
     </div>
   </form>
 </md-dialog-content>
 <md-dialog-actions align="end">
-  <button md-raised-button color="accent" (click)="add(editorForm.value, editorForm.valid)">Save</button>
+  <button md-raised-button color="accent" (click)="add(editorForm.value, editorForm.valid)">Simpan</button>
 </md-dialog-actions>
 

@@ -12,13 +12,13 @@
     <template let-studyModeOffering let-last="last" ngFor [ngForOf]="studyModeOfferings">
       <a md-list-item>
         <md-icon md-list-avatar>label</md-icon>
-        <h3 md-line> {{studyModeOffering.studyMode?.descriptionEn}} </h3>
+        <h3 md-line> {{studyModeOffering.studyMode?.descriptionMs}} </h3>
         <p md-line> {{studyModeOffering.studyMode?.code}} </p>
          <button md-icon-button [md-menu-trigger-for]="menu">
           <md-icon>more_vert</md-icon>
         </button>
         <md-menu x-position="before" #menu="mdMenu">
-          <button md-menu-item (click)="delete(studyModeOffering)">Delete</button>
+          <button md-menu-item (click)="delete(studyModeOffering)">Padam</button>
         </md-menu>
       </a>
     </template>

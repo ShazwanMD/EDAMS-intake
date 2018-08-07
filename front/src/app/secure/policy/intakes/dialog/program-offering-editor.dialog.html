@@ -1,22 +1,22 @@
-<h2 md-dialog-title>Program Offering Editor for {{intake?.referenceNo}}</h2>
+<h2 md-dialog-title>Penawaran Program Bagi ({{intake?.descriptionMs}}/{{intake?.intakeSession.year}})</h2>
 <md-dialog-content>
   <form [formGroup]="editorForm">
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
       <pams-program-code-select
       	[programLevel]='intake.programLevel'
-        [placeholder]="'Program Codes'"
+        [placeholder]="'Kod Program'"
         [innerFormControl]="editorForm.controls['programCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
       </pams-program-code-select>
       <md-input-container fxFlex="calc(50%-25px)">
         <input mdInput
                type="number"
-               placeholder="Projection"
+               placeholder="Unjuran"
                formControlName="projection"/>
       </md-input-container>
     </div>
   </form>
 </md-dialog-content>
 <md-dialog-actions align="end">
-  <button md-raised-button color="accent" (click)="add(editorForm.value, editorForm.valid)">Save</button>
+  <button md-raised-button color="accent" (click)="add(editorForm.value, editorForm.valid)">Simpan</button>
 </md-dialog-actions>
 

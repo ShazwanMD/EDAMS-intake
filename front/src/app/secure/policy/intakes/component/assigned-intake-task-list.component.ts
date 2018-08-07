@@ -20,10 +20,10 @@ import {
 export class AssignedIntakeTaskListComponent implements OnChanges{
 
   private columns: any[] = [
-    {name: 'referenceNo', label: 'ReferenceNo'},
-    {name: 'projection', label: 'Projection'},
-    {name: 'startDate', label: 'Start Date'},
-    {name: 'endDate', label: 'End Date'},
+    {name: 'referenceNo', label: 'No Rujukan'},
+    {name: 'projection', label: 'Unjuran'},
+    {name: 'startDate', label: 'Tarikh Buka'},
+    {name: 'endDate', label: 'Tarikh Tutup'},
     {name: 'flowState', label: 'Status'},
     {name: 'action', label: ''},
   ];
@@ -39,7 +39,7 @@ export class AssignedIntakeTaskListComponent implements OnChanges{
 
   viewTask(task: IntakeTask): void {
       console.log('Emitting task');
-      if (confirm('Viewing intake?')) {
+      if (confirm('Lihat Sesi Pengambilan?')) {
        this.view.emit(task);
       } else {
       }    
