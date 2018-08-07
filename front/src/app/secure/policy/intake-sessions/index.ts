@@ -15,6 +15,7 @@ import {IntakeSessionSelectComponent} from './component/intake-session-select.co
 import {IntakeSessionListComponent} from './component/intake-session-list.component';
 import {IntakeSessionCreatorDialog} from './component/intake-session-creator.dialog';
 import {IntakeSessionEditorDialog } from './component/intake-session-editor.dialog';
+import { PipeModule } from '../../../app.pipe.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {IntakeSessionEditorDialog } from './component/intake-session-editor.dial
     CovalentCoreModule.forRoot(),
     CommonModule.forRoot(),
     EffectsModule.run(IntakeSessionEffects),
+    PipeModule,
   ],
   declarations: [
     // page
