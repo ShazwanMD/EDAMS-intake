@@ -1,4 +1,4 @@
-<h2 md-dialog-title>Intake Session Editor</h2>
+<h2 md-dialog-title>Ubahsuai Sesi Pengambilan</h2>
 <md-dialog-content>
   <form [formGroup]="editorForm">
     <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
@@ -11,24 +11,24 @@
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Description (MS)" formControlName="descriptionMs" flex/>
+            <input mdInput placeholder="Keterangan BM" formControlName="descriptionMs" flex/>
           </md-input-container>
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Description (EN)" formControlName="descriptionEn" flex/>
+            <input mdInput placeholder="Keterangan EN" formControlName="descriptionEn" flex/>
           </md-input-container>
         </div>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput type="number" placeholder="Year" formControlName="year" flex/>
+            <input mdInput type="number" placeholder="Tahun" formControlName="year" flex/>
           </md-input-container>
         </div>
 
         <div layout="row" class="pad-bottom">
           <md-checkbox formControlName="current">
             <div layout="column" flex>
-              Open Session
+              Buka Sesi Pengambilan
             </div>
           </md-checkbox>
         </div>
