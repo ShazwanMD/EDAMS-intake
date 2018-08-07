@@ -35,7 +35,7 @@ export class SubjectCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findSubjectCodes());
-    this.store.dispatch(this.actions.changeTitle("Subject Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Subjek"));
   }
   createDialog(): void {
     this.showDialog(null);

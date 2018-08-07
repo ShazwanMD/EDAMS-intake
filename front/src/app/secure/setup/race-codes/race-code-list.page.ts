@@ -35,7 +35,7 @@ export class RaceCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findRaceCodes());
-    this.store.dispatch(this.actions.changeTitle("Race Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Bangsa"));
   }
   createDialog(): void {
     this.showDialog(null);

@@ -8,27 +8,24 @@
               <div flex-gt-md="40">
                 <!-- <b>Name</b> : {{candidate.name}}<br/><br/>
                 <b>NRIC/Passport</b> : {{candidate.identityNo}}<br/><br/> -->
-                <b>Passport Expired Date</b> : {{candidate.application?.passExpDate}}<br/><br/>
-                <b>Nationality</b> : {{candidate.application?.nationalityCode?.descriptionEn}}<br/><br/>
-                <b>Residency</b> : {{candidate.application?.residencyCode?.descriptionEn}}<br/><br/>
-                <b>Ethnicity</b> : {{candidate.application?.ethnicityCode?.descriptionEn}} <br/><br/>
-                <b>Religion</b> : {{candidate.application?.religionCode?.descriptionEn}} <br/><br/>
+                <b>Nationality</b> : {{candidate.application?.nationalityCode?.descriptionMs}}<br/><br/>
+                <b>Residency</b> : {{candidate.application?.residencyCode?.descriptionMs}}<br/><br/>
+                <b>Ethnicity</b> : {{candidate.application?.ethnicityCode?.descriptionMs}} <br/><br/>
+                <b>Religion</b> : {{candidate.application?.religionCode?.descriptionMs}} <br/><br/>
                 <b>Email</b> : {{candidate.email}} <br/><br/>
                 <b>Phone Number</b> : {{candidate.application?.phone}}<br/><br/>
                 <b>Mobile Number</b> : {{candidate.application?.mobile}}<br/><br/>
                 <b>Fax Number</b> : {{candidate.application?.fax}}<br/><br/>
-                <b>Race</b> : {{candidate.application?.raceCode?.descriptionEn}}<br/><br/>
-                <b>Gender</b> : {{candidate.application?.genderCode?.descriptionEn}}<br/><br/>
+                <b>Race</b> : {{candidate.application?.raceCode?.descriptionMs}}<br/><br/>
+                <b>Gender</b> : {{candidate.application?.genderCode?.descriptionMs}}<br/><br/>
                 <b>Date of Birth</b> : {{candidate.application?.birthDate}}<br/><br/>                
-                <b>Marital Status</b> : {{candidate.application?.maritalCode?.descriptionEn}}<br/><br/><br/>
+                <b>Marital Status</b> : {{candidate.application?.maritalCode?.descriptionMs}}<br/><br/><br/>
               </div>
 
               <div flex-gt-md="40">
-                <b>Study Mode</b> : {{candidate.application?.studyModeSelection?.studyMode.descriptionEn}}<br/><br/>
-                <b>Supervisor</b> : {{candidate.application?.supervisorSelection?.supervisorCode.name}}<br/><br/>
-                <b>Program</b> : {{candidate.application?.programSelection?.programFieldCode?.programCode?.descriptionEn | uppercase}}<br/><br/>
-                <b>Research Title</b> : {{candidate.application?.researchTitle}}<br/><br/>
-                <b>Faculty</b> : {{candidate.application?.programSelection?.programFieldCode?.facultyCode?.descriptionEn | uppercase}}<br/><br/>
+                <b>Study Mode</b> : {{candidate.application?.studyModeSelection?.studyMode.descriptionMs}}<br/><br/>
+                <b>Program</b> : {{candidate.application?.programSelection?.programCode?.descriptionMs | uppercase}}<br/><br/>
+                <b>Faculty</b> : {{candidate.application?.programSelection?.programCode?.facultyCode?.descriptionMs | uppercase}}<br/><br/>
               </div>
 
             </div>
@@ -58,16 +55,16 @@
 					<div flex-gt-md="50">
 		                <b>Address </b> : {{candidate.application?.mailingAddress1}}&nbsp;{{candidate.application?.mailingAddress2}}&nbsp;{{candidate.application?.mailingAddress3}}<br/><br/>
 		                <b>Poscode</b> : {{candidate.application?.mailingPostcode}}<br/><br/>
-		                <b>State</b> : {{candidate.application?.mailingStateCode?.descriptionEn}}<br/><br/>
-		                <b>Country</b> : {{candidate.application?.mailingCountryCode?.descriptionEn}}
+		                <b>State</b> : {{candidate.application?.mailingStateCode?.descriptionMs}}<br/><br/>
+		                <b>Country</b> : {{candidate.application?.mailingCountryCode?.descriptionMs}}
              		 </div>
              		 </md-tab>
              		 <md-tab label="Official">
 					<div flex-gt-md="50">
 		                <b>Address </b> : {{candidate.application?.officialAddress1}}&nbsp;{{candidate.application?.officialAddress2}}&nbsp;{{candidate.application?.officialAddress3}}<br/><br/>
 		                <b>Postcode</b> : {{candidate.application?.officialPostcode}}<br/><br/>
-		                <b>State</b> : {{candidate.application?.officialStateCode?.descriptionEn}}<br/><br/>
-		                <b>Country</b> : {{candidate.application?.officialCountryCode?.descriptionEn}}
+		                <b>State</b> : {{candidate.application?.officialStateCode?.descriptionMs}}<br/><br/>
+		                <b>Country</b> : {{candidate.application?.officialCountryCode?.descriptionMs}}
              		 </div>
              		 </md-tab>
 				</md-tab-group>
@@ -156,30 +153,6 @@
                     
                 </md-card-subtitle>
 
-                <md-card-subtitle *ngIf="candidate.application?.intake?.graduateCenter?.code === 'MGSEB'">
-                    <div layout="row" layout-margin><strong>MGSEB does not include financial support in application form.</strong></div>
-                </md-card-subtitle>
-
-              </md-tab>
-              
-              <md-tab label="Referee">
-                <!--REFEREE INFORMATION-->
-                <md-card>
-                  <div md-content flex md-scroll-y>
-                    <div layout="column" layout-gt-md="row" class="insert">
-
-                      <div flex-gt-md="50">
-                        <md-card-title>Referees Information</md-card-title>
-                      </div>
-
-                    </div>
-                  </div>
-                  <md-divider></md-divider>
-                  <md-card-content>
-                  <pams-referee-list [intakeApplication]="intakeApplication$ | async" [referees]="referees$ | async">
-           			</pams-referee-list>
-                  </md-card-content>
-                </md-card>
               </md-tab>
             </md-tab-group>
           </md-card-content>

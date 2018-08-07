@@ -35,7 +35,7 @@ export class EthnicityCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findEthnicityCodes());
-    this.store.dispatch(this.actions.changeTitle("Ethnicity Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Etnik"));
   }
   createDialog(): void {
     this.showDialog(null);

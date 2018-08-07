@@ -39,6 +39,12 @@
         [innerFormControl]="editorForm.controls.graduateCenter">
       </pams-graduate-center-select>
     </div>
+    <div layout="row" class="pad-top">
+      <pams-faculty-code-select
+        [placeholder]="'Faculty Code'"
+        [innerFormControl]="editorForm.controls['facultyCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-faculty-code-select>
+    </div>
   </form>
 </md-dialog-content>
 <md-dialog-actions align="end">

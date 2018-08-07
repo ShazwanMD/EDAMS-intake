@@ -36,7 +36,7 @@ export class EmploymentTypeCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findEmploymentTypeCodes());
-    this.store.dispatch(this.actions.changeTitle("Employment Type Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Penjawatan"));
   }
   createDialog(): void {
     this.showDialog(null);

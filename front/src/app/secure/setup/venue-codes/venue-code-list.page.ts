@@ -35,7 +35,7 @@ export class VenueCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findVenueCodes());
-    this.store.dispatch(this.actions.changeTitle("Venue Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Lokasi"));
   }
   createDialog(): void {
     this.showDialog(null);

@@ -21,6 +21,7 @@ export class ProgramCodeEditorDialog implements OnInit {
   private editorForm: FormGroup;
   private edit: boolean = false;
   private _programCode: ProgramCode;
+  private _facultyCode: FacultyCode;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -46,6 +47,8 @@ export class ProgramCodeEditorDialog implements OnInit {
       descriptionEn: '',
       programLevel: <ProgramLevel>{},
       graduateCenter: <GraduateCenter>{},
+      facultyCode: <FacultyCode>{},
+
 
     });
 

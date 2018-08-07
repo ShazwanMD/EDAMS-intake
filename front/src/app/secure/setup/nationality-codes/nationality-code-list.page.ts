@@ -36,7 +36,7 @@ export class NationalityCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findNationalityCodes());
-    this.store.dispatch(this.actions.changeTitle("Nationality Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Kewarganegaraan"));
   }
   createDialog(): void {
     this.showDialog(null);

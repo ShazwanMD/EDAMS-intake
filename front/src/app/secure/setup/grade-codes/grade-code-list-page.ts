@@ -36,7 +36,7 @@ export class GradeCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findGradeCodes());
-    this.store.dispatch(this.actions.changeTitle("Grade Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Gred"));
   }
   createDialog(): void {
     this.showDialog(null);

@@ -36,7 +36,7 @@ export class LanguageCodeListPage implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(this.actions.findLanguageCodes());
-    this.store.dispatch(this.actions.changeTitle("Language Codes"));
+    this.store.dispatch(this.actions.changeTitle("Kod Bahasa"));
   }
   createDialog(): void {
     this.showDialog(null);

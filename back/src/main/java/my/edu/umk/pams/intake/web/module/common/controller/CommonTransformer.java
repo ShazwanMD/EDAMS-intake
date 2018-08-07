@@ -138,6 +138,7 @@ public class CommonTransformer {
 		vo.setDescriptionEn(e.getDescriptionEn());
 		vo.setGraduateCenter(toGraduateCenterVo(e.getGraduateCenter()));
 		vo.setProgramLevel(policyTransformer.toProgramLevelVo(e.getProgramLevel()));
+		vo.setFacultyCode(toFacultyCodeVo(e.getFacultyCode()));
 		return vo;
 	}
 
