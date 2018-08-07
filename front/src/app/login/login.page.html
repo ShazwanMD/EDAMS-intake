@@ -8,9 +8,9 @@
         <md-card tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
           <md-card-title>
             <md-icon class="md-icon-logo" svgIcon="assets:covalent"></md-icon>
-            Login
+            Log Masuk
           </md-card-title>
-          <md-card-subtitle>Sign in to secure area</md-card-subtitle>
+          <md-card-subtitle>Log Masuk Bagi Sistem Pengambilan</md-card-subtitle>
           <md-divider></md-divider>
            <md-card-content>
             <form #loginForm="ngForm" [ngClass]="{ 'has-error': loginForm.submitted && !username.valid }">
@@ -40,12 +40,11 @@
           </md-card-content> 
           <md-divider></md-divider>
           <md-card-actions layout="row">
-            <button md-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="login()">Sign In
+            <button md-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="login()">Log Masuk
             </button>
-            <button flex md-button color="primary" class="push-bottom" [routerLink]="['/registration']">Register
+            <button flex md-button color="primary" class="push-bottom" [routerLink]="['/registration']">Daftar
             </button>
-            <button md-button color="primary" class="push-bottom" [routerLink]="['/forget-password']">Forget
-              Password
+            <button md-button color="primary" class="push-bottom" [routerLink]="['/forget-password']">Lupa Kata Laluan
             </button>
           </md-card-actions>
         </md-card>

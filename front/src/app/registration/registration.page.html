@@ -6,8 +6,8 @@
   <td-layout-card-over>
     <div layout="row" layout-align="start center">
       <div>
-        <md-card-title>Applicant Registration</md-card-title>
-        <md-card-subtitle>Applicant Registration for Programs</md-card-subtitle>
+        <md-card-title>Daftar Pemohon</md-card-title>
+        <md-card-subtitle>Pendaftaran Pemohon Bagi Sistem Pengambilan</md-card-subtitle>
       </div>
     </div>
     <md-divider></md-divider>
@@ -16,37 +16,37 @@
         <div layout="row" class="pad-bottom" flex>
           <md-input-container flex>
             <input mdInput
-                   placeholder="Full Name"                  
+                   placeholder="Nama Penuh"                  
                    formControlName="name"
                    type="text"
                    flex/>
             <div class="error" class="tc-red-600"
-                       *ngIf="registrationForm.get('name').invalid && registrationForm.get('name').touched">Required!
+                       *ngIf="registrationForm.get('name').invalid && registrationForm.get('name').touched">Wajib!
                   </div>
           </md-input-container>
         </div>
         <div layout="row" class="pad-bottom" flex>
           <md-input-container flex>
             <input mdInput
-                   placeholder="NRIC/Passport"
+                   placeholder="No Kad Pengenalan"
                    formControlName="identityNo"
                    type="text"
                    flex/>
             <div class="error" class="tc-red-600"
-                       *ngIf="registrationForm.get('identityNo').invalid && registrationForm.get('identityNo').touched">Required!
+                       *ngIf="registrationForm.get('identityNo').invalid && registrationForm.get('identityNo').touched">Wajib!
                   </div>
           </md-input-container>
         </div>
         <div layout="row" class="pad-bottom" flex>
           <md-input-container flex>
             <input mdInput
-                   placeholder="Email"
+                   placeholder="e-mel"
                    type="email"
                    formControlName="email"
                    flex/>
 
             <div class="error" class="tc-red-600"
-                       *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">Please insert a valid email format!(e.g:ali@gmail.com)
+                       *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">Sila Masukan email yang sebenar!(e.g:ali@gmail.com)
                   </div>
           </md-input-container>
         </div>
@@ -54,11 +54,11 @@
           <md-input-container flex>
             <input mdInput
                    type="password"
-                   placeholder="Create Password"
+                   placeholder="Kata Laluan"
                    formControlName="password"
                    flex/>
             <div class="error" class="tc-red-600"
-                       *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">Required!
+                       *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">Wajib!
                   </div>
           </md-input-container>
         </div>
@@ -67,7 +67,7 @@
           <md-input-container flex>
             <input mdInput
                    type="password"
-                   placeholder="Verify Password"
+                   placeholder="Sahkan Kata Laluan"
                    formControlName="confirmPassword" flex/>
             <!-- <div class="error" class="tc-red-600"  
               *ngIf="registrationForm.get('confirmPassword').invalid && createForm.get('confirmPassword').touched">>Passwords don't match!
@@ -84,9 +84,9 @@
     <md-card-actions>
       <button md-raised-button color="accent" 
               (click)="register(registrationForm.value, registrationForm.valid)"
-              [disabled] = "!registrationForm.valid">Register
+              [disabled] = "!registrationForm.valid">Daftar
       </button>
-      <button md-button color="primary" [routerLink]="['/login']">Already Register? Login here!</button>
+      <button md-button color="primary" [routerLink]="['/login']">Sudah Mendaftar? Log Masuk Disini!</button>
     </md-card-actions>
   </td-layout-card-over>
 </td-layout-nav>
