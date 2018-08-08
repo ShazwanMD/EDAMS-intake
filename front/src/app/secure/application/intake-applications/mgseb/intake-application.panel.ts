@@ -27,6 +27,7 @@ import { StateCode } from '../../../../shared/model/common/state-code.interface'
 import { MdSnackBar, MdSnackBarRef, MdTabChangeEvent, SimpleSnackBar, MdDialogConfig, MdDialogRef, MdDialog } from '@angular/material';
 import { PromoCodeDialog } from "../dialog/promo-code.dialog";
 import { GuardianType } from '../../../../shared/model/application/guardian-type.enum';
+import { GuardianTypeCode } from '../../../../shared/model/common/guardian-type-code.interface';
 
 @Component({
   selector: 'pams-mgseb-intake-application',
@@ -124,7 +125,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       guardianPostcode : [''],
       guardianState : [<StateCode>{}, Validators.required],
       guardianCountryCode: [<CountryCode>{}, Validators.required],
-      guardianType: [<GuardianType>{}, Validators.required],
+      guardianTypeCode: [<GuardianTypeCode>{}, Validators.required],
 
       mailingAddress1: ['', Validators.required],
       mailingAddress2: ['', Validators.required],

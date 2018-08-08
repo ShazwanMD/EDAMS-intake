@@ -1,3 +1,4 @@
+
 <td-layout-card-over>
   <form [formGroup]="applicationForm" novalidate>
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
@@ -249,7 +250,7 @@
                   </md-input-container>
                   <div class="error" class="tc-red-600"
                   *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
-                  sila masukkan alamatt waris!
+                  sila masukkan alamat waris!
                  </div>
       
                   <md-input-container fxFlex="calc(100%-25px)">
@@ -276,11 +277,16 @@
                                             class="pad-bottom">
                   </pams-country-code-select>
 
-                  <pams-guardian-type-select [placeholder]="'Hubungan'"
+                  <!-- <pams-guardian-type-select [placeholder]="'Hubungan'"
                         [innerFormControl]="applicationForm.controls.guardianType"
                         fxFlex="calc(50%-25px)"
                         class="pad-bottom">
-                  </pams-guardian-type-select>     
+                  </pams-guardian-type-select>      -->
+
+                  <pams-guardian-type-code-select [placeholder]="'Hubungan'" required md-maxlength="10"
+                  [innerFormControl]="applicationForm.controls.guardianTypeCode"
+                  fxFlex="calc(50%-25px)" class="pad-bottom">
+                  </pams-guardian-type-code-select>
                   
                   <md-input-container fxFlex="calc(50%-25px)">
                       <input mdInput placeholder="Nombor Telefon Waris *" formControlName="mobile"/>

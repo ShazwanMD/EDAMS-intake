@@ -20,6 +20,7 @@ import {PromoCode} from '../common/promo-code.interface';
 import {BidStatus} from './bid-status.enum';
 import {BidType} from './bid-type.enum';
 import { GuardianType } from './guardian-type.enum';
+import { GuardianTypeCode } from '../common/guardian-type-code.interface';
 
 export interface IntakeApplication extends MetaObject {
     id: number;
@@ -65,7 +66,7 @@ export interface IntakeApplication extends MetaObject {
   guardianPostcode : string;
   guardianState : StateCode;
   guardianCountryCode: CountryCode;
-  guardianType: GuardianType;
+  guardianTypeCode: GuardianTypeCode;
 
   mailingAddress1: string;
   mailingAddress2: string;

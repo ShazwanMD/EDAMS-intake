@@ -50,7 +50,7 @@ export class AttachmentCreatorDialog implements OnInit {
   }
 
   upload(attachmentHelper: AttachmentHelper, file: File) {
-    if(confirm('Please make sure that your file is not exceed 1 mb'))
+    if(confirm('Sila pastikan lampiran anda tidak melebihi 1 mb'))
     {
       if(file.type == 'application/pdf'){
       this.store.dispatch(this.actions.addAndCheckAttachment(this._intakeApplication, file, attachmentHelper.attachmentType));
@@ -60,7 +60,7 @@ export class AttachmentCreatorDialog implements OnInit {
     }else{
       console.log("not pdf");
 
-      let snackBarRef = this.snackBar.open('File Upload Must In PDF Format','OK');
+      let snackBarRef = this.snackBar.open('Lampiran fail mesti dalam format PDF','OK');
       snackBarRef.afterDismissed().subscribe(() => {
          //window.location.reload();
      });

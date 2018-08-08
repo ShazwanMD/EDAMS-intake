@@ -1,15 +1,15 @@
-<h2 md-dialog-title>Attachment</h2>
+<h2 md-dialog-title>Lampiran</h2>
 <md-dialog-content>
   <form [formGroup]="createForm">
     <md-card>
    
-    <md-card-subtitle>Your File size must not exceed 1 mb.</md-card-subtitle>
+    <md-card-subtitle>Saiz fail anda mestilah tidak melebihi 1 mb.</md-card-subtitle>
 
     
     <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
           <div layout="row" class="pad-top">
           <pams-attachment-type-select
-              [placeholder]="'Attachment Type'" 
+              [placeholder]="'Jenis Lampiran'" 
               [innerFormControl]="createForm.controls.attachmentType" fxFlex="calc(100%-25px)">
           </pams-attachment-type-select>
     </div>
@@ -18,7 +18,7 @@
       <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="100px">
         <td-file-upload #fileUpload (upload)="upload(createForm.value, $event)" defaultColor="accent" activeColor="warn" cancelColor="primary">
         <md-icon>file_upload</md-icon><span>{{ fileUpload.files?.name }}</span><template td-file-input-label>
-        <md-icon>attach_file</md-icon><span>Choose a file...</span>
+        <md-icon>attach_file</md-icon><span>Pilih Fail...</span>
         </template>
         </td-file-upload>
       </div>

@@ -21,12 +21,12 @@ export class EmploymentListComponent implements OnInit {
   private selectedRows: Employment[];
   private editorDialogRef: MdDialogRef<EmploymentEditorDialog>;
   private columns: any[] = [
-    {name: 'employer', label: 'Employer'},
-    {name: 'designation', label: 'Designation'},
-    {name: 'startDate', label: 'Start Date'},
-    {name: 'endDate', label: 'End Date'},
-    // {name: 'employmentType', label: 'Employment Type'},
-    {name: 'employmentSectorCode.descriptionEn', label: 'Employment Sector'},
+    {name: 'designation', label: 'Pekerjaan'},
+    {name: 'employer', label: 'Majikan'}, 
+    {name: 'employmentSectorCode.descriptionMs', label: 'Kategori Majikan'},
+    {name: 'startDate', label: 'tarikh Mula'},
+    {name: 'endDate', label: 'Tarikh Tamat'},
+    {name: 'workingDuration', label: 'Tempoh Perkhidmatan'},
   ];
 
   constructor(private actions: IntakeApplicationActions,

@@ -1,4 +1,4 @@
-<h2 md-dialog-title>Working Experience</h2>
+<h2 md-dialog-title>Pengalaman Bekerja</h2>
 <md-dialog-content>
   <form [formGroup]="editForm">
     <md-card>
@@ -7,44 +7,44 @@
         <div layout="column" class="pad-right" flex>
           <div layout="row">
             <md-input-container flex>
-              <input mdInput placeholder="Employer Name" formControlName="employer" flex/>
+              <input mdInput placeholder="Nama Majikan" formControlName="employer" flex/>
             </md-input-container>
           </div>
 
           <div layout="row">
             <md-input-container flex>
-              <input mdInput placeholder="Designation" formControlName="designation" flex/>
+              <input mdInput placeholder="Pekerjaan" formControlName="designation" flex/>
             </md-input-container>
           </div>
 
           <div layout="row">
             <md-input-container flex>
-              <input mdInput type="date" placeholder="Start Date" formControlName="startDate" flex/>
+              <input mdInput type="date" placeholder="Tarikh Mula" formControlName="startDate" flex/>
             </md-input-container>
           </div>
 
           <div layout="row">
             <md-input-container flex>
-              <input mdInput type="date" placeholder="End Date" formControlName="endDate" flex/>
+              <input mdInput type="date" placeholder="Tarikh Tamat" formControlName="endDate" flex/>
             </md-input-container>
           </div>
 
           <div layout="row" class="pad-top" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
             <pams-employment-working-duration
-              [placeholder]="'Employment Duration'"
+              [placeholder]="'Tempoh Perkhidmatan'"
               [innerFormControl]="editForm.controls.workingDuration" fxFlex="calc(100%-25px)">
             </pams-employment-working-duration>
           </div>
 
-          <div layout="row" class="pad-top" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
+          <!-- <div layout="row" class="pad-top" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
             <pams-employment-type-select
-              [placeholder]="'Employment Status'"
+              [placeholder]="'Status Pekerjaan'"
               [innerFormControl]="editForm.controls.employmentType" fxFlex="calc(100%-25px)">
             </pams-employment-type-select>
-          </div>
+          </div> -->
 
           <div layout="row" class="pad-top" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
-          <pams-employment-sector-code-select [placeholder]="'Employment Sector'"
+          <pams-employment-sector-code-select [placeholder]="'Kategori Majikan'"
           [innerFormControl]="editForm.controls.employmentSectorCode"fxFlex="calc(50%-25px)">
          </pams-employment-sector-code-select>
 
