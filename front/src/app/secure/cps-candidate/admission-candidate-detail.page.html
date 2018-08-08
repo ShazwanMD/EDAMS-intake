@@ -11,7 +11,7 @@
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
                   <h4 md-line>{{(candidate$|async)?.referenceNo}}</h4>
-                  <p md-line>Reference No</p>
+                  <p md-line>No Rujukan</p>
                 </md-list-item>
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
@@ -30,7 +30,7 @@
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
                   <h4 md-line>{{(candidate$|async)?.intakeSession?.descriptionMs}}</h4>
-                  <p md-line>Intake Session</p>
+                  <p md-line>Sesi Pengambilan</p>
                 </md-list-item>
               </md-list>
             </div>
@@ -41,8 +41,8 @@
         </md-card>
 
         <md-card>
-          <md-card-title>Candidates Information</md-card-title>
-          <md-card-subtitle>Candidates for this program</md-card-subtitle>
+          <md-card-title>Maklumat Pemohon</md-card-title>
+          <md-card-subtitle>Senarai Maklumat Pemohon</md-card-subtitle>
           <md-divider></md-divider>
           <pams-candidate-archived-detail
           	[candidate]="candidate$|async" 

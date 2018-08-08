@@ -43,7 +43,7 @@ export class CandidatePublishTaskPanel implements OnInit {
   }
 
   select(){
-    if (confirm('Confirm to Register This Candidate?')) {
+    if (confirm('Daftarkan Pemohon?')) {
       this.store.dispatch(this.actions.completeCandidateTask(this.candidateTask));
       this.goBack();
     } else {

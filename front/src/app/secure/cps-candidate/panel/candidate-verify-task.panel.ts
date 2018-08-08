@@ -43,7 +43,7 @@ export class CandidateVerifyTaskPanel implements OnInit {
   }
 
   select(){
-    if (confirm('Confirm to Offer This Candidate?')) {
+    if (confirm('Sahkan Bagi Membuat Penawaran?')) {
       this.store.dispatch(this.actions.completeCandidateTask(this.candidateTask));
       this.goBack();
     } else {

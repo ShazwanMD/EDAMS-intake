@@ -71,7 +71,7 @@ export class ApplicantProfileDialog implements OnInit {
   }
 
   select(intakeApplication: IntakeApplication) {
-    if (confirm('Confirm to Select This Applicant?')) {
+    if (confirm('Sahkan Bagi Memilih Pemohon?')) {
       this.store.dispatch(this.actions.selectIntakeApplication(intakeApplication));
       this.editorDialog.afterClosed().subscribe((res) => {
         this.store.dispatch(this.intakeActions.findIntakeByReferenceNoAndBidStatus(intakeApplication.intake.referenceNo));

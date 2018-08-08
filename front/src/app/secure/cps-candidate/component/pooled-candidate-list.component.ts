@@ -17,12 +17,13 @@ import {
 export class PooledCandidateListComponent {
 
   private columns: any[] = [
-                            {name: 'referenceNo', label: 'ReferenceNo'},
-                            {name: 'candidateIntake.identityNo', label: 'Identity No'},
-                            {name: 'candidateIntake.name', label: 'Name'},
-                            {name: 'candidateIntake.programSelection.programCode.facultyCode.descriptionMs', label: 'Faculty'},
-                            {name: 'intakeSession.descriptionMs', label: 'Intake'},
+                            {name: 'referenceNo', label: 'No Rujukan'},
+                            {name: 'candidateIntake.identityNo', label: 'No Kad Pengenalan'},
+                            {name: 'candidateIntake.name', label: 'Nama'},
+                            {name: 'candidateIntake.programSelection.programCode.facultyCode.descriptionMs', label: 'Fakulti'},
+                            {name: 'intakeSession.descriptionMs', label: 'SeSi Pengambilan'},
                             {name: 'flowState', label: 'Status'},
+                            {name: 'candidateIntake.status', label: 'Status Pemohon'},
                             {name: 'action', label: ''},
   ];
 
@@ -37,7 +38,7 @@ export class PooledCandidateListComponent {
 
 claimTask(task: CandidateTask): void {
   console.log('Emitting task');
-  if (confirm('Claim candidate task?')) {
+  if (confirm('Ambil Tindakan?')) {
     this.claim.emit(task);
     window.location.reload();
   }

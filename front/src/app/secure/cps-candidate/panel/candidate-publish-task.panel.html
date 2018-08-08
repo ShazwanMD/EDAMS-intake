@@ -11,7 +11,7 @@
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
                   <h4 md-line>{{candidateTask?.referenceNo}}</h4>
-                  <p md-line>Reference No</p>
+                  <p md-line>No Rujukan</p>
                 </md-list-item>
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
@@ -30,7 +30,7 @@
                 <md-list-item>
                   <md-icon md-list-icon>local_offer</md-icon>
                   <h4 md-line>{{candidateTask?.intakeSession?.descriptionMs}}</h4>
-                  <p md-line>Intake Session</p>
+                  <p md-line>Sesi Pengambilan</p>
                 </md-list-item>
               </md-list>
             </div>
@@ -41,8 +41,8 @@
         </md-card>
 
         <md-card>
-          <md-card-title>Candidates Information</md-card-title>
-          <md-card-subtitle>Candidates for this program</md-card-subtitle>
+          <md-card-title>Maklumat Pemohon</md-card-title>
+          <md-card-subtitle>Maklumat Pemohon Bagi Sesi Pengambilan</md-card-subtitle>
           <md-divider></md-divider>
           <pams-candidate-detail
           	[candidate]="candidateTask.candidateIntake" 
@@ -53,22 +53,22 @@
       <div flex-gt-md="30">
       <pams-candidate-task-status [candidate]="candidateTask.candidateIntake"></pams-candidate-task-status> 
         <md-card>
-          <md-card-title>Action</md-card-title>
-          <md-card-subtitle>Actions available on current intake</md-card-subtitle>
+          <md-card-title>Tindakan</md-card-title>
+          <md-card-subtitle>Senarai Tindakan</md-card-subtitle>
           <md-divider></md-divider>
           <md-nav-list dense>
             <div *ngIf="candidateTask?.candidateIntake?.acception === true"> 
             <md-list-item (click)="select()">
               <md-icon md-list-avatar>check_circle</md-icon>
-              <h4 md-line>Register</h4>
-              <p md-line>Select this candidate</p>
+              <h4 md-line>Daftar</h4>
+              <p md-line>Daftarkan Pemohon</p>
             </md-list-item>
              </div>
-            <md-list-item (click)="reject()">
+            <!-- <md-list-item (click)="reject()">
               <md-icon md-list-avatar>remove_circle</md-icon>
-              <h4 md-line>Reject</h4>
+              <h4 md-line>Padam</h4>
               <p md-line>Reject this candidate</p>
-            </md-list-item>
+            </md-list-item> -->
           </md-nav-list>
         </md-card>
       </div>

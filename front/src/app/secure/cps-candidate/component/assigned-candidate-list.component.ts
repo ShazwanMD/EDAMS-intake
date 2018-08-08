@@ -17,12 +17,13 @@ import {
 export class AssignedCandidateListComponent {
 
   private columns: any[] = [
-    {name: 'referenceNo', label: 'ReferenceNo'},
-    {name: 'candidateIntake.identityNo', label: 'Identity No'},
-    {name: 'candidateIntake.name', label: 'Name'},
-    {name: 'candidateIntake.programSelection.programCode.facultyCode.descriptionMs', label: 'Faculty'},
-    {name: 'intakeSession.descriptionMs', label: 'Intake'},
+    {name: 'referenceNo', label: 'No Rujukan'},
+    {name: 'candidateIntake.identityNo', label: 'No Kad Pengenalan'},
+    {name: 'candidateIntake.name', label: 'Nama'},
+    {name: 'candidateIntake.programSelection.programCode.facultyCode.descriptionMs', label: 'Fakulti'},
+    {name: 'intakeSession.descriptionMs', label: 'Sesi Pengambilan'},
     {name: 'flowState', label: 'Status'},
+    {name: 'candidateIntake.status', label: 'Status Pemohon'},
     {name: 'action', label: ''},
   ];
 
@@ -37,7 +38,7 @@ export class AssignedCandidateListComponent {
 
     viewTask(task: CandidateTask): void {
       console.log('Emitting task');
-      if (confirm('Viewing intake?')) {
+      if (confirm('Lihat Pemohon?')) {
        this.view.emit(task);
       } else {
       }

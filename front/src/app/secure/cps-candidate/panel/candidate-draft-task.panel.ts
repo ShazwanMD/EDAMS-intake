@@ -45,7 +45,7 @@ export class CandidateDraftTaskPanel implements OnInit {
   }
 
   select(){
-    if (confirm('Confirm to Approve This Candidate?')) {
+    if (confirm('Sahkan Bagi Memilih Pemohon?')) {
       this.store.dispatch(this.actions.completeCandidateTask(this.candidateTask));
       this.goBack();
     } else {
