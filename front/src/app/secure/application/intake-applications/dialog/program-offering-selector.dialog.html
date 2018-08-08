@@ -1,4 +1,4 @@
-<h2 md-dialog-title>Select Program</h2>
+<h2 md-dialog-title>Pilih Program</h2>
 <md-dialog-content flex>
   <template let-programOffering let-last="last" ngFor [ngForOf]="programOfferings$ | async">
     <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
@@ -6,7 +6,7 @@
       <p class="md-title tc-grey-600">{{programOffering.programCode.code}} :
         {{programOffering.programCode.descriptionMs}}</p>
 
-      <button md-raised-button color="accent" class="push-bottom" (click)="select(programOffering)">Choose
+      <button md-raised-button color="accent" class="push-bottom" (click)="select(programOffering)">Pilih
         {{programOffering.programCode.code}}
       </button>
       <div class="push-top-sm"></div>

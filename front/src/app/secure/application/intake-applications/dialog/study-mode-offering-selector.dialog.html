@@ -1,9 +1,9 @@
-<h2 md-dialog-title>Select Study Mode</h2>
+<h2 md-dialog-title>Pilih Mod Pengajian</h2>
 <md-dialog-content flex>
   <template let-studyModeOffering let-last="last" ngFor [ngForOf]="studyModeOfferings$ | async">
     <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
       <div class="push-top-sm"></div>
-      <p class="md-title tc-grey-600">{{studyModeOffering?.studyMode?.descriptionEn}}</p>
+      <p class="md-title tc-grey-600">{{studyModeOffering?.studyMode?.descriptionMs}}</p>
       <!--<p class="mat-2-line tc-grey-600">Courses: 15 Courses</p>-->
       <!--<p class="mat-2-line tc-grey-600">Center for Postgraduates Studies is dedicated to educating leaders who can
         think transformatively and create lasting value in the workplace and society.
@@ -11,8 +11,8 @@
         courses, and custom studyModes that are taught by outstanding faculty from across campus along with professors
         of practice and experts from industry.</p>-->
 
-      <button md-raised-button color="accent" class="push-bottom" (click)="select(studyModeOffering)">Choose
-        {{studyModeOffering?.studyMode?.descriptionEn}}
+      <button md-raised-button color="accent" class="push-bottom" (click)="select(studyModeOffering)">Pilih
+        {{studyModeOffering?.studyMode?.descriptionMs}}
       </button>
       <div class="push-top-sm"></div>
       <div class="push-top-sm"></div>
