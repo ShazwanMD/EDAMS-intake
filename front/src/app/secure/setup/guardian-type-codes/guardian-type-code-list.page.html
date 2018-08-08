@@ -1,0 +1,7 @@
+<md-card class="">
+  <pams-guardian-type-code-list [guardianTypeCodes]="guardianTypeCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+  </pams-guardian-type-code-list>
+</md-card>
+<a md-fab color="accent" class="mat-fab-top-right" (click)="createDialog()">
+  <md-icon>add</md-icon>
+</a>

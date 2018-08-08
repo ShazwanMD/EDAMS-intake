@@ -201,7 +201,7 @@ export const commonModuleReducers = {
     DunCodeSelectComponent,
     EmploymentTypeCodeSelectComponent,
     EmploymentSectorCodeSelectComponent,
-    GuardiansTypeSelectComponent,
+    GuardianTypeCodeSelectComponent,
 
   ],
 })
