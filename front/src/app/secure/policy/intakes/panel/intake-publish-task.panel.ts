@@ -47,7 +47,7 @@ export class IntakePublishTaskPanel implements OnInit {
   }
 
   evaluate() {
-    if (confirm('Evaluate this intake?')) {
+    if (confirm('Menilai Sesi Pengambilan?')) {
       this.store.dispatch(this.actions.completeIntakeTask(this.intakeTask));
          this.goBack();
     } else {
@@ -55,7 +55,7 @@ export class IntakePublishTaskPanel implements OnInit {
   }
 
   copy() {
-    if(confirm('Copy this intake?')){
+    if(confirm('Salin Sesi Pengambilan?')){
       this.store.dispatch(this.actions.copyIntakeTask(this.intakeTask));
       this.goBack();
     }else {
@@ -63,7 +63,7 @@ export class IntakePublishTaskPanel implements OnInit {
   }
 
   remove(): void {
-    if(confirm('Confirm remove this intake?')){
+    if(confirm('Padam Sesi Pengambilan?')){
     this.store.dispatch(this.actions.removeIntakeTask(this.intakeTask));
     this.goBack();
  } 

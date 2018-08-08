@@ -1,14 +1,14 @@
 <!-- Basic Card -->
 <md-card>
-  <md-card-title>Applicant Personal Info</md-card-title>
-  <md-card-subtitle>Verify Application Form</md-card-subtitle>
+  <md-card-title>Maklumat Peribadi Pemohon</md-card-title>
+  <md-card-subtitle>Pilih Pemohon</md-card-subtitle>
   <md-divider></md-divider>
   <md-card-content>
     <!--Tab Section Here-->
     <md-tab-group>
 
       <!--MULA TAB STUDENT INFORMATION-->
-      <md-tab label="Applicant Information">
+      <md-tab label="Maklumat Pemohon">
 
         <br/>
 
@@ -17,7 +17,7 @@
           <div md-content flex md-scroll-y>
             <div layout="column" layout-gt-md="row" class="insert">
               <div flex-gt-md="50">
-                <md-card-title>Applicant Information</md-card-title>
+                <md-card-title>Maklumat Pemohon</md-card-title>
               </div>
             </div>
           </div>
@@ -28,34 +28,28 @@
 
               <div flex-gt-md="40">
                 <b>Name</b> : {{intakeApplication.name}}<br/><br/>
-                <b>NRIC/Passport</b> : {{intakeApplication.credentialNo}}<br/><br/>
-                <b>Passport Expired Date</b> : {{intakeApplication.passExpDate}}<br/><br/>
-                <b>Nationality</b> : {{intakeApplication.nationalityCode?.descriptionEn}}<br/><br/>
-                <b>Residency</b> : {{intakeApplication.residencyCode?.descriptionEn}}<br/><br/>
-                <b>Ethnicity</b> : {{intakeApplication.ethnicityCode?.descriptionEn}} <br/><br/>
-                <b>Religion</b> : {{intakeApplication.religionCode?.descriptionEn}} <br/><br/>
-                <b>Email</b> : {{intakeApplication.email}}<br/><br/>
-                <b>Phone Number</b> : {{intakeApplication.phone}}<br/><br/>
-                <b>Mobile Number</b> : {{intakeApplication.mobile}}<br/><br/>
-                <b>Fax Number</b> : {{intakeApplication.fax}}<br/><br/>
-                <b>Race</b> : {{intakeApplication.raceCode?.descriptionEn}}<br/><br/>
-                <b>Gender</b> : {{intakeApplication.genderCode?.descriptionEn}}<br/><br/>
-                <b>Date of Birth</b> : {{intakeApplication.birthDate}}<br/><br/>
-                <b>Marital Status</b> : {{intakeApplication.maritalCode?.descriptionEn}}<br/><br/>
+                <b>No Kad Pengenalan</b> : {{intakeApplication.credentialNo}}<br/><br/>
+                <b>Kewarganegaraan</b> : {{intakeApplication.nationalityCode?.descriptionMs}}<br/><br/>
+                <b>Residen</b> : {{intakeApplication.residencyCode?.descriptionMs}}<br/><br/>
+                <b>Etnik</b> : {{intakeApplication.ethnicityCode?.descriptionMs}} <br/><br/>
+                <b>Agama</b> : {{intakeApplication.religionCode?.descriptionMs}} <br/><br/>
+                <b>Emel</b> : {{intakeApplication.email}}<br/><br/>
+                <b>No Telefon</b> : {{intakeApplication.phone}}<br/><br/>
+                <b>No Telefon Bimbit</b> : {{intakeApplication.mobile}}<br/><br/>
+                <b>No Faks</b> : {{intakeApplication.fax}}<br/><br/>
+                <b>Bangsa</b> : {{intakeApplication.raceCode?.descriptionMs}}<br/><br/>
+                <b>Jantina</b> : {{intakeApplication.genderCode?.descriptionMs}}<br/><br/>
+                <b>Tarikh Lahir</b> : {{intakeApplication.birthDate}}<br/><br/>
+                <b>Status Perkahwinan</b> : {{intakeApplication.maritalCode?.descriptionMs}}<br/><br/>
               </div>
 
               <div flex-gt-md="40">
-                <b>Study Mode</b> : {{intakeApplication.studyModeSelection?.studyMode.descriptionEn}}<br/><br/>
-                <div *ngIf="intakeApplication?.intake?.graduateCenter?.code === 'MGSEB'">
-                <b>Study Center</b> : {{intakeApplication.studyCenterCode?.descriptionEn}}<br/><br/>
+                <b>Mod Pengajian</b> : {{intakeApplication.studyModeSelection?.studyMode.descriptionMs}}<br/><br/>
+                <div>
+                <b>Kampus Pengajian</b> : {{intakeApplication.studyCenterCode?.descriptionMs}}<br/><br/>
                 </div>        
-                <div *ngIf="intakeApplication?.intake?.graduateCenter?.code === 'CPS'">
-                  <b>Supervisor</b> : {{intakeApplication.supervisorSelection?.supervisorCode.name}}<br/><br/>
-                </div>
-                <b>Program</b> : {{intakeApplication.programSelection?.programFieldCode?.programCode?.descriptionEn | uppercase}}
-                ({{intakeApplication.programSelection?.programFieldCode?.fieldCode?.descriptionEn | uppercase}})<br/><br/>
-                <b>Research Title</b> : {{intakeApplication.researchTitle}}<br/><br/>
-                <b>Faculty</b> : {{intakeApplication.programSelection?.programFieldCode?.facultyCode?.descriptionEn | uppercase}}<br/><br/>
+                <b>Program</b> : {{intakeApplication.programSelection?.programCode?.descriptionMs | uppercase}}<br/><br/>
+                <b>Fakulti</b> : {{intakeApplication.programSelection?.programCode?.facultyCode?.descriptionMs | uppercase}}<br/><br/>
               </div>
 
             </div>
@@ -71,7 +65,7 @@
                     <div layout="column" layout-gt-md="row" class="insert">
 
                       <div flex-gt-md="50">
-                        <md-card-title>Address Information</md-card-title>
+                        <md-card-title>Maklumat Alamat</md-card-title>
                       </div>
 
                     </div>
@@ -81,20 +75,20 @@
 
                     <!-- Address information here -->
                     <md-tab-group>
-                      <md-tab label="Mailing">
+                      <md-tab label="Alamat Surat-menyurat">
                         <div flex-gt-md="50">
-                          <b>Address </b> : {{intakeApplication.mailingAddress1}}&nbsp;{{intakeApplication.mailingAddress2}}&nbsp;{{intakeApplication.mailingAddress3}}<br/><br/>
-                          <b>Poscode</b> : {{intakeApplication.mailingPostcode}}<br/><br/>
-                          <b>State</b> : {{intakeApplication.mailingStateCode?.descriptionEn}}<br/><br/>
-                          <b>Country</b> : {{intakeApplication.mailingCountryCode?.descriptionEn}}
+                          <b>Alamat </b> : {{intakeApplication.mailingAddress1}}&nbsp;{{intakeApplication.mailingAddress2}}&nbsp;{{intakeApplication.mailingAddress3}}<br/><br/>
+                          <b>Poskod</b> : {{intakeApplication.mailingPostcode}}<br/><br/>
+                          <b>Negeri</b> : {{intakeApplication.mailingStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b> : {{intakeApplication.mailingCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
-                      <md-tab label="Official">
+                      <md-tab label="Alamat Rasmi">
                         <div flex-gt-md="50">
-                          <b>Address </b> : {{intakeApplication.officialAddress1}}&nbsp;{{intakeApplication.officialAddress2}}&nbsp;{{intakeApplication.officialAddress3}}<br/><br/>
-                          <b>Poscode</b> : {{intakeApplication.officialPostcode}}<br/><br/>
-                          <b>State</b> : {{intakeApplication.officialStateCode?.descriptionEn}}<br/><br/>
-                          <b>Country</b> : {{intakeApplication.officialCountryCode?.descriptionEn}}
+                          <b>Alamat </b> : {{intakeApplication.officialAddress1}}&nbsp;{{intakeApplication.officialAddress2}}&nbsp;{{intakeApplication.officialAddress3}}<br/><br/>
+                          <b>Poskod</b> : {{intakeApplication.officialPostcode}}<br/><br/>
+                          <b>Negeri</b> : {{intakeApplication.officialStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b> : {{intakeApplication.officialCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
                     </md-tab-group>
@@ -108,7 +102,7 @@
                     <div layout="column" layout-gt-md="row" class="insert">
 
                       <div flex-gt-md="50">
-                        <md-card-title>Academic Information</md-card-title>
+                        <md-card-title>Maklumat Akademik</md-card-title>
                       </div>
 
                     </div>
@@ -116,12 +110,12 @@
                   <md-divider></md-divider>
                   <md-card-content>
 
-          <td-expansion-panel label="Results">
+          <td-expansion-panel label="Keputusan">
             <pams-result-list [intakeApplication]="intakeApplication$ | async" [results]="results$ | async">
             </pams-result-list>
           </td-expansion-panel>
 
-          <td-expansion-panel label="Proficiency in Language">
+          <td-expansion-panel label="Bahasa">
             <pams-language-list [intakeApplication]="intakeApplication$ | async" [languages]="languages$ | async">
             </pams-language-list>
           </td-expansion-panel>
@@ -129,13 +123,13 @@
                   </md-card-content>
                 </md-card>
               </md-tab>
-              <md-tab label="Working Experience">
+              <md-tab label="Pengalaman Kerja">
                 <!--WORKING EXPERIENCE INFORMATION-->
                 <md-card>
                   <div md-content flex md-scroll-y>
                     <div layout="column" layout-gt-md="row" class="insert">
                       <div flex-gt-md="50">
-                        <md-card-title>Working Experience Information</md-card-title>
+                        <md-card-title>Maklumat Pengalaman Kerja</md-card-title>
                       </div>
                     </div>
                   </div>
@@ -146,14 +140,14 @@
                   </md-card-content>
                 </md-card>
               </md-tab>
-              <md-tab label="Attachment">
+              <md-tab label="Lampiran">
                 <!--ATTACHMENT INFORMATION-->
                 <md-card>
                   <div md-content flex md-scroll-y>
                     <div layout="column" layout-gt-md="row" class="insert">
 
                       <div flex-gt-md="50">
-                        <md-card-title>Attachment Information</md-card-title>
+                        <md-card-title>Maklumat Lampiran</md-card-title>
                       </div>
 
                     </div>
@@ -166,53 +160,27 @@
                 </md-card>
               </md-tab>
             
-              <md-tab label="Financial Support">
+              <md-tab label="Maklumat Kewangan">
                 <!--FINANCIAL INFORMATION-->
-                  <md-card-subtitle *ngIf="intakeApplication.intake?.graduateCenter?.code === 'CPS'">
+                  <md-card-subtitle>
                     
                     <md-card-subtitle *ngIf="intakeApplication?.sponsored === true">
-                    <div layout="row" layout-margin><strong>Applicant is Sponsored by Employer or Government and enclosed letter from Sponsor.</strong></div>
+                    <div layout="row" layout-margin><strong>Pemohon telah mendapat biasiswa / pinjaman pengajian.</strong></div>
                     </md-card-subtitle>
                     
                     <md-card-subtitle *ngIf="intakeApplication?.selfSponsored === true">
-                        <div layout="row" layout-margin><strong>Applicant is Self Supporting and enclosed financial guarantee or bank statement.</strong></div>
+                        <div layout="row" layout-margin><strong>Pemohon membiayai sendiri pengajian.</strong></div>
                     </md-card-subtitle>
                     
                 </md-card-subtitle>
-
-                <md-card-subtitle *ngIf="intakeApplication.intake?.graduateCenter?.code === 'MGSEB'">
-                    <div layout="row" layout-margin><strong>MGSEB does not include financial support in application form.</strong></div>
-                </md-card-subtitle>
-
-
               </md-tab>
-
-              <!-- <md-tab label="Referee">
-              
-                <md-card>
-                  <div md-content flex md-scroll-y>
-                    <div layout="column" layout-gt-md="row" class="insert">
-
-                      <div flex-gt-md="50">
-                        <md-card-title>Referees Information</md-card-title>
-                      </div>
-
-                    </div>
-                  </div>
-                  <md-divider></md-divider>
-                  <md-card-content>
-                    <pams-referee-list [intakeApplication]="intakeApplication$ | async" [referees]="referees$ | async">
-                    </pams-referee-list>
-                  </md-card-content>
-                </md-card>
-              </md-tab> -->
             </md-tab-group>
           </md-card-content>
         </md-card>
         <md-card *ngIf="intakeApplication.bidStatus != 'SELECTED'">
           
-        <button md-raised-button color="accent" (click)="select(intakeApplication)">Select</button>
-        <button md-raised-button color="accent" (click)="reject(intakeApplication)">Reject</button>
+        <button md-raised-button color="accent" (click)="select(intakeApplication)">Pilih</button>
+        <button md-raised-button color="accent" (click)="reject(intakeApplication)">Tolak</button>
         </md-card>
       </md-tab>
     </md-tab-group>

@@ -305,6 +305,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 	public void acceptCandidate(InCandidate candidate) {
 		// start acception process
 		candidate.setAcception(true);
+		candidate.setStatus(InCandidateStatus.ACCEPTED);
 
 		String generatedMatricNo = generateMatricNumber(candidate);
 		if (candidate.getMatricNo() == null)

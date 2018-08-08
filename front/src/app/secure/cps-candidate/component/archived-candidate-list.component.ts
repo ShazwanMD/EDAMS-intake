@@ -18,11 +18,11 @@ import { Candidate } from "../../../shared/model/admission/candidate.interface";
 export class ArchivedCandidateListComponent {
 
   private columns: any[] = [
-    {name: 'referenceNo', label: 'ReferenceNo'},
-    {name: 'identityNo', label: 'Identity No'},
-    {name: 'name', label: 'Name'},
-    {name: 'application.programSelection.programCode.facultyCode.descriptionMs', label: 'Faculty'},
-    {name: 'intake.intakeSession.descriptionMs', label: 'Intake'},
+    {name: 'referenceNo', label: 'No Rujukan'},
+    {name: 'identityNo', label: 'No Kad Pengenalan'},
+    {name: 'name', label: 'Nama'},
+    {name: 'application.programSelection.programCode.facultyCode.descriptionMs', label: 'Fakulti'},
+    {name: 'intake.intakeSession.descriptionMs', label: 'Sesi Pengambilan'},
     {name: 'flowState', label: 'Status'},
     {name: 'action', label: ''},
   ];
@@ -38,7 +38,7 @@ export class ArchivedCandidateListComponent {
 
     viewDetail(task: Candidate): void {
       console.log('Emitting task');
-      if (confirm('Viewing intake?')) {
+      if (confirm('Lihat?')) {
        this.view.emit(task);
       } else {
       }
