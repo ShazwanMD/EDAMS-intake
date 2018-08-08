@@ -1,15 +1,15 @@
 <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
   <div class="push-top-sm"></div>
-  <p class="md-title tc-grey-600">Choose your program:
+  <p class="md-title tc-grey-600">Pilih Program:
     {{intakeApplication?.programSelection?.programCode.descriptionMs}}
     ({{intakeApplication?.programSelection?.programCode.code}}) </p>
   <button md-raised-button color="accent" class="push-bottom" (click)="showProgramSelectionDialog()">Choose</button>
   <div class="push-top-sm"></div>
-  <p class="md-title tc-grey-600">Choose your study mode:
-    {{intakeApplication?.studyModeSelection?.studyMode?.descriptionEn}}</p>
+  <p class="md-title tc-grey-600">Pilih Mod Pengajian:
+    {{intakeApplication?.studyModeSelection?.studyMode?.descriptionMs}}</p>
   <button md-raised-button color="accent" class="push-bottom" (click)="showStudyModeSelectionDialog()">Choose</button>
   <div class="push-top-sm"></div>
-  <p class="md-title tc-grey-600">Choose study Center :</p>
+  <p class="md-title tc-grey-600">Pilih Pusat Pengajian :</p>
   <!-- <p class="md-title tc-grey-600">Choose your supervisor:
    {{intakeApplication?.supervisorSelection?.supervisorCode.title}}. {{intakeApplication?.supervisorSelection?.supervisorCode.name}} </p>
   <button md-raised-button color="accent" class="push-bottom" (click)="showSupervisorSelectionDialog()">Choose</button> -->

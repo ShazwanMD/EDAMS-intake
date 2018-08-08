@@ -1,5 +1,7 @@
 package my.edu.umk.pams.intake.application.model;
 
+import my.edu.umk.pams.intake.common.model.InEmploymentSectorCode;
+import my.edu.umk.pams.intake.common.model.InGuardianTypeCode;
 import my.edu.umk.pams.intake.common.model.InStateCode;
 import my.edu.umk.pams.intake.core.InMetaObject;
 
@@ -19,9 +21,13 @@ public interface InGuardian extends InMetaObject {
 
 	void setSalary(BigDecimal salary);
 
-	InGuardianType getType();
+	// InGuardianType getType();
+	//
+	// void setType(InGuardianType type);
 
-	void setType(InGuardianType type);
+	InGuardianTypeCode getGuardianTypeCode();
+
+	void setGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
 
 	String getGuardianAddress1();
 
@@ -42,9 +48,9 @@ public interface InGuardian extends InMetaObject {
 	InStateCode getGuardianState();
 
 	void setGuardianState(InStateCode guardianState);
-	
+
 	String getGuardianNo();
-	
+
 	void setGuardianNo(String guardianNo);
 
 	InIntakeApplication getApplication();

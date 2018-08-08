@@ -440,9 +440,10 @@ public interface InIntakeApplication extends InMetaObject {
 
 	void setGuardianCountryCode(InCountryCode guardianCountryCode);
 	
-	InGuardianType getGuardianType();
+	InGuardianTypeCode getGuardianTypeCode();
 
-	void setGuardianType(InGuardianType guardianType);
+	void setGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
+
 
     
 }

@@ -2514,4 +2514,88 @@ removeEmploymentSectorCodeSuccess(message): Action {
     payload: message,
   };
 }
+
+//=================================================================================
+//  GUARDIAN_TYPE_CODES                                                                      //
+//=================================================================================
+
+static FIND_GUARDIAN_TYPE_CODES = '[Setup] Find Guardian Type Codes';
+
+findGuardianTypeCodes(): Action {
+  console.log('findGuardianTypeCodes');
+  return {
+    type: SetupActions.FIND_GUARDIAN_TYPE_CODES,
+  };
+}
+
+static FIND_GUARDIAN_TYPE_CODES_SUCCESS = '[Setup] Find Guardian Type Codes Success';
+
+findGuardianTypeCodesSuccess(codes): Action {
+  console.log('findGuardianTypeCodesSuccess');
+  return {
+    type: SetupActions.FIND_GUARDIAN_TYPE_CODES_SUCCESS,
+    payload: codes,
+  };
+}
+
+static SAVE_GUARDIAN_TYPE_CODE = '[Setup] Save Guardian Type Code';
+
+saveGuardianTypeCode(code): Action {
+  console.log('saveGuardianTypeCode');
+  return {
+    type: SetupActions.SAVE_GUARDIAN_TYPE_CODE,
+    payload: code,
+  };
+}
+
+static SAVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Save Guardian Type Code Success';
+
+saveGuardianTypeCodeSuccess(message): Action {
+  console.log('saveGuardianTypeCodeSuccess');
+  return {
+    type: SetupActions.SAVE_GUARDIAN_TYPE_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static UPDATE_GUARDIAN_TYPE_CODE = '[Setup] Update Guardian Type Code';
+
+updateGuardianTypeCode(code): Action {
+  console.log('updateGuardianTypeCode');
+  return {
+    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
+    payload: code,
+  };
+}
+
+static UPDATE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Update Guardian Type Code Success';
+
+updateGuardianTypeCodeSuccess(message): Action {
+  console.log('updateGuardianTypeCodeSuccess');
+  return {
+    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static REMOVE_GUARDIAN_TYPE_CODE = '[Setup] Remove Guardian Type Code';
+
+removeGuardianTypeCode(code): Action {
+  console.log('removeGuardianTypeCode');
+  return {
+    type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE,
+    payload: code,
+  };
+}
+
+static REMOVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Remove Guardian Type Code Success';
+
+removeGuardianTypeCodeSuccess(message): Action {
+  console.log('removeGuardianTypeCodeSuccess');
+  return {
+    type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
 }

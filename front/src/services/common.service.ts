@@ -34,6 +34,7 @@ import {ProgramLevel} from '../app/shared/model/policy/program-level.interface';
 import { SupervisorOffering } from '../app/shared/model/common/supervisor-offering.interface';
 import { ProgramFieldCode } from "../app/shared/model/common/program-field-code.interface";
 import { FieldCode } from "../app/shared/model/common/field-code.interface";
+import { GuardianTypeCode } from '../app/shared/model/common/guardian-type-code.interface';
 
 @Injectable()
 export class CommonService {
@@ -999,6 +1000,37 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
 
   removeEmploymentSectorCode(code: EmploymentSectorCode): Observable<String> {
     return this._http.delete(this.COMMON_API + '/employmentSectorCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  // ====================================================================================================
+  // GUARDIAN TYPE CODES
+  // ====================================================================================================
+
+  findGuardianTypeCodes(): Observable<GuardianTypeCode[]> {
+    console.log('findGuardianTypeCodes');
+    return this._http.get(this.COMMON_API + '/guardianTypeCodes')
+      .map((res: Response) => <GuardianTypeCode[]>res.json());
+  }
+
+  findGuardianTypeCodeByCode(code: string): Observable<GuardianTypeCode> {
+    console.log('findGuardianTypeCodeByCode');
+    return this._http.get(this.COMMON_API + '/guardianTypeCodes/' + code)
+      .map((res: Response) => <GuardianTypeCode>res.json());
+  }
+
+  saveGuardianTypeCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/guardianTypeCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateGuardianTypeCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/guardianTypeCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeGuardianTypeCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/guardianTypeCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 }

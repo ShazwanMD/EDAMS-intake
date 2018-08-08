@@ -596,4 +596,23 @@ export class CommonActions {
       payload: codes
     };
   }
+
+  static FIND_GUARDIAN_TYPE_CODES = '[Common] Find GuardianTypeCodes';
+
+  findGuardianTypeCodes(): Action {
+    console.log("findGuardianTypeCodes");
+    return {
+      type: CommonActions.FIND_GUARDIAN_TYPE_CODES
+    };
+  }
+
+  static FIND_GUARDIAN_TYPE_CODES_SUCCESS = '[Common] Find GuardianTypeCodes Success';
+
+  findGuardianTypeCodesSuccess(codes): Action {
+    console.log("findGuardianTypeCodesSuccess");
+    return {
+      type: CommonActions.FIND_GUARDIAN_TYPE_CODES_SUCCESS,
+      payload: codes
+    };
+  }
 }

@@ -258,8 +258,11 @@ public class ApplicationController {
 		application.setGuardianAddress1(vo.getGuardianAddress1());
 		application.setGuardianAddress2(vo.getGuardianAddress2());
 		application.setGuardianAddress3(vo.getGuardianAddress3());
-		application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
+//		application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		application.setGuardianPostcode(vo.getGuardianPostcode());
+		if (null != vo.getGuardianTypeCode())
+			application.setGuardianTypeCode(
+					commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
 		if (null != vo.getGuardianState())
 			application.setGuardianState(commonService.findStateCodeById(vo.getGuardianState().getId()));
 		if (null != vo.getGuardianCountryCode())
@@ -866,7 +869,8 @@ public class ApplicationController {
 		guardian.setGuardianAddress3(vo.getGuardianAddress3());
 		guardian.setGuardianPostcode(vo.getGuardianPostcode());
 		guardian.setGuardianNo(vo.getGuardianNo());
-		guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		guardian.setGuardianTypeCode(commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
+		//guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		applicationService.addGuardian(application, guardian);
 
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
@@ -892,7 +896,8 @@ public class ApplicationController {
 		guardian.setGuardianAddress3(vo.getGuardianAddress3());
 		guardian.setGuardianPostcode(vo.getGuardianPostcode());
 		guardian.setGuardianNo(vo.getGuardianNo());
-		guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		guardian.setGuardianTypeCode(commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
+		//guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		applicationService.updateGuardian(application, guardian);
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}

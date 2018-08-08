@@ -1,3 +1,7 @@
+import { GuardianTypeCodesComponent } from './guardian-type-codes/component/guardian-type-code';
+import { GuardianTypeCodeEditorDialog } from './guardian-type-codes/dialog/guardian-type-code-editor.dialog';
+import { GuardianTypeCodeListPage } from './guardian-type-codes/guardian-type-code-list.page';
+import { GuardianTypeCodeListState} from './../../common/guardian-type-codes/guardian-type-code-list.reducer';
 import { EmploymentSectorCodesComponent } from './employment-sector-codes/component/employment-sector-code';
 import { EmploymentSectorCodeEditorDialog } from './employment-sector-codes/dialog/employment-sector-code-editor.dialog';
 import { EmploymentSectorCodeListPage } from './employment-sector-codes/employment-sector-code-list.page';
@@ -161,6 +165,8 @@ import { FieldCode } from "../../shared/model/common/field-code.interface";
 import { FieldCodeListState, fieldCodeListReducer } from './field-codes/field-code-list.reducer';
 import { ProgramFieldCode } from "../../shared/model/common/program-field-code.interface";
 import { ProgramFieldCodeEditorDialog } from "./program-field-codes/dialog/program-field-code-editor.dialog";
+import { GuardianTypeCode } from '../../shared/model/common/guardian-type-code.interface';
+import { guardianTypeCodeListReducer } from './guardian-type-codes/guardian-type-code-list.reducer';
 
 
 export interface SetupModuleState {
@@ -195,6 +201,7 @@ export interface SetupModuleState {
   gradeCodes: GradeCodeListState;
   employmentTypeCodes: EmploymentTypeCodeListState;
   employmentSectorCodes: EmploymentSectorCodeListState;
+  guardianTypeCodes: GuardianTypeCodeListState;
 
 };
 
@@ -231,6 +238,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     gradeCodes: <GradeCode[]>[],
     employmentTypeCodes: <EmploymentTypeCode[]>[],
     employmentSectorCodes: <EmploymentSectorCode[]>[],
+    guardianTypeCodes: <GuardianTypeCode[]>[],
 
   };
 
@@ -266,6 +274,7 @@ export const setupModuleReducers = {
   gradeCodes: gradeCodeListReducer,
   employmentTypeCodes: employmentTypeCodeListReducer,
   employmentSectorCodes: employmentSectorCodeListReducer,
+  guardianTypeCodes: guardianTypeCodeListReducer,
 
 };
 
@@ -313,6 +322,7 @@ export const setupModuleReducers = {
     GradeCodeListPage,
     EmploymentTypeCodeListPage,
     EmploymentSectorCodeListPage,
+    GuardianTypeCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -345,6 +355,7 @@ export const setupModuleReducers = {
     GradeCodeEditorDialog,
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
+    GuardianTypeCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -375,6 +386,7 @@ export const setupModuleReducers = {
     VenueCodesComponent,
     EmploymentTypeCodesComponent,
     EmploymentSectorCodesComponent,
+    GuardianTypeCodesComponent,
     
 
   ],
@@ -412,6 +424,7 @@ export const setupModuleReducers = {
     RaceCodeEditorDialog,
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
+    GuardianTypeCodeEditorDialog,
 
   ],
 })

@@ -2,17 +2,17 @@
   <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
   
     <div class="push-top-sm"></div>
-    <p class="md-title tc-grey-600">Choose your program:
-      {{intakeApplication?.programSelection?.programFieldCode.programCode.descriptionEn}}
-      ({{intakeApplication?.programSelection?.programFieldCode.code}}) </p>
-    <button md-raised-button color="accent" class="push-bottom" (click)="showProgramSelectionDialog()">Choose</button>
+    <p class="md-title tc-grey-600">Pilih Program:
+      {{intakeApplication?.programSelection?.programCode.descriptionMs}}
+      ({{intakeApplication?.programSelection?.programCode.code}}) </p>
+    <button md-raised-button color="accent" class="push-bottom" (click)="showProgramSelectionDialog()">Pilih</button>
     <div class="push-top-sm"></div>
-    <p class="md-title tc-grey-600">Choose your study mode:
-      {{intakeApplication?.studyModeSelection?.studyMode.descriptionEn}}
+    <p class="md-title tc-grey-600">Pilih Mod Pengajian:
+      {{intakeApplication?.studyModeSelection?.studyMode.descriptionMs}}
       ({{intakeApplication?.studyModeSelection?.studyMode.code}}) </p>
-    <button md-raised-button color="accent" class="push-bottom" (click)="showStudyModeSelectionDialog()">Choose</button>
+    <button md-raised-button color="accent" class="push-bottom" (click)="showStudyModeSelectionDialog()">Pilih</button>
     <div class="push-top-sm"></div>
-    <p class="md-title tc-grey-600">Choose study Center :</p>
+    <p class="md-title tc-grey-600">Pilih Pusat Pengajian :</p>
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
      <!-- <pams-study-center-code-select [placeholder]="'Study Center'" [innerFormControl]="applicationForm.controls.studyCenterCode"
                 fxFlex="calc(70%-25px)" class="push-bottom">

@@ -1,3 +1,4 @@
+import { GuardianTypeCodeListPage } from './guardian-type-codes/guardian-type-code-list.page';
 import { EmploymentSectorCodeListPage } from './employment-sector-codes/employment-sector-code-list.page';
 import { EmploymentTypeCodeListPage } from './employment-type-codes/employment-type-code-list.page';
 import {VenueCodeListPage} from './venue-codes/venue-code-list.page';
@@ -68,6 +69,7 @@ export const setupModuleRoutes: Routes = [
       {path: 'program-field-codes', component: ProgramFieldCodeListPage},
       {path: 'employment-type-codes', component: EmploymentTypeCodeListPage},
       {path: 'employment-sector-codes', component: EmploymentSectorCodeListPage},
+      {path: 'guardian-type-codes', component: GuardianTypeCodeListPage},
     ],
   },
 

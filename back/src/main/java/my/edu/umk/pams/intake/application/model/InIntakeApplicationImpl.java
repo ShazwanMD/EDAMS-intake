@@ -21,11 +21,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@GeneratedValue(generator = "SQ_IN_INTK_APLN")
 	@SequenceGenerator(name = "SQ_IN_INTK_APLN", sequenceName = "SQ_IN_INTK_APLN", allocationSize = 1)
 	private Long id;
-	
-	public InIntakeApplicationImpl() {
-		super();
-		setGuardianType(InGuardianType.NOT_APPLICABLE);
-	}
 
 	@NotNull
 	@Column(name = "RANK", nullable = false)
@@ -367,9 +362,13 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@JoinColumn(name = "GUARDIAN_COUNTRY_CODE_ID")
 	private InCountryCode guardianCountryCode;
 	
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "GUARDIAN_TYPE")
-	private InGuardianType guardianType;
+	@ManyToOne(targetEntity = InGuardianTypeCodeImpl.class)
+	@JoinColumn(name = "GUARDIAN_TYPE_CODE_ID")
+	private InGuardianTypeCode guardianTypeCode;
+
+//	@Enumerated(EnumType.ORDINAL)
+//	@Column(name = "GUARDIAN_TYPE")
+//	private InGuardianType guardianType;
 
 
 	@OneToMany(targetEntity = InResultImpl.class, mappedBy = "application")
@@ -1465,13 +1464,13 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	}
 	
 	@Override
-	public InGuardianType getGuardianType() {
-		return guardianType;
+	public InGuardianTypeCode getGuardianTypeCode() {
+		return guardianTypeCode;
 	}
 
 	@Override
-	public void setGuardianType(InGuardianType guardianType) {
-		this.guardianType = guardianType;
+	public void setGuardianTypeCode(InGuardianTypeCode guardianTypeCode) {
+		this.guardianTypeCode = guardianTypeCode;
 	}
 	
 	

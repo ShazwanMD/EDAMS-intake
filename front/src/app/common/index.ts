@@ -1,3 +1,6 @@
+import { GuardiansTypeSelectComponent } from './../secure/application/intake-applications/component/guardian-type-select.component';
+import { GuardianTypeCodeSelectComponent } from './guardian-type-codes/component/guardian-type-code-select.component';
+import { GuardianTypeCodeListState, guardianTypeCodeListReducer } from './guardian-type-codes/guardian-type-code-list.reducer';
 import { EmploymentTypeCodeSelectComponent } from './employment-type-codes/component/employment-type-code-select.component';
 import { EmploymentSectorCodeSelectComponent } from './employment-sector-codes/component/employment-sector-code-select.component';
 import { EmploymentSectorCodeListState, employmentSectorCodeListReducer } from './employment-sector-codes/employment-sector-code-list.reducer';
@@ -92,6 +95,7 @@ export interface CommonModuleState {
   dunCodes: DunCodeListState;
   employmentTypeCodes: EmploymentTypeCodeListState;
   employmentSectorCodes: EmploymentSectorCodeListState;
+  guardianTypeCodes: GuardianTypeCodeListState;
 }
 ;
 
@@ -127,6 +131,7 @@ export const commonModuleReducers = {
   dunCodes: dunCodeListReducer,
   employmentTypeCodes: employmentTypeCodeListReducer,
   employmentSectorCodes: employmentSectorCodeListReducer,
+  guardianTypeCodes: guardianTypeCodeListReducer,
 };
 
 @NgModule({
@@ -165,6 +170,7 @@ export const commonModuleReducers = {
     DunCodeSelectComponent,
     EmploymentTypeCodeSelectComponent,
     EmploymentSectorCodeSelectComponent,
+    GuardianTypeCodeSelectComponent,
 
   ],
   exports: [
@@ -195,6 +201,7 @@ export const commonModuleReducers = {
     DunCodeSelectComponent,
     EmploymentTypeCodeSelectComponent,
     EmploymentSectorCodeSelectComponent,
+    GuardianTypeCodeSelectComponent,
 
   ],
 })

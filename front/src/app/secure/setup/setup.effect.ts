@@ -940,4 +940,36 @@ export class SetupEffects {
   .switchMap((payload) => this.commonService.removeEmploymentSectorCode(payload))
   .map((message) => this.setupActions.removeEmploymentSectorCodeSuccess(message))
   .mergeMap((action) => from([action, this.setupActions.findEmploymentSectorCodes()]));
+
+  // ====================================================================================================
+  // GUARDIAN TYPE CODE
+  // ====================================================================================================
+
+  @Effect() findGuardianTypeCode$ = this.actions$
+  .ofType(SetupActions.FIND_GUARDIAN_TYPE_CODES)
+  .map((action) => action.payload)
+  .switchMap(() => this.commonService.findGuardianTypeCodes())
+  .map((codes) => this.setupActions.findGuardianTypeCodesSuccess(codes));
+
+@Effect() saveGuardianTypeCodes$ = this.actions$
+  .ofType(SetupActions.SAVE_GUARDIAN_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.saveGuardianTypeCode(payload))
+  .map((message) => this.setupActions.saveGuardianTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findGuardianTypeCodes()]));
+
+@Effect() updateGuardianTypeCodes$ = this.actions$
+  .ofType(SetupActions.UPDATE_GUARDIAN_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.updateGuardianTypeCode(payload))
+  .map((message) => this.setupActions.updateGuardianTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findGuardianTypeCodes()]));
+
+@Effect() removeGuardianTypeCode$ = this.actions$
+  .ofType(SetupActions.REMOVE_GUARDIAN_TYPE_CODE)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.removeGuardianTypeCode(payload))
+  .map((message) => this.setupActions.removeGuardianTypeCodeSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findGuardianTypeCodes()]));
+
 }

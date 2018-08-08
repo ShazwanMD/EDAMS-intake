@@ -91,7 +91,7 @@ public class IntakeApplication extends MetaObject {
 	private String guardianPostcode;
 	private StateCode guardianState;
 	private CountryCode guardianCountryCode;
-	private GuardianType guardianType;
+	private GuardianTypeCode guardianTypeCode;
 	
 	
 
@@ -842,12 +842,12 @@ public class IntakeApplication extends MetaObject {
 		this.guardianCountryCode = guardianCountryCode;
 	}
 	
-	public GuardianType getGuardianType() {
-		return guardianType;
+	public GuardianTypeCode getGuardianTypeCode() {
+		return guardianTypeCode;
 	}
 
-	public void setGuardianType(GuardianType guardianType) {
-		this.guardianType = guardianType;
+	public void setGuardianTypeCode(GuardianTypeCode guardianTypeCode) {
+		this.guardianTypeCode = guardianTypeCode;
 	}
 	
 	@JsonCreator

@@ -129,6 +129,9 @@ public class CommonServiceImpl implements CommonService {
 	private InEmploymentTypeCodeDao employmentTypeCodeDao;
 
 	@Autowired
+	private InGuardianTypeCodeDao guardianTypeCodeDao;
+
+	@Autowired
 	private InStudyModeDao studyModeDao;
 
 	@Autowired
@@ -2379,6 +2382,59 @@ public class CommonServiceImpl implements CommonService {
 	@Override
 	public void removeEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode) {
 		employmentSectorCodeDao.delete(employmentSectorCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	// ====================================================================================================
+	// GUARDIAN TYPE CODE
+	// ====================================================================================================
+
+	@Override
+	public InGuardianTypeCode findGuardianTypeCodeById(Long id) {
+		return guardianTypeCodeDao.findById(id);
+	}
+
+	@Override
+	public InGuardianTypeCode findGuardianTypeCodeByCode(String code) {
+		return guardianTypeCodeDao.findByCode(code);
+	}
+
+	@Override
+	public List<InGuardianTypeCode> findGuardianTypeCodes() {
+			return guardianTypeCodeDao.find();
+		}
+
+	@Override
+	public List<InGuardianTypeCode> findGuardianTypeCodes(String filter, Integer offset, Integer limit) {
+		return guardianTypeCodeDao.find(filter, offset, limit);
+		
+	}
+
+	@Override
+	public Integer countGuardianTypeCode() {
+		return guardianTypeCodeDao.count();
+	}
+
+	@Override
+	public Integer countGuardianTypeCode(String filter) {
+		return guardianTypeCodeDao.count();
+	}
+
+	@Override
+	public void saveGuardianTypeCode(InGuardianTypeCode guardianTypeCode) {
+		guardianTypeCodeDao.save(guardianTypeCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void updateGuardianTypeCode(InGuardianTypeCode guardianTypeCode) {
+		guardianTypeCodeDao.update(guardianTypeCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void removeGuardianTypeCode(InGuardianTypeCode guardianTypeCode) {
+		guardianTypeCodeDao.delete(guardianTypeCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
 
