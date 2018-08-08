@@ -179,4 +179,11 @@ export class CommonEffects {
     .map(action => action.payload)
     .switchMap(() => this.commonService.findEmploymentSectorCodes())
     .map(codes => this.commonActions.findEmploymentSectorCodesSuccess(codes));
+
+    @Effect() findGuardianTypeCodes$ = this.actions$
+    .ofType(CommonActions.FIND_GUARDIAN_TYPE_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findGuardianTypeCodes())
+    .map(codes => this.commonActions.findGuardianTypeCodesSuccess(codes));
+
 }

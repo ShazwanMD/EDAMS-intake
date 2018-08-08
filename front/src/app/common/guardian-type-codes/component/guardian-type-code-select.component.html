@@ -1,0 +1,9 @@
+<md-select
+  [placeholder]="placeholder"
+  (change)="selectChangeEvent($event.value)" flex>
+
+  <md-option *ngFor="let guardianTypeCode of guardianTypeCodes$ | async" [value]="guardianTypeCode">
+    {{guardianTypeCode.descriptionMs}}
+
+  </md-option>
+</md-select>

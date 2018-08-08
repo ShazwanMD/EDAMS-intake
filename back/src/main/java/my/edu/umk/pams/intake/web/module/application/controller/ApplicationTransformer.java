@@ -115,9 +115,9 @@ public class ApplicationTransformer {
 		vo.setGuardianPostcode(e.getGuardianPostcode());
 		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
 		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
-		vo.setGuardianType(GuardianType.get(e.getGuardianType().ordinal()));	
-		
-		
+		vo.setGuardianTypeCode(commonTransformer.toGuardianTypeCodeVo(e.getGuardianTypeCode()));
+
+				
 		vo.setGenderCode(commonTransformer.toGenderCodeVo(e.getGenderCode()));
 		vo.setRaceCode(commonTransformer.toRaceCodeVo(e.getRaceCode()));
 		vo.setReligionCode(commonTransformer.toReligionCodeVo(e.getReligionCode()));

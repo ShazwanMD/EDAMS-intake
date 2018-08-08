@@ -11,14 +11,16 @@ import javax.validation.constraints.NotNull;
 
 import my.edu.umk.pams.intake.core.InMetadata;
 
-@Entity(name = "InEmploymentTypeCode")
-@Table(name = "IN_EMPT_TYPE_CODE")
-public class InEmploymentTypeCodeImpl implements InEmploymentTypeCode {
+
+@Entity(name = "InGuardianTypeCode")
+@Table(name = "IN_GRDN_TYPE_CODE")
+public class InGuardianTypeCodeImpl implements InGuardianTypeCode {
+
 
 	@Id
 	@Column(name = "ID", nullable = false)
-	@GeneratedValue(generator = "SQ_IN_EMPT_TYPE_CODE")
-	@SequenceGenerator(name = "SQ_IN_EMPT_TYPE_CODE", sequenceName = "SQ_IN_EMPT_TYPE_CODE", allocationSize = 1)
+	@GeneratedValue(generator = "SQ_IN_GRDN_TYPE_CODE")
+	@SequenceGenerator(name = "SQ_IN_GRDN_TYPE_CODE", sequenceName = "SQ_IN_GRDN_TYPE_CODE", allocationSize = 1)
 	private Long id;
 
 	@NotNull
@@ -32,17 +34,13 @@ public class InEmploymentTypeCodeImpl implements InEmploymentTypeCode {
 	@NotNull
 	@Column(name = "DESCRIPTION_EN")
 	private String descriptionEn;
-
+	
 	@Embedded
 	private InMetadata metadata;
-
+	
 	@Override
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	@Override
@@ -53,41 +51,45 @@ public class InEmploymentTypeCodeImpl implements InEmploymentTypeCode {
 	@Override
 	public void setMetadata(InMetadata metadata) {
 		this.metadata = metadata;
+		
 	}
 
 	@Override
 	public Class<?> getInterfaceClass() {
-		return InEmploymentTypeCode.class;
+		return InGuardianTypeCode.class;
 	}
 
 	@Override
-    public String getCode() {
-        return code;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    @Override
-    public void setCode(String code) {
-        this.code = code;
-    }
+	@Override
+	public void setCode(String code) {
+		this.code = code;
+		
+	}
 
-    @Override
-    public String getDescriptionMs() {
-        return descriptionMs;
-    }
+	@Override
+	public String getDescriptionMs() {
+		return descriptionMs;
+	}
 
-    @Override
-    public void setDescriptionMs(String descriptionMs) {
-        this.descriptionMs = descriptionMs;
-    }
-    
-    @Override
-    public String getDescriptionEn() {
-        return descriptionEn;
-    }
+	@Override
+	public void setDescriptionMs(String descriptionMs) {
+		this.descriptionMs = descriptionMs;
+		
+	}
 
-    @Override
-    public void setDescriptionEn(String descriptionEn) {
-        this.descriptionEn = descriptionEn;
-    }
+	@Override
+	public String getDescriptionEn() {
+		return descriptionEn;
+	}
+
+	@Override
+	public void setDescriptionEn(String descriptionEn) {
+		this.descriptionEn = descriptionEn;
+		
+	}
 
 }

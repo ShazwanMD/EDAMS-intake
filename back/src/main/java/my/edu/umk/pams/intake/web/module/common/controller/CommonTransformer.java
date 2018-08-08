@@ -620,7 +620,28 @@ public class CommonTransformer {
 	}
 
 	public List<EmploymentSectorCode> toEmploymentSectorCodeVos(List<InEmploymentSectorCode> e) {
-		List<EmploymentSectorCode> vos = e.stream().map((e1) -> toEmploymentSectorCodeVo(e1)).collect(Collectors.toList());
+		List<EmploymentSectorCode> vos = e.stream().map((e1) -> toEmploymentSectorCodeVo(e1))
+				.collect(Collectors.toList());
+		return vos;
+	}
+
+	// ====================================================================================================
+	// GUARDIAN TYPE CODE
+	// ====================================================================================================
+
+	public GuardianTypeCode toGuardianTypeCodeVo(InGuardianTypeCode e) {
+		if (null == e)
+			return null;
+		GuardianTypeCode vo = new GuardianTypeCode();
+		vo.setId(e.getId());
+		vo.setCode(e.getCode());
+		vo.setDescriptionMs(e.getDescriptionMs());
+		vo.setDescriptionEn(e.getDescriptionEn());
+		return vo;
+	}
+
+	public List<GuardianTypeCode> toGuardianTypeCodeVos(List<InGuardianTypeCode> e) {
+		List<GuardianTypeCode> vos = e.stream().map((e1) -> toGuardianTypeCodeVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
 

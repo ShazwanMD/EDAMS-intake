@@ -51,7 +51,7 @@ public class InEmploymentTypeCodeDaoImpl extends GenericDaoSupport<Long, InEmplo
     @Override
     public Integer count(String filter) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select count(s) from InEthnicityCode s where " +
+        Query query = session.createQuery("select count(s) from InEmploymentTypeCode s where " +
                 "(upper(s.code) like upper(:filter) " +
                 "or upper(s.description) like upper(:filter)) " +
                 "and s.metadata.state = :state ");
@@ -63,7 +63,7 @@ public class InEmploymentTypeCodeDaoImpl extends GenericDaoSupport<Long, InEmplo
     @Override
     public boolean isExists(String code) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select count(*) from InEthnicityCode s where " +
+        Query query = session.createQuery("select count(*) from InEmploymentTypeCode s where " +
                 "s.code = :code " +
                 "and s.metadata.state = :state ");
         query.setString("code", code);

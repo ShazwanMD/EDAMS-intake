@@ -3,6 +3,7 @@ package my.edu.umk.pams.intake.web.module.application.vo;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import my.edu.umk.pams.intake.web.module.common.vo.GuardianTypeCode;
 import my.edu.umk.pams.intake.web.module.common.vo.StateCode;
 import my.edu.umk.pams.intake.web.module.core.vo.MetaObject;
 
@@ -21,7 +22,7 @@ public class Guardian extends MetaObject {
 	private String guardianAddress2;
 	private String guardianAddress3;
 	private String guardianPostcode;
-	private GuardianType guardianType;
+	private GuardianTypeCode guardianTypeCode;
 	private StateCode guardianState;
 	private String guardianNo;
 
@@ -97,12 +98,12 @@ public class Guardian extends MetaObject {
 		this.guardianNo = guardianNo;
 	}
 	
-	public GuardianType getGuardianType() {
-		return guardianType;
+	public GuardianTypeCode getGuardianTypeCode() {
+		return guardianTypeCode;
 	}
 
-	public void setGuardianType(GuardianType guardianType) {
-		this.guardianType = guardianType;
+	public void setGuardianTypeCode(GuardianTypeCode guardianTypeCode) {
+		this.guardianTypeCode = guardianTypeCode;
 	}
 	
 	@JsonCreator

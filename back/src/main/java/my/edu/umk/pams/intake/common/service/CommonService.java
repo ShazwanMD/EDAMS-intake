@@ -926,4 +926,26 @@ public interface CommonService {
 
 	void removeEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
 
+
+	// ====================================================================================================
+	// GUARDIAN TYPE CODE
+	// ====================================================================================================
+	
+	InGuardianTypeCode findGuardianTypeCodeById(Long id);
+
+	InGuardianTypeCode findGuardianTypeCodeByCode(String code);
+
+	List<InGuardianTypeCode> findGuardianTypeCodes();
+
+	List<InGuardianTypeCode> findGuardianTypeCodes(String filter, Integer offset, Integer limit);
+
+	Integer countGuardianTypeCode();
+
+	Integer countGuardianTypeCode(String filter);
+
+	void saveGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
+
+	void updateGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
+
+	void removeGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
 }

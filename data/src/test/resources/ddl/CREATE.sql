@@ -512,6 +512,7 @@ create table IN_ACTR (
         ORDINAL int4 not null,
         primary key (ID)
     ); 
+    
     create table IN_GRDN (
         ID int8 not null,
         IDENTITY_NO varchar(255) not null,
@@ -526,8 +527,25 @@ create table IN_ACTR (
         SALARY numeric(19, 2) not null,
         GUARDIAN_TYPE int4,
         APPLICATION_ID int8,
+        GUARDIAN_TYPE_CODE_ID int8,
         primary key (ID)
     ); 
+    
+     create table IN_GRDN_TYPE_CODE (
+        ID int8 not null,
+        CODE varchar(255) not null,
+        DESCRIPTION_EN varchar(255),
+        DESCRIPTION_MS varchar(255),
+        C_TS timestamp,
+        C_ID int8,
+        D_TS timestamp,
+        D_ID int8,
+        M_TS timestamp,
+        M_ID int8,
+        M_ST int4,
+        primary key (ID)
+    ); 
+    
     create table IN_GRDT_CNTR (
         ID int8 not null,
         CODE varchar(255) not null,
@@ -1286,7 +1304,7 @@ create table IN_ACTR (
         M_ST int4,
         primary key (ID)
     ); 
-   
+    
     alter table IN_ACTR 
         add constraint uc_IN_ACTR_1 unique (IDENTITY_NO); 
     alter table IN_APCN 
@@ -1807,4 +1825,5 @@ create table IN_ACTR (
     create sequence SQ_IN_VENU_CODE; 
     create sequence SQ_IN_WTCH;
     create sequence SQ_IN_EMPT_TYPE_CODE;
+    create sequence SQ_IN_GRDN_TYPE_CODE;
     
