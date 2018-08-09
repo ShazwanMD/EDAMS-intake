@@ -926,11 +926,10 @@ public interface CommonService {
 
 	void removeEmploymentSectorCode(InEmploymentSectorCode employmentSectorCode);
 
-
 	// ====================================================================================================
 	// GUARDIAN TYPE CODE
 	// ====================================================================================================
-	
+
 	InGuardianTypeCode findGuardianTypeCodeById(Long id);
 
 	InGuardianTypeCode findGuardianTypeCodeByCode(String code);
@@ -948,4 +947,26 @@ public interface CommonService {
 	void updateGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
 
 	void removeGuardianTypeCode(InGuardianTypeCode guardianTypeCode);
+
+	// ====================================================================================================
+	// SPM RESULT
+	// ====================================================================================================
+
+	
+	InSpmResult findSpmResultById(Long id);
+	
+	InSpmResult findSpmResultByCode(String code);
+	
+	List<InSpmResult> findSpmResults();
+	
+	List<InSpmResult> findSpmResults(String filter, Integer offset, Integer limit);
+	
+	Integer countSpmResult();
+	
+	void saveSpmResult(InSpmResult spmResult);
+	
+	void updateSpmResult(InSpmResult spmResult);
+	
+	void removeSpmResult(InSpmResult spmResult);
+	
 }

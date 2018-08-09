@@ -1661,15 +1661,15 @@ public class CommonController {
 
 	@RequestMapping(value = "/guardianTypeCodes", method = RequestMethod.GET)
 	public ResponseEntity<List<GuardianTypeCode>> findGuardianTypeCodes() {
-		return new ResponseEntity<List<GuardianTypeCode>>(commonTransformer.toGuardianTypeCodeVos(
-				commonService.findGuardianTypeCodes("%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
+		return new ResponseEntity<List<GuardianTypeCode>>(
+				commonTransformer.toGuardianTypeCodeVos(commonService.findGuardianTypeCodes("%", 0, Integer.MAX_VALUE)),
+				HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes/{code}", method = RequestMethod.GET)
 	public ResponseEntity<GuardianTypeCode> findGuardianTypeCodeByCode(@PathVariable String code) {
 		return new ResponseEntity<GuardianTypeCode>(
-				commonTransformer.toGuardianTypeCodeVo(commonService.findGuardianTypeCodeByCode(code)),
-				HttpStatus.OK);
+				commonTransformer.toGuardianTypeCodeVo(commonService.findGuardianTypeCodeByCode(code)), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes", method = RequestMethod.POST)
@@ -1685,8 +1685,7 @@ public class CommonController {
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes/{code}", method = RequestMethod.PUT)
-	public ResponseEntity<String> updateGuardianTypeCode(@PathVariable String code,
-			@RequestBody GuardianTypeCode vo) {
+	public ResponseEntity<String> updateGuardianTypeCode(@PathVariable String code, @RequestBody GuardianTypeCode vo) {
 		dummyLogin();
 
 		InGuardianTypeCode guardianTypeCode = commonService.findGuardianTypeCodeById(vo.getId());
@@ -1703,6 +1702,60 @@ public class CommonController {
 
 		InGuardianTypeCode guardianTypeCode = commonService.findGuardianTypeCodeByCode(code);
 		commonService.removeGuardianTypeCode(guardianTypeCode);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	// ====================================================================================================
+	// SPM RESULT
+	// ====================================================================================================
+
+	@RequestMapping(value = "/spmResults", method = RequestMethod.GET)
+	public ResponseEntity<List<SpmResult>> findSpmResults() {
+		return new ResponseEntity<List<SpmResult>>(
+				commonTransformer.toSpmResultVos(commonService.findSpmResults("%", 0, Integer.MAX_VALUE)),HttpStatus.OK);
+			
+	}
+	
+	@RequestMapping(value = "/spmResults/{code}", method = RequestMethod.GET)
+	public ResponseEntity<SpmResult> findSpmResultByCode(@PathVariable String code) {
+		return new ResponseEntity<SpmResult>(
+		commonTransformer.toSpmResultVo(commonService.findSpmResultByCode(code)), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/spmResults", method = RequestMethod.POST)
+	public ResponseEntity<String> saveSpmResult(@RequestBody SpmResult vo) {
+		dummyLogin();
+
+		InSpmResult spmResult = new InSpmResultImpl();
+		spmResult.setCode(vo.getCode());
+		spmResult.setAggregate(vo.getAggregate());
+		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		spmResult.setSubjectCode(commonService.findSubjectCodeById(vo.getSubjectCode().getId()));
+		commonService.saveSpmResult(spmResult);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/spmResults/{code}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateSpmResult(@PathVariable String code, @RequestBody SpmResult vo) {
+		dummyLogin();
+
+		InSpmResult spmResult = commonService.findSpmResultById(vo.getId());
+		spmResult.setCode(vo.getCode());
+		spmResult.setAggregate(vo.getAggregate());
+		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		spmResult.setSubjectCode(commonService.findSubjectCodeById(vo.getSubjectCode().getId()));
+		commonService.updateSpmResult(spmResult);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/spmResults/{code}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> removeSpmResult(@PathVariable String code) {
+		dummyLogin();
+
+		InSpmResult spmResult = commonService.findSpmResultByCode(code);
+		commonService.removeSpmResult(spmResult);
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
 
