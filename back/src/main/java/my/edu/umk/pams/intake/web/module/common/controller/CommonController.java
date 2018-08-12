@@ -1881,18 +1881,17 @@ public class CommonController {
 				commonTransformer.toSpmSubjectCodeVo(commonService.findSpmSubjectCodeByCode(code)), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/spmSubjectCodes", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveSpmSubjectCodes", method = RequestMethod.POST)
 	public ResponseEntity<String> saveSpmSubjectCode(@RequestBody SpmSubjectCode vo) {
 		dummyLogin();
 
 		InSpmSubjectCode spmSubjectCode = new InSpmSubjectCodeImpl();
 		spmSubjectCode.setCode(vo.getCode());
-		spmSubjectCode.setDescriptionEn(vo.getDescriptionEn());
-		spmSubjectCode.setDescriptionMs(vo.getDescriptionMs());
 		spmSubjectCode.setSubjectCode(commonService.findSubjectCodeById(vo.getSubjectCode().getId()));
 		commonService.saveSpmSubjectCode(spmSubjectCode);
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
+
 
 	@RequestMapping(value = "/spmSubjectCodes/{code}", method = RequestMethod.PUT)
 	public ResponseEntity<String> updateSpmSubjectCode(@PathVariable String code, @RequestBody SpmSubjectCode vo) {
@@ -1900,12 +1899,11 @@ public class CommonController {
 
 		InSpmSubjectCode spmSubjectCode = commonService.findSpmSubjectCodeById(vo.getId());
 		spmSubjectCode.setCode(vo.getCode());
-		spmSubjectCode.setDescriptionEn(vo.getDescriptionEn());
-		spmSubjectCode.setDescriptionMs(vo.getDescriptionMs());
 		spmSubjectCode.setSubjectCode(commonService.findSubjectCodeById(vo.getSubjectCode().getId()));
 		commonService.updateSpmSubjectCode(spmSubjectCode);
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
+	
 
 	@RequestMapping(value = "/spmSubjectCodes/{code}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> removeSpmSubjectCode(@PathVariable String code) {

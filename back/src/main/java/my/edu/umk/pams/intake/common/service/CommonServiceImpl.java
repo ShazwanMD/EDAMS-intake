@@ -148,7 +148,7 @@ public class CommonServiceImpl implements CommonService {
 
 	@Autowired
 	private InSupervisorOfferingDao supervisorOfferingDao;
-	
+
 	@Autowired
 	private InSpmSubjectCodeDao spmSubjectCodeDao;
 
@@ -2535,6 +2535,7 @@ public class CommonServiceImpl implements CommonService {
 	public void saveSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
 		spmSubjectCodeDao.save(spmSubjectCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
+	
 	}
 
 	@Override

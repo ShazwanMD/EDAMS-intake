@@ -675,8 +675,6 @@ public class CommonTransformer {
 		SpmSubjectCode vo = new SpmSubjectCode();
 		vo.setId(e.getId());
 		vo.setCode(e.getCode());
-		vo.setDescriptionMs(e.getDescriptionMs());
-		vo.setDescriptionEn(e.getDescriptionEn());
 		vo.setSubjectCode(this.toSubjectCodeVo(e.getSubjectCode()));
 		return vo;
 	}

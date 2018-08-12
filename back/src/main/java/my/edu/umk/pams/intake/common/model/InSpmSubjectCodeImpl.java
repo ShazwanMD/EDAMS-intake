@@ -27,12 +27,6 @@ public class InSpmSubjectCodeImpl implements InSpmSubjectCode {
 	@Column(name = "CODE", unique = true, nullable = false)
 	private String code; // BM,BI,MATH
 
-	@Column(name = "DESCRIPTION_MS")
-	private String descriptionMs;
-
-	@Column(name = "DESCRIPTION_EN")
-	private String descriptionEn;
-
 	@ManyToOne(targetEntity = InSubjectCodeImpl.class)
 	@JoinColumn(name = "SUBJECT_CODE_ID")
 	private InSubjectCode subjectCode;
@@ -82,26 +76,5 @@ public class InSpmSubjectCodeImpl implements InSpmSubjectCode {
 
 	}
 
-	@Override
-	public String getDescriptionMs() {
-		return descriptionMs;
-	}
-
-	@Override
-	public void setDescriptionMs(String descriptionMs) {
-		this.descriptionMs = descriptionMs;
-		
-	}
-
-	@Override
-	public String getDescriptionEn() {
-		return descriptionEn;
-	}
-
-	@Override
-	public void setDescriptionEn(String descriptionEn) {
-		this.descriptionEn = descriptionEn;
-		
-	}
 
 }
