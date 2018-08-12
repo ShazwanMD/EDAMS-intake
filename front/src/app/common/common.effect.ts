@@ -186,4 +186,10 @@ export class CommonEffects {
     .switchMap(() => this.commonService.findGuardianTypeCodes())
     .map(codes => this.commonActions.findGuardianTypeCodesSuccess(codes));
 
+    @Effect() findSpmResultCodes$ = this.actions$
+    .ofType(CommonActions.FIND_SPM_RESULT_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findSpmResultCodes())
+    .map(codes => this.commonActions.findSpmResultCodesSuccess(codes));
+
 }

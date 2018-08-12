@@ -615,4 +615,23 @@ export class CommonActions {
       payload: codes
     };
   }
+
+  static FIND_SPM_RESULT_CODES = '[Common] Find SpmResultCodes';
+
+  findSpmResultCodes(): Action {
+    console.log("findSpmResultCodes");
+    return {
+      type: CommonActions.FIND_SPM_RESULT_CODES
+    };
+  }
+
+  static FIND_SPM_RESULT_CODES_SUCCESS = '[Common] Find SpmResultCodes Success';
+
+  findSpmResultCodesSuccess(codes): Action {
+    console.log("findSpmResultCodesSuccess");
+    return {
+      type: CommonActions.FIND_SPM_RESULT_CODES_SUCCESS,
+      payload: codes
+    };
+  }
 }

@@ -1,0 +1,8 @@
+<md-card class="">
+  <pams-spm-result-code-list [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+  </pams-spm-result-code-list>
+</md-card>
+
+<a md-fab color="accent" class="mat-fab-top-right" (click)="createDialog()">
+  <md-icon>add</md-icon>
+</a>

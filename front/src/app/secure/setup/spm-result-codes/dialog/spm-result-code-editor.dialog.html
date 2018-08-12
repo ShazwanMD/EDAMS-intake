@@ -1,0 +1,28 @@
+<h2 md-dialog-title>Program Field Code</h2>
+<md-dialog-content>
+  <form [formGroup]="editorForm">
+    <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
+      <pams-program-code-select
+        [placeholder]="'Program code'"
+        [innerFormControl]="editorForm.controls['programCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-program-code-select>
+    </div>
+    <div layout="row" class="pad-top">
+      <pams-field-code-select
+        [placeholder]="'Field Code'"
+        [innerFormControl]="editorForm.controls['fieldCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-field-code-select>
+    </div>
+    <div layout="row" class="pad-top">
+      <pams-faculty-code-select
+        [placeholder]="'Faculty Code'"
+        [innerFormControl]="editorForm.controls['facultyCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-faculty-code-select>
+    </div>
+  </form>
+</md-dialog-content>
+<md-dialog-actions align="end">
+   <button md-raised-button color="accent" (click)="submit(editorForm.value, editorForm.valid)">
+    {{edit ? 'Update' : 'Save'}}
+  </button>
+</md-dialog-actions>

@@ -2598,4 +2598,88 @@ removeGuardianTypeCodeSuccess(message): Action {
   };
 }
 
+//=================================================================================
+//  SPM_RESULT_CODES                                                                    //
+//=================================================================================
+
+static FIND_SPM_RESULT_CODES = '[Setup] Find Spm Result Codes';
+
+findSpmResultCodes(): Action {
+  console.log('findSpmResultCodes');
+  return {
+    type: SetupActions.FIND_SPM_RESULT_CODES,
+  };
+}
+
+static FIND_SPM_RESULT_CODES_SUCCESS = '[Setup] Find Spm Result Codes Success';
+
+findSpmResultCodesSuccess(codes): Action {
+  console.log('findSpmResultCodesSuccess');
+  return {
+    type: SetupActions.FIND_SPM_RESULT_CODES_SUCCESS,
+    payload: codes,
+  };
+}
+
+static SAVE_SPM_RESULT_CODE = '[Setup] Save Spm Result Code';
+
+saveSpmResultCode(code): Action {
+  console.log('saveSpmResultCode');
+  return {
+    type: SetupActions.SAVE_SPM_RESULT_CODE,
+    payload: code,
+  };
+}
+
+static SAVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Save  Spm Result Code Success';
+
+saveSpmResultCodeSuccess(message): Action {
+  console.log('saveSpmResultCodeSuccess');
+  return {
+    type: SetupActions.SAVE_SPM_RESULT_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static UPDATE_SPM_RESULT_CODE = '[Setup] Update Spm Result Code';
+
+updateSpmResultCode(code): Action {
+  console.log('updateSpmResultCode');
+  return {
+    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
+    payload: code,
+  };
+}
+
+static UPDATE_SPM_RESULT_CODE_SUCCESS = '[Setup] Update Spm Result Code Success';
+
+updateSpmResultCodeSuccess(message): Action {
+  console.log('updateSpmResultCodeSuccess');
+  return {
+    type: SetupActions.UPDATE_SPM_RESULT_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static REMOVE_SPM_RESULT_CODE = '[Setup] Remove Spm Result Code';
+
+removeSpmResultCode(code): Action {
+  console.log('removeSpmResultCode');
+  return {
+    type: SetupActions.REMOVE_SPM_RESULT_CODE,
+    payload: code,
+  };
+}
+
+static REMOVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Remove Spm Result Code Success';
+
+removeSpmResultCodeSuccess(message): Action {
+  console.log('removeSpmResultCodeSuccess');
+  return {
+    type: SetupActions.REMOVE_SPM_RESULT_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+
 }

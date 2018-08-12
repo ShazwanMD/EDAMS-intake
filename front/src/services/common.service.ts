@@ -1,3 +1,4 @@
+import { SpmResultCode } from './../app/shared/model/common/spm-result-code.interface';
 import { EmploymentSectorCode } from './../app/shared/model/common/employment-sector-code.interface';
 import { EmploymentTypeCode } from './../app/shared/model/common/employment-type-code.interface';
 import { VenueCode } from './../app/shared/model/common/venue-code.interface';
@@ -1031,6 +1032,37 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
 
   removeGuardianTypeCode(code: GuardianTypeCode): Observable<String> {
     return this._http.delete(this.COMMON_API + '/guardianTypeCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  // ====================================================================================================
+  //  SPM RESULT CODES
+  // ====================================================================================================
+
+  findSpmResultCodes(): Observable<SpmResultCode[]> {
+    console.log('findSpmResultCodes');
+    return this._http.get(this.COMMON_API + '/spmResultCodes')
+      .map((res: Response) => <SpmResultCode[]>res.json());
+  }
+
+  findSpmResultCodeByCode(code: string): Observable<SpmResultCode> {
+    console.log('findSpmResultCodeByCode');
+    return this._http.get(this.COMMON_API + '/spmResultCodes/' + code)
+      .map((res: Response) => <SpmResultCode>res.json());
+  }
+
+  saveSpmResultCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/spmResultCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updatSpmResultCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/spmResultCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeSpmResultCode(code: GuardianTypeCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/spmResultCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 }

@@ -1,3 +1,7 @@
+
+import { SpmResultCodesComponent } from './spm-result-codes/component/spm-result-code';
+import { SpmResultCodeEditorDialog } from './spm-result-codes/dialog/spm-result-code-editor.dialog';
+import { SpmResultCodeListState, spmResultCodeListReducer } from './../../common/spm-result-codes/spm-result-code-list.reducer';
 import { GuardianTypeCodesComponent } from './guardian-type-codes/component/guardian-type-code';
 import { GuardianTypeCodeEditorDialog } from './guardian-type-codes/dialog/guardian-type-code-editor.dialog';
 import { GuardianTypeCodeListPage } from './guardian-type-codes/guardian-type-code-list.page';
@@ -167,6 +171,8 @@ import { ProgramFieldCode } from "../../shared/model/common/program-field-code.i
 import { ProgramFieldCodeEditorDialog } from "./program-field-codes/dialog/program-field-code-editor.dialog";
 import { GuardianTypeCode } from '../../shared/model/common/guardian-type-code.interface';
 import { guardianTypeCodeListReducer } from './guardian-type-codes/guardian-type-code-list.reducer';
+import { SpmResultCode } from '../../shared/model/common/spm-result-code.interface';
+import { SpmResultCodeListPage } from './spm-result-codes/spm-result-code-list.page';
 
 
 export interface SetupModuleState {
@@ -202,6 +208,7 @@ export interface SetupModuleState {
   employmentTypeCodes: EmploymentTypeCodeListState;
   employmentSectorCodes: EmploymentSectorCodeListState;
   guardianTypeCodes: GuardianTypeCodeListState;
+  spmResultCodes: SpmResultCodeListState;
 
 };
 
@@ -239,6 +246,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     employmentTypeCodes: <EmploymentTypeCode[]>[],
     employmentSectorCodes: <EmploymentSectorCode[]>[],
     guardianTypeCodes: <GuardianTypeCode[]>[],
+    spmResultCodes: <SpmResultCode[]>[],
 
   };
 
@@ -275,6 +283,7 @@ export const setupModuleReducers = {
   employmentTypeCodes: employmentTypeCodeListReducer,
   employmentSectorCodes: employmentSectorCodeListReducer,
   guardianTypeCodes: guardianTypeCodeListReducer,
+  spmResultCodes: spmResultCodeListReducer,
 
 };
 
@@ -323,6 +332,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeListPage,
     EmploymentSectorCodeListPage,
     GuardianTypeCodeListPage,
+    SpmResultCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -356,6 +366,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
     GuardianTypeCodeEditorDialog,
+    SpmResultCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -387,6 +398,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodesComponent,
     EmploymentSectorCodesComponent,
     GuardianTypeCodesComponent,
+    SpmResultCodesComponent,
     
 
   ],
@@ -425,6 +437,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
     GuardianTypeCodeEditorDialog,
+    SpmResultCodeEditorDialog,
 
   ],
 })
