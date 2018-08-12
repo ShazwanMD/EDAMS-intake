@@ -1,4 +1,7 @@
-
+import { SpmSubjectCodesComponent } from './spm-subject-codes/component/spm-subject-code';
+import { SpmSubjectCodeEditorDialog } from './spm-subject-codes/dialog/spm-subject-code-editor.dialog';
+import { SpmSubjectCodeListPage } from './spm-subject-codes/spm-subject-code-list-page';
+import { SpmSubjectCodeListState } from './spm-subject-codes/spm-subject-code-list.reducer';
 import { SpmResultCodesComponent } from './spm-result-codes/component/spm-result-code';
 import { SpmResultCodeEditorDialog } from './spm-result-codes/dialog/spm-result-code-editor.dialog';
 import { SpmResultCodeListState, spmResultCodeListReducer } from './../../common/spm-result-codes/spm-result-code-list.reducer';
@@ -180,6 +183,9 @@ import { guardianTypeCodeListReducer } from './guardian-type-codes/guardian-type
 import { SpmResultCode } from '../../shared/model/common/spm-result-code.interface';
 import { SpmResultCodeListPage } from './spm-result-codes/spm-result-code-list.page';
 import { ActorTypeSelectComponent } from './umkcee-staffs/component/actor-type-select.component';
+import { SpmSubjectCode } from '../../shared/model/common/spm-subject-code.interface';
+import { spmSubjectCodeListReducer } from '../../common/spm-subject-codes/spm-subject-code-list.reducer';
+import { SpmSubjectCodeSelectComponent } from '../../common/spm-subject-codes/component/spm-subject-code-select.component';
 
 
 export interface SetupModuleState {
@@ -217,6 +223,7 @@ export interface SetupModuleState {
   guardianTypeCodes: GuardianTypeCodeListState;
   spmResultCodes: SpmResultCodeListState;
   staffs: UmkceeStaffListState;
+  spmSubjectCodes: SpmSubjectCodeListState;
 
 };
 
@@ -256,6 +263,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     guardianTypeCodes: <GuardianTypeCode[]>[],
     spmResultCodes: <SpmResultCode[]>[],
     staffs: <Staff[]>[],
+    spmSubjectCodes: <SpmSubjectCode[]>[],
 
   };
 
@@ -294,6 +302,7 @@ export const setupModuleReducers = {
   guardianTypeCodes: guardianTypeCodeListReducer,
   spmResultCodes: spmResultCodeListReducer,
   staffs: umkceeStaffListReducer,
+  spmSubjectCodes: spmSubjectCodeListReducer,
 
 };
 
@@ -344,6 +353,7 @@ export const setupModuleReducers = {
     GuardianTypeCodeListPage,
     SpmResultCodeListPage,
     UMKCEEStaffListPage,
+    SpmSubjectCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -379,6 +389,7 @@ export const setupModuleReducers = {
     GuardianTypeCodeEditorDialog,
     SpmResultCodeEditorDialog,
     UMKCEEStaffEditorDialog,
+    SpmSubjectCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -414,6 +425,7 @@ export const setupModuleReducers = {
     UMKCEEStaffListComponent,
     StaffTypeSelectComponent,
     ActorTypeSelectComponent,
+    SpmSubjectCodesComponent,
     
 
   ],
@@ -456,6 +468,7 @@ export const setupModuleReducers = {
     GuardianTypeCodeEditorDialog,
     SpmResultCodeEditorDialog,
     UMKCEEStaffEditorDialog,
+    SpmSubjectCodeEditorDialog,
 
   ],
 })

@@ -33,6 +33,7 @@ import {GradeCodeListPage} from './grade-codes/grade-code-list-page';
 import {AuthenticationGuard} from '../identity/guard/authentication.guard';
 import { SupervisorOfferingListPage } from './supervisor-offerings/supervisor-offering-list.page';
 import { ProgramFieldCodeListPage } from "./program-field-codes/program-field-code-list.page";
+import { SpmSubjectCodeListPage } from './spm-subject-codes/spm-subject-code-list-page';
 
 
 export const setupModuleRoutes: Routes = [
@@ -72,6 +73,8 @@ export const setupModuleRoutes: Routes = [
       {path: 'employment-sector-codes', component: EmploymentSectorCodeListPage},
       {path: 'guardian-type-codes', component: GuardianTypeCodeListPage},
       {path: 'umkcee-staffs', component: UMKCEEStaffListPage},
+      {path: 'spm-subject-codes', component: SpmSubjectCodeListPage},
+
     ],
   },
 

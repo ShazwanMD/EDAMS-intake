@@ -148,6 +148,9 @@ public class CommonServiceImpl implements CommonService {
 
 	@Autowired
 	private InSupervisorOfferingDao supervisorOfferingDao;
+	
+	@Autowired
+	private InSpmSubjectCodeDao spmSubjectCodeDao;
 
 	@Autowired
 	private InSpmResultDao spmResultDao;
@@ -2445,12 +2448,11 @@ public class CommonServiceImpl implements CommonService {
 	// SPM RESULT
 	// ====================================================================================================
 
-
 	@Override
 	public InSpmResult findSpmResultById(Long id) {
 		return spmResultDao.findById(id);
 	}
-	
+
 	@Override
 	public InSpmResult findSpmResultByCode(String code) {
 		return spmResultDao.findByCode(code);
@@ -2490,6 +2492,60 @@ public class CommonServiceImpl implements CommonService {
 		sessionFactory.getCurrentSession().flush();
 	}
 
-	
+	// ====================================================================================================
+	// SPM SUBJECT CODE
+	// ====================================================================================================
 
+	@Override
+	public InSpmSubjectCode findSpmSubjectCodeById(Long id) {
+		return spmSubjectCodeDao.findById(id);
+	}
+
+	@Override
+	public InSpmSubjectCode findSpmSubjectCodeByCode(String code) {
+		return spmSubjectCodeDao.findByCode(code);
+	}
+
+	@Override
+	public List<InSpmSubjectCode> findSpmSubjectCodes() {
+		return spmSubjectCodeDao.find();
+	}
+
+	@Override
+	public List<InSpmSubjectCode> findSpmSubjectCodes(Integer offset, Integer limit) {
+		return spmSubjectCodeDao.find(offset, limit);
+	}
+
+	@Override
+	public List<InSpmSubjectCode> findSpmSubjectCodes(String filter, Integer offset, Integer limit) {
+		return spmSubjectCodeDao.find(filter, offset, limit);
+	}
+
+	@Override
+	public Integer countSpmSubjectCode() {
+		return spmSubjectCodeDao.count();
+	}
+
+	@Override
+	public Integer countSpmSubjectCode(String filter) {
+		return spmSubjectCodeDao.count(filter);
+	}
+
+	@Override
+	public void saveSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
+		spmSubjectCodeDao.save(spmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void updateSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
+		spmSubjectCodeDao.update(spmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void removeSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
+		spmSubjectCodeDao.remove(spmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
 }

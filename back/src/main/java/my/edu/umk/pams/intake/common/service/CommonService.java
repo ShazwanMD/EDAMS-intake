@@ -952,21 +952,45 @@ public interface CommonService {
 	// SPM RESULT
 	// ====================================================================================================
 
-	
 	InSpmResult findSpmResultById(Long id);
-	
+
 	InSpmResult findSpmResultByCode(String code);
-	
+
 	List<InSpmResult> findSpmResults();
-	
+
 	List<InSpmResult> findSpmResults(String filter, Integer offset, Integer limit);
-	
+
 	Integer countSpmResult();
-	
+
 	void saveSpmResult(InSpmResult spmResult);
-	
+
 	void updateSpmResult(InSpmResult spmResult);
-	
+
 	void removeSpmResult(InSpmResult spmResult);
-	
+
+	// ====================================================================================================
+	// SPM SUBJECT CODE
+	// ====================================================================================================
+
+	InSpmSubjectCode findSpmSubjectCodeById(Long id);
+
+	InSpmSubjectCode findSpmSubjectCodeByCode(String code);
+
+	List<InSpmSubjectCode> findSpmSubjectCodes();
+
+	List<InSpmSubjectCode> findSpmSubjectCodes(Integer offset, Integer limit);
+
+	List<InSpmSubjectCode> findSpmSubjectCodes(String filter, Integer offset, Integer limit);
+
+	Integer countSpmSubjectCode();
+
+	Integer countSpmSubjectCode(String filter);
+
+	void saveSpmSubjectCode(InSpmSubjectCode spmSubjectCode);
+
+	void updateSpmSubjectCode(InSpmSubjectCode spmSubjectCode);
+
+	void removeSpmSubjectCode(InSpmSubjectCode spmSubjectCode);
+
+
 }

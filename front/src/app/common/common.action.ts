@@ -634,4 +634,23 @@ export class CommonActions {
       payload: codes
     };
   }
+
+  static FIND_SPM_SUBJECT_CODES = '[Common] Find SpmSubjectCodes';
+
+  findSpmSubjectCodes(): Action {
+    console.log("findSpmSubjectCodes");
+    return {
+      type: CommonActions.FIND_SPM_SUBJECT_CODES
+    };
+  }
+
+  static FIND_SPM_SUBJECT_CODES_SUCCESS = '[Common] Find SpmSubjectCodes Success';
+
+  findSpmSubjectCodesSuccess(codes): Action {
+    console.log("findSpmSubjectCodesSuccess");
+    return {
+      type: CommonActions.FIND_SPM_SUBJECT_CODES_SUCCESS,
+      payload: codes
+    };
+  }
 }

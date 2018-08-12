@@ -2181,7 +2181,6 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//------------------------------------------------------------------------------------------
 
 //=================================================================================//
 //  SUBJECT_CODES                                                                   //
@@ -2742,6 +2741,89 @@ updateUMKCEEStaffSuccess(message): Action {
     type: SetupActions.UPDATE_UMKCEE_STAFF_SUCCESS,
    payload: message,
  };
+}
+
+//=================================================================================//
+//  SPM_SUBJECT_CODES                                                                 
+//=================================================================================//
+
+static FIND_SPM_SUBJECT_CODES = '[Setup] Find Spm Subject Codes';
+
+findSpmSubjectCodes(): Action {
+  console.log('findSpmSubjectCodes');
+  return {
+    type: SetupActions.FIND_SPM_SUBJECT_CODES,
+  };
+}
+
+static FIND_SPM_SUBJECT_CODES_SUCCESS = '[Setup] Find Spm Subject Codes Success';
+
+findSpmSubjectCodesSuccess(codes): Action {
+  console.log('findSpmSubjectCodesSuccess');
+  return {
+    type: SetupActions.FIND_SPM_SUBJECT_CODES_SUCCESS,
+    payload: codes,
+  };
+}
+
+static SAVE_SPM_SUBJECT_CODE = '[Setup] Save Spm Subject Code';
+
+saveSpmSubjectCode(code): Action {
+  console.log('saveSpmSubjectCode');
+  return {
+    type: SetupActions.SAVE_SPM_SUBJECT_CODE,
+    payload: code,
+  };
+}
+
+static SAVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Save Spm Subject Code Success';
+
+saveSpmSubjectCodeSuccess(message): Action {
+  console.log('saveSpmSubjectCodeSuccess');
+  return {
+    type: SetupActions.SAVE_SPM_SUBJECT_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static UPDATE_SPM_SUBJECT_CODE = '[Setup] Update Spm Subject Code';
+
+updateSpmSubjectCode(code): Action {
+  console.log('updateSpmSubjectCode');
+  return {
+    type: SetupActions.UPDATE_SPM_SUBJECT_CODE,
+    payload: code,
+  };
+}
+
+static UPDATE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Update Spm Subject Code  Success';
+
+updateSpmSubjectCodeSuccess(message): Action {
+  console.log('updateSpmSubjectCodeSuccess');
+  return {
+    type: SetupActions.UPDATE_SPM_SUBJECT_CODE_SUCCESS,
+    payload: message,
+  };
+}
+
+static REMOVE_SPM_SUBJECT_CODE = '[Setup] Remove Spm Subject Code';
+
+removeSpmSubjectCode(code): Action {
+  console.log('removeSpmSubjectCode');
+  return {
+    type: SetupActions.REMOVE_SPM_SUBJECT_CODE,
+    payload: code,
+  };
+}
+
+static REMOVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Remove Spm Subject Code  Success';
+
+removeSpmSubjectCodeSuccess(message): Action {
+  console.log('removeSpmSubjectCodeSuccess');
+  return {
+    type: SetupActions.REMOVE_SPM_SUBJECT_CODE_SUCCESS,
+    payload: message,
+  };
 }
 
 }

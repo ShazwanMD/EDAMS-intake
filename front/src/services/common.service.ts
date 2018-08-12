@@ -37,6 +37,7 @@ import { SupervisorOffering } from '../app/shared/model/common/supervisor-offeri
 import { ProgramFieldCode } from "../app/shared/model/common/program-field-code.interface";
 import { FieldCode } from "../app/shared/model/common/field-code.interface";
 import { GuardianTypeCode } from '../app/shared/model/common/guardian-type-code.interface';
+import { SpmSubjectCode } from '../app/shared/model/common/spm-subject-code.interface';
 
 @Injectable()
 export class CommonService {
@@ -1085,6 +1086,37 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
 
   removeSpmResultCode(code: GuardianTypeCode): Observable<String> {
     return this._http.delete(this.COMMON_API + '/spmResultCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  // ====================================================================================================
+  //  SPM SUBJECT CODES
+  // ====================================================================================================
+
+  findSpmSubjectCodes(): Observable<SpmSubjectCode[]> {
+    console.log('findSpmSubjectCodes');
+    return this._http.get(this.COMMON_API + '/spmSubjectCodes')
+      .map((res: Response) => <SpmSubjectCode[]>res.json());
+  }
+
+  findSpmSubjectCodeByCode(code: string): Observable<SpmSubjectCode> {
+    console.log('findSpmSubjectCodeByCode');
+    return this._http.get(this.COMMON_API + '/spmSubjectCodes/' + code)
+      .map((res: Response) => <SpmSubjectCode>res.json());
+  }
+
+  saveSpmSubjectCode(code: SpmSubjectCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/spmSubjectCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateSpmSubjectCode(code: SpmSubjectCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/spmSubjectCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeSpmSubjectCode(code: SpmSubjectCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/spmSubjectCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 }

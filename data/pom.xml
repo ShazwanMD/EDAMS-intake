@@ -327,6 +327,7 @@
                                 <srcFile>src/test/resources/data/IN_EMPT_SCTR_CODE.sql</srcFile>
                                 <srcFile>src/test/resources/data/IN_GRDN_TYPE_CODE.sql</srcFile>
                                 <srcFile>src/test/resources/data/IN_SPM_RSLT.sql</srcFile>
+                                 <srcFile>src/test/resources/data/IN_SPM_SBJT_CODE.sql</srcFile>
                                 
                             </srcFiles>
                         </configuration>

@@ -644,7 +644,7 @@ public class CommonTransformer {
 		List<GuardianTypeCode> vos = e.stream().map((e1) -> toGuardianTypeCodeVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
-	
+
 	// ====================================================================================================
 	// SPM RESULT
 	// ====================================================================================================
@@ -661,12 +661,28 @@ public class CommonTransformer {
 		vo.setSubjectCode(this.toSubjectCodeVo(e.getSubjectCode()));
 		return vo;
 	}
-	
+
 	public List<SpmResult> toSpmResultVos(List<InSpmResult> e) {
 		List<SpmResult> vos = e.stream().map((e1) -> toSpmResultVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
-	
-	
-	
+
+	// ====================================================================================================
+	// SPM SUBJECT CODE
+	// ====================================================================================================
+
+	public SpmSubjectCode toSpmSubjectCodeVo(InSpmSubjectCode e) {
+		SpmSubjectCode vo = new SpmSubjectCode();
+		vo.setId(e.getId());
+		vo.setCode(e.getCode());
+		vo.setDescriptionMs(e.getDescriptionMs());
+		vo.setDescriptionEn(e.getDescriptionEn());
+		vo.setSubjectCode(this.toSubjectCodeVo(e.getSubjectCode()));
+		return vo;
+	}
+
+	public List<SpmSubjectCode> toSpmSubjectCodeVos(List<InSpmSubjectCode> e) {
+		List<SpmSubjectCode> vos = e.stream().map((e1) -> toSpmSubjectCodeVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
 }

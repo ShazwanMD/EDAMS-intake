@@ -972,10 +972,9 @@ export class SetupEffects {
   .map((message) => this.setupActions.removeGuardianTypeCodeSuccess(message))
   .mergeMap((action) => from([action, this.setupActions.findGuardianTypeCodes()]));
 
-
-  //
+  // ====================================================================================================
   // UMKCEE STAFF
-  //
+  // ====================================================================================================
 
   @Effect() findUMKCEEStaffs$ = this.actions$
   .ofType(SetupActions.FIND_UMKCEE_STAFFS)
@@ -997,4 +996,34 @@ export class SetupEffects {
   .map((message) => this.setupActions.updateUMKCEEStaffSuccess(message))
   .mergeMap((action) => from([action, this.setupActions.findUMKCEEStaffs()]));
 
+  // ====================================================================================================
+  // SPM SUBJECT CODE
+  // ====================================================================================================
+
+  @Effect() findSpmSubjectCode$ = this.actions$
+    .ofType(SetupActions.FIND_SPM_SUBJECT_CODES)
+    .map((action) => action.payload)
+    .switchMap(() => this.commonService.findSpmSubjectCodes())
+    .map((codes) => this.setupActions.findSpmSubjectCodesSuccess(codes));
+
+  @Effect() saveSpmSubjectCodes$ = this.actions$
+    .ofType(SetupActions.SAVE_SPM_SUBJECT_CODE)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.commonService.saveSpmSubjectCode(payload))
+    .map((message) => this.setupActions.saveSpmSubjectCodeSuccess(message))
+    .mergeMap((action) => from([action, this.setupActions.findSpmSubjectCodes()]));
+
+  @Effect() updateSpmSubjectCodes$ = this.actions$
+    .ofType(SetupActions.UPDATE_SPM_SUBJECT_CODE)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.commonService.updateSpmSubjectCode(payload))
+    .map((message) => this.setupActions.updateSpmSubjectCodeSuccess(message))
+    .mergeMap((action) => from([action, this.setupActions.findSpmSubjectCodes()]));
+
+  @Effect() removeSpmSubjectCode$ = this.actions$
+    .ofType(SetupActions.REMOVE_SPM_SUBJECT_CODE)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.commonService.removeSpmSubjectCode(payload))
+    .map((message) => this.setupActions.removeSpmSubjectCodeSuccess(message))
+    .mergeMap((action) => from([action, this.setupActions.findSpmSubjectCodes()]));
 }
