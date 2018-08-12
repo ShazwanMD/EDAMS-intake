@@ -2598,4 +2598,67 @@ removeGuardianTypeCodeSuccess(message): Action {
   };
 }
 
+
+//
+// UMKCEE STAFF
+//
+static FIND_UMKCEE_STAFFS = '[Setup] Find UMKCEE STAFFS';
+
+findUMKCEEStaffs(): Action {
+  console.log('findUMKCEESTAFFS');
+  return {
+    type: SetupActions.FIND_UMKCEE_STAFFS,
+  };
+}
+
+static FIND_UMKCEE_STAFFS_SUCCESS = '[Setup] Find UMKCEE STAFFS Success';
+
+findUMKCEEStaffsSuccess(staffs): Action {
+  console.log('findUMKCEESTAFFSSuccess');
+  return {
+    type: SetupActions.FIND_UMKCEE_STAFFS_SUCCESS,
+    payload: staffs,
+  };
+}
+
+static SAVE_UMKCEE_STAFF = '[Setup] Save UMKCEE STAFF';
+
+saveUMKCEEStaffs(staff): Action {
+  console.log('saveUMKCEEstaff');
+  return {
+    type: SetupActions.SAVE_UMKCEE_STAFF,
+    payload: staff,
+  };
+}
+
+static SAVE_UMKCEE_STAFF_SUCCESS = '[Setup] Save UMKCEE STAFF  Success';
+
+saveUMKCEEStaffSuccess(message): Action {
+  console.log('saveUMKCEEstaff');
+  return {
+    type: SetupActions.SAVE_UMKCEE_STAFF_SUCCESS,
+    payload: message,
+  };
+}
+
+static UPDATE_UMKCEE_STAFF = '[Setup] UPDATE UMKCEE STAFF';
+
+updateUMKCEEStaffs(staff): Action {
+  console.log('updateUMKCEEstaff');
+  return {
+    type: SetupActions.UPDATE_UMKCEE_STAFF,
+    payload: staff,
+  };
+}
+
+static UPDATE_UMKCEE_STAFF_SUCCESS = '[Setup] UPDATE UMKCEE STAFF  Success';
+
+updateUMKCEEStaffSuccess(message): Action {
+  console.log('updateUMKCEEstaff');
+  return {
+    type: SetupActions.UPDATE_UMKCEE_STAFF_SUCCESS,
+    payload: message,
+  };
+}
+
 }

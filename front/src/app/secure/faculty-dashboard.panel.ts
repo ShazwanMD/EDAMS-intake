@@ -18,23 +18,16 @@ export class FacultyDashboardPanel implements OnInit {
 
   ngOnInit(): void {
     {
-      this.items = [{
-        title: 'ManagerFaculty',
-        route: '/secure/policy',
-        icon: 'assignment',
-        color: 'blue-700',
-        description: 'Intake Manager',
-      },
+      this.items = [
       {
-          title: 'Admission',
-          route: '/secure/admission',
+          title: 'Pengurusan Kemasukan',
+          route: '/secure/cps-candidate',
           icon: 'assignment',
           color: 'blue-700',
           description: 'Candidate Admission',
-        }
-        ,
+        },
         {
-          title: 'Setup',
+          title: 'Tetapan',
           route: '/secure/setup',
           icon: 'assignment',
           color: 'blue-700',

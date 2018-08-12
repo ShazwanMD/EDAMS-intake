@@ -60,7 +60,6 @@ private InGuardian guardian;
 		
 		InGuardian guardian = new InGuardianImpl();
 		guardian.setApplication(intakeApplication);
-		guardian.setType(InGuardianType.FATHER);
 		guardian.setIdentityNo("651102035671");
 		guardian.setName("MUHAMMAD DOLLAH");
 		guardian.setSalary(salary);

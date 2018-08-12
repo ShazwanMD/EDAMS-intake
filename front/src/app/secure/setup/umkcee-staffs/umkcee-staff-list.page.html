@@ -1,0 +1,9 @@
+<md-card class="">
+  <pams-umkcee-staff-list
+  [staffs]="staffs$ | async" (editDialog)="editDialog($event)">
+</pams-umkcee-staff-list>  
+</md-card>
+
+<a md-fab color="accent" class="mat-fab-top-right" (click)="createDialog()">
+    <md-icon>add</md-icon>
+  </a>

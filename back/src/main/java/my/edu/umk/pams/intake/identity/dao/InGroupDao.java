@@ -3,6 +3,7 @@ package my.edu.umk.pams.intake.identity.dao;
 
 import my.edu.umk.pams.intake.core.GenericDao;
 import my.edu.umk.pams.intake.identity.model.InGroup;
+import my.edu.umk.pams.intake.identity.model.InGroupMember;
 import my.edu.umk.pams.intake.identity.model.InPrincipal;
 import my.edu.umk.pams.intake.identity.model.InPrincipalType;
 import my.edu.umk.pams.intake.identity.model.InUser;
@@ -66,5 +67,7 @@ public interface InGroupDao extends GenericDao<Long, InGroup> {
     void deleteMember(InGroup group, InPrincipal member);
 
 	InGroup findGroupByUser(InUser user);
+	
+	InGroupMember findByPrincipal(InPrincipal principal);
 
 }

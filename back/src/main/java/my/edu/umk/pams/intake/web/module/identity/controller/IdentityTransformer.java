@@ -4,7 +4,10 @@ import my.edu.umk.pams.intake.identity.model.InActor;
 import my.edu.umk.pams.intake.identity.model.InStaff;
 import my.edu.umk.pams.intake.identity.model.InUser;
 import my.edu.umk.pams.intake.identity.model.InApplicant;
+import my.edu.umk.pams.intake.web.module.common.controller.CommonTransformer;
 import my.edu.umk.pams.intake.web.module.identity.vo.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,6 +19,9 @@ import static java.util.stream.Collectors.toList;
  */
 @Component("identityTransformer")
 public class IdentityTransformer {
+	
+	@Autowired
+	private CommonTransformer commonTransformer;
 
     public Staff toStaffVo(InStaff staff) {
         Staff m = new Staff();
@@ -24,8 +30,9 @@ public class IdentityTransformer {
         m.setName(staff.getName());
         m.setEmail(staff.getEmail());
         m.setMobile(staff.getMobile());
-        m.setPhone(staff.getPhone());
-        m.setFax(staff.getFax());
+        m.setFacultyCode(commonTransformer.toFacultyCodeVo(staff.getFacultyCode()));
+        //m.setStaffCategory(staff.getStaffCategory());
+        m.setStaffType(StaffType.get(staff.getStaffType().ordinal()));
         return m;
     }
 

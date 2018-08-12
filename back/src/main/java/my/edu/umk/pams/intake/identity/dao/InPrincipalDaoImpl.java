@@ -99,6 +99,15 @@ public class InPrincipalDaoImpl extends GenericDaoSupport<Long, InPrincipal> imp
         Session session = sessionFactory.getCurrentSession();
         session.delete(role);
     }
+    
+    @Override
+    public InPrincipalRole findByPrincipal(InPrincipal principal) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select p from InPrincipalRole p where " +
+                "p.principal = :principal ");
+        query.setEntity("principal", principal);
+        return (InPrincipalRole) query.uniqueResult();
+    }
 
     @Override
     public Integer count(String filter) {

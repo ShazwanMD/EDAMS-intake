@@ -1,0 +1,70 @@
+<h2 md-dialog-title>Daftar Staf</h2>
+<md-dialog-content>
+  <form [formGroup]="editorForm">
+    <div layout="row" class="inset" flex>
+      <md-input-container flex>
+        <input mdInput
+               placeholder="No Staf"
+               formControlName="identityNo"
+               flex/>
+      </md-input-container>
+    </div>
+
+    <div layout="row" class="inset" flex>
+      <md-input-container flex>
+        <input mdInput
+               placeholder="Nama"
+               formControlName="name"
+               flex/>
+      </md-input-container>
+    </div>
+
+        <div layout="row" class="inset" flex>
+      <md-input-container flex>
+        <input mdInput
+               placeholder="Emel"
+               formControlName="email"
+               flex/>
+      </md-input-container>
+    </div>
+    <div layout="row" class="inset" flex>
+        <md-input-container flex>
+          <input mdInput
+                 placeholder="No Telefon Bimbit"
+                 formControlName="mobile"
+                 flex/>
+        </md-input-container>
+      </div>
+      <!-- <div layout="row" class="inset" flex>
+        <md-input-container flex>
+          <input mdInput
+                 placeholder="Kategori Staf"
+                 formControlName="staffCategory"
+                 flex/>
+        </md-input-container>
+      </div> -->
+      <div layout="row" class="pad-top">
+      <pams-staff-type-select
+        [placeholder]="'Jenis Staf'"
+        [innerFormControl]="editorForm.controls['staffCategory']">
+      </pams-staff-type-select>
+    </div>
+    <!-- <div layout="row" class="pad-top">
+      <pams-actor-type-select
+        [placeholder]="'Staf'"
+        [innerFormControl]="editorForm.controls['actorType']">
+      </pams-actor-type-select>
+    </div> -->
+    <div layout="row" class="pad-top">
+      <pams-faculty-code-select
+        [placeholder]="'Faculty Code'"
+        [innerFormControl]="editorForm.controls['facultyCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+      </pams-faculty-code-select>
+    </div>
+  </form>
+</md-dialog-content>
+<md-dialog-actions align="end">
+   <button md-raised-button color="accent" (click)="submit(editorForm.value, editorForm.valid)">
+    {{edit ? 'Update' : 'Save'}}
+  </button>
+</md-dialog-actions>

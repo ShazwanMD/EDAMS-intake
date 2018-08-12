@@ -38,6 +38,8 @@ public interface InPrincipalDao extends GenericDao<Long, InPrincipal> {
 
     Integer count(String filter);
 
+	InPrincipalRole findByPrincipal(InPrincipal principal);
+
 
     // ====================================================================================================
     // CRUD

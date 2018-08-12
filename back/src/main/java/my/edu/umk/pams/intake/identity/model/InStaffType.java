@@ -4,4 +4,8 @@ public enum InStaffType {
 
 	ACADEMIC,
 	NON_ACADEMIC;
+	
+	public static InStaffType get(int index){
+        return values()[index];
+    }
 }

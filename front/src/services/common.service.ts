@@ -1,3 +1,4 @@
+import { Staff } from './../app/secure/identity/staff.interface';
 import { EmploymentSectorCode } from './../app/shared/model/common/employment-sector-code.interface';
 import { EmploymentTypeCode } from './../app/shared/model/common/employment-type-code.interface';
 import { VenueCode } from './../app/shared/model/common/venue-code.interface';
@@ -43,6 +44,27 @@ export class CommonService {
 
   constructor(private _http: HttpInterceptorService) {
   }
+
+  //
+  // UMKCEE STAFF
+  //
+  findUMKCEEStaffs(): Observable<Staff[]> {
+    console.log('findUMKCEEStaffs');
+    return this._http.get(this.COMMON_API + '/umkceeStaffs')
+      .map((res: Response) => <Staff[]>res.json());
+  }
+
+  saveUMKCEEStaff(staff: Staff): Observable<String> {
+    return this._http.post(this.COMMON_API + '/saveUMKCEEStaff', JSON.stringify(staff))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateUMKCEEStaff(staff: Staff): Observable<String> {
+    return this._http.put(this.COMMON_API + '/updateUMKCEEStaff/'+staff.identityNo, JSON.stringify(staff))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+
 
   // ====================================================================================================
   // BANK CODES

@@ -1,3 +1,9 @@
+import { UMKCEEStaffEditorDialog } from './umkcee-staffs/dialog/umkcee-staff-editor.dialog';
+import { StaffTypeSelectComponent } from './umkcee-staffs/component/staff-type-select.component';
+import { UMKCEEStaffListComponent } from './umkcee-staffs/component/umkcee-staff.component';
+import { UMKCEEStaffListPage } from './umkcee-staffs/umkcee-staff-list.page';
+import { Staff } from './../identity/staff.interface';
+import { UmkceeStaffListState, umkceeStaffListReducer } from './umkcee-staffs/umkcee-staff-list.reducer';
 import { GuardianTypeCodesComponent } from './guardian-type-codes/component/guardian-type-code';
 import { GuardianTypeCodeEditorDialog } from './guardian-type-codes/dialog/guardian-type-code-editor.dialog';
 import { GuardianTypeCodeListPage } from './guardian-type-codes/guardian-type-code-list.page';
@@ -167,6 +173,7 @@ import { ProgramFieldCode } from "../../shared/model/common/program-field-code.i
 import { ProgramFieldCodeEditorDialog } from "./program-field-codes/dialog/program-field-code-editor.dialog";
 import { GuardianTypeCode } from '../../shared/model/common/guardian-type-code.interface';
 import { guardianTypeCodeListReducer } from './guardian-type-codes/guardian-type-code-list.reducer';
+import { ActorTypeSelectComponent } from './umkcee-staffs/component/actor-type-select.component';
 
 
 export interface SetupModuleState {
@@ -202,6 +209,7 @@ export interface SetupModuleState {
   employmentTypeCodes: EmploymentTypeCodeListState;
   employmentSectorCodes: EmploymentSectorCodeListState;
   guardianTypeCodes: GuardianTypeCodeListState;
+  staffs: UmkceeStaffListState;
 
 };
 
@@ -239,6 +247,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     employmentTypeCodes: <EmploymentTypeCode[]>[],
     employmentSectorCodes: <EmploymentSectorCode[]>[],
     guardianTypeCodes: <GuardianTypeCode[]>[],
+    staffs: <Staff[]>[],
 
   };
 
@@ -275,6 +284,7 @@ export const setupModuleReducers = {
   employmentTypeCodes: employmentTypeCodeListReducer,
   employmentSectorCodes: employmentSectorCodeListReducer,
   guardianTypeCodes: guardianTypeCodeListReducer,
+  staffs: umkceeStaffListReducer,
 
 };
 
@@ -323,6 +333,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeListPage,
     EmploymentSectorCodeListPage,
     GuardianTypeCodeListPage,
+    UMKCEEStaffListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -356,6 +367,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
     GuardianTypeCodeEditorDialog,
+    UMKCEEStaffEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -387,10 +399,15 @@ export const setupModuleReducers = {
     EmploymentTypeCodesComponent,
     EmploymentSectorCodesComponent,
     GuardianTypeCodesComponent,
+    UMKCEEStaffListComponent,
+    StaffTypeSelectComponent,
+    ActorTypeSelectComponent,
     
 
   ],
   exports: [
+    StaffTypeSelectComponent,
+    ActorTypeSelectComponent,
 
   ],
   entryComponents: [
@@ -425,6 +442,7 @@ export const setupModuleReducers = {
     EmploymentTypeCodeEditorDialog,
     EmploymentSectorCodeEditorDialog,
     GuardianTypeCodeEditorDialog,
+    UMKCEEStaffEditorDialog,
 
   ],
 })

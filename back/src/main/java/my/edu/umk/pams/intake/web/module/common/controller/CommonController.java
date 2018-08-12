@@ -2,17 +2,38 @@ package my.edu.umk.pams.intake.web.module.common.controller;
 
 import my.edu.umk.pams.intake.common.model.*;
 import my.edu.umk.pams.intake.common.service.CommonService;
+import my.edu.umk.pams.intake.identity.dao.RecursiveGroupException;
+import my.edu.umk.pams.intake.identity.model.InActorType;
+import my.edu.umk.pams.intake.identity.model.InGroup;
+import my.edu.umk.pams.intake.identity.model.InGroupMember;
+import my.edu.umk.pams.intake.identity.model.InGroupMemberImpl;
+import my.edu.umk.pams.intake.identity.model.InPrincipal;
+import my.edu.umk.pams.intake.identity.model.InPrincipalRole;
+import my.edu.umk.pams.intake.identity.model.InPrincipalRoleImpl;
+import my.edu.umk.pams.intake.identity.model.InPrincipalType;
+import my.edu.umk.pams.intake.identity.model.InRoleType;
+import my.edu.umk.pams.intake.identity.model.InStaff;
+import my.edu.umk.pams.intake.identity.model.InStaffImpl;
+import my.edu.umk.pams.intake.identity.model.InStaffType;
+import my.edu.umk.pams.intake.identity.model.InUser;
+import my.edu.umk.pams.intake.identity.service.IdentityService;
 import my.edu.umk.pams.intake.policy.model.InProgramLevel;
 import my.edu.umk.pams.intake.policy.model.InProgramLevelImpl;
 import my.edu.umk.pams.intake.policy.model.InSupervisorOffering;
 import my.edu.umk.pams.intake.policy.model.InSupervisorOfferingImpl;
 import my.edu.umk.pams.intake.policy.service.PolicyService;
 import my.edu.umk.pams.intake.security.integration.InAutoLoginToken;
+import my.edu.umk.pams.intake.system.service.SystemServiceImpl;
 import my.edu.umk.pams.intake.web.module.application.vo.FieldCode;
 import my.edu.umk.pams.intake.web.module.common.vo.*;
+import my.edu.umk.pams.intake.web.module.identity.controller.IdentityTransformer;
+import my.edu.umk.pams.intake.web.module.identity.vo.Staff;
+import my.edu.umk.pams.intake.web.module.identity.vo.StaffType;
 import my.edu.umk.pams.intake.web.module.policy.vo.ProgramLevel;
 import my.edu.umk.pams.intake.web.module.policy.vo.SupervisorOffering;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +55,93 @@ public class CommonController {
 	private PolicyService policyService;
 
 	@Autowired
+	private IdentityService identityService;
+
+	@Autowired
 	private CommonTransformer commonTransformer;
 
 	@Autowired
+	private IdentityTransformer identityTransformer;
+
+	@Autowired
 	private AuthenticationManager authenticationManager;
+
+	private static final Logger LOG = LoggerFactory.getLogger(CommonController.class);
+
+	// ====================================================================================================
+	// UMKCEE STAFF
+	// ====================================================================================================
+
+	@RequestMapping(value = "/umkceeStaffs", method = RequestMethod.GET)
+	public ResponseEntity<List<Staff>> findUmkceeStaffs() {
+		return new ResponseEntity<List<Staff>>(
+				identityTransformer.toStaffVos(identityService.findStaffs("%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/saveUMKCEEStaff", method = RequestMethod.POST)
+	public ResponseEntity<String> saveUMKCEEStaff(@RequestBody Staff vo) {
+
+		InFacultyCode facultyCode = commonService.findFacultyCodeByCode(vo.getFacultyCode().getCode());
+
+		InStaff staff = new InStaffImpl();
+		staff.setIdentityNo(vo.getIdentityNo());
+		staff.setStaffType(InStaffType.NON_ACADEMIC);
+		staff.setName(vo.getName());
+		staff.setActorType(InActorType.STAFF);
+		staff.setMobile(vo.getMobile());
+		staff.setFacultyCode(facultyCode);
+
+		switch (vo.getStaffCategory().name()) {
+		case "PEGAWAI_KEATAS":
+
+			staff.setStaffCategory("A");
+			break;
+
+		case "PENOLONG_PEGAWAI_KEBAWAH":
+
+			staff.setStaffCategory("B");
+			break;
+		}
+		staff.setEmail(vo.getEmail());
+		identityService.saveUMKCEEnonAcademicStaff(staff);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/updateUMKCEEStaff/{identityNo}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateUMKCEEStaff(@PathVariable String identityNo, @RequestBody Staff vo) {
+
+		InStaff staffUpdate = identityService.findStaffByStaffNo(identityNo);
+		LOG.debug("Faculty Lamo:{}", staffUpdate.getFacultyCode().getCode());
+
+		InFacultyCode facultyCodeUpdate = commonService.findFacultyCodeByCode(vo.getFacultyCode().getCode());
+		LOG.debug("Faculty Baharu:{}", facultyCodeUpdate.getCode());
+		staffUpdate.setStaffType(InStaffType.NON_ACADEMIC);
+		staffUpdate.setName(vo.getName());
+		staffUpdate.setActorType(InActorType.STAFF);
+		staffUpdate.setMobile(vo.getMobile());
+		staffUpdate.setFacultyCode(facultyCodeUpdate);
+
+		switch (vo.getStaffCategory().name()) {
+		case "PEGAWAI_KEATAS":
+
+			staffUpdate.setStaffCategory("A");
+			break;
+
+		case "PENOLONG_PEGAWAI_KEBAWAH":
+
+			staffUpdate.setStaffCategory("B");
+			break;
+		}
+
+		staffUpdate.setEmail(vo.getEmail());
+		identityService.updateStaff(staffUpdate);
+		LOG.debug("Staff-UPDATE-fac:{}", staffUpdate.getFacultyCode());
+
+		identityService.updateUMKCEEnonAcademicStaff(staffUpdate);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
 
 	// ====================================================================================================
 	// BANK CODES
@@ -1661,15 +1765,15 @@ public class CommonController {
 
 	@RequestMapping(value = "/guardianTypeCodes", method = RequestMethod.GET)
 	public ResponseEntity<List<GuardianTypeCode>> findGuardianTypeCodes() {
-		return new ResponseEntity<List<GuardianTypeCode>>(commonTransformer.toGuardianTypeCodeVos(
-				commonService.findGuardianTypeCodes("%", 0, Integer.MAX_VALUE)), HttpStatus.OK);
+		return new ResponseEntity<List<GuardianTypeCode>>(
+				commonTransformer.toGuardianTypeCodeVos(commonService.findGuardianTypeCodes("%", 0, Integer.MAX_VALUE)),
+				HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes/{code}", method = RequestMethod.GET)
 	public ResponseEntity<GuardianTypeCode> findGuardianTypeCodeByCode(@PathVariable String code) {
 		return new ResponseEntity<GuardianTypeCode>(
-				commonTransformer.toGuardianTypeCodeVo(commonService.findGuardianTypeCodeByCode(code)),
-				HttpStatus.OK);
+				commonTransformer.toGuardianTypeCodeVo(commonService.findGuardianTypeCodeByCode(code)), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes", method = RequestMethod.POST)
@@ -1685,8 +1789,7 @@ public class CommonController {
 	}
 
 	@RequestMapping(value = "/guardianTypeCodes/{code}", method = RequestMethod.PUT)
-	public ResponseEntity<String> updateGuardianTypeCode(@PathVariable String code,
-			@RequestBody GuardianTypeCode vo) {
+	public ResponseEntity<String> updateGuardianTypeCode(@PathVariable String code, @RequestBody GuardianTypeCode vo) {
 		dummyLogin();
 
 		InGuardianTypeCode guardianTypeCode = commonService.findGuardianTypeCodeById(vo.getId());

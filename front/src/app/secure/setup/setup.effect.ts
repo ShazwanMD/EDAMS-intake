@@ -972,4 +972,29 @@ export class SetupEffects {
   .map((message) => this.setupActions.removeGuardianTypeCodeSuccess(message))
   .mergeMap((action) => from([action, this.setupActions.findGuardianTypeCodes()]));
 
+
+  //
+  // UMKCEE STAFF
+  //
+
+  @Effect() findUMKCEEStaffs$ = this.actions$
+  .ofType(SetupActions.FIND_UMKCEE_STAFFS)
+  .map((action) => action.payload)
+  .switchMap(() => this.commonService.findUMKCEEStaffs())
+  .map((staffs) => this.setupActions.findUMKCEEStaffsSuccess(staffs));
+
+  @Effect() saveUMKCEEStaffs$ = this.actions$
+  .ofType(SetupActions.SAVE_UMKCEE_STAFF)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.saveUMKCEEStaff(payload))
+  .map((message) => this.setupActions.saveUMKCEEStaffSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findUMKCEEStaffs()]));
+
+  @Effect() updateUMKCEEStaffs$ = this.actions$
+  .ofType(SetupActions.UPDATE_UMKCEE_STAFF)
+  .map((action) => action.payload)
+  .switchMap((payload) => this.commonService.updateUMKCEEStaff(payload))
+  .map((message) => this.setupActions.updateUMKCEEStaffSuccess(message))
+  .mergeMap((action) => from([action, this.setupActions.findUMKCEEStaffs()]));
+
 }

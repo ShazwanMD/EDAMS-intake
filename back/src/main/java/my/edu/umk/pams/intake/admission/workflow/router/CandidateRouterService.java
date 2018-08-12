@@ -44,18 +44,15 @@ public class CandidateRouterService extends RouterServiceSupport {
         String candidate1 = null;
         String candidate2 = null;
         String candidate3 = null;
-        String candidate4 = null;
-        String candidate5 = null;
         
         InCandidate candidate = admissionService.findCandidateById(candidateId);
         InGraduateCenter center = candidate.getIntake().getGraduateCenter();
         
         candidate1 = "GRP_ADM";
-        candidate2 = "GRP_KRN_FCTY_A01";
-        candidate3 = "GRP_PGW_FCTY_A01";
-        candidate4 = "GRP_KRN_ADM_A09";
-        candidate5 = "GRP_PGW_ADM_A09";
-        return Arrays.asList(candidate1, candidate2, candidate3, candidate4, candidate5);
+        candidate2 = "GRP_PGW_ADM_UMKCEE";
+        candidate3 = "GRP_KRN_ADM_UMKCEE"; 
+	
+        return Arrays.asList(candidate1, candidate2, candidate3);
     }
     
     public List<String> findVerifierCandidates(Long candidateId) {
