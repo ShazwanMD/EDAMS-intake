@@ -28,6 +28,8 @@ import my.edu.umk.pams.intake.application.dao.InIntakeApplicationDao;
 import my.edu.umk.pams.intake.application.model.InIntakeApplication;
 import my.edu.umk.pams.intake.application.model.InIntakeApplicationImpl;
 import my.edu.umk.pams.intake.application.service.ApplicationService;
+import my.edu.umk.pams.intake.common.model.InFacultyCode;
+import my.edu.umk.pams.intake.common.service.CommonService;
 import my.edu.umk.pams.intake.identity.dao.InActorDao;
 import my.edu.umk.pams.intake.identity.dao.InApplicantDao;
 import my.edu.umk.pams.intake.identity.dao.InGroupDao;
@@ -52,6 +54,7 @@ import my.edu.umk.pams.intake.identity.model.InPrincipalType;
 import my.edu.umk.pams.intake.identity.model.InRoleType;
 import my.edu.umk.pams.intake.identity.model.InStaff;
 import my.edu.umk.pams.intake.identity.model.InStaffImpl;
+import my.edu.umk.pams.intake.identity.model.InStaffType;
 import my.edu.umk.pams.intake.identity.model.InUser;
 import my.edu.umk.pams.intake.identity.model.InUserImpl;
 import my.edu.umk.pams.intake.registration.dao.InUserVerificationDao;
@@ -133,6 +136,9 @@ public class IdentityServiceImpl implements IdentityService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+    
+    @Autowired
+    private CommonService commonService;
 
 
     //====================================================================================================
@@ -188,6 +194,11 @@ public class IdentityServiceImpl implements IdentityService {
     public void deletePrincipalRole(InPrincipal principal, InPrincipalRole principalRole) {
         principalDao.deleteRole(principal, principalRole, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().flush();
+    }
+    
+    @Override
+    public InPrincipalRole findByPrincipal(InPrincipal principal){
+    	return principalDao.findByPrincipal(principal);
     }
 
     //====================================================================================================
@@ -455,6 +466,11 @@ public class IdentityServiceImpl implements IdentityService {
     public void deleteGroupMember(InGroup group, InPrincipal principal) {
         groupDao.deleteMember(group, principal);
         sessionFactory.getCurrentSession().flush();
+    }
+    
+    @Override
+    public InGroupMember findMemberByPrincipal(InPrincipal principal) {
+        return groupDao.findByPrincipal(principal);
     }
 
     //====================================================================================================
@@ -1098,4 +1114,333 @@ public class IdentityServiceImpl implements IdentityService {
         SecurityContextHolder.setContext(context);
 
     }
+
+	@Override
+	public void saveUMKCEEnonAcademicStaff(InStaff staff) {
+        staffDao.save(staff, securityService.getCurrentUser());
+        LOG.debug("START SAVE UMKCEE STAFF");
+    	InUser user = new InUserImpl();
+		user.setActor(staff);
+		user.setEmail(staff.getEmail());
+		user.setUsername(staff.getEmail());
+		user.setPassword(staff.getStaffNo());
+		user.setRealName(staff.getName());
+		user.setName(staff.getEmail());
+		user.setEnabled(true);
+		user.setLocked(true);
+		user.setPrincipalType(InPrincipalType.USER);
+		identityService.saveUser(user);
+
+		InPrincipal principal = identityService.findPrincipalByName(staff.getEmail());
+		if (staff.getFacultyCode().getCode().equals("UMKCEE") && staff.getStaffCategory().equals("A")) {
+
+			InPrincipalRole role = new InPrincipalRoleImpl();
+			role.setPrincipal(principal);
+			role.setRole(InRoleType.ROLE_ADMINISTRATOR);
+			identityService.addPrincipalRole(principal, role);
+
+			try {
+				LOG.debug("group");
+				// Group
+				InGroup group = identityService.findGroupByName("GRP_PGW_ADM_" + staff.getFacultyCode().getCode());
+				LOG.debug("GROUP:{}", group.getName());
+				// GroupMember
+				InGroupMember member = new InGroupMemberImpl();
+				member.setGroup(group);
+				member.setPrincipal(principal);
+				identityService.addGroupMember(group, principal);
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getFacultyCode().getCode().equals("UMKCEE") && staff.getStaffCategory().equals("B")) {
+
+			InPrincipalRole role = new InPrincipalRoleImpl();
+			role.setPrincipal(principal);
+			role.setRole(InRoleType.ROLE_ADMINISTRATOR);
+			identityService.addPrincipalRole(principal, role);
+
+			try {
+				LOG.debug("group");
+				// Group
+				InGroup group = identityService.findGroupByName("GRP_KRN_ADM_" + staff.getFacultyCode().getCode());
+				LOG.debug("GROUP:{}", group.getName());
+				// GroupMember
+				InGroupMember member = new InGroupMemberImpl();
+				member.setGroup(group);
+				member.setPrincipal(principal);
+				identityService.addGroupMember(group, principal);
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getStaffCategory().equals("A")) {
+
+			InPrincipalRole role = new InPrincipalRoleImpl();
+			role.setPrincipal(principal);
+			role.setRole(InRoleType.ROLE_FCTY);
+			identityService.addPrincipalRole(principal, role);
+
+			try {
+				LOG.debug("group");
+				// Group
+				InGroup group = identityService.findGroupByName("GRP_PGW_FCTY_" + staff.getFacultyCode().getCode());
+				LOG.debug("GROUP:{}", group.getName());
+				// GroupMember
+				InGroupMember member = new InGroupMemberImpl();
+				member.setGroup(group);
+				member.setPrincipal(principal);
+				identityService.addGroupMember(group, principal);
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getStaffCategory().equals("B")) {
+
+			InPrincipalRole role = new InPrincipalRoleImpl();
+			role.setPrincipal(principal);
+			role.setRole(InRoleType.ROLE_FCTY);
+			identityService.addPrincipalRole(principal, role);
+
+			try {
+				LOG.debug("group");
+				// Group
+				InGroup group = identityService.findGroupByName("GRP_KRN_FCTY_" + staff.getFacultyCode().getCode());
+				LOG.debug("GROUP:{}", group.getName());
+				// GroupMember
+				InGroupMember member = new InGroupMemberImpl();
+				member.setGroup(group);
+				member.setPrincipal(principal);
+				identityService.addGroupMember(group, principal);
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else{
+			LOG.debug("UNKNOWN");
+		}
+		  LOG.debug("FINISH SAVE UMKCEE STAFF");
+        sessionFactory.getCurrentSession().flush();
+		
+	}
+	
+	@Override
+	public void updateUMKCEEnonAcademicStaff(InStaff staff) {
+        staffDao.update(staff, securityService.getCurrentUser());
+
+        LOG.debug("START UPDATE UMKCEE STAFF");
+        InFacultyCode facultyCodeUpdate = commonService.findFacultyCodeByCode(staff.getFacultyCode().getCode());
+        LOG.debug("FacultyCodeUpdate:{}",facultyCodeUpdate.getCode());
+        
+
+		
+    	InUser userUpdate = identityService.findUserByEmail(staff.getEmail());
+    	userUpdate.setActor(staff);
+    	userUpdate.setEmail(staff.getEmail());
+    	userUpdate.setUsername(staff.getEmail());
+    	userUpdate.setPassword(staff.getStaffNo());
+    	userUpdate.setRealName(staff.getName());
+		userUpdate.setName(staff.getEmail());
+		userUpdate.setEnabled(true);
+		userUpdate.setLocked(true);
+		userUpdate.setPrincipalType(InPrincipalType.USER);
+		identityService.updateUser(userUpdate);
+
+		InPrincipal principalUpdate = identityService.findPrincipalByName(staff.getEmail());
+		if (staff.getFacultyCode().getCode().equals("UMKCEE") && staff.getStaffCategory().equals("A")) {
+			//Find Role Lama
+			InPrincipalRole roleLama = identityService.findByPrincipal(principalUpdate);
+			LOG.debug("Role_Lama:{}",roleLama.getRole().name());
+			
+			//Delete Role Lama
+			identityService.deletePrincipalRole(principalUpdate, roleLama);
+			
+			//Add New Role
+			InPrincipalRole roleUpdate = new InPrincipalRoleImpl();
+			roleUpdate.setPrincipal(principalUpdate);
+			roleUpdate.setRole(InRoleType.ROLE_ADMINISTRATOR);
+			identityService.addPrincipalRole(principalUpdate, roleUpdate);
+
+			try {
+				LOG.debug("groupUpdate");
+
+				//GroupLama
+					//Find Group Lama
+				InGroup groupLama = identityService.findGroupByUser(userUpdate);
+				LOG.debug("Group_Lama:{}",groupLama.getName());
+					//Find Membership Group Lama
+				InGroupMember memberUpdate = identityService.findMemberByPrincipal(principalUpdate);
+				LOG.debug("Member_Lama:{}",memberUpdate.getGroup().getName());
+					//Delete Membership
+				identityService.deleteGroupMember(groupLama, principalUpdate);
+
+				// Find Group Baharu
+				InGroup groupUpdate = identityService.findGroupByName("GRP_PGW_ADM_" + staff.getFacultyCode().getCode());
+				LOG.debug("group_baharu:{}", groupUpdate.getName());
+				// Add As Membership
+				InGroupMember memberBaharu = new InGroupMemberImpl();
+				memberBaharu.setGroup(groupUpdate);
+				memberBaharu.setPrincipal(principalUpdate);
+				identityService.addGroupMember(groupUpdate, principalUpdate);
+				
+				LOG.debug("Membership_baharu:{}",memberBaharu.getGroup().getName());
+				
+				LOG.debug("Finish Group Update");
+
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getFacultyCode().getCode().equals("UMKCEE") && staff.getStaffCategory().equals("B")) {
+
+			//Find Role Lama
+			InPrincipalRole roleLama = identityService.findByPrincipal(principalUpdate);
+			LOG.debug("Role_Lama:{}",roleLama.getRole().name());
+			
+			//Delete Role Lama
+			identityService.deletePrincipalRole(principalUpdate, roleLama);
+
+			InPrincipalRole roleUpdate = new InPrincipalRoleImpl();
+			roleUpdate.setPrincipal(principalUpdate);
+			roleUpdate.setRole(InRoleType.ROLE_ADMINISTRATOR);
+			identityService.addPrincipalRole(principalUpdate, roleUpdate);
+
+			try {
+				LOG.debug("groupUpdate");
+
+				//GroupLama
+					//Find Group Lama
+				InGroup groupLama = identityService.findGroupByUser(userUpdate);
+				LOG.debug("Group_Lama:{}",groupLama.getName());
+					//Find Membership Group Lama
+				InGroupMember memberUpdate = identityService.findMemberByPrincipal(principalUpdate);
+				LOG.debug("Member_Lama:{}",memberUpdate.getGroup().getName());
+					//Delete Membership
+				identityService.deleteGroupMember(groupLama, principalUpdate);
+
+				// Find Group Baharu
+				InGroup groupUpdate = identityService.findGroupByName("GRP_KRN_ADM_" + staff.getFacultyCode().getCode());
+				LOG.debug("group_baharu:{}", groupUpdate.getName());
+				// Add As Membership
+				InGroupMember memberBaharu = new InGroupMemberImpl();
+				memberBaharu.setGroup(groupUpdate);
+				memberBaharu.setPrincipal(principalUpdate);
+				identityService.addGroupMember(groupUpdate, principalUpdate);
+				
+				LOG.debug("Membership_baharu:{}",memberBaharu.getGroup().getName());
+				
+				LOG.debug("Finish Group Update");
+
+				
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getStaffCategory().equals("A")) {
+
+			//Find Role Lama
+			InPrincipalRole roleLama = identityService.findByPrincipal(principalUpdate);
+			LOG.debug("Role_Lama:{}",roleLama.getRole().name());
+			
+			//Delete Role Lama
+			identityService.deletePrincipalRole(principalUpdate, roleLama);
+
+			InPrincipalRole roleUpdate = new InPrincipalRoleImpl();
+			roleUpdate.setPrincipal(principalUpdate);
+			roleUpdate.setRole(InRoleType.ROLE_FCTY);
+			identityService.addPrincipalRole(principalUpdate, roleUpdate);
+
+			try {
+				LOG.debug("groupUpdate");
+
+				//GroupLama
+					//Find Group Lama
+				InGroup groupLama = identityService.findGroupByUser(userUpdate);
+				LOG.debug("Group_Lama:{}",groupLama.getName());
+					//Find Membership Group Lama
+				InGroupMember memberUpdate = identityService.findMemberByPrincipal(principalUpdate);
+				LOG.debug("Member_Lama:{}",memberUpdate.getGroup().getName());
+					//Delete Membership
+				identityService.deleteGroupMember(groupLama, principalUpdate);
+
+				// Find Group Baharu
+				InGroup groupUpdate = identityService.findGroupByName("GRP_PGW_FCTY_" + staff.getFacultyCode().getCode());
+				LOG.debug("group_baharu:{}", groupUpdate.getName());
+				// Add As Membership
+				InGroupMember memberBaharu = new InGroupMemberImpl();
+				memberBaharu.setGroup(groupUpdate);
+				memberBaharu.setPrincipal(principalUpdate);
+				identityService.addGroupMember(groupUpdate, principalUpdate);
+				
+				LOG.debug("Membership_baharu:{}",memberBaharu.getGroup().getName());
+				
+				LOG.debug("Finish Group Update");
+				
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else if (staff.getStaffCategory().equals("B")) {
+
+			//Find Role Lama
+			InPrincipalRole roleLama = identityService.findByPrincipal(principalUpdate);
+			LOG.debug("Role_Lama:{}",roleLama.getRole().name());
+			
+			//Delete Role Lama
+			identityService.deletePrincipalRole(principalUpdate, roleLama);
+
+			InPrincipalRole roleUpdate = new InPrincipalRoleImpl();
+			roleUpdate.setPrincipal(principalUpdate);
+			roleUpdate.setRole(InRoleType.ROLE_FCTY);
+			identityService.addPrincipalRole(principalUpdate, roleUpdate);
+
+			try {
+				
+				LOG.debug("groupUpdate");
+
+				//GroupLama
+					//Find Group Lama
+				InGroup groupLama = identityService.findGroupByUser(userUpdate);
+				LOG.debug("Group_Lama:{}",groupLama.getName());
+					//Find Membership Group Lama
+				InGroupMember memberUpdate = identityService.findMemberByPrincipal(principalUpdate);
+				LOG.debug("Member_Lama:{}",memberUpdate.getGroup().getName());
+					//Delete Membership
+				identityService.deleteGroupMember(groupLama, principalUpdate);
+
+				// Find Group Baharu
+				InGroup groupUpdate = identityService.findGroupByName("GRP_KRN_FCTY_" + staff.getFacultyCode().getCode());
+				LOG.debug("group_baharu:{}", groupUpdate.getName());
+				// Add As Membership
+				InGroupMember memberBaharu = new InGroupMemberImpl();
+				memberBaharu.setGroup(groupUpdate);
+				memberBaharu.setPrincipal(principalUpdate);
+				identityService.addGroupMember(groupUpdate, principalUpdate);
+				
+				LOG.debug("Membership_baharu:{}",memberBaharu.getGroup().getName());
+				
+				LOG.debug("Finish Group Update");
+
+			} catch (RecursiveGroupException e) {
+
+				e.printStackTrace();
+			}
+
+		}else{
+			LOG.debug("UNKNOWN");
+		}
+		  LOG.debug("FINISH UPDATE UMKCEE STAFF");
+
+        
+        
+        sessionFactory.getCurrentSession().flush();
+		
+	}
 }

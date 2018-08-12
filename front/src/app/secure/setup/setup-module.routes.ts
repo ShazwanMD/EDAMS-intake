@@ -1,3 +1,4 @@
+import { UMKCEEStaffListPage } from './umkcee-staffs/umkcee-staff-list.page';
 import { GuardianTypeCodeListPage } from './guardian-type-codes/guardian-type-code-list.page';
 import { EmploymentSectorCodeListPage } from './employment-sector-codes/employment-sector-code-list.page';
 import { EmploymentTypeCodeListPage } from './employment-type-codes/employment-type-code-list.page';
@@ -70,6 +71,7 @@ export const setupModuleRoutes: Routes = [
       {path: 'employment-type-codes', component: EmploymentTypeCodeListPage},
       {path: 'employment-sector-codes', component: EmploymentSectorCodeListPage},
       {path: 'guardian-type-codes', component: GuardianTypeCodeListPage},
+      {path: 'umkcee-staffs', component: UMKCEEStaffListPage},
     ],
   },
 

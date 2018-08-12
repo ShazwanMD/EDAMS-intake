@@ -32,6 +32,8 @@ public interface IdentityService {
     void addPrincipalRole(InPrincipal principal, InPrincipalRole principalRole);
 
     void deletePrincipalRole(InPrincipal principal, InPrincipalRole principalRole);
+    
+    InPrincipalRole findByPrincipal(InPrincipal principal);
 
     //====================================================================================================
     // USER
@@ -120,6 +122,7 @@ public interface IdentityService {
 
     void deleteGroupMember(InGroup group, InPrincipal principal);
 
+    InGroupMember findMemberByPrincipal(InPrincipal principal);
     //====================================================================================================
     // ACTOR
     //====================================================================================================
@@ -213,6 +216,11 @@ public interface IdentityService {
 	InGroup findGroupByUser(InUser user);
 
 	void saveStaffIMSNonAcademicInActive(InStaff staff);
+	
+	void saveUMKCEEnonAcademicStaff(InStaff staff);
+	
+	void updateUMKCEEnonAcademicStaff(InStaff staff);
+	
 
 //	void changeAddress(InIntakeApplication intakeApplication, String newAddress);
 }

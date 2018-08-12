@@ -66,7 +66,7 @@ public class GivenIAmCPSAdministrator extends Stage<GivenIAmCPSAdministrator> {
     }
     
     private void loginAsCPS() {
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken("cps", "abc123");
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken("root", "abc123");
         Authentication authed = authenticationManager.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authed);
 
