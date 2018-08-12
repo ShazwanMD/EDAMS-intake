@@ -150,6 +150,9 @@ public class CommonServiceImpl implements CommonService {
 	private InSupervisorOfferingDao supervisorOfferingDao;
 
 	@Autowired
+	private InSpmResultDao spmResultDao;
+
+	@Autowired
 	private SecurityService securityService;
 
 	@Autowired
@@ -2401,13 +2404,13 @@ public class CommonServiceImpl implements CommonService {
 
 	@Override
 	public List<InGuardianTypeCode> findGuardianTypeCodes() {
-			return guardianTypeCodeDao.find();
-		}
+		return guardianTypeCodeDao.find();
+	}
 
 	@Override
 	public List<InGuardianTypeCode> findGuardianTypeCodes(String filter, Integer offset, Integer limit) {
 		return guardianTypeCodeDao.find(filter, offset, limit);
-		
+
 	}
 
 	@Override
@@ -2437,5 +2440,56 @@ public class CommonServiceImpl implements CommonService {
 		guardianTypeCodeDao.delete(guardianTypeCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
+
+	// ====================================================================================================
+	// SPM RESULT
+	// ====================================================================================================
+
+
+	@Override
+	public InSpmResult findSpmResultById(Long id) {
+		return spmResultDao.findById(id);
+	}
+	
+	@Override
+	public InSpmResult findSpmResultByCode(String code) {
+		return spmResultDao.findByCode(code);
+	}
+
+	@Override
+	public List<InSpmResult> findSpmResults() {
+		return spmResultDao.find();
+	}
+
+	@Override
+	public List<InSpmResult> findSpmResults(String filter, Integer offset, Integer limit) {
+		return spmResultDao.find(filter, offset, limit);
+
+	}
+
+	@Override
+	public Integer countSpmResult() {
+		return spmResultDao.count();
+	}
+
+	@Override
+	public void saveSpmResult(InSpmResult spmResult) {
+		spmResultDao.save(spmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void updateSpmResult(InSpmResult spmResult) {
+		spmResultDao.update(spmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void removeSpmResult(InSpmResult spmResult) {
+		spmResultDao.delete(spmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	
 
 }

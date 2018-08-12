@@ -1,10 +1,13 @@
 package my.edu.umk.pams.intake.application.model;
 
+import my.edu.umk.pams.intake.common.model.InSpmResult;
+import my.edu.umk.pams.intake.common.model.InSpmResultImpl;
 import my.edu.umk.pams.intake.core.InMetadata;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author PAMS
@@ -53,6 +56,9 @@ public class InResultImpl implements InResult {
     @JoinColumn(name = "APPLICATION_ID")
     private InIntakeApplication application;
 
+    @OneToMany(targetEntity = InSpmResultImpl.class, mappedBy = "result")
+	private List<InSpmResult> spmResults;
+    
     @Embedded
     private InMetadata metadata;
 
@@ -165,10 +171,21 @@ public class InResultImpl implements InResult {
     public void setMetadata(InMetadata metadata) {
         this.metadata = metadata;
     }
+    
+    @Override
+	public List<InSpmResult> getSpmResults() {
+		return spmResults;
+	}
+
+	@Override
+	public void setSpmResults(List<InSpmResult> spmResults) {
+		this.spmResults = spmResults;
+	}
 
     @Override
     public Class<?> getInterfaceClass() {
         return InResult.class;
     }
+
 
 }

@@ -1098,6 +1098,24 @@ create table IN_ACTR (
         APPLICATION_ID int8,
         primary key (ID)
     ); 
+    
+    create table IN_SPM_RSLT (
+        ID int8 not null,
+        CODE varchar(255),
+        GRADUATION_YEAR varchar(255),
+        AGGREGATE varchar(255),
+        C_TS timestamp,
+        C_ID int8,
+        D_TS timestamp,
+        D_ID int8,
+        M_TS timestamp,
+        M_ID int8,
+        M_ST int4,
+        SUBJECT_CODE_ID int8,
+        GRADE_CODE_ID int8,
+        RESULT_ID int8,
+        primary key (ID)
+    ); 
     create table IN_SBJT_CODE (
         ID int8 not null,
         CODE varchar(255) not null,
@@ -1826,4 +1844,5 @@ create table IN_ACTR (
     create sequence SQ_IN_WTCH;
     create sequence SQ_IN_EMPT_TYPE_CODE;
     create sequence SQ_IN_GRDN_TYPE_CODE;
+    create sequence SQ_IN_SPM_RSLT;
     

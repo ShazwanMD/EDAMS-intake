@@ -1,8 +1,10 @@
 package my.edu.umk.pams.intake.application.model;
 
+import my.edu.umk.pams.intake.common.model.InSpmResult;
 import my.edu.umk.pams.intake.core.InMetaObject;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author PAMS
@@ -44,5 +46,9 @@ public interface InResult extends InMetaObject {
     InIntakeApplication getApplication();
 
     void setApplication(InIntakeApplication application);
+    
+    List<InSpmResult> getSpmResults();
+
+    void setSpmResults(List<InSpmResult> documents);
 
 }
