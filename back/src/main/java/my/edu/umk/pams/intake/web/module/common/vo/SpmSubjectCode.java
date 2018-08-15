@@ -10,10 +10,10 @@ import my.edu.umk.pams.intake.web.module.core.vo.MetaObject;
 public class SpmSubjectCode extends MetaObject {
 
 	private String code;
-	private String descriptionMs;
-	private String descriptionEn;
-	private SubjectCode subjectCode;
+	private String description;
 
+
+	
 	public String getCode() {
 		return code;
 	}
@@ -22,29 +22,15 @@ public class SpmSubjectCode extends MetaObject {
 		this.code = code;
 	}
 
-	public String getDescriptionMs() {
-		return descriptionMs;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriptionMs(String descriptionMs) {
-		this.descriptionMs = descriptionMs;
-	}
-
-	public String getDescriptionEn() {
-		return descriptionEn;
-	}
-
-	public void setDescriptionEn(String descriptionEn) {
-		this.descriptionEn = descriptionEn;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
-	public SubjectCode getSubjectCode() {
-		return subjectCode;
-	}
 
-	public void setSubjectCode(SubjectCode subjectCode) {
-		this.subjectCode = subjectCode;
-	}
 
 	@JsonCreator
 	public static SpmSubjectCode create(String jsonString) {

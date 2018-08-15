@@ -23,13 +23,11 @@ public class InSpmSubjectCodeImpl implements InSpmSubjectCode {
 	@SequenceGenerator(name = "SQ_IN_SPM_SBJT_CODE", sequenceName = "SQ_IN_SPM_SBJT_CODE", allocationSize = 1)
 	private Long id;
 
-	@NotNull
-	@Column(name = "CODE", unique = true, nullable = false)
+	@Column(name = "CODE")
 	private String code; // BM,BI,MATH
 
-	@ManyToOne(targetEntity = InSubjectCodeImpl.class)
-	@JoinColumn(name = "SUBJECT_CODE_ID")
-	private InSubjectCode subjectCode;
+	@Column(name = "DESCRIPTION")
+	private String description; // BM,BI,MATH
 
 	@Embedded
 	private InMetadata metadata;
@@ -38,6 +36,13 @@ public class InSpmSubjectCodeImpl implements InSpmSubjectCode {
 	public Long getId() {
 		return id;
 	}
+	
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
 
 	@Override
 	public InMetadata getMetadata() {
@@ -57,24 +62,25 @@ public class InSpmSubjectCodeImpl implements InSpmSubjectCode {
 
 	@Override
 	public String getCode() {
-		return null;
+		return code;
 	}
 
 	@Override
 	public void setCode(String code) {
-
+		this.code = code;
 	}
+
 
 	@Override
-	public InSubjectCode getSubjectCode() {
-		return subjectCode;
+	public String getDescription() {
+		return description;
 	}
-
 	@Override
-	public void setSubjectCode(InSubjectCode subjectCode) {
-		this.subjectCode = subjectCode;
-
+	public void setDescription(String description) {
+		this.description = description;
 	}
+
+	
 
 
 }

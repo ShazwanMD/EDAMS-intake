@@ -3,6 +3,7 @@ package my.edu.umk.pams.intake.common.service;
 import my.edu.umk.pams.connector.payload.FacultyCodePayload;
 import my.edu.umk.pams.connector.payload.ProgramCodePayload;
 import my.edu.umk.pams.connector.payload.ProgramLevelPayload;
+import my.edu.umk.pams.intake.application.model.InIntakeApplication;
 import my.edu.umk.pams.intake.common.dao.*;
 import my.edu.umk.pams.intake.common.event.ProgramFieldCodeAddedEvent;
 import my.edu.umk.pams.intake.common.model.*;
@@ -2462,6 +2463,11 @@ public class CommonServiceImpl implements CommonService {
 	public List<InSpmResult> findSpmResults() {
 		return spmResultDao.find();
 	}
+	
+	@Override
+	public List<InSpmResult> findSpmResults(InIntakeApplication application) {
+		return spmResultDao.findSpmResults(application);
+	}
 
 	@Override
 	public List<InSpmResult> findSpmResults(String filter, Integer offset, Integer limit) {
@@ -2546,7 +2552,7 @@ public class CommonServiceImpl implements CommonService {
 
 	@Override
 	public void removeSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
-		spmSubjectCodeDao.remove(spmSubjectCode, securityService.getCurrentUser());
+		spmSubjectCodeDao.delete(spmSubjectCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
 }

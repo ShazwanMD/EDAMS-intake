@@ -1,10 +1,13 @@
 package my.edu.umk.pams.intake.web.module.common.controller;
 
+import my.edu.umk.pams.intake.application.model.InResultType;
 import my.edu.umk.pams.intake.common.model.*;
 import my.edu.umk.pams.intake.core.InMetaObject;
 import my.edu.umk.pams.intake.policy.model.InSupervisorOffering;
 import my.edu.umk.pams.intake.policy.service.PolicyService;
+import my.edu.umk.pams.intake.web.module.application.controller.ApplicationTransformer;
 import my.edu.umk.pams.intake.web.module.application.vo.FieldCode;
+import my.edu.umk.pams.intake.web.module.application.vo.ResultType;
 import my.edu.umk.pams.intake.web.module.common.vo.*;
 import my.edu.umk.pams.intake.web.module.core.vo.MetaObject;
 import my.edu.umk.pams.intake.web.module.core.vo.MetaState;
@@ -25,6 +28,9 @@ public class CommonTransformer {
 
 	@Autowired
 	private PolicyTransformer policyTransformer;
+	
+	@Autowired
+	private ApplicationTransformer applicationTransformer;
 
 	// ====================================================================================================
 	// GRADUATE CENTER
@@ -646,6 +652,23 @@ public class CommonTransformer {
 	}
 
 	// ====================================================================================================
+	// SPM SUBJECT CODE
+	// ====================================================================================================
+
+	public SpmSubjectCode toSpmSubjectCodeVo(InSpmSubjectCode e) {
+		SpmSubjectCode vo = new SpmSubjectCode();
+		vo.setId(e.getId());
+		vo.setCode(e.getCode());
+		vo.setDescription(e.getDescription());
+		return vo;
+	}
+
+	public List<SpmSubjectCode> toSpmSubjectCodeVos(List<InSpmSubjectCode> e) {
+		List<SpmSubjectCode> vos = e.stream().map((e1) -> toSpmSubjectCodeVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+
+	// ====================================================================================================
 	// SPM RESULT
 	// ====================================================================================================
 
@@ -653,12 +676,14 @@ public class CommonTransformer {
 		if (null == e)
 			return null;
 		SpmResult vo = new SpmResult();
-		vo.setId(e.getId());
-		vo.setCode(e.getCode());
+		vo.setId(e.getId());	
 		vo.setAggregate(e.getAggregate());
 		vo.setGraduationYear(e.getGraduationYear());
 		vo.setGradeCode(this.toGradeCodeVo(e.getGradeCode()));
-		vo.setSubjectCode(this.toSubjectCodeVo(e.getSubjectCode()));
+		vo.setApplication(applicationTransformer.toIntakeApplicationVo(e.getApplication()));
+		vo.setSpmSubjectCode(toSpmSubjectCodeVo(e.getSpmSubjectCode()));
+		vo.setResultType(ResultType.get(e.getResultType().ordinal()));
+		
 		return vo;
 	}
 
@@ -667,20 +692,4 @@ public class CommonTransformer {
 		return vos;
 	}
 
-	// ====================================================================================================
-	// SPM SUBJECT CODE
-	// ====================================================================================================
-
-	public SpmSubjectCode toSpmSubjectCodeVo(InSpmSubjectCode e) {
-		SpmSubjectCode vo = new SpmSubjectCode();
-		vo.setId(e.getId());
-		vo.setCode(e.getCode());
-		vo.setSubjectCode(this.toSubjectCodeVo(e.getSubjectCode()));
-		return vo;
-	}
-
-	public List<SpmSubjectCode> toSpmSubjectCodeVos(List<InSpmSubjectCode> e) {
-		List<SpmSubjectCode> vos = e.stream().map((e1) -> toSpmSubjectCodeVo(e1)).collect(Collectors.toList());
-		return vos;
-	}
 }

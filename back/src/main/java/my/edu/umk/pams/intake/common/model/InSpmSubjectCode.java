@@ -8,7 +8,7 @@ public interface InSpmSubjectCode extends InMetaObject {
 
     void setCode(String code);
     
-	InSubjectCode getSubjectCode();
-	
-	void setSubjectCode(InSubjectCode subjectCode);
+    String getDescription();
+    
+    void setDescription(String description);
 }

@@ -6,6 +6,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import my.edu.umk.pams.intake.application.model.InIntakeApplication;
+import my.edu.umk.pams.intake.application.model.InLanguage;
 import my.edu.umk.pams.intake.common.model.InSpmResult;
 import my.edu.umk.pams.intake.common.model.InSpmResultImpl;
 import my.edu.umk.pams.intake.core.GenericDaoSupport;
@@ -43,6 +45,16 @@ public class InSpmResultDaoImpl extends GenericDaoSupport<Long, InSpmResult> imp
         return (List<InSpmResult>) query.list();
 
     }
+    
+	@Override
+	public List<InSpmResult> findSpmResults(InIntakeApplication application) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("select p from InSpmResult p where " + "p.application = :application "
+				+ "and p.metadata.state = :state");
+		query.setInteger("state", InMetaState.ACTIVE.ordinal());
+		query.setEntity("application", application);
+		return (List<InSpmResult>) query.list();
+	}
 
     @Override
     public Integer count(String filter) {

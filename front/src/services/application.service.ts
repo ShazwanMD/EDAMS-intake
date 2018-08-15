@@ -1,22 +1,23 @@
-import {Result} from '../app/shared/model/application/result.interface';
-import {Attachment} from '../app/shared/model/application/attachment.interface';
-import {Referee} from '../app/shared/model/application/referee.interface';
-import {Injectable} from '@angular/core';
+import { Result } from '../app/shared/model/application/result.interface';
+import { Attachment } from '../app/shared/model/application/attachment.interface';
+import { Referee } from '../app/shared/model/application/referee.interface';
+import { Injectable } from '@angular/core';
 import { Response, ResponseContentType, RequestOptions, Headers } from '@angular/http';
-import {HttpInterceptorService} from '@covalent/http';
-import {IntakeApplication} from '../app/shared/model/application/intake-application.interface';
-import {Observable} from 'rxjs/Observable';
-import {environment} from '../environments/environment';
-import {Education} from '../app/shared/model/application/education.interface';
-import {Employment} from '../app/shared/model/application/employment.interface';
-import {Intake} from '../app/shared/model/policy/intake.interface';
-import {ProgramOffering} from '../app/shared/model/policy/program-offering.interface';
-import {StudyModeOffering} from '../app/shared/model/policy/study-mode-offering.interface';
-import {Language} from '../app/shared/model/application/language.interface';
-import {SupervisorOffering} from '../app/shared/model/policy/supervisor-offering.interface';
-import {AttachmentType} from '../app/shared/model/application/attachment-type.enum';
+import { HttpInterceptorService } from '@covalent/http';
+import { IntakeApplication } from '../app/shared/model/application/intake-application.interface';
+import { Observable } from 'rxjs/Observable';
+import { environment } from '../environments/environment';
+import { Education } from '../app/shared/model/application/education.interface';
+import { Employment } from '../app/shared/model/application/employment.interface';
+import { Intake } from '../app/shared/model/policy/intake.interface';
+import { ProgramOffering } from '../app/shared/model/policy/program-offering.interface';
+import { StudyModeOffering } from '../app/shared/model/policy/study-mode-offering.interface';
+import { Language } from '../app/shared/model/application/language.interface';
+import { SupervisorOffering } from '../app/shared/model/policy/supervisor-offering.interface';
+import { AttachmentType } from '../app/shared/model/application/attachment-type.enum';
 import { ProgramLevel } from '../app/shared/model/policy/program-level.interface';
 import { Candidate } from "../app/shared/model/admission/candidate.interface";
+import { SpmResultCode } from '../app/shared/model/common/spm-result-code.interface';
 
 @Injectable()
 export class ApplicationService {
@@ -47,17 +48,17 @@ export class ApplicationService {
     return this._http.get(this.APPLICATION_API + '/intakes/' + referenceNo)
       .map((res: Response) => <Intake>res.json());
   }
-  
+
   findIntakeByCandidateReferenceNo(referenceNo: string): Observable<Intake> {
-      console.log('findIntakeByCandidateReferenceNo : ' + referenceNo);
-      return this._http.get(this.APPLICATION_API + '/intakes/candidates/' + referenceNo)
-        .map((res: Response) => <Intake>res.json());
-    }
-  
+    console.log('findIntakeByCandidateReferenceNo : ' + referenceNo);
+    return this._http.get(this.APPLICATION_API + '/intakes/candidates/' + referenceNo)
+      .map((res: Response) => <Intake>res.json());
+  }
+
   findIntakeApplicationByCandidate(candidate: Candidate): Observable<IntakeApplication> {
-      return this._http.get(this.APPLICATION_API + '/intakeApplication/candidate/' + candidate.referenceNo)
-        .map((res: Response) => <IntakeApplication>res.json());
-    }
+    return this._http.get(this.APPLICATION_API + '/intakeApplication/candidate/' + candidate.referenceNo)
+      .map((res: Response) => <IntakeApplication>res.json());
+  }
 
   findProgramOfferingsByIntake(intake: Intake): Observable<ProgramOffering[]> {
     return this._http.get(this.APPLICATION_API + '/intakes/' + intake.referenceNo + '/programOfferings')
@@ -165,19 +166,19 @@ export class ApplicationService {
       + intake.referenceNo + '/intakeApplications/bidStatus/SELECTED/verify/false')
       .map((res: Response) => <IntakeApplication[]>res.json());
   }
-  
+
   //====================================================================================================
   // PROMO CODE
   // ====================================================================================================
-  
+
   enterPromoCodeIntakeApplication(application: IntakeApplication): Observable<String> {
-      console.log('enterPromoCodeIntakeApplication');
-      return this._http.put(this.APPLICATION_API + '/intakeApplications/'
-        + application.referenceNo + '/promoCode/' + application.promoCode, JSON.stringify(application))
-        .flatMap((res: Response) => Observable.of(res.text()))
-        .catch(this.handleError);
-    }
-  
+    console.log('enterPromoCodeIntakeApplication');
+    return this._http.put(this.APPLICATION_API + '/intakeApplications/'
+      + application.referenceNo + '/promoCode/' + application.promoCode, JSON.stringify(application))
+      .flatMap((res: Response) => Observable.of(res.text()))
+      .catch(this.handleError);
+  }
+
   // ====================================================================================================
   // EDUCATION
   // ====================================================================================================
@@ -267,12 +268,12 @@ export class ApplicationService {
 
   downloadAttachment(attachment: Attachment): Observable<File> {
     console.log('downloadAttachment');
-    let options: RequestOptions = new RequestOptions({responseType: ResponseContentType.ArrayBuffer});
+    let options: RequestOptions = new RequestOptions({ responseType: ResponseContentType.ArrayBuffer });
     return this._http.get(this.APPLICATION_API + '/intakeApplications/download/attachment/' + attachment.id, options)
       .map((res: Response) => {
         let type: string = attachment.mimeType;
         let filename: string = attachment.name;
-        return new File([res.arrayBuffer()], filename, {type: type});
+        return new File([res.arrayBuffer()], filename, { type: type });
       });
   }
 
@@ -280,8 +281,8 @@ export class ApplicationService {
     console.log('addAttachment');
     console.log('file: ' + file.name);
     console.log('attachmentType: ' + attachmentType);
-    let headers: Headers = new Headers({'Content-Type': ''});
-    let options: RequestOptions = new RequestOptions({headers: headers});
+    let headers: Headers = new Headers({ 'Content-Type': '' });
+    let options: RequestOptions = new RequestOptions({ headers: headers });
     let formData: FormData = new FormData();
     formData.append('attachmentType', attachmentType.toString());
     formData.append('file', file);
@@ -289,18 +290,18 @@ export class ApplicationService {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-   addAndCheckAttachment (application: IntakeApplication, file: File, attachmentType: AttachmentType): Observable<String> {
+  addAndCheckAttachment(application: IntakeApplication, file: File, attachmentType: AttachmentType): Observable<String> {
     console.log('addAttachment');
     console.log('file: ' + file.name);
     console.log('attachmentType: ' + attachmentType);
-    let headers: Headers = new Headers({'Content-Type': ''});
-    let options: RequestOptions = new RequestOptions({headers: headers});
+    let headers: Headers = new Headers({ 'Content-Type': '' });
+    let options: RequestOptions = new RequestOptions({ headers: headers });
     let formData: FormData = new FormData();
     formData.append('attachmentType', attachmentType.toString());
     formData.append('file', file);
     return this._http.post(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo + '/addAndCheckAttachments', formData, options)
       .flatMap((res: Response) => Observable.of(res.text()));
-   }
+  }
 
   // deleteAttachment(application: IntakeApplication, attachment: Attachment): Observable<String> {
   //   return this._http.delete(this.APPLICATION_API + '/intakeApplications/'
@@ -409,7 +410,37 @@ export class ApplicationService {
 
   copyAddressApplication(application: IntakeApplication): Observable<String> {
     return this._http.post(this.APPLICATION_API + '/intakeApplications/'
-     + application.referenceNo + '/copy', JSON.stringify(application))
+      + application.referenceNo + '/copy', JSON.stringify(application))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  // ====================================================================================================
+  //  SPM RESULT CODES
+  // ====================================================================================================
+
+  findSpmResultCodes(application: IntakeApplication): Observable<SpmResultCode[]> {
+    console.log('findSpmResultCodes');
+    return this._http.get(this.APPLICATION_API + '/intakeApplications/'+ application.referenceNo+'/spmResults')
+      .map((res: Response) => <SpmResultCode[]>res.json());
+  }
+
+  addSpmResultCodes(application: IntakeApplication, spmResultCode: SpmResultCode): Observable<String> {
+    console.log('save spm result codes');
+    return this._http.post(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/spmResults', JSON.stringify(spmResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateSpmResultCodes(application: IntakeApplication, spmResultCode: SpmResultCode): Observable<String> {
+    console.log('save spm result codes');
+    return this._http.put(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/spmResults/' + spmResultCode.id, JSON.stringify(spmResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  deleteSpmResultCodes(application: IntakeApplication, spmResultCode: SpmResultCode): Observable<String> {
+    return this._http.delete(this.APPLICATION_API + '/intakeApplications/'
+      + application.referenceNo + '/spmResults/' + spmResultCode.id)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 

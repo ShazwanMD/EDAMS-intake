@@ -47,8 +47,5 @@ public interface InResult extends InMetaObject {
 
     void setApplication(InIntakeApplication application);
     
-    List<InSpmResult> getSpmResults();
-
-    void setSpmResults(List<InSpmResult> documents);
 
 }

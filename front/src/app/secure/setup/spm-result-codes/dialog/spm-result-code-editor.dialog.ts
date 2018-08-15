@@ -46,10 +46,8 @@ export class SpmResultCodeEditorDialog implements OnInit {
   ngOnInit(): void {
     this.editorForm = this.formBuilder.group(<SpmResultCode>{
       id: null,
-      code: '',
       aggregate: '',
       graduationYear: '',
-      subjectCode: <SubjectCode>{},
       gradeCode: <GradeCode>{},
     });
 

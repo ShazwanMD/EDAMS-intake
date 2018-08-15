@@ -5,25 +5,32 @@ import java.io.IOException;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import my.edu.umk.pams.intake.web.module.application.vo.IntakeApplication;
+import my.edu.umk.pams.intake.web.module.application.vo.Result;
+import my.edu.umk.pams.intake.web.module.application.vo.ResultType;
 import my.edu.umk.pams.intake.web.module.core.vo.MetaObject;
 
 public class SpmResult extends MetaObject {
 
-	private String code;
+	
 	private String aggregate;
 	private String graduationYear;
 	private GradeCode gradeCode;
-	private SubjectCode subjectCode;
+	private SpmSubjectCode spmSubjectCode;
+	private IntakeApplication application;
+	private ResultType resultType;
 
-	public String getCode() {
-        return code;
-    }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
     
-    public String getAggregate() {
+    public ResultType getResultType() {
+		return resultType;
+	}
+
+	public void setResultType(ResultType resultType) {
+		this.resultType = resultType;
+	}
+
+	public String getAggregate() {
         return aggregate;
     }
 
@@ -46,13 +53,21 @@ public class SpmResult extends MetaObject {
 	public void setGradeCode(GradeCode gradeCode) {
 		this.gradeCode = gradeCode;
 	}
-
-	public SubjectCode getSubjectCode() {
-		return subjectCode;
+	
+	public SpmSubjectCode getSpmSubjectCode() {
+		return spmSubjectCode;
 	}
 
-	public void setSubjectCode(SubjectCode subjectCode) {
-		this.subjectCode = subjectCode;
+	public void setSpmSubjectCode(SpmSubjectCode spmSubjectCode) {
+		this.spmSubjectCode = spmSubjectCode;
+	}
+
+	public IntakeApplication getApplication() {
+		return application;
+	}
+
+	public void setApplication(IntakeApplication application) {
+		this.application = application;
 	}
 
 	@JsonCreator

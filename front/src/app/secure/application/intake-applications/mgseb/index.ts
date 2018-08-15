@@ -34,6 +34,7 @@ import {StudyCenterChoiceComponent} from '../component/study-center-choice.compo
 
     // components
     StudyCenterChoiceComponent,
+    
 
     // dialog
     StudyModeOfferingSelectorDialog,

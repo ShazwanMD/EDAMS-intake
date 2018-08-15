@@ -1,3 +1,4 @@
+import { SpmResultCode } from './../../../../shared/model/common/spm-result-code.interface';
 import { StudyCenterCode } from './../../../../shared/model/common/study-center-code.interface';
 import { EmploymentTypeCode } from './../../../../shared/model/common/employment-type-code.interface';
 import { EmploymentSectorCode } from './../../../../shared/model/common/employment-sector-code.interface';
@@ -46,17 +47,19 @@ export class MgsebIntakeApplicationPanel implements OnInit {
   private EMPLOYMENTS: string[] = 'applicationModuleState.employments'.split('.');
   private LANGUAGES: string[] = 'applicationModuleState.languages'.split('.');
   private REFEREES: string[] = 'applicationModuleState.referees'.split('.');
-  private RESULTS: string[] = 'applicationModuleState.results'.split('.');
+  //private RESULTS: string[] = 'applicationModuleState.results'.split('.');
   private ATTACHMENTS: string[] = 'applicationModuleState.attachments'.split('.');
+  private SPM_RESULT_CODES: string[] = 'applicationModuleState.spmResultCodes'.split('.');
 
   private employments$: Observable<Employment>;
   private languages$: Observable<Language>;
   private referees$: Observable<Referee>;
-  private results$: Observable<Result>;
+  //private results$: Observable<Result>;
   private attachments$: Observable<Attachment>;
   private applicationForm: FormGroup;
   private tabIndex$: Observable<number>;
   private _intakeApplication: IntakeApplication;
+  private spmResultCodes$: Observable<SpmResultCode>;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -71,8 +74,9 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     this.employments$ = this.store.select(...this.EMPLOYMENTS);
     this.languages$ = this.store.select(...this.LANGUAGES);
     this.referees$ = this.store.select(...this.REFEREES);
-    this.results$ = this.store.select(...this.RESULTS);
+    //this.results$ = this.store.select(...this.RESULTS);
     this.tabIndex$ = this.store.select(...this.TAB_INDEX);
+    this.spmResultCodes$ = this.store.select(...this.SPM_RESULT_CODES);
   }
 
   get intakeApplication(): IntakeApplication {

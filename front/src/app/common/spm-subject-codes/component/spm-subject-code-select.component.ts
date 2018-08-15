@@ -10,6 +10,7 @@ import { SpmSubjectCode } from '../../../shared/model/common/spm-subject-code.in
 @Component({
   selector: 'pams-spm-subject-code-select',
   templateUrl: './spm-subject-code-select.component.html',
+  styleUrls: ['./spm-subject-code-select.scss'],
 })
 export class SpmSubjectCodeSelectComponent implements OnInit {
 

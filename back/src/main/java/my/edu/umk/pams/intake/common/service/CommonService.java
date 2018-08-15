@@ -1,5 +1,6 @@
 package my.edu.umk.pams.intake.common.service;
 
+import my.edu.umk.pams.intake.application.model.InIntakeApplication;
 import my.edu.umk.pams.intake.common.model.*;
 import my.edu.umk.pams.intake.policy.model.InProgramLevel;
 import my.edu.umk.pams.intake.policy.model.InSupervisorOffering;
@@ -957,6 +958,8 @@ public interface CommonService {
 	InSpmResult findSpmResultByCode(String code);
 
 	List<InSpmResult> findSpmResults();
+	
+	List<InSpmResult> findSpmResults(InIntakeApplication application);
 
 	List<InSpmResult> findSpmResults(String filter, Integer offset, Integer limit);
 

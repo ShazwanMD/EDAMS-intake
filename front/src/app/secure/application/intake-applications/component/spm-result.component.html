@@ -1,40 +1,45 @@
 <td-expansion-panel label="SPM/SPM Equivalent Result">
-
-  <md-dialog-actions align="end">
-    <button md-button class="md-icon-button" (click)="editDialog()">
-    <md-icon>edit</md-icon>
-    </button>
-    
-    <button md-button class="md-icon-button" (click)="delete()">
-    <md-icon>delete</md-icon>
-  </button>
-  </md-dialog-actions>
-
-  <div layout="column" class="inset">
-
-    <div layout="row" class="pad-bottom">
-      <span flex="20">School :</span>
-      <span>{{result.name}}</span>
+  <div toolbar-buttons layout="row" layout-align="start center" flex>
+      <span flex></span>
+      <button md-button class="md-icon-button" (click)="showDialog()">
+        <md-icon class="md-24 tc-grey-700">add</md-icon>
+      </button>
     </div>
-    <div layout="row" class="pad-bottom">
-      <span flex="20">Graduation Year :</span>
-      <span>{{result.graduationYear}}</span>
+  <!-- <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Carian" (searchDebounce)="search($event)" [alwaysVisible]="true" flex>
+    </td-search-box>
+</div> -->
+<md-divider></md-divider>
+<td-data-table
+    #dataTable
+    [data]="filteredData" 
+    [columns]="columns"
+    [sortable]="true"
+    [sortBy]="sortBy"
+    [sortOrder]="sortOrder"
+    (sortChange)="sort($event)">
+  <template tdDataTableTemplate="key" let-value="value" let-row="row" let-column="column">
+    <div layout="row">
+      <span flex>{{value}}</span>
     </div>
-    <div layout="row" class="pad-bottom">
-      <span flex="20">BM Result :</span>
-      <span>{{result.malayResult}}</span>
+  </template>
+  <template tdDataTableTemplate="action" let-value="value" let-row="row" let-column="column">
+    <div layout="row">
+      <button md-icon-button [md-menu-trigger-for]="menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+      <md-menu x-position="before" #menu="mdMenu">
+        <button md-menu-item (click)="edit(row)">Ubahsuai</button>
+        <button md-menu-item (click)="delete(row)">Padam</button>
+      </md-menu>
     </div>
-        <div layout="row" class="pad-bottom">
-      <span flex="20">BI Result :</span>
-      <span>{{result.englishResult}}</span>
-
-    </div>
-    <div layout="row" class="pad-bottom">
-      <span flex="20">Aggregate :</span>
-      <span>{{result.resultAlphanumeric}}</span>
-    </div>
-
-
-    
-  </div>
+  </template>
+</td-data-table>
+<div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+    <h3>No results to display.</h3>
+</div> 
+<td-paging-bar #pagingBar [pageSizes]="[5, 10, 15, 20]" [total]="filteredTotal" (change)="page($event)">
+    <span td-paging-bar-label hide-xs>Row per page:</span>
+    {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+</td-paging-bar>
 </td-expansion-panel>

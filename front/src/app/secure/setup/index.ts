@@ -1,7 +1,7 @@
 import { SpmSubjectCodesComponent } from './spm-subject-codes/component/spm-subject-code';
 import { SpmSubjectCodeEditorDialog } from './spm-subject-codes/dialog/spm-subject-code-editor.dialog';
 import { SpmSubjectCodeListPage } from './spm-subject-codes/spm-subject-code-list-page';
-import { SpmSubjectCodeListState } from './spm-subject-codes/spm-subject-code-list.reducer';
+import { SpmSubjectCodeListState, spmSubjectCodeListReducer } from './spm-subject-codes/spm-subject-code-list.reducer';
 import { SpmResultCodesComponent } from './spm-result-codes/component/spm-result-code';
 import { SpmResultCodeEditorDialog } from './spm-result-codes/dialog/spm-result-code-editor.dialog';
 import { SpmResultCodeListState, spmResultCodeListReducer } from './../../common/spm-result-codes/spm-result-code-list.reducer';
@@ -184,7 +184,6 @@ import { SpmResultCode } from '../../shared/model/common/spm-result-code.interfa
 import { SpmResultCodeListPage } from './spm-result-codes/spm-result-code-list.page';
 import { ActorTypeSelectComponent } from './umkcee-staffs/component/actor-type-select.component';
 import { SpmSubjectCode } from '../../shared/model/common/spm-subject-code.interface';
-import { spmSubjectCodeListReducer } from '../../common/spm-subject-codes/spm-subject-code-list.reducer';
 import { SpmSubjectCodeSelectComponent } from '../../common/spm-subject-codes/component/spm-subject-code-select.component';
 
 

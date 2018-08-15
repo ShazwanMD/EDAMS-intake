@@ -1,17 +1,17 @@
-import {NotificationService} from '../../../../services/notification.service';
-import {Injectable} from '@angular/core';
-import {Actions, Effect} from '@ngrx/effects';
-import {from} from 'rxjs/observable/from';
-import {IntakeApplicationActions} from './intake-application.action';
-import {ApplicationService} from '../../../../services/application.service';
-import {Router} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {ApplicationModuleState} from '../index';
-import {Observable} from 'rxjs';
-import {Intake} from '../../../shared/model/policy/intake.interface';
-import {IntakeApplication} from '../../../shared/model/application/intake-application.interface';
-import {IntakeActions} from '../../policy/intakes/intake.action';
-import {ApplicationContextActions} from '../../../application-context.action';
+import { NotificationService } from '../../../../services/notification.service';
+import { Injectable } from '@angular/core';
+import { Actions, Effect } from '@ngrx/effects';
+import { from } from 'rxjs/observable/from';
+import { IntakeApplicationActions } from './intake-application.action';
+import { ApplicationService } from '../../../../services/application.service';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { ApplicationModuleState } from '../index';
+import { Observable } from 'rxjs';
+import { Intake } from '../../../shared/model/policy/intake.interface';
+import { IntakeApplication } from '../../../shared/model/application/intake-application.interface';
+import { IntakeActions } from '../../policy/intakes/intake.action';
+import { ApplicationContextActions } from '../../../application-context.action';
 import { CommonService } from '../../../../services/common.service';
 
 @Injectable()
@@ -22,14 +22,14 @@ export class IntakeApplicationEffects {
   private intake$: Observable<Intake>;
 
   constructor(private actions$: Actions,
-              private intakeApplicationActions: IntakeApplicationActions,
-              private intakeActions: IntakeActions,
-              private applicationService: ApplicationService,
-              private notificationService: NotificationService,
-              private commonService: CommonService,
-              private router: Router,
-              private store$: Store<ApplicationModuleState>,
-              private ctxActions: ApplicationContextActions) {
+    private intakeApplicationActions: IntakeApplicationActions,
+    private intakeActions: IntakeActions,
+    private applicationService: ApplicationService,
+    private notificationService: NotificationService,
+    private commonService: CommonService,
+    private router: Router,
+    private store$: Store<ApplicationModuleState>,
+    private ctxActions: ApplicationContextActions) {
     this.intake$ = this.store$.select(...this.INTAKE);
   }
 
@@ -57,23 +57,23 @@ export class IntakeApplicationEffects {
       this.intakeApplicationActions.findStudyModeOfferingsByIntake(action.payload),
       this.intakeApplicationActions.findSupervisorOfferingsByIntake(action.payload),
     ]));
-  
+
   @Effect() findIntakeApplicationByCandidate$ = this.actions$
-  .ofType(IntakeApplicationActions.FIND_INTAKE_APPLICATION_BY_CANDIDATE)
-  .map((action) => action.payload)
-  .switchMap((candidate) => this.applicationService.findIntakeApplicationByCandidate(candidate))
-  .map((intake) => this.intakeApplicationActions.findIntakeApplicationByCandidateSuccess(intake))
-  .mergeMap((action) => from([action,
-    //this.intakeApplicationActions.findIntakeApplicationByReferenceNo(action.payload),
-  ]));
-  
+    .ofType(IntakeApplicationActions.FIND_INTAKE_APPLICATION_BY_CANDIDATE)
+    .map((action) => action.payload)
+    .switchMap((candidate) => this.applicationService.findIntakeApplicationByCandidate(candidate))
+    .map((intake) => this.intakeApplicationActions.findIntakeApplicationByCandidateSuccess(intake))
+    .mergeMap((action) => from([action,
+      //this.intakeApplicationActions.findIntakeApplicationByReferenceNo(action.payload),
+    ]));
+
   @Effect() findIntakeByCandidateReferenceNo$ = this.actions$
-  .ofType(IntakeApplicationActions.FIND_INTAKE_BY_CANDIDATE_REF_NO)
-  .map((action) => action.payload)
-  .switchMap((referenceNo) => this.applicationService.findIntakeByCandidateReferenceNo(referenceNo))
-  .map((message) => this.intakeApplicationActions.findIntakeByCandidateReferenceNoSuccess(message));
- // .mergeMap((action) => from([action,
-    //this.intakeApplicationActions.findIntakeApplicationByReferenceNo(action.payload),
+    .ofType(IntakeApplicationActions.FIND_INTAKE_BY_CANDIDATE_REF_NO)
+    .map((action) => action.payload)
+    .switchMap((referenceNo) => this.applicationService.findIntakeByCandidateReferenceNo(referenceNo))
+    .map((message) => this.intakeApplicationActions.findIntakeByCandidateReferenceNoSuccess(message));
+  // .mergeMap((action) => from([action,
+  //this.intakeApplicationActions.findIntakeApplicationByReferenceNo(action.payload),
   //]));
 
   @Effect() applyIntake$ = this.actions$
@@ -109,7 +109,7 @@ export class IntakeApplicationEffects {
     .map(action => action.payload)
     .switchMap((code) => this.applicationService.findSupervisorOfferingsByProgramLevel(code))
     .map(codes => this.intakeApplicationActions.findSupervisorOfferingsByProgramLevelSuccess(codes));
-  
+
   // ====================================================================================================
   // STUDY_MODE_OFFERING
   // ====================================================================================================
@@ -135,7 +135,7 @@ export class IntakeApplicationEffects {
       this.intakeApplicationActions.findRefereesByIntakeApplication(action.payload),
       this.intakeApplicationActions.findLanguagesByIntakeApplication(action.payload),
       this.intakeApplicationActions.findAttachmentsByIntakeApplication(action.payload),
-      this.intakeApplicationActions.findResultsByIntakeApplication(action.payload),
+      this.intakeApplicationActions.findSpmResultCodes(action.payload),
     ]));
 
   @Effect() updateIntakeApplication$ = this.actions$
@@ -174,7 +174,7 @@ export class IntakeApplicationEffects {
     .switchMap((application) => this.applicationService.rejectIntakeApplication(application))
     .map((message) => this.intakeApplicationActions.rejectIntakeApplicationSuccess(message))
 
-    @Effect() promoCodeIntakeApplication$ = this.actions$
+  @Effect() promoCodeIntakeApplication$ = this.actions$
     .ofType(IntakeApplicationActions.PROMO_CODE_INTAKE_APPLICATION)
     .map((action) => action.payload)
     .switchMap((application) => this.applicationService.promoCodeIntakeApplication(application))
@@ -185,17 +185,17 @@ export class IntakeApplicationEffects {
     .map((action) => action.payload)
     .switchMap((intake) => this.applicationService.findSubmittedIntakeApplications(intake))
     .map((applications) => this.intakeActions.findIntakeApplicationsByIntakeSuccess(applications));
-  
+
   // ====================================================================================================
   // PROMO CODE
   // ====================================================================================================
-  
+
   @Effect() enterPromoCodeIntakeApplications = this.actions$
-  .ofType(IntakeApplicationActions.ENTER_PROMO_CODE)
-  .map((action) => action.payload)
-  .switchMap((application) => this.applicationService.enterPromoCodeIntakeApplication(application))
-  .map((message) => this.intakeApplicationActions.enterPromoCodeIntakeApplicationSuccess(message))
-  .catch((error) => this.notificationService.showError(error));
+    .ofType(IntakeApplicationActions.ENTER_PROMO_CODE)
+    .map((action) => action.payload)
+    .switchMap((application) => this.applicationService.enterPromoCodeIntakeApplication(application))
+    .map((message) => this.intakeApplicationActions.enterPromoCodeIntakeApplicationSuccess(message))
+    .catch((error) => this.notificationService.showError(error));
 
   // ====================================================================================================
   // EDUCATION
@@ -346,14 +346,14 @@ export class IntakeApplicationEffects {
     .map((state) => state[1])
     .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
 
-@Effect() addAndCheckAttachment = this.actions$
+  @Effect() addAndCheckAttachment = this.actions$
     .ofType(IntakeApplicationActions.ADD_AND_CHECK_ATTACHMENT)
     .map((action) => action.payload)
     .switchMap((payload) => this.applicationService.addAndCheckAttachment(payload.application, payload.file, payload.attachmentType))
     .map((message) => this.intakeApplicationActions.addAndCheckAttachmentSuccess(message))
     .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
     .map((state) => state[1])
-    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));    
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
 
   @Effect() downloadAttachment = this.actions$
     .ofType(IntakeApplicationActions.DOWNLOAD_ATTACHMENT)
@@ -370,7 +370,7 @@ export class IntakeApplicationEffects {
       URL.revokeObjectURL(url);
     }).ignoreElements();
 
-    @Effect() deleteAttachment$ = this.actions$
+  @Effect() deleteAttachment$ = this.actions$
     .ofType(IntakeApplicationActions.DELETE_ATTACHMENT)
     .map((action) => action.payload)
     .flatMap((payload) => this.applicationService.deleteAttachment(payload.application, payload.attachment))
@@ -457,10 +457,44 @@ export class IntakeApplicationEffects {
     .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
 
 
-   @Effect() selectTabIndex$ = this.actions$
+  @Effect() selectTabIndex$ = this.actions$
     .ofType(IntakeApplicationActions.SELECT_TAB_INDEX)
     .map((action) => action.payload)
     .map((index) => this.intakeApplicationActions.selectTabIndexSuccess(index));
+
+
+  @Effect() findSpmResultCodes$ = this.actions$
+    .ofType(IntakeApplicationActions.FIND_SPM_RESULT_CODES)
+    .map(action => action.payload)
+    .switchMap((application) => this.applicationService.findSpmResultCodes(application))
+    .map(codes => this.intakeApplicationActions.findSpmResultCodesSuccess(codes));
+
+  @Effect() addSpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.ADD_SPM_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.addSpmResultCodes(payload.application, payload.spmResultCode))
+    .map((message) => this.intakeApplicationActions.addSpmResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+  @Effect() updateSpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.UPDATE_SPM_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.updateSpmResultCodes(payload.application, payload.spmResultCode))
+    .map((message) => this.intakeApplicationActions.updateSpmResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+    @Effect() deleteSpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.DELETE_SPM_RESULT_CODE)
+    .map((action) => action.payload)
+    .flatMap((payload) => this.applicationService.deleteSpmResultCodes(payload.application, payload.spmResultCode))
+    .map((message) => this.intakeApplicationActions.deleteSpmResultCodeSucces(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
 
 }
 

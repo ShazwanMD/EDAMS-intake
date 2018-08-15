@@ -28,9 +28,6 @@ public class InSubjectCodeImpl implements InSubjectCode {
     @NotNull
     @Column(name = "DESCRIPTION_EN")
     private String descriptionEn;
-
-    @OneToMany(targetEntity = InSpmSubjectCodeImpl.class, mappedBy = "subjectCode")
-    private List<InSpmSubjectCode> spmSubjectCodes;
     
     @Embedded
     private InMetadata metadata;
@@ -89,15 +86,4 @@ public class InSubjectCodeImpl implements InSubjectCode {
         return InSubjectCode.class;
     }
 
-	@Override
-	public List<InSpmSubjectCode> getSpmSubjectCodes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setSpmSubjectCodes(List<InSpmSubjectCode> spmSubjectCodes) {
-		// TODO Auto-generated method stub
-		
-	}
 }

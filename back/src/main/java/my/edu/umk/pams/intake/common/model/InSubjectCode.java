@@ -18,8 +18,5 @@ public interface InSubjectCode extends InMetaObject {
 
     void setDescriptionEn(String descriptionEn);
     
-    List<InSpmSubjectCode> getSpmSubjectCodes();
-
-	void setSpmSubjectCodes(List<InSpmSubjectCode> spmSubjectCodes);
     
 }

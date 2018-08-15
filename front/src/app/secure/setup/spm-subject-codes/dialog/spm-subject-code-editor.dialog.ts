@@ -35,12 +35,10 @@ export class SpmSubjectCodeEditorDialog implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editorForm = this.formBuilder.group(<SpmSubjectCode>{
+    this.editorForm = this.formBuilder.group({
       id: null,
       code: '',
-      descriptionMs: '',
-      descriptionEn: '',
-      subjectCode: <SubjectCode>{},
+      description: '',
     });
 
     if (this.edit) this.editorForm.patchValue(this._spmSubjectCode);

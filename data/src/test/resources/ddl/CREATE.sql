@@ -1101,7 +1101,6 @@ create table IN_ACTR (
     
     create table IN_SPM_RSLT (
         ID int8 not null,
-        CODE varchar(255),
         GRADUATION_YEAR varchar(255),
         AGGREGATE varchar(255),
         C_TS timestamp,
@@ -1111,18 +1110,17 @@ create table IN_ACTR (
         M_TS timestamp,
         M_ID int8,
         M_ST int4,
-        SUBJECT_CODE_ID int8,
+        SPM_SUBJECT_CODE_ID int8,
         GRADE_CODE_ID int8,
-        RESULT_ID int8,
+        APPLICATION_ID int8,
+        RESULT_TYPE int8,
         primary key (ID)
     ); 
     
      create table IN_SPM_SBJT_CODE (
         ID int8 not null,
         CODE varchar(255) not null,
-        DESCRIPTION_EN varchar(255),
-        DESCRIPTION_MS varchar(255),
-        SUBJECT_CODE_ID int8,
+        DESCRIPTION varchar(255),
         C_TS timestamp,
         C_ID int8,
         D_TS timestamp,
@@ -1664,6 +1662,10 @@ create table IN_ACTR (
         add constraint FK6B49ECAACAEA1D7 
         foreign key (PROGRAM_LEVEL_ID) 
         references IN_PRGM_LEVL; 
+    alter table IN_SPM_RSLT 
+        add constraint FK6B49ECAD7SPMRESULT 
+        foreign key (APPLICATION_ID) 
+        references IN_INTK_APLN;      
     alter table IN_PRGM_FILD_CODE 
         add constraint uc_IN_PRGM_FILD_CODE_1 unique (CODE); 
     alter table IN_PRGM_FILD_CODE 

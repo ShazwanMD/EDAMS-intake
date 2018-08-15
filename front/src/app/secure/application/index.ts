@@ -1,3 +1,5 @@
+import { ApplicationActions } from './application.action';
+import { SpmResultCodesListState, spmResultCodesListReducer } from './intake-applications/spm-result-list.reducer';
 import {Result} from '../../shared/model/application/result.interface';
 import {SupervisorOffering} from '../../shared/model/policy/supervisor-offering.interface';
 import {Referee} from '../../shared/model/application/referee.interface';
@@ -57,6 +59,7 @@ import {
 import {Attachment} from '../../shared/model/application/attachment.interface';
 import { TabIndexState, tabIndexReducer } from './intake-applications/tab-index.reducer';
 import { supervisorOfferingListReducer, SupervisorOfferingListState } from '../../common/supervisor-offerings/supervisor-offering-list.reducer';
+import { SpmResultCode } from '../../shared/model/common/spm-result-code.interface';
 
 export interface ApplicationModuleState {
   tabIndex: TabIndexState;
@@ -72,6 +75,7 @@ export interface ApplicationModuleState {
   intakeApplications: IntakeApplicationListState;
   intakeApplication: IntakeApplicationState;
   results: ResultListState;
+  spmResultCodes: SpmResultCodesListState;
 }
 ;
 
@@ -89,6 +93,7 @@ export const INITIAL_APPLICATION_STATE: ApplicationModuleState = <ApplicationMod
   studyModeOfferings: <StudyModeOffering[]>[],
   intakeApplications: [],
   intakeApplication: <IntakeApplication>{},
+  spmResultCodes: <SpmResultCode[]>[],
 
 };
 
@@ -106,6 +111,7 @@ export const applicationModuleReducers = {
   studyModeOfferings: intakeStudyModeOfferingListReducer,
   intakeApplications: intakeApplicationListReducer,
   intakeApplication: intakeApplicationReducer,
+  spmResultCodes: spmResultCodesListReducer,
 };
 
 @NgModule({

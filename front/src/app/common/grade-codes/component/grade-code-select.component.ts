@@ -9,6 +9,7 @@ import {SetupActions} from '../../../secure/setup/setup.action';
 @Component({
   selector: 'pams-grade-code-select',
   templateUrl: './grade-code-select.component.html',
+  styleUrls: ['./grade-code-select.scss'],
 })
 export class GradeCodeSelectComponent implements OnInit {
 

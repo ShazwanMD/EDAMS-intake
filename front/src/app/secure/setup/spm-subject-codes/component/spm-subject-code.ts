@@ -23,9 +23,8 @@ import { SpmSubjectCode } from '../../../../shared/model/common/spm-subject-code
 })
 export class SpmSubjectCodesComponent implements OnChanges {
   private columns: any[] = [
-    {name: 'code', label: 'Code'},
-    // {name: 'descriptionMs', label: 'DescriptionMs'},
-    {name: 'id', label: 'DescriptionEn'},
+    {name: 'code', label: 'Kod Subjek'},
+    {name: 'description', label: 'Nama Subjek'},
     {name: 'action', label: ''}
   ];
   filteredData: any[];

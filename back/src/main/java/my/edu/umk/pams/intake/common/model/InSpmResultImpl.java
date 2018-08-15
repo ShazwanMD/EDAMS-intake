@@ -1,22 +1,14 @@
 package my.edu.umk.pams.intake.common.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import my.edu.umk.pams.intake.application.model.InIntakeApplication;
 import my.edu.umk.pams.intake.application.model.InIntakeApplicationImpl;
 import my.edu.umk.pams.intake.application.model.InResult;
 import my.edu.umk.pams.intake.application.model.InResultImpl;
+import my.edu.umk.pams.intake.application.model.InResultType;
 import my.edu.umk.pams.intake.core.InMetadata;
+import my.edu.umk.pams.intake.policy.model.InIntakeImpl;
 
 @Entity(name = "InSpmResult")
 @Table(name = "IN_SPM_RSLT")
@@ -34,24 +26,25 @@ public class InSpmResultImpl implements InSpmResult {
 
 	@Column(name = "AGGREGATE")
 	private String aggregate;
-	
-	@Column(name = "CODE")
-	private String code;
-	
-	@ManyToOne(targetEntity = InSubjectCodeImpl.class)
-	@JoinColumn(name = "SUBJECT_CODE_ID")
-	private InSubjectCode subjectCode;
-
-	@ManyToOne(targetEntity = InGradeCodeImpl.class)
+		
+	@OneToOne(targetEntity = InGradeCodeImpl.class)
 	@JoinColumn(name = "GRADE_CODE_ID")
 	private InGradeCode gradeCode;
 
+	@OneToOne(targetEntity = InSpmSubjectCodeImpl.class)
+	@JoinColumn(name = "SPM_SUBJECT_CODE_ID")
+	private InSpmSubjectCode spmSubjectCode;
+	
+    @ManyToOne(targetEntity = InIntakeApplicationImpl.class)
+    @JoinColumn(name = "APPLICATION_ID")
+    private InIntakeApplication application;
+    
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "RESULT_TYPE")
+    private InResultType resultType;
+
 	@Embedded
 	private InMetadata metadata;
-
-	@ManyToOne(targetEntity = InResultImpl.class)
-	@JoinColumn(name = "RESULT_ID")
-	private InResult result;
 
 	@Override
 	public Long getId() {
@@ -79,17 +72,6 @@ public class InSpmResultImpl implements InSpmResult {
 	}
 
 	@Override
-	public InSubjectCode getSubjectCode() {
-		return subjectCode;
-	}
-
-	@Override
-	public void setSubjectCode(InSubjectCode subjectCode) {
-		this.subjectCode = subjectCode;
-
-	}
-
-	@Override
 	public InGradeCode getGradeCode() {
 		return gradeCode;
 	}
@@ -98,17 +80,6 @@ public class InSpmResultImpl implements InSpmResult {
 	public void setGradeCode(InGradeCode gradeCode) {
 		this.gradeCode = gradeCode;
 
-	}
-
-	@Override
-	public String getCode() {
-		return code;
-	}
-
-	@Override
-	public void setCode(String code) {
-		this.code = code;
-		
 	}
 	
 	@Override
@@ -132,5 +103,38 @@ public class InSpmResultImpl implements InSpmResult {
 		this.aggregate = aggregate;
 		
 	}
+	
+	@Override
+	public InSpmSubjectCode getSpmSubjectCode() {
+		return spmSubjectCode;
+	}
+	@Override
+	public void setSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
+		this.spmSubjectCode = spmSubjectCode;
+	}
+	@Override
+	public InIntakeApplication getApplication() {
+		return application;
+	}
+	@Override
+	public void setApplication(InIntakeApplication application) {
+		this.application = application;
+	}
+	@Override
+	public InResultType getResultType() {
+		return resultType;
+	}
+	@Override
+	public void setResultType(InResultType resultType) {
+		this.resultType = resultType;
+	}
+	
+	
+	
+
+	
+	
+	
+	
 
 }

@@ -1,3 +1,5 @@
+import { SpmSubjectCode } from './../../../../shared/model/common/spm-subject-code.interface';
+import { GradeCode } from './../../../../shared/model/common/grade-code.interface';
 import {Result} from '../../../../shared/model/application/result.interface';
 import {Component, ViewContainerRef, OnInit, Input} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
@@ -9,6 +11,7 @@ import {MdDialogRef} from '@angular/material';
 import {IntakeApplicationActions} from '../intake-application.action';
 import {IntakeApplication} from '../../../../shared/model/application/intake-application.interface';
 import {ResultType} from '../../../../shared/model/application/result-type.enum';
+import { SpmResultCode } from '../../../../shared/model/common/spm-result-code.interface';
 
 @Component({
   selector: 'pams-spm-result-editor',
@@ -20,7 +23,7 @@ export class SpmResultEditorDialog implements OnInit {
   private _intakeApplication: IntakeApplication;
   private editForm: FormGroup;
   private edit: boolean = false;
-  private _result: Result;
+  private _spmResultCode: SpmResultCode;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -31,9 +34,9 @@ export class SpmResultEditorDialog implements OnInit {
               private dialog: MdDialogRef<SpmResultEditorDialog>) {
   }
 
-  set result(value: Result) {
+  set spmResultCode(value: SpmResultCode) {
     console.log('setting result');
-    this._result = value;
+    this._spmResultCode = value;
     console.log(value);
     this.edit = true;
   }
@@ -44,22 +47,23 @@ export class SpmResultEditorDialog implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editForm = this.formBuilder.group(<Result>{
+    this.editForm = this.formBuilder.group({
       id: undefined,
-      name: '',
       graduationYear: 0,
-      resultAlphanumeric: '',
-      malayResult: '',
-      englishResult: '',
+      aggregate:'',
+      gradeCode:<GradeCode>{},
+      spmSubjectCode: <SpmSubjectCode>{},
       resultType: ResultType.SPM,
 
     });
-    if (this.edit) this.editForm.patchValue(this._result);
+    if (this.edit) this.editForm.patchValue(this._spmResultCode);
   }
 
-  submit(result: Result, isValid: boolean): void {
-    if (this.edit) this.store.dispatch(this.actions.updateResult(this._intakeApplication, result));
-    else  this.store.dispatch(this.actions.addResult(this._intakeApplication, result));
+  submit(spmResultCode: SpmResultCode, isValid: boolean): void {
+    console.log("Save spmResultCode");
+    console.log("intakeApplication" + this._intakeApplication.referenceNo);
+    if (this.edit) this.store.dispatch(this.actions.updateSpmResultCode(this._intakeApplication, spmResultCode));
+    else  this.store.dispatch(this.actions.addSpmResultCode(this._intakeApplication, spmResultCode));
     this.dialog.close();
   }
 }

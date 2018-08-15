@@ -13,27 +13,10 @@
     <div layout="row" class="inset" flex>
       <md-input-container flex>
         <input mdInput
-               placeholder="Description (MS)"
-               formControlName="descriptionMs"
+               placeholder="Nama Subjek"
+               formControlName="description"
                flex/>
       </md-input-container>
-    </div>
-    <div layout="row" class="inset" flex>
-      <md-input-container flex>
-        <input mdInput
-               placeholder="Description (EN)"
-               formControlName="descriptionEn"
-               flex/>
-      </md-input-container>
-      </div>
-
-      <div layout="row" class="inset" flex>
-      <pams-subject-code-select
-      [placeholder]="'Subject code'"
-      [innerFormControl]="editorForm.controls['subjectCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
-    </pams-subject-code-select>
-
-      
     </div>
     </form>
 </md-dialog-content>

@@ -1106,7 +1106,7 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
   }
 
   saveSpmSubjectCode(code: SpmSubjectCode): Observable<String> {
-    return this._http.post(this.COMMON_API + '/spmSubjectCodes', JSON.stringify(code))
+    return this._http.post(this.COMMON_API + '/saveSpmSubjectCodes', JSON.stringify(code))
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 

@@ -1009,4 +1009,79 @@ export class IntakeApplicationActions {
       payload: tab,
     };
   }
+
+  static FIND_SPM_RESULT_CODES = '[Intake Application] Find Application SpmResultCodes';
+
+  findSpmResultCodes(application): Action {
+    console.log("findSpmResultCodes");
+    return {
+      type: IntakeApplicationActions.FIND_SPM_RESULT_CODES,
+      payload: application,
+    };
+  }
+
+  static FIND_SPM_RESULT_CODES_SUCCESS = '[Intake Application] Find Application SpmResultCodes Success';
+
+  findSpmResultCodesSuccess(codes): Action {
+    console.log("findSpmResultCodesSuccess");
+    return {
+      type: IntakeApplicationActions.FIND_SPM_RESULT_CODES_SUCCESS,
+      payload: codes
+    };
+  }
+
+  static ADD_SPM_RESULT = '[Intake Application] Save SPM RESULT CODE';
+
+  addSpmResultCode(application, spmResultCode): Action {
+    console.log('addSpmResultCode');
+    return {
+      type: IntakeApplicationActions.ADD_SPM_RESULT,
+      payload: {application: application, spmResultCode: spmResultCode},
+    };
+  }
+
+  static ADD_SPM_RESULT_SUCCESS = '[Intake Application] Add SPM RESULT CODE Success';
+
+  addSpmResultCodeSuccess(message): Action {
+    console.log('addSpmResultCodeSuccess');
+    return {
+      type: IntakeApplicationActions.ADD_SPM_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static UPDATE_SPM_RESULT = '[Intake Application] Update SPM RESULT CODE Application';
+
+  updateSpmResultCode(application, spmResultCode): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_SPM_RESULT,
+      payload: {application: application, spmResultCode: spmResultCode},
+    };
+  }
+
+  static UPDATE_SPM_RESULT_SUCCESS = '[Intake Application] Update SPM RESULT CODE Success';
+
+  updateSpmResultCodeSuccess(message): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_SPM_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static DELETE_SPM_RESULT_CODE = '[Intake Application] Delete SPM RESULT CODE';
+
+  deleteSpmResultCode(application, spmResultCode) {
+    return {
+      type: IntakeApplicationActions.DELETE_SPM_RESULT_CODE,
+      payload: {application: application, spmResultCode: spmResultCode},
+    };
+  }
+
+  static DELETE_SPM_RESULT_CODE_SUCCESS = '[Intake Application] Delete SPM RESULT CODE Success';
+
+  deleteSpmResultCodeSucces(message) {
+    return {
+      type: IntakeApplicationActions.DELETE_SPM_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
 }

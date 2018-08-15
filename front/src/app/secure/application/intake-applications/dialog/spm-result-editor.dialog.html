@@ -1,40 +1,40 @@
 <h2 md-dialog-title>SPM/SPM Equivalent Information</h2>
 <md-dialog-content>
   <form [formGroup]="editForm">
-    <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
+   <div layout="row" class="inset" flex>
+            <md-input-container flex>
+              <input mdInput
+                     placeholder="Year"
+                     formControlName="graduationYear"
+                     flex/>
+            </md-input-container>
+          </div>
 
-      <div layout="column" class="pad-right" flex>
-        <div layout="row">
-          <md-input-container flex>
-            <input mdInput placeholder="School :" formControlName="name" flex/>
-          </md-input-container>
+         <div layout="row" class="inset" flex>
+              <md-input-container flex>
+                <input mdInput
+                       placeholder="Aggregate"
+                       formControlName="aggregate"
+                       flex/>
+              </md-input-container>
+        </div>  
+      
+        <div layout="row" class="pad-top">
+            <pams-spm-subject-code-select
+            [placeholder]="'Subjek'"
+            [innerFormControl]="editForm.controls['spmSubjectCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-spm-subject-code-select>
         </div>
+   
+          <div layout="row" class="pad-top">
+            <pams-grade-code-select
+            [placeholder]="'Gred'"
+            [innerFormControl]="editForm.controls.gradeCode" fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-grade-code-select>
+        </div>
+        
 
-        <div layout="row">
-          <md-input-container flex>
-            <input mdInput title= "eg Credit/Pass/Fail, A/B/C/D/E" placeholder="Bahasa Melayu Result :" formControlName="malayResult" flex/>
-          </md-input-container>
-        </div>
 
-        <div layout="row">
-          <md-input-container flex>
-            <input mdInput mdInput title= "eg Credit/Pass/Fail, A/B/C/D/E" placeholder="Bahasa Inggeris Result :" formControlName="englishResult" flex/>
-          </md-input-container>
-        </div>
-
-        <div layout="row">
-          <md-input-container flex>
-            <input mdInput title= "eg 2017" placeholder="Graduation Year :" formControlName="graduationYear" flex/>
-          </md-input-container>
-        </div>
-
-        <div layout="row">
-          <md-input-container flex>
-            <input mdInput title= "eg Level 1/Agregat 09, Open 2A/3B/2C" placeholder="SPM result :" formControlName="resultAlphanumeric" flex/>
-          </md-input-container>
-        </div>
-      </div>
-    </div>
   </form>
 </md-dialog-content>
 <md-dialog-actions align="end">

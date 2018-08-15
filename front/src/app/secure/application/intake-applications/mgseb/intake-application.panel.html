@@ -375,8 +375,13 @@
           <template md-tab-label>Maklumat Akademik</template>
          
           <td-expansion-panel label="Keputusan">
-            <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
-            </pams-result-list>
+              <md-card class="">
+
+                  <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+                  </pams-spm-result-code-list>
+                </md-card>
+            <!-- <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async">
+            </pams-spm-result-code-list> -->
           </td-expansion-panel>
       </md-tab>
 

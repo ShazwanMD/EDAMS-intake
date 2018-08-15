@@ -55,9 +55,6 @@ public class InResultImpl implements InResult {
     @ManyToOne(targetEntity = InIntakeApplicationImpl.class)
     @JoinColumn(name = "APPLICATION_ID")
     private InIntakeApplication application;
-
-    @OneToMany(targetEntity = InSpmResultImpl.class, mappedBy = "result")
-	private List<InSpmResult> spmResults;
     
     @Embedded
     private InMetadata metadata;
@@ -171,16 +168,6 @@ public class InResultImpl implements InResult {
     public void setMetadata(InMetadata metadata) {
         this.metadata = metadata;
     }
-    
-    @Override
-	public List<InSpmResult> getSpmResults() {
-		return spmResults;
-	}
-
-	@Override
-	public void setSpmResults(List<InSpmResult> spmResults) {
-		this.spmResults = spmResults;
-	}
 
     @Override
     public Class<?> getInterfaceClass() {

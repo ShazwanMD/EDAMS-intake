@@ -8,6 +8,8 @@ import my.edu.umk.pams.intake.admission.service.AdmissionService;
 import my.edu.umk.pams.intake.application.model.*;
 import my.edu.umk.pams.intake.application.service.ApplicationService;
 import my.edu.umk.pams.intake.common.model.InPromoCode;
+import my.edu.umk.pams.intake.common.model.InSpmResult;
+import my.edu.umk.pams.intake.common.model.InSpmResultImpl;
 import my.edu.umk.pams.intake.common.service.CommonService;
 import my.edu.umk.pams.intake.core.InFlowState;
 import my.edu.umk.pams.intake.identity.model.InActor;
@@ -26,6 +28,7 @@ import my.edu.umk.pams.intake.security.integration.InAutoLoginToken;
 import my.edu.umk.pams.intake.security.service.SecurityService;
 import my.edu.umk.pams.intake.web.module.application.vo.*;
 import my.edu.umk.pams.intake.web.module.common.controller.CommonTransformer;
+import my.edu.umk.pams.intake.web.module.common.vo.SpmResult;
 import my.edu.umk.pams.intake.web.module.policy.controller.PolicyTransformer;
 import my.edu.umk.pams.intake.web.module.policy.vo.Intake;
 import my.edu.umk.pams.intake.web.module.policy.vo.ProgramOffering;
@@ -765,56 +768,126 @@ public class ApplicationController {
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
-	// ====================================================================================================
-	// RESULT
-	// ====================================================================================================
+//	// ====================================================================================================
+//	// RESULT
+//	// ====================================================================================================
+//
+//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.GET)
+//	public ResponseEntity<List<Result>> findResultsByIntakeApplication(@PathVariable String referenceNo) {
+//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+//		List<InResult> results = applicationService.findResults(application);
+//		return new ResponseEntity<List<Result>>(applicationTransformer.toResultVos(results), HttpStatus.OK);
+//	}
+//
+//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.POST)
+//	public ResponseEntity<String> addResult(@PathVariable String referenceNo, @RequestBody Result vo) {
+//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+//		InResult result = new InResultImpl();
+//		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
+//		result.setField(vo.getField());
+//		result.setName(vo.getName());
+//		result.setGraduationYear(vo.getGraduationYear());
+//		result.setMalayResult(vo.getMalayResult());
+//		result.setEnglishResult(vo.getEnglishResult());
+//		result.setResultAlphanumeric(vo.getResultAlphanumeric());
+//		result.setResultNumeric(vo.getResultNumeric());
+//		applicationService.addResult(application, result);
+//		
+//
+//		return new ResponseEntity<String>("Success", HttpStatus.OK);
+//	}
+//	
+//
+//
+//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.PUT)
+//	public ResponseEntity<Boolean> updateResult(@PathVariable String referenceNo, @PathVariable Long id,
+//			@RequestBody Result vo) {
+//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+//		InResult result = applicationService.findResultById(id);
+//		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
+//		result.setField(vo.getField());
+//		result.setName(vo.getName());
+//		result.setGraduationYear(vo.getGraduationYear());
+//		result.setMalayResult(vo.getMalayResult());
+//		result.setEnglishResult(vo.getEnglishResult());
+//		result.setResultAlphanumeric(vo.getResultAlphanumeric());
+//		result.setResultNumeric(vo.getResultNumeric());
+//		applicationService.updateResult(application, result);
+//		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+//	}
+//
+//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.DELETE)
+//	public ResponseEntity<Boolean> deleteResult(@PathVariable String referenceNo, @PathVariable Long id) {
+//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+//		InResult result = applicationService.findResultById(id);
+//		applicationService.deleteResult(application, result);
+//		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+//	}
+	
 
-	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.GET)
-	public ResponseEntity<List<Result>> findResultsByIntakeApplication(@PathVariable String referenceNo) {
+	//==========================================================================================================================
+	// SPM RESULT
+	//==========================================================================================================================
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults", method = RequestMethod.GET)
+	public ResponseEntity<List<SpmResult>> findSpmResultByIntakeApplication(@PathVariable String referenceNo) {
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		List<InResult> results = applicationService.findResults(application);
-		return new ResponseEntity<List<Result>>(applicationTransformer.toResultVos(results), HttpStatus.OK);
+		List<InSpmResult> spmResults = commonService.findSpmResults(application);
+		return new ResponseEntity<List<SpmResult>>(
+				commonTransformer.toSpmResultVos(spmResults),HttpStatus.OK);
+
 	}
 
-	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.POST)
-	public ResponseEntity<String> addResult(@PathVariable String referenceNo, @RequestBody Result vo) {
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.GET)
+	public ResponseEntity<SpmResult> findSpmResultByCode(@PathVariable Long id) {
+		return new ResponseEntity<SpmResult>(commonTransformer.toSpmResultVo(commonService.findSpmResultById(id)),
+				HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults", method = RequestMethod.POST)
+	public ResponseEntity<String> saveSpmResult(@PathVariable String referenceNo, @RequestBody SpmResult vo) {
+		
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		InResult result = new InResultImpl();
-		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
-		result.setField(vo.getField());
-		result.setName(vo.getName());
-		result.setGraduationYear(vo.getGraduationYear());
-		result.setMalayResult(vo.getMalayResult());
-		result.setEnglishResult(vo.getEnglishResult());
-		result.setResultAlphanumeric(vo.getResultAlphanumeric());
-		result.setResultNumeric(vo.getResultNumeric());
-		applicationService.addResult(application, result);
+	
+
+		InSpmResult spmResult = new InSpmResultImpl();
+		spmResult.setAggregate(vo.getAggregate());
+		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		spmResult.setSpmSubjectCode(commonService.findSpmSubjectCodeById(vo.getSpmSubjectCode().getId()));
+		spmResult.setApplication(application);
+		spmResult.setResultType(InResultType.SPM);
+		
+		commonService.saveSpmResult(spmResult);
+		
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Boolean> updateResult(@PathVariable String referenceNo, @PathVariable Long id,
-			@RequestBody Result vo) {
+	
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateSpmResult(@PathVariable String referenceNo, @PathVariable Long id, @RequestBody SpmResult vo) {
+		
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		InResult result = applicationService.findResultById(id);
-		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
-		result.setField(vo.getField());
-		result.setName(vo.getName());
-		result.setGraduationYear(vo.getGraduationYear());
-		result.setMalayResult(vo.getMalayResult());
-		result.setEnglishResult(vo.getEnglishResult());
-		result.setResultAlphanumeric(vo.getResultAlphanumeric());
-		result.setResultNumeric(vo.getResultNumeric());
-		applicationService.updateResult(application, result);
-		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+	
+
+		InSpmResult spmResult = commonService.findSpmResultById(id);
+		spmResult.setAggregate(vo.getAggregate());
+		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		spmResult.setSpmSubjectCode(commonService.findSpmSubjectCodeById(vo.getSpmSubjectCode().getId()));
+		spmResult.setApplication(application);
+		spmResult.setResultType(InResultType.SPM);
+		
+		commonService.updateSpmResult(spmResult);
+		
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteSpmResult(@PathVariable Long id) {
 
-	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> deleteResult(@PathVariable String referenceNo, @PathVariable Long id) {
-		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		InResult result = applicationService.findResultById(id);
-		applicationService.deleteResult(application, result);
-		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		InSpmResult spmResult = commonService.findSpmResultById(id);
+		commonService.removeSpmResult(spmResult);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
 
 	// ====================================================================================================

@@ -42,7 +42,7 @@ public class GivenIAmRegisteredUser extends Stage<GivenIAmRegisteredUser> {
 
     private void loginAsRegisteredUser() {
        
-    	String username = "applicant1";
+    	String username = "root";
     	String password = "abc123";
     	
    
