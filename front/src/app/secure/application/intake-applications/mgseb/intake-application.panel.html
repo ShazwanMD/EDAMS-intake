@@ -383,6 +383,18 @@
             <!-- <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async">
             </pams-spm-result-code-list> -->
           </td-expansion-panel>
+          <td-expansion-panel label="Keputusan SPM (sekiranya ada)">
+            <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
+            </pams-result-list>
+          </td-expansion-panel>
+          <td-expansion-panel label="Keputusan STPM (sekiranya ada)">
+            <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
+            </pams-result-list>
+          </td-expansion-panel>
+          <td-expansion-panel label="Keputusan DIPLOMA (sekiranya ada)">
+            <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
+            </pams-result-list>
+          </td-expansion-panel>
       </md-tab>
 
       <md-tab>
