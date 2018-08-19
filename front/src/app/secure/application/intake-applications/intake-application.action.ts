@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Action} from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { Action } from '@ngrx/store';
 
 @Injectable()
 export class IntakeApplicationActions {
@@ -84,7 +84,7 @@ export class IntakeApplicationActions {
       payload: candidate,
     };
   }
-  
+
   static FIND_INTAKE_BY_CANDIDATE_REF_NO = '[Intake] Find Intake Application By Candidate reference No';
 
   findIntakeByCandidateReferenceNo(referenceNo): Action {
@@ -153,7 +153,7 @@ export class IntakeApplicationActions {
     };
   }
 
-   // ====================================================================================================
+  // ====================================================================================================
   // SUPERVISOR_OFFERING_BY_PROGRAM_LEVEL
   // ====================================================================================================
 
@@ -370,22 +370,22 @@ export class IntakeApplicationActions {
   }
 
   static PROMO_CODE_INTAKE_APPLICATION = '[Intake Application] Promo Code Intake Application';
-  
+
   promoCodeIntakeApplication(application): Action {
-      return {
-        type: IntakeApplicationActions.PROMO_CODE_INTAKE_APPLICATION,
-        payload: application,
-      };
-    }
-  
-    static PROMO_CODE_INTAKE_APPLICATION_SUCCESS = '[Intake Application] Promo Code Intake Application Success';
-  
-    promoCodeIntakeApplicationSuccess(message): Action {
-      return {
-        type: IntakeApplicationActions.PROMO_CODE_INTAKE_APPLICATION_SUCCESS,
-        payload: message,
-      };
-    }
+    return {
+      type: IntakeApplicationActions.PROMO_CODE_INTAKE_APPLICATION,
+      payload: application,
+    };
+  }
+
+  static PROMO_CODE_INTAKE_APPLICATION_SUCCESS = '[Intake Application] Promo Code Intake Application Success';
+
+  promoCodeIntakeApplicationSuccess(message): Action {
+    return {
+      type: IntakeApplicationActions.PROMO_CODE_INTAKE_APPLICATION_SUCCESS,
+      payload: message,
+    };
+  }
 
   static FIND_INTAKE_APPLICATION_BY_REFERENCE_NO = '[Intake Application] Find Intake By Reference No';
 
@@ -447,7 +447,7 @@ export class IntakeApplicationActions {
       payload: educations,
     };
   }
-  
+
   // ====================================================================================================
   // PROMO CODE
   // ====================================================================================================
@@ -501,7 +501,7 @@ export class IntakeApplicationActions {
     console.log('addEmployment');
     return {
       type: IntakeApplicationActions.ADD_EMPLOYMENT,
-      payload: {application: application, employment: employment},
+      payload: { application: application, employment: employment },
     };
   }
 
@@ -520,7 +520,7 @@ export class IntakeApplicationActions {
   deleteEmployment(application, employment) {
     return {
       type: IntakeApplicationActions.DELETE_EMPLOYMENT,
-      payload: {application: application, employment: employment},
+      payload: { application: application, employment: employment },
     };
   }
 
@@ -538,7 +538,7 @@ export class IntakeApplicationActions {
   updateEmployment(application, employment): Action {
     return {
       type: IntakeApplicationActions.UPDATE_EMPLOYMENT,
-      payload: {application: application, employment: employment},
+      payload: { application: application, employment: employment },
     };
   }
 
@@ -581,7 +581,7 @@ export class IntakeApplicationActions {
     console.log('addLanguage');
     return {
       type: IntakeApplicationActions.ADD_LANGUAGE,
-      payload: {application: application, language: language},
+      payload: { application: application, language: language },
     };
   }
 
@@ -600,7 +600,7 @@ export class IntakeApplicationActions {
   deleteLanguage(application, language) {
     return {
       type: IntakeApplicationActions.DELETE_LANGUAGE,
-      payload: {application: application, language: language},
+      payload: { application: application, language: language },
     };
   }
 
@@ -618,7 +618,7 @@ export class IntakeApplicationActions {
   updateLanguage(application, language): Action {
     return {
       type: IntakeApplicationActions.UPDATE_LANGUAGE,
-      payload: {application: application, language: language},
+      payload: { application: application, language: language },
     };
   }
 
@@ -661,7 +661,7 @@ export class IntakeApplicationActions {
     console.log('addReferee');
     return {
       type: IntakeApplicationActions.ADD_REFEREE,
-      payload: {application: application, referee: referee},
+      payload: { application: application, referee: referee },
     };
   }
 
@@ -680,7 +680,7 @@ export class IntakeApplicationActions {
   updateReferee(application, referee): Action {
     return {
       type: IntakeApplicationActions.UPDATE_REFEREE,
-      payload: {application: application, referee: referee},
+      payload: { application: application, referee: referee },
     };
   }
 
@@ -698,7 +698,7 @@ export class IntakeApplicationActions {
   deleteReferee(application, referee) {
     return {
       type: IntakeApplicationActions.DELETE_REFEREE,
-      payload: {application: application, referee: referee},
+      payload: { application: application, referee: referee },
     };
   }
 
@@ -741,7 +741,7 @@ export class IntakeApplicationActions {
     console.log('addAttachment');
     return {
       type: IntakeApplicationActions.ADD_ATTACHMENT,
-      payload: {application: application, file: file, attachmentType: attachmentType},
+      payload: { application: application, file: file, attachmentType: attachmentType },
     };
   }
 
@@ -761,7 +761,7 @@ export class IntakeApplicationActions {
     console.log('addAndCheckAttachment');
     return {
       type: IntakeApplicationActions.ADD_AND_CHECK_ATTACHMENT,
-      payload: {application: application, file: file, attachmentType: attachmentType},
+      payload: { application: application, file: file, attachmentType: attachmentType },
     };
   }
 
@@ -773,7 +773,7 @@ export class IntakeApplicationActions {
       type: IntakeApplicationActions.ADD_AND_CHECK_ATTACHMENT_SUCCESS,
       payload: message,
     };
-  }  
+  }
 
   static DELETE_ATTACHMENT = '[Intake Application] Delete Attachment';
 
@@ -781,7 +781,7 @@ export class IntakeApplicationActions {
     console.log('deleteAttachment');
     return {
       type: IntakeApplicationActions.DELETE_ATTACHMENT,
-      payload: {application: application, attachment: attachment},
+      payload: { application: application, attachment: attachment },
     };
   }
 
@@ -801,7 +801,7 @@ export class IntakeApplicationActions {
     console.log('downloadAttachment');
     return {
       type: IntakeApplicationActions.DOWNLOAD_ATTACHMENT,
-      payload: {attachment: attachment},
+      payload: { attachment: attachment },
     };
   }
 
@@ -843,7 +843,7 @@ export class IntakeApplicationActions {
   addResult(application, result) {
     return {
       type: IntakeApplicationActions.ADD_RESULT,
-      payload: {application: application, result: result},
+      payload: { application: application, result: result },
     };
   }
 
@@ -861,7 +861,7 @@ export class IntakeApplicationActions {
   updateResult(application, result): Action {
     return {
       type: IntakeApplicationActions.UPDATE_RESULT,
-      payload: {application: application, result: result},
+      payload: { application: application, result: result },
     };
   }
 
@@ -879,7 +879,7 @@ export class IntakeApplicationActions {
   deleteResult(application, result) {
     return {
       type: IntakeApplicationActions.DELETE_RESULT,
-      payload: {application: application, result: result},
+      payload: { application: application, result: result },
     };
   }
 
@@ -901,7 +901,7 @@ export class IntakeApplicationActions {
   addEducation(intake, education) {
     return {
       type: IntakeApplicationActions.ADD_EDUCATION,
-      payload: {intake: intake, education: education},
+      payload: { intake: intake, education: education },
     };
   }
 
@@ -919,7 +919,7 @@ export class IntakeApplicationActions {
   deleteEducation(intake, education) {
     return {
       type: IntakeApplicationActions.DELETE_EDUCATION,
-      payload: {intake: intake, education: education},
+      payload: { intake: intake, education: education },
     };
   }
 
@@ -941,7 +941,7 @@ export class IntakeApplicationActions {
   selectProgramOffering(application, offering) {
     return {
       type: IntakeApplicationActions.SELECT_PROGRAM_OFFERING,
-      payload: {application: application, offering: offering},
+      payload: { application: application, offering: offering },
     };
   }
 
@@ -959,7 +959,7 @@ export class IntakeApplicationActions {
   selectSupervisorOffering(application, offering) {
     return {
       type: IntakeApplicationActions.SELECT_SUPERVISOR_OFFERING,
-      payload: {application: application, offering: offering},
+      payload: { application: application, offering: offering },
     };
   }
 
@@ -977,7 +977,7 @@ export class IntakeApplicationActions {
   selectStudyModeOffering(application, offering) {
     return {
       type: IntakeApplicationActions.SELECT_STUDY_MODE_OFFERING,
-      payload: {application: application, offering: offering},
+      payload: { application: application, offering: offering },
     };
   }
 
@@ -1010,6 +1010,10 @@ export class IntakeApplicationActions {
     };
   }
 
+  //============================================================================================================================
+  //  SPM RESULTS
+  //============================================================================================================================
+
   static FIND_SPM_RESULT_CODES = '[Intake Application] Find Application SpmResultCodes';
 
   findSpmResultCodes(application): Action {
@@ -1036,7 +1040,7 @@ export class IntakeApplicationActions {
     console.log('addSpmResultCode');
     return {
       type: IntakeApplicationActions.ADD_SPM_RESULT,
-      payload: {application: application, spmResultCode: spmResultCode},
+      payload: { application: application, spmResultCode: spmResultCode },
     };
   }
 
@@ -1054,7 +1058,7 @@ export class IntakeApplicationActions {
   updateSpmResultCode(application, spmResultCode): Action {
     return {
       type: IntakeApplicationActions.UPDATE_SPM_RESULT,
-      payload: {application: application, spmResultCode: spmResultCode},
+      payload: { application: application, spmResultCode: spmResultCode },
     };
   }
 
@@ -1071,7 +1075,7 @@ export class IntakeApplicationActions {
   deleteSpmResultCode(application, spmResultCode) {
     return {
       type: IntakeApplicationActions.DELETE_SPM_RESULT_CODE,
-      payload: {application: application, spmResultCode: spmResultCode},
+      payload: { application: application, spmResultCode: spmResultCode },
     };
   }
 
@@ -1084,4 +1088,81 @@ export class IntakeApplicationActions {
     };
   }
 
+  //============================================================================================================================
+  //  STPM RESULTS
+  //============================================================================================================================
+
+  static FIND_STPM_RESULT_CODES = '[Intake Application] Find Application StpmResultCodes';
+
+  findStpmResultCodes(application): Action {
+    console.log("findStpmResultCodes");
+    return {
+      type: IntakeApplicationActions.FIND_STPM_RESULT_CODES,
+      payload: application,
+    };
+  }
+
+  static FIND_STPM_RESULT_CODES_SUCCESS = '[Intake Application] Find Application StpmResultCodes Success';
+
+  findStpmResultCodesSuccess(codes): Action {
+    console.log("findStpmResultCodesSuccess");
+    return {
+      type: IntakeApplicationActions.FIND_STPM_RESULT_CODES_SUCCESS,
+      payload: codes
+    };
+  }
+
+  static ADD_STPM_RESULT = '[Intake Application] Save STPM RESULT CODE';
+
+  addStpmResultCode(application, stpmResultCode): Action {
+    console.log('addStpmResultCode');
+    return {
+      type: IntakeApplicationActions.ADD_STPM_RESULT,
+      payload: { application: application, stpmResultCode: stpmResultCode },
+    };
+  }
+
+  static ADD_STPM_RESULT_SUCCESS = '[Intake Application] Add STPM RESULT CODE Success';
+
+  addStpmResultCodeSuccess(message): Action {
+    console.log('addStpmResultCodeSuccess');
+    return {
+      type: IntakeApplicationActions.ADD_STPM_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static UPDATE_STPM_RESULT = '[Intake Application] Update STPM RESULT CODE Application';
+
+  updateStpmResultCode(application, stpmResultCode): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_STPM_RESULT,
+      payload: { application: application, stpmResultCode: stpmResultCode },
+    };
+  }
+
+  static UPDATE_STPM_RESULT_SUCCESS = '[Intake Application] Update STPM RESULT CODE Success';
+
+  updateStpmResultCodeSuccess(message): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_STPM_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static DELETE_STPM_RESULT_CODE = '[Intake Application] Delete STPM RESULT CODE';
+
+  deleteStpmResultCode(application, stpmResultCode) {
+    return {
+      type: IntakeApplicationActions.DELETE_STPM_RESULT_CODE,
+      payload: { application: application, stpmResultCode: stpmResultCode },
+    };
+  }
+
+  static DELETE_STPM_RESULT_CODE_SUCCESS = '[Intake Application] Delete STPM RESULT CODE Success';
+
+  deleteStpmResultCodeSucces(message) {
+    return {
+      type: IntakeApplicationActions.DELETE_STPM_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
 }

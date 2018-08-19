@@ -1,3 +1,5 @@
+import { StpmSubjectCodeSelectComponent } from './stpm-subject-codes/component/stpm-subject-code-select.component';
+import { StpmSubjectCodeListState, stpmSubjectCodeListReducer } from './stpm-subject-codes/stpm-subject-code-list.reducer';
 import { SpmSubjectCodeSelectComponent } from './spm-subject-codes/component/spm-subject-code-select.component';
 import { SpmSubjectCodeListState, spmSubjectCodeListReducer } from './spm-subject-codes/spm-subject-code-list.reducer';
 import { SpmResultCodeSelectComponent } from './spm-result-codes/component/spm-result-code-select.component';
@@ -102,6 +104,7 @@ export interface CommonModuleState {
   guardianTypeCodes: GuardianTypeCodeListState;
   spmResultCodes: SpmResultCodeListState;
   spmSubjectCodes: SpmSubjectCodeListState;
+  stpmSubjectCodes: StpmSubjectCodeListState;
 }
 ;
 
@@ -140,6 +143,7 @@ export const commonModuleReducers = {
   guardianTypeCodes: guardianTypeCodeListReducer,
   spmResultCodes: spmResultCodeListReducer,
   spmSubjectCodes: spmSubjectCodeListReducer,
+  stpmSubjectCodes: stpmSubjectCodeListReducer,
 };
 
 @NgModule({
@@ -181,6 +185,7 @@ export const commonModuleReducers = {
     GuardianTypeCodeSelectComponent,
     SpmResultCodeSelectComponent,
     SpmSubjectCodeSelectComponent,
+    StpmSubjectCodeSelectComponent,
 
   ],
   exports: [
@@ -214,6 +219,7 @@ export const commonModuleReducers = {
     GuardianTypeCodeSelectComponent,
     SpmResultCodeSelectComponent,
     SpmSubjectCodeSelectComponent,
+    StpmSubjectCodeSelectComponent
 
   ],
 })

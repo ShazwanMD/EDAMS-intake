@@ -204,7 +204,6 @@ public interface ApplicationService {
 
 //	void changeAddress(InIntakeApplication application);
 	
-	 
 	
 }
 

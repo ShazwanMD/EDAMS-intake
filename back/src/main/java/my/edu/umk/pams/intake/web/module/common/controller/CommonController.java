@@ -1860,5 +1860,54 @@ public class CommonController {
 		
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
+	
+	// ====================================================================================================
+	// Stpm_Subject_CODE
+	// ====================================================================================================
+
+	@RequestMapping(value = "/stpmSubjectCodes", method = RequestMethod.GET)
+	public ResponseEntity<List<StpmSubjectCode>> findStpmSubjectCodes() {
+		return new ResponseEntity<List<StpmSubjectCode>>(
+				commonTransformer.toStpmSubjectCodeVos(commonService.findStpmSubjectCodes("%", 0, Integer.MAX_VALUE)),
+				HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/stpmSubjectCodes/{code}", method = RequestMethod.GET)
+	public ResponseEntity<StpmSubjectCode> findStpmSubjectCodeByCode(@PathVariable String code) {
+		return new ResponseEntity<StpmSubjectCode>(
+				commonTransformer.toStpmSubjectCodeVo(commonService.findStpmSubjectCodeByCode(code)), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/saveStpmSubjectCodes", method = RequestMethod.POST)
+	public ResponseEntity<String> saveStpmSubjectCode(@RequestBody StpmSubjectCode vo) {
+
+		InStpmSubjectCode stpmSubjectCode = new InStpmSubjectCodeImpl();
+		stpmSubjectCode.setCode(vo.getCode());
+		stpmSubjectCode.setDescription(vo.getDescription());
+		commonService.saveStpmSubjectCode(stpmSubjectCode);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/stpmSubjectCodes/{code}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateStpmSubjectCode(@PathVariable String code, @RequestBody StpmSubjectCode vo) {
+
+		InStpmSubjectCode stpmSubjectCode = commonService.findStpmSubjectCodeById(vo.getId());
+		stpmSubjectCode.setCode(vo.getCode());
+		stpmSubjectCode.setDescription(vo.getDescription());
+		commonService.updateStpmSubjectCode(stpmSubjectCode);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/stpmSubjectCodes/{code}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteStpmSubjectCode(@PathVariable String code) {
+
+		InStpmSubjectCode stpmSubjectCode = commonService.findStpmSubjectCodeByCode(code);
+		commonService.removeStpmSubjectCode(stpmSubjectCode);
+		
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
 
 }

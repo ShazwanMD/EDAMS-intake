@@ -1,0 +1,44 @@
+<h2 md-dialog-title>Tambah Maklumat Akademik STPM</h2>
+<md-dialog-content>
+  <form [formGroup]="editForm">
+   <div layout="row" class="inset" flex>
+            <md-input-container flex>
+              <input mdInput
+                     placeholder="Tahun"
+                     formControlName="graduationYear"
+                     flex/>
+            </md-input-container>
+          </div>
+
+         <div layout="row" class="inset" flex>
+              <md-input-container flex>
+                <input mdInput
+                       placeholder="Aggregate"
+                       formControlName="aggregate"
+                       flex/>
+              </md-input-container>
+        </div>  
+      
+        <div layout="row" class="pad-top">
+            <pams-stpm-subject-code-select
+            [placeholder]="'Subjek'"
+            [innerFormControl]="editForm.controls['stpmSubjectCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-stpm-subject-code-select>
+        </div>
+   
+          <div layout="row" class="pad-top">
+            <pams-grade-code-select
+            [placeholder]="'Gred'"
+            [innerFormControl]="editForm.controls.gradeCode" fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-grade-code-select>
+        </div>
+        
+
+
+  </form>
+</md-dialog-content>
+<md-dialog-actions align="end">
+  <button md-raised-button color="accent" (click)="submit(editForm.value, editForm.valid)">
+    {{edit ? 'Update' : 'Save'}}
+  </button>
+</md-dialog-actions>

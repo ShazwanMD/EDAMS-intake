@@ -1,14 +1,17 @@
+import { StpmResultCode } from './../../../../shared/model/common/stpm-result-code.interface';
 import { Result } from '../../../../shared/model/application/result.interface';
-import {Component, ViewContainerRef, OnInit, Input} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {FormBuilder} from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {ApplicationModuleState} from '../../index';
-import {MdDialogRef} from '@angular/material';
-import {IntakeApplicationActions} from '../intake-application.action';
-import {IntakeApplication} from '../../../../shared/model/application/intake-application.interface';
-import {ResultType} from '../../../../shared/model/application/result-type.enum';
+import { Component, ViewContainerRef, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { ApplicationModuleState } from '../../index';
+import { MdDialogRef } from '@angular/material';
+import { IntakeApplicationActions } from '../intake-application.action';
+import { IntakeApplication } from '../../../../shared/model/application/intake-application.interface';
+import { ResultType } from '../../../../shared/model/application/result-type.enum';
+import { GradeCode } from '../../../../shared/model/common/grade-code.interface';
+import { StpmSubjectCode } from '../../../../shared/model/common/stpm-subject-code.interface';
 
 @Component({
   selector: 'pams-stpm-result-editor',
@@ -20,19 +23,19 @@ export class StpmResultEditorDialog implements OnInit {
   private _intakeApplication: IntakeApplication;
   private editForm: FormGroup;
   private edit: boolean = false;
-  private _result: Result;
+  private _stpmResultCode: StpmResultCode;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private formBuilder: FormBuilder,
-              private viewContainerRef: ViewContainerRef,
-              private store: Store<ApplicationModuleState>,
-              private actions: IntakeApplicationActions,
-              private dialog: MdDialogRef<StpmResultEditorDialog>) {
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private viewContainerRef: ViewContainerRef,
+    private store: Store<ApplicationModuleState>,
+    private actions: IntakeApplicationActions,
+    private dialog: MdDialogRef<StpmResultEditorDialog>) {
   }
 
-  set result(value: Result) {
-    this._result = value;
+  set stpmResultCode(value: StpmResultCode) {
+    this._stpmResultCode = value;
     this.edit = true;
   }
 
@@ -41,20 +44,20 @@ export class StpmResultEditorDialog implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editForm = this.formBuilder.group(<Result>{
+    this.editForm = this.formBuilder.group({
       id: null,
-      name: '',
       graduationYear: 0,
-      resultAlphanumeric: '',
+      aggregate: '',
+      gradeCode: <GradeCode>{},
+      stpmSubjectCode: <StpmSubjectCode>{},
       resultType: ResultType.STPM,
 
     });
-    if (this.edit) this.editForm.patchValue(this._result);
+    if (this.edit) this.editForm.patchValue(this._stpmResultCode);
   }
 
-  submit(result: Result, isValid: boolean) {
-    if (this.edit) this.store.dispatch(this.actions.updateResult(this._intakeApplication, result));
-    else  this.store.dispatch(this.actions.addResult(this._intakeApplication, result));
+  submit(stpmResultCode: StpmResultCode, isValid: boolean) {
+    this.store.dispatch(this.actions.updateStpmResultCode(this._intakeApplication, stpmResultCode));
     this.dialog.close();
   }
 }

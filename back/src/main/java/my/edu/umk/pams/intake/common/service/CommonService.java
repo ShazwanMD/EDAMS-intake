@@ -994,6 +994,50 @@ public interface CommonService {
 	void updateSpmSubjectCode(InSpmSubjectCode spmSubjectCode);
 
 	void removeSpmSubjectCode(InSpmSubjectCode spmSubjectCode);
+	
+	// ====================================================================================================
+	// STPM SUBJECT CODE
+	// ====================================================================================================
+
+	InStpmSubjectCode findStpmSubjectCodeById(Long id);
+
+	InStpmSubjectCode findStpmSubjectCodeByCode(String code);
+
+	List<InStpmSubjectCode> findStpmSubjectCodes();
+
+	List<InStpmSubjectCode> findStpmSubjectCodes(Integer offset, Integer limit);
+
+	List<InStpmSubjectCode> findStpmSubjectCodes(String filter, Integer offset, Integer limit);
+
+	Integer countStpmSubjectCode();
+
+	Integer countStpmSubjectCode(String filter);
+
+	void saveStpmSubjectCode(InStpmSubjectCode stpmSubjectCode);
+
+	void updateStpmSubjectCode(InStpmSubjectCode stpmSubjectCode);
+
+	void removeStpmSubjectCode(InStpmSubjectCode stpmSubjectCode);
+	
+	// ====================================================================================================
+	// STPM RESULT
+	// ====================================================================================================
+
+	InStpmResult findStpmResultById(Long id);
+
+	InStpmResult findStpmResultByCode(String code);
+
+	List<InStpmResult> findStpmResults();
+	
+	List<InStpmResult> findStpmResults(InIntakeApplication application);
+
+	List<InStpmResult> findStpmResults(String filter, Integer offset, Integer limit);
+
+	void saveStpmResult(InStpmResult stpmResult);
+
+	void updateStpmResult(InStpmResult stpmResult);
+
+	void removeStpmResult(InStpmResult stpmResult);
 
 
 }

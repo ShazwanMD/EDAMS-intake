@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { MdDialogRef, MdDialogConfig, MdDialog } from '@angular/material';
 import { IntakeApplication } from './../../../../shared/model/application/intake-application.interface';
@@ -26,6 +27,8 @@ import { ApplicationModuleState } from '../../index';
 import { IntakeApplicationActions } from '../intake-application.action';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { SpmResultCreatorDialog } from '../dialog/spm-result-creator.dialog';
+import { MainResultCode } from '../../../../shared/model/common/main-result-code.interface';
 @Component({
 selector: 'pams-spm-result-code-list',
 templateUrl: './spm-result.component.html',
@@ -46,11 +49,16 @@ currentPage: number = 1;
 pageSize: number = 5;
 sortBy: string = 'spmSubjectCode.description';
 sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
+
+private SPM_MAIN_RESULT_CODE: string[] = 'applicationModuleState.spmMainResultCode'.split('.');
+
+private spmMainResultCode$: Observable<MainResultCode>;
+
+
 @Input() spmResultCodes: SpmResultCode[];
 @Input() intakeApplication: IntakeApplication;
-// @Output() editDialog: EventEmitter<SpmResultCode> = new EventEmitter<SpmResultCode>();
-// @Output() delete: EventEmitter<SpmResultCode> = new EventEmitter<SpmResultCode>();
 
+private creatorDialogRef: MdDialogRef<SpmResultCreatorDialog>;
 private editorDialogRef: MdDialogRef<SpmResultEditorDialog>;
 
 constructor(private _dataTableService: TdDataTableService,
@@ -61,6 +69,7 @@ constructor(private _dataTableService: TdDataTableService,
             private actions: IntakeApplicationActions,
             private dialog: MdDialog,
             private snackBar: MdSnackBar) {
+              this.spmMainResultCode$ = this.store.select(...this.SPM_MAIN_RESULT_CODE);
 }
 
 create(): void {
@@ -68,10 +77,9 @@ create(): void {
 }
 
 edit(spmResultCode: SpmResultCode): void {
-  this.showDialog(spmResultCode);
+  this.showEditorDialog(spmResultCode);
 }
-
-showDialog(spmResultCode: SpmResultCode): void {
+showEditorDialog(spmResultCode: SpmResultCode): void {
   let config = new MdDialogConfig();
   config.viewContainerRef = this.vcf;
   config.role = 'dialog';
@@ -82,6 +90,36 @@ showDialog(spmResultCode: SpmResultCode): void {
   this.editorDialogRef.componentInstance.intakeApplication = this.intakeApplication;
   if (spmResultCode) this.editorDialogRef.componentInstance.spmResultCode = spmResultCode;
   this.editorDialogRef.afterClosed().subscribe((res) => {
+    console.log('close dialog');
+  });
+}
+
+// showMainDialog(mainResultCode: MainResultCode): void {
+//   let config = new MdDialogConfig();
+//   config.viewContainerRef = this.vcf;
+//   config.role = 'dialog';
+//   config.width = '50%';
+//   config.height = '60%';
+//   config.position = {top: '65px'};
+//   this.creatorMainDialogRef = this.dialog.open(SpmMainResultCreatorDialog, config);
+//   this.creatorMainDialogRef.componentInstance.intakeApplication = this.intakeApplication;
+//   if (mainResultCode) this.creatorMainDialogRef.componentInstance.mainResultCode = mainResultCode;
+//   this.creatorMainDialogRef.afterClosed().subscribe((res) => {
+//     console.log('close dialog');
+//   });
+// }
+
+showDialog(spmResultCode: SpmResultCode): void {
+  let config = new MdDialogConfig();
+  config.viewContainerRef = this.vcf;
+  config.role = 'dialog';
+  config.width = '50%';
+  config.height = '60%';
+  config.position = {top: '65px'};
+  this.creatorDialogRef = this.dialog.open(SpmResultCreatorDialog, config);
+  this.creatorDialogRef.componentInstance.intakeApplication = this.intakeApplication;
+  if (spmResultCode) this.creatorDialogRef.componentInstance.spmResultCode = spmResultCode;
+  this.creatorDialogRef.afterClosed().subscribe((res) => {
     console.log('close dialog');
   });
 }

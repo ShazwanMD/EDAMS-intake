@@ -157,6 +157,12 @@ public class CommonServiceImpl implements CommonService {
 	private InSpmResultDao spmResultDao;
 
 	@Autowired
+	private InStpmSubjectCodeDao stpmSubjectCodeDao;
+
+	@Autowired
+	private InStpmResultDao stpmResultDao;
+	
+	@Autowired
 	private SecurityService securityService;
 
 	@Autowired
@@ -2555,4 +2561,111 @@ public class CommonServiceImpl implements CommonService {
 		spmSubjectCodeDao.delete(spmSubjectCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
 	}
+	
+	// ====================================================================================================
+	// STPM RESULT
+	// ====================================================================================================
+
+	@Override
+	public InStpmResult findStpmResultById(Long id) {
+		return stpmResultDao.findById(id);
+	}
+
+	@Override
+	public InStpmResult findStpmResultByCode(String code) {
+		return stpmResultDao.findByCode(code);
+	}
+
+	@Override
+	public List<InStpmResult> findStpmResults() {
+		return stpmResultDao.find();
+	}
+	
+	@Override
+	public List<InStpmResult> findStpmResults(InIntakeApplication application) {
+		return stpmResultDao.findStpmResults(application);
+	}
+
+	@Override
+	public List<InStpmResult> findStpmResults(String filter, Integer offset, Integer limit) {
+		return stpmResultDao.find(filter, offset, limit);
+
+	}
+
+	@Override
+	public void saveStpmResult(InStpmResult stpmResult) {
+		stpmResultDao.save(stpmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void updateStpmResult(InStpmResult stpmResult) {
+		stpmResultDao.update(stpmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void removeStpmResult(InStpmResult stpmResult) {
+		stpmResultDao.delete(stpmResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	// ====================================================================================================
+	// STPM SUBJECT CODE
+	// ====================================================================================================
+
+	@Override
+	public InStpmSubjectCode findStpmSubjectCodeById(Long id) {
+		return stpmSubjectCodeDao.findById(id);
+	}
+
+	@Override
+	public InStpmSubjectCode findStpmSubjectCodeByCode(String code) {
+		return stpmSubjectCodeDao.findByCode(code);
+	}
+
+	@Override
+	public List<InStpmSubjectCode> findStpmSubjectCodes() {
+		return stpmSubjectCodeDao.find();
+	}
+
+	@Override
+	public List<InStpmSubjectCode> findStpmSubjectCodes(Integer offset, Integer limit) {
+		return stpmSubjectCodeDao.find(offset, limit);
+	}
+
+	@Override
+	public List<InStpmSubjectCode> findStpmSubjectCodes(String filter, Integer offset, Integer limit) {
+		return stpmSubjectCodeDao.find(filter, offset, limit);
+	}
+
+	@Override
+	public Integer countStpmSubjectCode() {
+		return stpmSubjectCodeDao.count();
+	}
+
+	@Override
+	public Integer countStpmSubjectCode(String filter) {
+		return stpmSubjectCodeDao.count(filter);
+	}
+
+	@Override
+	public void saveStpmSubjectCode(InStpmSubjectCode stpmSubjectCode) {
+		stpmSubjectCodeDao.save(stpmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	
+	}
+
+	@Override
+	public void updateStpmSubjectCode(InStpmSubjectCode stpmSubjectCode) {
+		stpmSubjectCodeDao.update(stpmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void removeStpmSubjectCode(InStpmSubjectCode stpmSubjectCode) {
+		stpmSubjectCodeDao.delete(stpmSubjectCode, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
 }

@@ -234,7 +234,7 @@
               <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
 
                   <md-input-container fxFlex="calc(100%-25px)">
-                      <input mdInput placeholder="Nama Waris" formControlName="name"/>
+                      <input mdInput placeholder="Nama Waris" formControlName="guardianName"/>
                       </md-input-container>
 
                   <md-input-container fxFlex="calc(100%-25px)">
@@ -374,16 +374,18 @@
         <md-tab>
           <template md-tab-label>Maklumat Akademik</template>
          
-          <td-expansion-panel label="Keputusan">
+          <td-expansion-panel label="Maklumat Keputusan Akademik">
               <md-card class="">
 
                   <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
                   </pams-spm-result-code-list>
+
+                  <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+                  </pams-stpm-result>
+
                 </md-card>
-            <!-- <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async">
-            </pams-spm-result-code-list> -->
           </td-expansion-panel>
-          <td-expansion-panel label="Keputusan SPM (sekiranya ada)">
+          <!-- <td-expansion-panel label="Keputusan SPM (sekiranya ada)">
             <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
             </pams-result-list>
           </td-expansion-panel>
@@ -394,7 +396,7 @@
           <td-expansion-panel label="Keputusan DIPLOMA (sekiranya ada)">
             <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
             </pams-result-list>
-          </td-expansion-panel>
+          </td-expansion-panel> -->
       </md-tab>
 
       <md-tab>

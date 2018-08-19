@@ -676,13 +676,13 @@ public class CommonTransformer {
 		if (null == e)
 			return null;
 		SpmResult vo = new SpmResult();
-		vo.setId(e.getId());	
-		vo.setAggregate(e.getAggregate());
+		vo.setId(e.getId());
 		vo.setGraduationYear(e.getGraduationYear());
+		vo.setAggregate(e.getAggregate());
 		vo.setGradeCode(this.toGradeCodeVo(e.getGradeCode()));
-		vo.setApplication(applicationTransformer.toIntakeApplicationVo(e.getApplication()));
 		vo.setSpmSubjectCode(toSpmSubjectCodeVo(e.getSpmSubjectCode()));
 		vo.setResultType(ResultType.get(e.getResultType().ordinal()));
+		vo.setApplication(applicationTransformer.toIntakeApplicationVo(e.getApplication()));
 		
 		return vo;
 	}
@@ -691,5 +691,47 @@ public class CommonTransformer {
 		List<SpmResult> vos = e.stream().map((e1) -> toSpmResultVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
+		
+	// ====================================================================================================
+	// STPM SUBJECT CODE
+	// ====================================================================================================
+
+	public StpmSubjectCode toStpmSubjectCodeVo(InStpmSubjectCode e) {
+		StpmSubjectCode vo = new StpmSubjectCode();
+		vo.setId(e.getId());
+		vo.setCode(e.getCode());
+		vo.setDescription(e.getDescription());
+		return vo;
+	}
+
+	public List<StpmSubjectCode> toStpmSubjectCodeVos(List<InStpmSubjectCode> e) {
+		List<StpmSubjectCode> vos = e.stream().map((e1) -> toStpmSubjectCodeVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+	
+	// ====================================================================================================
+	// STPM RESULT
+	// ====================================================================================================
+
+	public StpmResult toStpmResultVo(InStpmResult e) {
+		if (null == e)
+			return null;
+		StpmResult vo = new StpmResult();
+		vo.setId(e.getId());	
+		vo.setAggregate(e.getAggregate());
+		vo.setGraduationYear(e.getGraduationYear());
+		vo.setGradeCode(this.toGradeCodeVo(e.getGradeCode()));
+		vo.setApplication(applicationTransformer.toIntakeApplicationVo(e.getApplication()));
+		vo.setStpmSubjectCode(toStpmSubjectCodeVo(e.getStpmSubjectCode()));
+		vo.setResultType(ResultType.get(e.getResultType().ordinal()));
+		
+		return vo;
+	}
+
+	public List<StpmResult> toStpmResultVos(List<InStpmResult> e) {
+		List<StpmResult> vos = e.stream().map((e1) -> toStpmResultVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+
 
 }

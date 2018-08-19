@@ -1,3 +1,5 @@
+import { MainResultCode } from './../app/shared/model/common/main-result-code.interface';
+import { StpmResultCode } from './../app/shared/model/common/stpm-result-code.interface';
 import { Result } from '../app/shared/model/application/result.interface';
 import { Attachment } from '../app/shared/model/application/attachment.interface';
 import { Referee } from '../app/shared/model/application/referee.interface';
@@ -420,7 +422,7 @@ export class ApplicationService {
 
   findSpmResultCodes(application: IntakeApplication): Observable<SpmResultCode[]> {
     console.log('findSpmResultCodes');
-    return this._http.get(this.APPLICATION_API + '/intakeApplications/'+ application.referenceNo+'/spmResults')
+    return this._http.get(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo + '/spmResults')
       .map((res: Response) => <SpmResultCode[]>res.json());
   }
 
@@ -443,5 +445,36 @@ export class ApplicationService {
       + application.referenceNo + '/spmResults/' + spmResultCode.id)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
+
+  // ====================================================================================================
+  //  STPM RESULT CODES
+  // ====================================================================================================
+
+  findStpmResultCodes(application: IntakeApplication): Observable<StpmResultCode[]> {
+    console.log('findStpmResultCodes');
+    return this._http.get(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo + '/stpmResults')
+      .map((res: Response) => <StpmResultCode[]>res.json());
+  }
+
+  addStpmResultCodes(application: IntakeApplication, stpmResultCode: StpmResultCode): Observable<String> {
+    console.log('save stpm result codes');
+    return this._http.post(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/stpmResults', JSON.stringify(stpmResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateStpmResultCodes(application: IntakeApplication, stpmResultCode: StpmResultCode): Observable<String> {
+    console.log('save stpm result codes');
+    return this._http.put(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/stpmResults/' + stpmResultCode.id, JSON.stringify(stpmResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  deleteStpmResultCodes(application: IntakeApplication, stpmResultCode: StpmResultCode): Observable<String> {
+    return this._http.delete(this.APPLICATION_API + '/intakeApplications/'
+      + application.referenceNo + '/stpmResults/' + stpmResultCode.id)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
 
 }

@@ -1,3 +1,8 @@
+import { StpmSubjectCodesComponent } from './stpm-subject-codes/component/stpm-subject-code-list.component';
+import { StpmSubjectCodeEditorDialog } from './stpm-subject-codes/dialog/stpm-subject-code-editor.dialog';
+import { StpmSubjectCodeListPage } from './stpm-subject-codes/stpm-subject-code-list.page';
+import { StpmSubjectCode } from './../../shared/model/common/stpm-subject-code.interface';
+import { StpmSubjectCodeListState } from './../../common/stpm-subject-codes/stpm-subject-code-list.reducer';
 import { SpmSubjectCodesComponent } from './spm-subject-codes/component/spm-subject-code';
 import { SpmSubjectCodeEditorDialog } from './spm-subject-codes/dialog/spm-subject-code-editor.dialog';
 import { SpmSubjectCodeListPage } from './spm-subject-codes/spm-subject-code-list-page';
@@ -185,6 +190,7 @@ import { SpmResultCodeListPage } from './spm-result-codes/spm-result-code-list.p
 import { ActorTypeSelectComponent } from './umkcee-staffs/component/actor-type-select.component';
 import { SpmSubjectCode } from '../../shared/model/common/spm-subject-code.interface';
 import { SpmSubjectCodeSelectComponent } from '../../common/spm-subject-codes/component/spm-subject-code-select.component';
+import { stpmSubjectCodeListReducer } from './stpm-subject-codes/stpm-subject-code-list.reducer';
 
 
 export interface SetupModuleState {
@@ -223,6 +229,7 @@ export interface SetupModuleState {
   spmResultCodes: SpmResultCodeListState;
   staffs: UmkceeStaffListState;
   spmSubjectCodes: SpmSubjectCodeListState;
+  stpmSubjectCodes: StpmSubjectCodeListState;
 
 };
 
@@ -263,6 +270,7 @@ export const INITIAL_SETUP_STATE: SetupModuleState =
     spmResultCodes: <SpmResultCode[]>[],
     staffs: <Staff[]>[],
     spmSubjectCodes: <SpmSubjectCode[]>[],
+    stpmSubjectCodes: <StpmSubjectCode[]>[],
 
   };
 
@@ -302,6 +310,7 @@ export const setupModuleReducers = {
   spmResultCodes: spmResultCodeListReducer,
   staffs: umkceeStaffListReducer,
   spmSubjectCodes: spmSubjectCodeListReducer,
+  stpmSubjectCodes: stpmSubjectCodeListReducer,
 
 };
 
@@ -353,6 +362,7 @@ export const setupModuleReducers = {
     SpmResultCodeListPage,
     UMKCEEStaffListPage,
     SpmSubjectCodeListPage,
+    StpmSubjectCodeListPage,
 
     // dialog
     MaritalCodeEditorDialog,
@@ -389,6 +399,7 @@ export const setupModuleReducers = {
     SpmResultCodeEditorDialog,
     UMKCEEStaffEditorDialog,
     SpmSubjectCodeEditorDialog,
+    StpmSubjectCodeEditorDialog,
 
     //component
     CountryCodesComponent,
@@ -425,6 +436,7 @@ export const setupModuleReducers = {
     StaffTypeSelectComponent,
     ActorTypeSelectComponent,
     SpmSubjectCodesComponent,
+    StpmSubjectCodesComponent,
     
 
   ],
@@ -468,6 +480,7 @@ export const setupModuleReducers = {
     SpmResultCodeEditorDialog,
     UMKCEEStaffEditorDialog,
     SpmSubjectCodeEditorDialog,
+    StpmSubjectCodeEditorDialog,
 
   ],
 })

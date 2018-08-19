@@ -55,7 +55,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Autowired
 	private InIntakeApplicationDao intakeApplicationDao;
-
+	
 	@Autowired
 	private PolicyService policyService;
 
@@ -797,6 +797,5 @@ public class ApplicationServiceImpl implements ApplicationService {
 		this.updateIntakeApplication(application);
 
 	}
-
 
 }

@@ -81,7 +81,6 @@ public class WhenIWantToResetForgetPassword extends Stage<WhenIWantToResetForget
     	LOG.debug("spmSubjectCode1:{}",spmSubjectCode.getDescription());
     	
     	InSpmResult spmResult1 = new InSpmResultImpl();
-    	spmResult1.setGraduationYear("2008");
     	spmResult1.setSpmSubjectCode(spmSubjectCode);
     	spmResult1.setGradeCode(gradeCode);
     	
@@ -98,7 +97,6 @@ public class WhenIWantToResetForgetPassword extends Stage<WhenIWantToResetForget
     	LOG.debug("spmSubjectCode2:{}",spmSubjectCode2.getDescription());
     	
     	InSpmResult spmResult2 = new InSpmResultImpl();
-    	spmResult2.setGraduationYear("2008");
     	spmResult2.setSpmSubjectCode(spmSubjectCode2);
     	spmResult2.setGradeCode(gradeCode);
     	
@@ -114,7 +112,6 @@ public class WhenIWantToResetForgetPassword extends Stage<WhenIWantToResetForget
     	LOG.debug("spmSubjectCode3:{}",spmSubjectCode3.getDescription());
     	
     	InSpmResult spmResult3 = new InSpmResultImpl();
-    	spmResult3.setGraduationYear("2008");
     	spmResult3.setSpmSubjectCode(spmSubjectCode3);
     	spmResult3.setGradeCode(gradeCode);
     	

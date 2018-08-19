@@ -1,38 +1,39 @@
+import { StpmSubjectCode } from './../app/shared/model/common/stpm-subject-code.interface';
 import { SpmResultCode } from './../app/shared/model/common/spm-result-code.interface';
 import { Staff } from './../app/secure/identity/staff.interface';
 import { EmploymentSectorCode } from './../app/shared/model/common/employment-sector-code.interface';
 import { EmploymentTypeCode } from './../app/shared/model/common/employment-type-code.interface';
 import { VenueCode } from './../app/shared/model/common/venue-code.interface';
-import {ParliamentCode} from '../app/shared/model/common/parliament-code.interface';
-import {StudyCenterCode} from '../app/shared/model/common/study-center-code.interface';
-import {StudyMode} from '../app/shared/model/common/study-mode.interface';
-import {NationalityCode} from '../app/shared/model/common/nationality-code.interface';
-import {EthnicityCode} from '../app/shared/model/common/ethnicity-code.interface';
-import {RaceCode} from '../app/shared/model/common/race-code.interface';
-import {StateCode} from '../app/shared/model/common/state-code.interface';
-import {SupervisorCode} from '../app/shared/model/common/supervisor-code.interface';
-import {CountryCode} from '../app/shared/model/common/country-code.interface';
-import {ReligionCode} from '../app/shared/model/common/religion-code.interface';
-import {GenderCode} from '../app/shared/model/common/gender-code.interface';
-import {Injectable} from '@angular/core';
-import {Response} from '@angular/http';
-import {HttpInterceptorService} from '@covalent/http';
-import {Observable} from 'rxjs';
-import {FacultyCode} from '../app/shared/model/common/faculty-code.interface';
-import {environment} from '../environments/environment';
-import {ProgramCode} from '../app/shared/model/common/program-code.interface';
-import {GraduateCenter} from '../app/shared/model/common/graduate-center.interface';
-import {MaritalCode} from '../app/shared/model/common/marital-code.interface';
-import {DunCode} from '../app/shared/model/common/dun-code.interface';
-import {BankCode} from '../app/shared/model/common/bank-code.interface';
-import {DisabilityCode} from '../app/shared/model/common/disability-code.interface';
-import {SchoolCode} from '../app/shared/model/common/school-code.interface';
-import {DistrictCode} from '../app/shared/model/common/district-code.interface';
-import {ResidencyCode} from '../app/shared/model/common/residency-code.interface';
-import {LanguageCode} from '../app/shared/model/common/language-code.interface';
-import {SubjectCode} from '../app/shared/model/common/subject-code.interface';
-import {GradeCode} from '../app/shared/model/common/grade-code.interface';
-import {ProgramLevel} from '../app/shared/model/policy/program-level.interface';
+import { ParliamentCode } from '../app/shared/model/common/parliament-code.interface';
+import { StudyCenterCode } from '../app/shared/model/common/study-center-code.interface';
+import { StudyMode } from '../app/shared/model/common/study-mode.interface';
+import { NationalityCode } from '../app/shared/model/common/nationality-code.interface';
+import { EthnicityCode } from '../app/shared/model/common/ethnicity-code.interface';
+import { RaceCode } from '../app/shared/model/common/race-code.interface';
+import { StateCode } from '../app/shared/model/common/state-code.interface';
+import { SupervisorCode } from '../app/shared/model/common/supervisor-code.interface';
+import { CountryCode } from '../app/shared/model/common/country-code.interface';
+import { ReligionCode } from '../app/shared/model/common/religion-code.interface';
+import { GenderCode } from '../app/shared/model/common/gender-code.interface';
+import { Injectable } from '@angular/core';
+import { Response } from '@angular/http';
+import { HttpInterceptorService } from '@covalent/http';
+import { Observable } from 'rxjs';
+import { FacultyCode } from '../app/shared/model/common/faculty-code.interface';
+import { environment } from '../environments/environment';
+import { ProgramCode } from '../app/shared/model/common/program-code.interface';
+import { GraduateCenter } from '../app/shared/model/common/graduate-center.interface';
+import { MaritalCode } from '../app/shared/model/common/marital-code.interface';
+import { DunCode } from '../app/shared/model/common/dun-code.interface';
+import { BankCode } from '../app/shared/model/common/bank-code.interface';
+import { DisabilityCode } from '../app/shared/model/common/disability-code.interface';
+import { SchoolCode } from '../app/shared/model/common/school-code.interface';
+import { DistrictCode } from '../app/shared/model/common/district-code.interface';
+import { ResidencyCode } from '../app/shared/model/common/residency-code.interface';
+import { LanguageCode } from '../app/shared/model/common/language-code.interface';
+import { SubjectCode } from '../app/shared/model/common/subject-code.interface';
+import { GradeCode } from '../app/shared/model/common/grade-code.interface';
+import { ProgramLevel } from '../app/shared/model/policy/program-level.interface';
 import { SupervisorOffering } from '../app/shared/model/common/supervisor-offering.interface';
 import { ProgramFieldCode } from "../app/shared/model/common/program-field-code.interface";
 import { FieldCode } from "../app/shared/model/common/field-code.interface";
@@ -62,7 +63,7 @@ export class CommonService {
   }
 
   updateUMKCEEStaff(staff: Staff): Observable<String> {
-    return this._http.put(this.COMMON_API + '/updateUMKCEEStaff/'+staff.identityNo, JSON.stringify(staff))
+    return this._http.put(this.COMMON_API + '/updateUMKCEEStaff/' + staff.identityNo, JSON.stringify(staff))
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
@@ -377,7 +378,7 @@ export class CommonService {
     return this._http.delete(this.COMMON_API + '/facultyCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
-  
+
   //====================================================================================================
   // FIELD CODES
   // ====================================================================================================
@@ -432,12 +433,12 @@ export class CommonService {
   }
 
   saveProgramFieldCode(programFieldCode: ProgramFieldCode): Observable<String> {
-    console.log("programFieldCode : "+programFieldCode.facultyCode.code);
-    return this._http.post(this.COMMON_API + '/saveProgramFieldCode',  JSON.stringify(programFieldCode))
+    console.log("programFieldCode : " + programFieldCode.facultyCode.code);
+    return this._http.post(this.COMMON_API + '/saveProgramFieldCode', JSON.stringify(programFieldCode))
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-  
+
   updateProgramFieldCode(programFieldCode: ProgramFieldCode): Observable<String> {
     console.log("hok ni ko : " + programFieldCode.code);
     return this._http.put(this.COMMON_API + '/updateProgramFieldCode/' + programFieldCode.code, JSON.stringify(programFieldCode))
@@ -448,7 +449,7 @@ export class CommonService {
     return this._http.delete(this.COMMON_API + '/programFieldCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
-  
+
   // ====================================================================================================
   // PROGRAM CODES
   // ====================================================================================================
@@ -543,9 +544,9 @@ export class CommonService {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-// ====================================================================================================
-// COUNTRY CODES
-// ====================================================================================================
+  // ====================================================================================================
+  // COUNTRY CODES
+  // ====================================================================================================
 
   findCountryCodes(): Observable<CountryCode[]> {
     return this._http.get(this.COMMON_API + '/countryCodes')
@@ -573,9 +574,9 @@ export class CommonService {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-// ====================================================================================================
-// SUPERVISOR CODES
-// ====================================================================================================
+  // ====================================================================================================
+  // SUPERVISOR CODES
+  // ====================================================================================================
 
   findSupervisorCodes(): Observable<SupervisorCode[]> {
     console.log('findSupervisorCodes()');
@@ -610,54 +611,54 @@ export class CommonService {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-// ====================================================================================================
-// SUPERVISOR OFFERINGS
-// ====================================================================================================
+  // ====================================================================================================
+  // SUPERVISOR OFFERINGS
+  // ====================================================================================================
 
-findSupervisorOfferings(): Observable<SupervisorOffering[]> {
-  console.log('findSupervisorOfferings()');
-  return this._http.get(this.COMMON_API + '/supervisorOfferings')
-    .map((res: Response) => <SupervisorOffering[]>res.json());
-}
+  findSupervisorOfferings(): Observable<SupervisorOffering[]> {
+    console.log('findSupervisorOfferings()');
+    return this._http.get(this.COMMON_API + '/supervisorOfferings')
+      .map((res: Response) => <SupervisorOffering[]>res.json());
+  }
 
-findSupervisorOfferingsByFilter(filter: string): Observable<SupervisorOffering[]> {
-  console.log('findSupervisorOfferingsByFilter');
-  return this._http.get(this.COMMON_API + '/supervisorOfferings/byFilter/' + filter)
-    .map((res: Response) => <SupervisorOffering[]>res.json());
-}
+  findSupervisorOfferingsByFilter(filter: string): Observable<SupervisorOffering[]> {
+    console.log('findSupervisorOfferingsByFilter');
+    return this._http.get(this.COMMON_API + '/supervisorOfferings/byFilter/' + filter)
+      .map((res: Response) => <SupervisorOffering[]>res.json());
+  }
 
-findSupervisorOfferingByOffering(offering: string): Observable<SupervisorOffering> {
-  console.log('findSupervisorOfferingByOffering');
-  return this._http.get(this.COMMON_API + '/supervisorOfferings/' + offering)
-    .map((res: Response) => <SupervisorOffering>res.json());
-}
+  findSupervisorOfferingByOffering(offering: string): Observable<SupervisorOffering> {
+    console.log('findSupervisorOfferingByOffering');
+    return this._http.get(this.COMMON_API + '/supervisorOfferings/' + offering)
+      .map((res: Response) => <SupervisorOffering>res.json());
+  }
 
-findSupervisorOfferingsByProgramLevel(levelCode: ProgramLevel): Observable<SupervisorOffering> {
-  console.log('findSupervisorOfferingsByProgramLevel :' + levelCode.code);
-  return this._http.get(this.COMMON_API + '/supervisorOfferings/programLevel/' + levelCode.code)
-    .map((res: Response) => <SupervisorOffering>res.json());
-}
+  findSupervisorOfferingsByProgramLevel(levelCode: ProgramLevel): Observable<SupervisorOffering> {
+    console.log('findSupervisorOfferingsByProgramLevel :' + levelCode.code);
+    return this._http.get(this.COMMON_API + '/supervisorOfferings/programLevel/' + levelCode.code)
+      .map((res: Response) => <SupervisorOffering>res.json());
+  }
 
-saveSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
-  console.log('offering'+offering.supervisorCode.name);
-  return this._http.post(this.COMMON_API + '/supervisorOfferings', JSON.stringify(offering))
-    .flatMap((res: Response) => Observable.of(res.text()));
-}
+  saveSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
+    console.log('offering' + offering.supervisorCode.name);
+    return this._http.post(this.COMMON_API + '/supervisorOfferings', JSON.stringify(offering))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
 
-removeSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
-  console.log("SV_Code_Service:{}",offering.id);
-  return this._http.delete(this.COMMON_API + '/supervisorOfferings/' + offering.id)
-    .flatMap((res: Response) => Observable.of(res.text()));
-}
+  removeSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
+    console.log("SV_Code_Service:{}", offering.id);
+    return this._http.delete(this.COMMON_API + '/supervisorOfferings/' + offering.id)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
 
-updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
-  return this._http.put(this.COMMON_API + '/supervisorOfferings/' + offering.id, JSON.stringify(offering))
-    .flatMap((res: Response) => Observable.of(res.text()));
-}
+  updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
+    return this._http.put(this.COMMON_API + '/supervisorOfferings/' + offering.id, JSON.stringify(offering))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
 
-// ====================================================================================================
-// STATE CODES
-// ====================================================================================================
+  // ====================================================================================================
+  // STATE CODES
+  // ====================================================================================================
 
   findStateCodes(): Observable<StateCode[]> {
     console.log('findStateCodes()');
@@ -686,9 +687,9 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-// ====================================================================================================
-// RACE CODES
-// ====================================================================================================
+  // ====================================================================================================
+  // RACE CODES
+  // ====================================================================================================
 
   findRaceCodes(): Observable<RaceCode[]> {
     console.log('findRaceCodes');
@@ -717,9 +718,9 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
       .flatMap((res: Response) => Observable.of(res.text()));
   }
 
-// ====================================================================================================
-// ETHNICITY CODES
-// ====================================================================================================
+  // ====================================================================================================
+  // ETHNICITY CODES
+  // ====================================================================================================
 
   findEthnicityCodes(): Observable<EthnicityCode[]> {
     console.log('findEthnicityCodes');
@@ -995,7 +996,7 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
     return this._http.delete(this.COMMON_API + '/employmentTypeCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
-  
+
   // ====================================================================================================
   // EMPLOYMENT SECTOR CODES
   // ====================================================================================================
@@ -1119,4 +1120,36 @@ updateSupervisorOfferings(offering: SupervisorOffering): Observable<String> {
     return this._http.delete(this.COMMON_API + '/spmSubjectCodes/' + code.code)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
+  // ====================================================================================================
+  //  STPM SUBJECT CODES
+  // ====================================================================================================
+
+  findStpmSubjectCodes(): Observable<StpmSubjectCode[]> {
+    console.log('findStpmSubjectCodes');
+    return this._http.get(this.COMMON_API + '/stpmSubjectCodes')
+      .map((res: Response) => <StpmSubjectCode[]>res.json());
+  }
+
+  findStpmSubjectCodeByCode(code: string): Observable<StpmSubjectCode> {
+    console.log('findStpmSubjectCodeByCode');
+    return this._http.get(this.COMMON_API + '/stpmSubjectCodes/' + code)
+      .map((res: Response) => <StpmSubjectCode>res.json());
+  }
+
+  saveStpmSubjectCode(code: StpmSubjectCode): Observable<String> {
+    return this._http.post(this.COMMON_API + '/saveStpmSubjectCodes', JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateStpmSubjectCode(code: StpmSubjectCode): Observable<String> {
+    return this._http.put(this.COMMON_API + '/stpmSubjectCodes/' + code.code, JSON.stringify(code))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  removeStpmSubjectCode(code: StpmSubjectCode): Observable<String> {
+    return this._http.delete(this.COMMON_API + '/stpmSubjectCodes/' + code.code)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+
 }

@@ -136,6 +136,7 @@ export class IntakeApplicationEffects {
       this.intakeApplicationActions.findLanguagesByIntakeApplication(action.payload),
       this.intakeApplicationActions.findAttachmentsByIntakeApplication(action.payload),
       this.intakeApplicationActions.findSpmResultCodes(action.payload),
+      this.intakeApplicationActions.findStpmResultCodes(action.payload),
     ]));
 
   @Effect() updateIntakeApplication$ = this.actions$
@@ -462,6 +463,9 @@ export class IntakeApplicationEffects {
     .map((action) => action.payload)
     .map((index) => this.intakeApplicationActions.selectTabIndexSuccess(index));
 
+  //================================================================================================================================
+  // SPM RESULT
+  //================================================================================================================================
 
   @Effect() findSpmResultCodes$ = this.actions$
     .ofType(IntakeApplicationActions.FIND_SPM_RESULT_CODES)
@@ -487,7 +491,7 @@ export class IntakeApplicationEffects {
     .map((state) => state[1])
     .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
 
-    @Effect() deleteSpmResultCode$ = this.actions$
+  @Effect() deleteSpmResultCode$ = this.actions$
     .ofType(IntakeApplicationActions.DELETE_SPM_RESULT_CODE)
     .map((action) => action.payload)
     .flatMap((payload) => this.applicationService.deleteSpmResultCodes(payload.application, payload.spmResultCode))
@@ -495,6 +499,47 @@ export class IntakeApplicationEffects {
     .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
     .map((state) => state[1])
     .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+
+  //================================================================================================================================
+  // STPM RESULT
+  //================================================================================================================================
+
+  @Effect() findStpmResultCodes$ = this.actions$
+    .ofType(IntakeApplicationActions.FIND_STPM_RESULT_CODES)
+    .map(action => action.payload)
+    .switchMap((application) => this.applicationService.findStpmResultCodes(application))
+    .map(codes => this.intakeApplicationActions.findStpmResultCodesSuccess(codes));
+
+  @Effect() addStpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.ADD_STPM_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.addStpmResultCodes(payload.application, payload.stpmResultCode))
+    .map((message) => this.intakeApplicationActions.addStpmResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+  @Effect() updateStpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.UPDATE_STPM_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.updateStpmResultCodes(payload.application, payload.stpmResultCode))
+    .map((message) => this.intakeApplicationActions.updateStpmResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+  @Effect() deleteStpmResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.DELETE_STPM_RESULT_CODE)
+    .map((action) => action.payload)
+    .flatMap((payload) => this.applicationService.deleteStpmResultCodes(payload.application, payload.stpmResultCode))
+    .map((message) => this.intakeApplicationActions.deleteStpmResultCodeSucces(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+
+
 
 }
 

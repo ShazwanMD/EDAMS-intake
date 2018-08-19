@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Action} from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { Action } from '@ngrx/store';
 
 @Injectable()
 export class SetupActions {
@@ -82,10 +82,10 @@ export class SetupActions {
       payload: message,
     };
   }
-//=================================================================================//
-//  GRADUATE_CODES                                                                 //
-//=================================================================================//
- //1-------------------------------------------------------------
+  //=================================================================================//
+  //  GRADUATE_CODES                                                                 //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_GRADUATE_CENTERS = '[Setup] Find Graduate Centers';
 
   findGraduateCenters(): Action {
@@ -94,7 +94,7 @@ export class SetupActions {
       type: SetupActions.FIND_GRADUATE_CENTERS,
     };
   }
-//2---------------------------------------------------------------------
+  //2---------------------------------------------------------------------
   static FIND_GRADUATE_CENTERS_SUCCESS = '[Setup] Find Graduate Centers Success';
 
   findGraduateCentersSuccess(codes): Action {
@@ -104,7 +104,7 @@ export class SetupActions {
       payload: codes,
     };
   }
-//3-------------------------------------------------------------------------
+  //3-------------------------------------------------------------------------
   static SAVE_GRADUATE_CENTER = '[Setup] Save Graduate Center';
 
   saveGraduateCenter(code): Action {
@@ -114,7 +114,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//4--------------------------------------------------------------------------
+  //4--------------------------------------------------------------------------
   static SAVE_GRADUATE_CENTER_SUCCESS = '[Setup] Save Graduate Center  Success';
 
   saveGraduateCenterSuccess(message): Action {
@@ -124,7 +124,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//5---------------------------------------------------------------------------
+  //5---------------------------------------------------------------------------
   static UPDATE_GRADUATE_CENTER = '[Setup] Update Graduate Center';
 
   updateGraduateCenter(code): Action {
@@ -134,7 +134,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//6-----------------------------------------------------------------------
+  //6-----------------------------------------------------------------------
   static UPDATE_GRADUATE_CENTER_SUCCESS = '[Setup] Update Graduate Center  Success';
 
   updateGraduateCenterSuccess(message): Action {
@@ -144,7 +144,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_GRADUATE_CENTER = '[Setup] Remove Graduate Center';
 
   removeGraduateCenter(code): Action {
@@ -154,7 +154,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_GRADUATE_CENTER_SUCCESS = '[Setup] Remove Graduate Center  Success';
 
   removeGraduateCenterSuccess(message): Action {
@@ -166,10 +166,10 @@ export class SetupActions {
   }
 
 
-//=================================================================================//
-//  RELIGION_CODES                                                                 //
-//=================================================================================//
- //1-------------------------------------------------------------
+  //=================================================================================//
+  //  RELIGION_CODES                                                                 //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_RELIGION_CODES = '[Setup] Find Religion Codes';
 
   findReligionCodes(): Action {
@@ -178,7 +178,7 @@ export class SetupActions {
       type: SetupActions.FIND_RELIGION_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_RELIGION_CODES_SUCCESS = '[Setup] Find Religion Codes Success';
 
   findReligionCodesSuccess(codes): Action {
@@ -188,7 +188,7 @@ export class SetupActions {
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_RELIGION_CODE = '[Setup] Save Religion Code';
 
   saveReligionCode(code): Action {
@@ -198,7 +198,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_RELIGION_CODE_SUCCESS = '[Setup] Save Religion Code Success';
 
   saveReligionCodeSuccess(message): Action {
@@ -208,7 +208,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_RELIGION_CODE = '[Setup] Update Religion Code';
 
   updateReligionCode(code): Action {
@@ -218,7 +218,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_RELIGION_CODE_SUCCESS = '[Setup] Update Religion Code  Success';
 
   updateReligionCodeSuccess(message): Action {
@@ -228,7 +228,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_RELIGION_CODE = '[Setup] Remove Religion Code';
 
   removeReligionCode(code): Action {
@@ -238,7 +238,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_RELIGION_CODE_SUCCESS = '[Setup] Remove Religion Code  Success';
 
   removeReligionCodeSuccess(message): Action {
@@ -427,7 +427,7 @@ export class SetupActions {
       type: SetupActions.FIND_COUNTRY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_COUNTRY_CODES_SUCCESS = '[Setup] Find Country Codes Success';
 
   findCountryCodesSuccess(codes): Action {
@@ -437,7 +437,7 @@ export class SetupActions {
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_COUNTRY_CODE = '[Setup] Save Country Code';
 
   saveCountryCode(code): Action {
@@ -447,7 +447,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_COUNTRY_CODE_SUCCESS = '[Setup] Save Country Code Success';
 
   saveCountryCodeSuccess(message): Action {
@@ -457,7 +457,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_COUNTRY_CODE = '[Setup] Update Country Code';
 
   updateCountryCode(code): Action {
@@ -467,7 +467,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_COUNTRY_CODE_SUCCESS = '[Setup] Update Country Code  Success';
 
   updateCountryCodeSuccess(message): Action {
@@ -477,7 +477,7 @@ export class SetupActions {
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_COUNTRY_CODE = '[Setup] Remove Country Code';
 
   removeCountryCode(code): Action {
@@ -487,7 +487,7 @@ export class SetupActions {
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_COUNTRY_CODE_SUCCESS = '[Setup] Remove Country Code  Success';
 
   removeCountryCodeSuccess(message): Action {
@@ -498,7 +498,7 @@ export class SetupActions {
     };
   }
 
-//-------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------
 
   static FIND_STATE_CODES_SUCCESS = '[Common] Find StateCodes Success';
 
@@ -519,7 +519,7 @@ export class SetupActions {
     };
   }
 
-   static SAVE_STATE_CODE = '[Setup] Save State Code';
+  static SAVE_STATE_CODE = '[Setup] Save State Code';
 
   saveStateCode(code): Action {
     console.log('saveStateCode');
@@ -657,7 +657,7 @@ export class SetupActions {
       payload: message,
     };
   }
-  
+
   static FIND_PROGRAM_FIELD_CODES = '[Common] Find Program Field Codes';
 
   findProgramFieldCodes(): Action {
@@ -684,7 +684,7 @@ export class SetupActions {
     return {
       type: SetupActions.SAVE_PROGRAM_FIELD_CODE,
 
-      payload:code,
+      payload: code,
     };
   }
 
@@ -836,11 +836,11 @@ export class SetupActions {
       payload: message,
     };
   }
-//=================================================================================//
-//  SUPERVISOR OFFERINGS                                                                    //
-//=================================================================================//
+  //=================================================================================//
+  //  SUPERVISOR OFFERINGS                                                                    //
+  //=================================================================================//
 
-static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
+  static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
 
   saveSupervisorOfferings(offering): Action {
     console.log('saveSupervisorOfferings');
@@ -938,10 +938,10 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-  
-//=================================================================================//
-//  RACE_CODES                                                                     //
-//=================================================================================//
+
+  //=================================================================================//
+  //  RACE_CODES                                                                     //
+  //=================================================================================//
   //1----------------------------------------------------
   static FIND_RACE_CODES = '[Common] Find RaceCodes';
 
@@ -991,7 +991,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_RACE_CODE_SUCCESS = '[Setup] Update Race Code  Success';
 
   updateRaceCodeSuccess(message): Action {
@@ -1001,7 +1001,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_RACE_CODE = '[Setup] Remove Race Code';
 
   removeRaceCode(code): Action {
@@ -1011,7 +1011,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_RACE_CODE_SUCCESS = '[Setup] Remove Race Code  Success';
 
   removeRaceCodeSuccess(message): Action {
@@ -1034,7 +1034,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_GENDER_CODES,
     };
   }
-//2-------------------------------------------------------
+  //2-------------------------------------------------------
   static FIND_GENDER_CODES_SUCCESS = '[Common] Find Gender Codes Success';
 
   findGenderCodesSuccess(codes): Action {
@@ -1044,7 +1044,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3-----------------------------------------------------
+  //3-----------------------------------------------------
   static SAVE_GENDER_CODE = '[Setup] Save Gender Code';
 
   saveGenderCode(code): Action {
@@ -1054,7 +1054,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4--------------------------------------------------------------
+  //4--------------------------------------------------------------
   static SAVE_GENDER_CODE_SUCCESS = '[Setup] Save Gender Code Success';
 
   saveGenderCodeSuccess(message): Action {
@@ -1064,7 +1064,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_GENDER_CODE = '[Setup] Update Gender Code';
 
   updateGenderCode(code): Action {
@@ -1074,7 +1074,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_GENDER_CODE_SUCCESS = '[Setup] Update Gender Code  Success';
 
   updateGenderCodeSuccess(message): Action {
@@ -1084,7 +1084,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_GENDER_CODE = '[Setup] Remove Gender Code';
 
   removeGenderCode(code): Action {
@@ -1094,7 +1094,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_GENDER_CODE_SUCCESS = '[Setup] Remove Gender Code  Success';
 
   removeGenderCodeSuccess(message): Action {
@@ -1104,9 +1104,9 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//==========================================================================================
-//      ETHNICITY CODE
-//==========================================================================================
+  //==========================================================================================
+  //      ETHNICITY CODE
+  //==========================================================================================
   //1-------------------------------------------------------------
   static FIND_ETHNICITY_CODES = '[Setup] Find Ethnicity Codes';
 
@@ -1116,7 +1116,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_ETHNICITY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_ETHNICITY_CODES_SUCCESS = '[Setup] Find Ethnicity Codes Success';
 
   findEthnicityCodesSuccess(codes): Action {
@@ -1126,7 +1126,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_ETHNICITY_CODE = '[Setup] Save Ethnicity Code';
 
   saveEthnicityCode(code): Action {
@@ -1136,7 +1136,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_ETHNICITY_CODE_SUCCESS = '[Setup] Save Ethnicity Code Success';
 
   saveEthnicityCodeSuccess(message): Action {
@@ -1146,7 +1146,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_ETHNICITY_CODE = '[Setup] Update Ethnicity Code';
 
   updateEthnicityCode(code): Action {
@@ -1156,7 +1156,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_ETHNICITY_CODE_SUCCESS = '[Setup] Update Ethnicity Code  Success';
 
   updateEthnicityCodeSuccess(message): Action {
@@ -1166,7 +1166,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_ETHNICITY_CODE = '[Setup] Remove Ethnicity Code';
 
   removeEthnicityCode(code): Action {
@@ -1176,7 +1176,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_ETHNICITY_CODE_SUCCESS = '[Setup] Remove Ethnicity Code  Success';
 
   removeEthnicityCodeSuccess(message): Action {
@@ -1187,9 +1187,9 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
     };
   }
 
-//==========================================================================================
-//      NATIONALITY CODE
-//==========================================================================================
+  //==========================================================================================
+  //      NATIONALITY CODE
+  //==========================================================================================
   //1-------------------------------------------------------------
   static FIND_NATIONALITY_CODES = '[Setup] Find Nationality Codes';
 
@@ -1199,7 +1199,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_NATIONALITY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_NATIONALITY_CODES_SUCCESS = '[Setup] Find Nationality Codes Success';
 
   findNationalityCodesSuccess(codes): Action {
@@ -1209,7 +1209,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_NATIONALITY_CODE = '[Setup] Save Nationality Code';
 
   saveNationalityCode(code): Action {
@@ -1219,7 +1219,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_NATIONALITY_CODE_SUCCESS = '[Setup] Save Nationality Code Success';
 
   saveNationalityCodeSuccess(message): Action {
@@ -1229,7 +1229,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_NATIONALITY_CODE = '[Setup] Update Nationality Code';
 
   updateNationalityCode(code): Action {
@@ -1239,7 +1239,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_NATIONALITY_CODE_SUCCESS = '[Setup] Update Nationality Code  Success';
 
   updateNationalityCodeSuccess(message): Action {
@@ -1249,7 +1249,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_NATIONALITY_CODE = '[Setup] Remove Nationality Code';
 
   removeNationalityCode(code): Action {
@@ -1259,7 +1259,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_NATIONALITY_CODE_SUCCESS = '[Setup] Remove Nationality Code  Success';
 
   removeNationalityCodeSuccess(message): Action {
@@ -1281,7 +1281,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_FIELD_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_FIELD_CODES_SUCCESS = '[Setup] Find Field Codes Success';
 
   findFieldCodesSuccess(codes): Action {
@@ -1291,7 +1291,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_FIELD_CODE = '[Setup] Save Field Code';
 
   saveFieldCode(code): Action {
@@ -1301,7 +1301,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_FIELD_CODE_SUCCESS = '[Setup] Save Field Code Success';
 
   saveFieldCodeSuccess(message): Action {
@@ -1311,7 +1311,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_FIELD_CODE = '[Setup] Update Field Code';
 
   updateFieldCode(code): Action {
@@ -1321,7 +1321,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_FIELD_CODE_SUCCESS = '[Setup] Update Field Code  Success';
 
   updateFieldCodeSuccess(message): Action {
@@ -1331,7 +1331,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_FIELD_CODE = '[Setup] Remove Field Code';
 
   removeFieldCode(code): Action {
@@ -1341,7 +1341,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_FIELD_CODE_SUCCESS = '[Setup] Remove Field Code  Success';
 
   removeFieldCodeSuccess(message): Action {
@@ -1364,7 +1364,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_FACULTY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_FACULTY_CODES_SUCCESS = '[Setup] Find Faculty Codes Success';
 
   findFacultyCodesSuccess(codes): Action {
@@ -1374,7 +1374,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_FACULTY_CODE = '[Setup] Save Faculty Code';
 
   saveFacultyCode(code): Action {
@@ -1384,7 +1384,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_FACULTY_CODE_SUCCESS = '[Setup] Save Faculty Code Success';
 
   saveFacultyCodeSuccess(message): Action {
@@ -1394,7 +1394,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_FACULTY_CODE = '[Setup] Update Faculty Code';
 
   updateFacultyCode(code): Action {
@@ -1404,7 +1404,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_FACULTY_CODE_SUCCESS = '[Setup] Update Faculty Code  Success';
 
   updateFacultyCodeSuccess(message): Action {
@@ -1414,7 +1414,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_FACULTY_CODE = '[Setup] Remove Faculty Code';
 
   removeFacultyCode(code): Action {
@@ -1424,7 +1424,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_FACULTY_CODE_SUCCESS = '[Setup] Remove Faculty Code  Success';
 
   removeFacultyCodeSuccess(message): Action {
@@ -1435,9 +1435,9 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
     };
   }
 
-//==========================================================================================
-//     STUDY MODE
-//==========================================================================================
+  //==========================================================================================
+  //     STUDY MODE
+  //==========================================================================================
   //1-------------------------------------------------------------
   static SAVE_STUDY_MODE = '[Setup] Save Study Mode';
 
@@ -1448,7 +1448,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//2-----------------------------------------------
+  //2-----------------------------------------------
   static SAVE_STUDY_MODE_SUCCESS = '[Setup] Save Study Mode Success';
 
   saveStudyModeSuccess(message): Action {
@@ -1458,7 +1458,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//3-----------------------------------------------------
+  //3-----------------------------------------------------
   static FIND_STUDY_MODES = '[Common] Find Study Modes';
 
   findStudyModes(): Action {
@@ -1467,7 +1467,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_STUDY_MODES,
     };
   }
-//4-----------------------------------------------------------------
+  //4-----------------------------------------------------------------
   static FIND_STUDY_MODES_SUCCESS = '[Common] Find Study Modes Success';
 
   findStudyModesSuccess(codes): Action {
@@ -1477,7 +1477,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_STUDY_MODE = '[Setup] Update Study Mode';
 
   updateStudyMode(code): Action {
@@ -1487,7 +1487,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_STUDY_MODE_SUCCESS = '[Setup] Update Study Mode  Success';
 
   updateStudyModeSuccess(message): Action {
@@ -1497,7 +1497,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_STUDY_MODE = '[Setup] Remove Study Mode';
 
   removeStudyMode(code): Action {
@@ -1507,7 +1507,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_STUDY_MODE_SUCCESS = '[Setup] Remove Study Mode  Success';
 
   removeStudyModeSuccess(message): Action {
@@ -1518,10 +1518,10 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
     };
   }
 
-//=================================================================================//
-//  DISABILITY_CODES                                                               //
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  DISABILITY_CODES                                                               //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_DISABILITY_CODES = '[Setup] Find Disability Codes';
 
   findDisabilityCodes(): Action {
@@ -1530,7 +1530,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_DISABILITY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_DISABILITY_CODES_SUCCESS = '[Setup] Find Disability Codes Success';
 
   findDisabilityCodesSuccess(codes): Action {
@@ -1540,7 +1540,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_DISABILITY_CODE = '[Setup] Save Disability Code';
 
   saveDisabilityCode(code): Action {
@@ -1550,7 +1550,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_DISABILITY_CODE_SUCCESS = '[Setup] Save Disability Code Success';
 
   saveDisabilityCodeSuccess(message): Action {
@@ -1560,7 +1560,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_DISABILITY_CODE = '[Setup] Update Disability Code';
 
   updateDisabilityCode(code): Action {
@@ -1570,7 +1570,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_DISABILITY_CODE_SUCCESS = '[Setup] Update Disability Code  Success';
 
   updateDisabilityCodeSuccess(message): Action {
@@ -1580,7 +1580,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_DISABILITY_CODE = '[Setup] Remove Disability Code';
 
   removeDisabilityCode(code): Action {
@@ -1590,7 +1590,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_DISABILITY_CODE_SUCCESS = '[Setup] Remove Disability Code  Success';
 
   removeDisabilityCodeSuccess(message): Action {
@@ -1601,9 +1601,9 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
     };
   }
 
-//=================================================================================//
-//  SCHOOL_CODES                                                                   //
-//=================================================================================//
+  //=================================================================================//
+  //  SCHOOL_CODES                                                                   //
+  //=================================================================================//
 
   static FIND_SCHOOL_CODES = '[Setup] Find School Codes';
 
@@ -1684,11 +1684,11 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
     };
   }
 
-//=================================================================================//
-//  STUDY CENTER CODES                                                                   //
-//=================================================================================//
-//1----------------------------------------------------------------------------
-    static FIND_STUDY_CENTER_CODES = '[Setup] Find Study Center Codes';
+  //=================================================================================//
+  //  STUDY CENTER CODES                                                                   //
+  //=================================================================================//
+  //1----------------------------------------------------------------------------
+  static FIND_STUDY_CENTER_CODES = '[Setup] Find Study Center Codes';
 
   findStudyCenterCodes(): Action {
     console.log('findStudyCenterCodes');
@@ -1696,7 +1696,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       type: SetupActions.FIND_STUDY_CENTER_CODES,
     };
   }
-//2-----------------------------------------------------------------------------------
+  //2-----------------------------------------------------------------------------------
   static FIND_STUDY_CENTER_CODES_SUCCESS = '[Setup] Study Center Codes Success';
 
   findStudyCenterCodesSuccess(codes): Action {
@@ -1706,7 +1706,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: codes,
     };
   }
-//3---------------------------------------------------------------------------------------
+  //3---------------------------------------------------------------------------------------
   static SAVE_STUDY_CENTER_CODE = '[Setup] Save Study Center Code';
 
   saveStudyCenterCode(code): Action {
@@ -1716,8 +1716,8 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//4----------------------------------------------------------------------------------------
- static SAVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Save Study Center Code Success';
+  //4----------------------------------------------------------------------------------------
+  static SAVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Save Study Center Code Success';
 
   saveStudyCenterCodeSuccess(message): Action {
     console.log('saveStudyCenterCodeSuccess');
@@ -1726,7 +1726,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//5------------------------------------------------------------------------------------------
+  //5------------------------------------------------------------------------------------------
   static UPDATE_STUDY_CENTER_CODE = '[Setup] Update Study Center Code';
 
   updateStudyCenterCode(code): Action {
@@ -1736,7 +1736,7 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: code,
     };
   }
-//6------------------------------------------------------------------------------------------------
+  //6------------------------------------------------------------------------------------------------
   static UPDATE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Update Study Center Code Success';
 
   updateStudyCenterCodeSuccess(message): Action {
@@ -1746,8 +1746,8 @@ static SAVE_SUPERVISOR_OFFERING = '[Setup] Save Supervisor Offering';
       payload: message,
     };
   }
-//7-----------------------------------------------------------------------------------------------
-static REMOVE_STUDY_CENTER_CODE = '[Setup] Remove Study Center Code';
+  //7-----------------------------------------------------------------------------------------------
+  static REMOVE_STUDY_CENTER_CODE = '[Setup] Remove Study Center Code';
 
   removeStudyCenterCode(code): Action {
     console.log('removeStudyCenterCode');
@@ -1756,8 +1756,8 @@ static REMOVE_STUDY_CENTER_CODE = '[Setup] Remove Study Center Code';
       payload: code,
     };
   }
-//8-----------------------------------------------------------------------------------------
-static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Success';
+  //8-----------------------------------------------------------------------------------------
+  static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Success';
 
   removeStudyCenterCodeSuccess(message): Action {
     console.log('removeStudyCenterCodeSuccess');
@@ -1767,10 +1767,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  DISTRICT_CODES                                                               //
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  DISTRICT_CODES                                                               //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_DISTRICT_CODES = '[Setup] Find District Codes';
 
   findDistrictCodes(): Action {
@@ -1779,7 +1779,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_DISTRICT_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_DISTRICT_CODES_SUCCESS = '[Setup] Find District Codes Success';
 
   findDistrictCodesSuccess(codes): Action {
@@ -1789,7 +1789,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_DISTRICT_CODE = '[Setup] Save District Code';
 
   saveDistrictCode(code): Action {
@@ -1799,7 +1799,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_DISTRICT_CODE_SUCCESS = '[Setup] Save District Code Success';
 
   saveDistrictCodeSuccess(message): Action {
@@ -1809,7 +1809,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_DISTRICT_CODE = '[Setup] Update District Code';
 
   updateDistrictCode(code): Action {
@@ -1819,7 +1819,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_DISTRICT_CODE_SUCCESS = '[Setup] Update District Code  Success';
 
   updateDistrictCodeSuccess(message): Action {
@@ -1829,7 +1829,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_DISTRICT_CODE = '[Setup] Remove District Code';
 
   removeDistrictCode(code): Action {
@@ -1839,7 +1839,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_DISTRICT_CODE_SUCCESS = '[Setup] Remove District Code  Success';
 
   removeDistrictCodeSuccess(message): Action {
@@ -1850,10 +1850,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  DUN_CODES                                                                      //
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  DUN_CODES                                                                      //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_DUN_CODES = '[Setup] Find Dun Codes';
 
   findDunCodes(): Action {
@@ -1862,7 +1862,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_DUN_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_DUN_CODES_SUCCESS = '[Setup] Find Dun Codes Success';
 
   findDunCodesSuccess(codes): Action {
@@ -1872,7 +1872,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_DUN_CODE = '[Setup] Save Dun Code';
 
   saveDunCode(code): Action {
@@ -1882,7 +1882,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_DUN_CODE_SUCCESS = '[Setup] Save Dun Code Success';
 
   saveDunCodeSuccess(message): Action {
@@ -1892,7 +1892,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_DUN_CODE = '[Setup] Update Dun Code';
 
   updateDunCode(code): Action {
@@ -1902,7 +1902,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_DUN_CODE_SUCCESS = '[Setup] Update Dun Code  Success';
 
   updateDunCodeSuccess(message): Action {
@@ -1912,7 +1912,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_DUN_CODE = '[Setup] Remove Dun Code';
 
   removeDunCode(code): Action {
@@ -1922,7 +1922,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_DUN_CODE_SUCCESS = '[Setup] Remove Dun Code  Success';
 
   removeDunCodeSuccess(message): Action {
@@ -1933,10 +1933,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  PARLIAMENT_CODES                                                                      //
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  PARLIAMENT_CODES                                                                      //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_PARLIAMENT_CODES = '[Setup] Find Parliament Codes';
 
   findParliamentCodes(): Action {
@@ -1945,7 +1945,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_PARLIAMENT_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_PARLIAMENT_CODES_SUCCESS = '[Setup] Find Parliament Codes Success';
 
   findParliamentCodesSuccess(codes): Action {
@@ -1955,7 +1955,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_PARLIAMENT_CODE = '[Setup] Save Parliament Code';
 
   saveParliamentCode(code): Action {
@@ -1965,7 +1965,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_PARLIAMENT_CODE_SUCCESS = '[Setup] Save Parliament Code Success';
 
   saveParliamentCodeSuccess(message): Action {
@@ -1975,7 +1975,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_PARLIAMENT_CODE = '[Setup] Update Parliament Code';
 
   updateParliamentCode(code): Action {
@@ -1985,7 +1985,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_PARLIAMENT_CODE_SUCCESS = '[Setup] Update Parliament Code  Success';
 
   updateParliamentCodeSuccess(message): Action {
@@ -1995,7 +1995,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_PARLIAMENT_CODE = '[Setup] Remove Parliament Code';
 
   removeParliamentCode(code): Action {
@@ -2005,7 +2005,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_PARLIAMENT_CODE_SUCCESS = '[Setup] Remove Parliament Code  Success';
 
   removeParliamentCodeSuccess(message): Action {
@@ -2016,10 +2016,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  RESIDENCY_CODES
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  RESIDENCY_CODES
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_RESIDENCY_CODES = '[Setup] Find Residency Codes';
 
   findResidencyCodes(): Action {
@@ -2028,7 +2028,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_RESIDENCY_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_RESIDENCY_CODES_SUCCESS = '[Setup] Find Residency Codes Success';
 
   findResidencyCodesSuccess(codes): Action {
@@ -2038,7 +2038,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_RESIDENCY_CODE = '[Setup] Save Residency Code';
 
   saveResidencyCode(code): Action {
@@ -2048,7 +2048,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_RESIDENCY_CODE_SUCCESS = '[Setup] Save Residency Code Success';
 
   saveResidencyCodeSuccess(message): Action {
@@ -2058,7 +2058,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_RESIDENCY_CODE = '[Setup] Update Residency Code';
 
   updateResidencyCode(code): Action {
@@ -2068,7 +2068,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_RESIDENCY_CODE_SUCCESS = '[Setup] Update Residency Code  Success';
 
   updateResidencyCodeSuccess(message): Action {
@@ -2078,7 +2078,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_RESIDENCY_CODE = '[Setup] Remove Residency Code';
 
   removeResidencyCode(code): Action {
@@ -2088,7 +2088,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_RESIDENCY_CODE_SUCCESS = '[Setup] Remove Residency Code  Success';
 
   removeResidencyCodeSuccess(message): Action {
@@ -2099,10 +2099,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  LANGUAGE_CODES
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  LANGUAGE_CODES
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_LANGUAGE_CODES = '[Setup] Find Language Codes';
 
   findLanguageCodes(): Action {
@@ -2111,7 +2111,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_LANGUAGE_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_LANGUAGE_CODES_SUCCESS = '[Setup] Find Language Codes Success';
 
   findLanguageCodesSuccess(codes): Action {
@@ -2121,7 +2121,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_LANGUAGE_CODE = '[Setup] Save Language Code';
 
   saveLanguageCode(code): Action {
@@ -2131,7 +2131,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_LANGUAGE_CODE_SUCCESS = '[Setup] Save Language Code Success';
 
   saveLanguageCodeSuccess(message): Action {
@@ -2141,7 +2141,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_LANGUAGE_CODE = '[Setup] Update Language Code';
 
   updateLanguageCode(code): Action {
@@ -2151,7 +2151,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_LANGUAGE_CODE_SUCCESS = '[Setup] Update Language Code  Success';
 
   updateLanguageCodeSuccess(message): Action {
@@ -2161,7 +2161,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_LANGUAGE_CODE = '[Setup] Remove Language Code';
 
   removeLanguageCode(code): Action {
@@ -2171,7 +2171,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_LANGUAGE_CODE_SUCCESS = '[Setup] Remove Language Code  Success';
 
   removeLanguageCodeSuccess(message): Action {
@@ -2182,9 +2182,9 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  SUBJECT_CODES                                                                   //
-//=================================================================================//
+  //=================================================================================//
+  //  SUBJECT_CODES                                                                   //
+  //=================================================================================//
 
   static FIND_SUBJECT_CODES = '[Setup] Find Subject Codes';
 
@@ -2265,10 +2265,10 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  GRADE_CODES                                                                      //
-//=================================================================================//
-//1-------------------------------------------------------------
+  //=================================================================================//
+  //  GRADE_CODES                                                                      //
+  //=================================================================================//
+  //1-------------------------------------------------------------
   static FIND_GRADE_CODES = '[Setup] Find Grade Codes';
 
   findGradeCodes(): Action {
@@ -2277,7 +2277,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       type: SetupActions.FIND_GRADE_CODES,
     };
   }
-//2-------------------------------------------------------------------------------------
+  //2-------------------------------------------------------------------------------------
   static FIND_GRADE_CODES_SUCCESS = '[Setup] Find Grade Codes Success';
 
   findGradeCodesSuccess(codes): Action {
@@ -2287,7 +2287,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: codes,
     };
   }
-//3----------------------------------------------------------------
+  //3----------------------------------------------------------------
   static SAVE_GRADE_CODE = '[Setup] Save Grade Code';
 
   saveGradeCode(code): Action {
@@ -2297,7 +2297,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//4------------------------------------------------------------------------------
+  //4------------------------------------------------------------------------------
   static SAVE_GRADE_CODE_SUCCESS = '[Setup] Save Grade Code Success';
 
   saveGradeCodeSuccess(message): Action {
@@ -2307,7 +2307,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//5------------------------------------------------------------------
+  //5------------------------------------------------------------------
   static UPDATE_GRADE_CODE = '[Setup] Update Grade Code';
 
   updateGradeCode(code): Action {
@@ -2317,7 +2317,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//6----------------------------------------------------------------------------------
+  //6----------------------------------------------------------------------------------
   static UPDATE_GRADE_CODE_SUCCESS = '[Setup] Update Grade Code  Success';
 
   updateGradeCodeSuccess(message): Action {
@@ -2327,7 +2327,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: message,
     };
   }
-//7------------------------------------------------------------------
+  //7------------------------------------------------------------------
   static REMOVE_GRADE_CODE = '[Setup] Remove Grade Code';
 
   removeGradeCode(code): Action {
@@ -2337,7 +2337,7 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
       payload: code,
     };
   }
-//8------------------------------------------------------------------------------------
+  //8------------------------------------------------------------------------------------
   static REMOVE_GRADE_CODE_SUCCESS = '[Setup] Remove Grade Code  Success';
 
   removeGradeCodeSuccess(message): Action {
@@ -2348,9 +2348,9 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================//
-//  EMPLOYMENT_TYPE_CODES                                                                      //
-//=================================================================================//
+  //=================================================================================//
+  //  EMPLOYMENT_TYPE_CODES                                                                      //
+  //=================================================================================//
 
   static FIND_EMPLOYMENT_TYPE_CODES = '[Setup] Find Employment Type Codes';
 
@@ -2431,400 +2431,483 @@ static REMOVE_STUDY_CENTER_CODE_SUCCESS = '[Setup] Remove Study Center Code Succ
     };
   }
 
-//=================================================================================
-//  EMPLOYMENT_SECTOR_CODES                                                                      //
-//=================================================================================
-
-static FIND_EMPLOYMENT_SECTOR_CODES = '[Setup] Find Employment Sector Codes';
-
-findEmploymentSectorCodes(): Action {
-  console.log('findEmploymentSectorCodes');
-  return {
-    type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES,
-  };
-}
-
-static FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS = '[Setup] Find Employment Sector Codes Success';
-
-findEmploymentSectorCodesSuccess(codes): Action {
-  console.log('findEmploymentSectorCodesSuccess');
-  return {
-    type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS,
-    payload: codes,
-  };
-}
-
-static SAVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Save Employment Sector Code';
-
-saveEmploymentSectorCode(code): Action {
-  console.log('saveEmploymentSectorCode');
-  return {
-    type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE,
-    payload: code,
-  };
-}
-
-static SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Save Employment Sector Code Success';
-
-saveEmploymentSectorCodeSuccess(message): Action {
-  console.log('saveEmploymentSectorCodeSuccess');
-  return {
-    type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static UPDATE_EMPLOYMENT_SECTOR_CODE = '[Setup] Update Employment Sector Code';
-
-updateEmploymentSectorCode(code): Action {
-  console.log('updateEmploymentSectorCode');
-  return {
-    type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE,
-    payload: code,
-  };
-}
-
-static UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Update Employment Sector Code  Success';
-
-updateEmploymentSectorCodeSuccess(message): Action {
-  console.log('updateEmploymentSectorCodeSuccess');
-  return {
-    type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static REMOVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Remove Employment Sector Code';
-
-removeEmploymentSectorCode(code): Action {
-  console.log('removeEmploymentSectorCode');
-  return {
-    type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE,
-    payload: code,
-  };
-}
-
-static REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Remove Employment Sector Code  Success';
-
-removeEmploymentSectorCodeSuccess(message): Action {
-  console.log('removeEmploymentSectorCodeSuccess');
-  return {
-    type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-//=================================================================================
-//  GUARDIAN_TYPE_CODES                                                                      //
-//=================================================================================
-
-static FIND_GUARDIAN_TYPE_CODES = '[Setup] Find Guardian Type Codes';
-
-findGuardianTypeCodes(): Action {
-  console.log('findGuardianTypeCodes');
-  return {
-    type: SetupActions.FIND_GUARDIAN_TYPE_CODES,
-  };
-}
-
-static FIND_GUARDIAN_TYPE_CODES_SUCCESS = '[Setup] Find Guardian Type Codes Success';
-
-findGuardianTypeCodesSuccess(codes): Action {
-  console.log('findGuardianTypeCodesSuccess');
-  return {
-    type: SetupActions.FIND_GUARDIAN_TYPE_CODES_SUCCESS,
-    payload: codes,
-  };
-}
-
-static SAVE_GUARDIAN_TYPE_CODE = '[Setup] Save Guardian Type Code';
-
-saveGuardianTypeCode(code): Action {
-  console.log('saveGuardianTypeCode');
-  return {
-    type: SetupActions.SAVE_GUARDIAN_TYPE_CODE,
-    payload: code,
-  };
-}
-
-static SAVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Save Guardian Type Code Success';
-
-saveGuardianTypeCodeSuccess(message): Action {
-  console.log('saveGuardianTypeCodeSuccess');
-  return {
-    type: SetupActions.SAVE_GUARDIAN_TYPE_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static UPDATE_GUARDIAN_TYPE_CODE = '[Setup] Update Guardian Type Code';
-
-updateGuardianTypeCode(code): Action {
-  console.log('updateGuardianTypeCode');
-  return {
-    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
-    payload: code,
-  };
-}
-
-static UPDATE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Update Guardian Type Code Success';
-
-updateGuardianTypeCodeSuccess(message): Action {
-  console.log('updateGuardianTypeCodeSuccess');
-  return {
-    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static REMOVE_GUARDIAN_TYPE_CODE = '[Setup] Remove Guardian Type Code';
-
-removeGuardianTypeCode(code): Action {
-  console.log('removeGuardianTypeCode');
-  return {
-    type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE,
-    payload: code,
-  };
-}
-
-static REMOVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Remove Guardian Type Code Success';
-
-removeGuardianTypeCodeSuccess(message): Action {
-  console.log('removeGuardianTypeCodeSuccess');
-  return {
-    type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-//=================================================================================
-//  SPM_RESULT_CODES                                                                    //
-//=================================================================================
-
-static FIND_SPM_RESULT_CODES = '[Setup] Find Spm Result Codes';
-
-findSpmResultCodes(): Action {
-  console.log('findSpmResultCodes');
-  return {
-    type: SetupActions.FIND_SPM_RESULT_CODES,
-  };
-}
-
-static FIND_SPM_RESULT_CODES_SUCCESS = '[Setup] Find Spm Result Codes Success';
-
-findSpmResultCodesSuccess(codes): Action {
-  console.log('findSpmResultCodesSuccess');
-  return {
-    type: SetupActions.FIND_SPM_RESULT_CODES_SUCCESS,
-    payload: codes,
-  };
-}
-
-static SAVE_SPM_RESULT_CODE = '[Setup] Save Spm Result Code';
-
-saveSpmResultCode(code): Action {
-  console.log('saveSpmResultCode');
-  return {
-    type: SetupActions.SAVE_SPM_RESULT_CODE,
-    payload: code,
-  };
-}
-
-static SAVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Save  Spm Result Code Success';
-
-saveSpmResultCodeSuccess(message): Action {
-  console.log('saveSpmResultCodeSuccess');
-  return {
-    type: SetupActions.SAVE_SPM_RESULT_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static UPDATE_SPM_RESULT_CODE = '[Setup] Update Spm Result Code';
-
-updateSpmResultCode(code): Action {
-  console.log('updateSpmResultCode');
-  return {
-    type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
-    payload: code,
-  };
-}
-
-static UPDATE_SPM_RESULT_CODE_SUCCESS = '[Setup] Update Spm Result Code Success';
-
-updateSpmResultCodeSuccess(message): Action {
-  console.log('updateSpmResultCodeSuccess');
-  return {
-    type: SetupActions.UPDATE_SPM_RESULT_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static REMOVE_SPM_RESULT_CODE = '[Setup] Remove Spm Result Code';
-
-removeSpmResultCode(code): Action {
-  console.log('removeSpmResultCode');
-  return {
-    type: SetupActions.REMOVE_SPM_RESULT_CODE,
-    payload: code,
-  };
-}
-
-static REMOVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Remove Spm Result Code Success';
-
-removeSpmResultCodeSuccess(message): Action {
-  console.log('removeSpmResultCodeSuccess');
-  return {
-    type: SetupActions.REMOVE_SPM_RESULT_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-//=================================================================================
-// UMKCEE STAFF                                                                  //
-//=================================================================================
-
-static FIND_UMKCEE_STAFFS = '[Setup] Find UMKCEE STAFFS';
-
-findUMKCEEStaffs(): Action {
- console.log('findUMKCEESTAFFS');
- return {
-  type: SetupActions.FIND_UMKCEE_STAFFS,
-  };
-}
-
-static FIND_UMKCEE_STAFFS_SUCCESS = '[Setup] Find UMKCEE STAFFS Success';
-
-findUMKCEEStaffsSuccess(staffs): Action {
-console.log('findUMKCEESTAFFSSuccess');
-  return {
-   type: SetupActions.FIND_UMKCEE_STAFFS_SUCCESS,
-    payload: staffs,
-  };
-}
-
-static SAVE_UMKCEE_STAFF = '[Setup] Save UMKCEE STAFF';
-
-saveUMKCEEStaffs(staff): Action {
-console.log('saveUMKCEEstaff');
- return {
-type: SetupActions.SAVE_UMKCEE_STAFF,
-  payload: staff,
- };
-}
-
-static SAVE_UMKCEE_STAFF_SUCCESS = '[Setup] Save UMKCEE STAFF  Success';
-
-saveUMKCEEStaffSuccess(message): Action {
-  console.log('saveUMKCEEstaff');
-  return {
-   type: SetupActions.SAVE_UMKCEE_STAFF_SUCCESS,
-   payload: message,
- };
- }
-
- static UPDATE_UMKCEE_STAFF = '[Setup] UPDATE UMKCEE STAFF';
-
-updateUMKCEEStaffs(staff): Action {
- console.log('updateUMKCEEstaff');
- return {
-    type: SetupActions.UPDATE_UMKCEE_STAFF,
-    payload: staff,
-  };
-}
-
-static UPDATE_UMKCEE_STAFF_SUCCESS = '[Setup] UPDATE UMKCEE STAFF  Success';
-
-updateUMKCEEStaffSuccess(message): Action {
- console.log('updateUMKCEEstaff');
-  return {
-    type: SetupActions.UPDATE_UMKCEE_STAFF_SUCCESS,
-   payload: message,
- };
-}
-
-//=================================================================================//
-//  SPM_SUBJECT_CODES                                                                 
-//=================================================================================//
-
-static FIND_SPM_SUBJECT_CODES = '[Setup] Find Spm Subject Codes';
-
-findSpmSubjectCodes(): Action {
-  console.log('findSpmSubjectCodes');
-  return {
-    type: SetupActions.FIND_SPM_SUBJECT_CODES,
-  };
-}
-
-static FIND_SPM_SUBJECT_CODES_SUCCESS = '[Setup] Find Spm Subject Codes Success';
-
-findSpmSubjectCodesSuccess(codes): Action {
-  console.log('findSpmSubjectCodesSuccess');
-  return {
-    type: SetupActions.FIND_SPM_SUBJECT_CODES_SUCCESS,
-    payload: codes,
-  };
-}
-
-static SAVE_SPM_SUBJECT_CODE = '[Setup] Save Spm Subject Code';
-
-saveSpmSubjectCode(code): Action {
-  console.log('saveSpmSubjectCode');
-  return {
-    type: SetupActions.SAVE_SPM_SUBJECT_CODE,
-    payload: code,
-  };
-}
-
-static SAVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Save Spm Subject Code Success';
-
-saveSpmSubjectCodeSuccess(message): Action {
-  console.log('saveSpmSubjectCodeSuccess');
-  return {
-    type: SetupActions.SAVE_SPM_SUBJECT_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static UPDATE_SPM_SUBJECT_CODE = '[Setup] Update Spm Subject Code';
-
-updateSpmSubjectCode(code): Action {
-  console.log('updateSpmSubjectCode');
-  return {
-    type: SetupActions.UPDATE_SPM_SUBJECT_CODE,
-    payload: code,
-  };
-}
-
-static UPDATE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Update Spm Subject Code  Success';
-
-updateSpmSubjectCodeSuccess(message): Action {
-  console.log('updateSpmSubjectCodeSuccess');
-  return {
-    type: SetupActions.UPDATE_SPM_SUBJECT_CODE_SUCCESS,
-    payload: message,
-  };
-}
-
-static REMOVE_SPM_SUBJECT_CODE = '[Setup] Remove Spm Subject Code';
-
-removeSpmSubjectCode(code): Action {
-  console.log('removeSpmSubjectCode');
-  return {
-    type: SetupActions.REMOVE_SPM_SUBJECT_CODE,
-    payload: code,
-  };
-}
-
-static REMOVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Remove Spm Subject Code  Success';
-
-removeSpmSubjectCodeSuccess(message): Action {
-  console.log('removeSpmSubjectCodeSuccess');
-  return {
-    type: SetupActions.REMOVE_SPM_SUBJECT_CODE_SUCCESS,
-    payload: message,
-  };
-}
+  //=================================================================================
+  //  EMPLOYMENT_SECTOR_CODES                                                                      //
+  //=================================================================================
+
+  static FIND_EMPLOYMENT_SECTOR_CODES = '[Setup] Find Employment Sector Codes';
+
+  findEmploymentSectorCodes(): Action {
+    console.log('findEmploymentSectorCodes');
+    return {
+      type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES,
+    };
+  }
+
+  static FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS = '[Setup] Find Employment Sector Codes Success';
+
+  findEmploymentSectorCodesSuccess(codes): Action {
+    console.log('findEmploymentSectorCodesSuccess');
+    return {
+      type: SetupActions.FIND_EMPLOYMENT_SECTOR_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Save Employment Sector Code';
+
+  saveEmploymentSectorCode(code): Action {
+    console.log('saveEmploymentSectorCode');
+    return {
+      type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Save Employment Sector Code Success';
+
+  saveEmploymentSectorCodeSuccess(message): Action {
+    console.log('saveEmploymentSectorCodeSuccess');
+    return {
+      type: SetupActions.SAVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_EMPLOYMENT_SECTOR_CODE = '[Setup] Update Employment Sector Code';
+
+  updateEmploymentSectorCode(code): Action {
+    console.log('updateEmploymentSectorCode');
+    return {
+      type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Update Employment Sector Code  Success';
+
+  updateEmploymentSectorCodeSuccess(message): Action {
+    console.log('updateEmploymentSectorCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_EMPLOYMENT_SECTOR_CODE = '[Setup] Remove Employment Sector Code';
+
+  removeEmploymentSectorCode(code): Action {
+    console.log('removeEmploymentSectorCode');
+    return {
+      type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS = '[Setup] Remove Employment Sector Code  Success';
+
+  removeEmploymentSectorCodeSuccess(message): Action {
+    console.log('removeEmploymentSectorCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_EMPLOYMENT_SECTOR_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  //=================================================================================
+  //  GUARDIAN_TYPE_CODES                                                                      //
+  //=================================================================================
+
+  static FIND_GUARDIAN_TYPE_CODES = '[Setup] Find Guardian Type Codes';
+
+  findGuardianTypeCodes(): Action {
+    console.log('findGuardianTypeCodes');
+    return {
+      type: SetupActions.FIND_GUARDIAN_TYPE_CODES,
+    };
+  }
+
+  static FIND_GUARDIAN_TYPE_CODES_SUCCESS = '[Setup] Find Guardian Type Codes Success';
+
+  findGuardianTypeCodesSuccess(codes): Action {
+    console.log('findGuardianTypeCodesSuccess');
+    return {
+      type: SetupActions.FIND_GUARDIAN_TYPE_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_GUARDIAN_TYPE_CODE = '[Setup] Save Guardian Type Code';
+
+  saveGuardianTypeCode(code): Action {
+    console.log('saveGuardianTypeCode');
+    return {
+      type: SetupActions.SAVE_GUARDIAN_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Save Guardian Type Code Success';
+
+  saveGuardianTypeCodeSuccess(message): Action {
+    console.log('saveGuardianTypeCodeSuccess');
+    return {
+      type: SetupActions.SAVE_GUARDIAN_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_GUARDIAN_TYPE_CODE = '[Setup] Update Guardian Type Code';
+
+  updateGuardianTypeCode(code): Action {
+    console.log('updateGuardianTypeCode');
+    return {
+      type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Update Guardian Type Code Success';
+
+  updateGuardianTypeCodeSuccess(message): Action {
+    console.log('updateGuardianTypeCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_GUARDIAN_TYPE_CODE = '[Setup] Remove Guardian Type Code';
+
+  removeGuardianTypeCode(code): Action {
+    console.log('removeGuardianTypeCode');
+    return {
+      type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_GUARDIAN_TYPE_CODE_SUCCESS = '[Setup] Remove Guardian Type Code Success';
+
+  removeGuardianTypeCodeSuccess(message): Action {
+    console.log('removeGuardianTypeCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_GUARDIAN_TYPE_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  //=================================================================================
+  //  SPM_RESULT_CODES                                                                    //
+  //=================================================================================
+
+  static FIND_SPM_RESULT_CODES = '[Setup] Find Spm Result Codes';
+
+  findSpmResultCodes(): Action {
+    console.log('findSpmResultCodes');
+    return {
+      type: SetupActions.FIND_SPM_RESULT_CODES,
+    };
+  }
+
+  static FIND_SPM_RESULT_CODES_SUCCESS = '[Setup] Find Spm Result Codes Success';
+
+  findSpmResultCodesSuccess(codes): Action {
+    console.log('findSpmResultCodesSuccess');
+    return {
+      type: SetupActions.FIND_SPM_RESULT_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_SPM_RESULT_CODE = '[Setup] Save Spm Result Code';
+
+  saveSpmResultCode(code): Action {
+    console.log('saveSpmResultCode');
+    return {
+      type: SetupActions.SAVE_SPM_RESULT_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Save  Spm Result Code Success';
+
+  saveSpmResultCodeSuccess(message): Action {
+    console.log('saveSpmResultCodeSuccess');
+    return {
+      type: SetupActions.SAVE_SPM_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_SPM_RESULT_CODE = '[Setup] Update Spm Result Code';
+
+  updateSpmResultCode(code): Action {
+    console.log('updateSpmResultCode');
+    return {
+      type: SetupActions.UPDATE_GUARDIAN_TYPE_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_SPM_RESULT_CODE_SUCCESS = '[Setup] Update Spm Result Code Success';
+
+  updateSpmResultCodeSuccess(message): Action {
+    console.log('updateSpmResultCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_SPM_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_SPM_RESULT_CODE = '[Setup] Remove Spm Result Code';
+
+  removeSpmResultCode(code): Action {
+    console.log('removeSpmResultCode');
+    return {
+      type: SetupActions.REMOVE_SPM_RESULT_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_SPM_RESULT_CODE_SUCCESS = '[Setup] Remove Spm Result Code Success';
+
+  removeSpmResultCodeSuccess(message): Action {
+    console.log('removeSpmResultCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_SPM_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  //=================================================================================
+  // UMKCEE STAFF                                                                  //
+  //=================================================================================
+
+  static FIND_UMKCEE_STAFFS = '[Setup] Find UMKCEE STAFFS';
+
+  findUMKCEEStaffs(): Action {
+    console.log('findUMKCEESTAFFS');
+    return {
+      type: SetupActions.FIND_UMKCEE_STAFFS,
+    };
+  }
+
+  static FIND_UMKCEE_STAFFS_SUCCESS = '[Setup] Find UMKCEE STAFFS Success';
+
+  findUMKCEEStaffsSuccess(staffs): Action {
+    console.log('findUMKCEESTAFFSSuccess');
+    return {
+      type: SetupActions.FIND_UMKCEE_STAFFS_SUCCESS,
+      payload: staffs,
+    };
+  }
+
+  static SAVE_UMKCEE_STAFF = '[Setup] Save UMKCEE STAFF';
+
+  saveUMKCEEStaffs(staff): Action {
+    console.log('saveUMKCEEstaff');
+    return {
+      type: SetupActions.SAVE_UMKCEE_STAFF,
+      payload: staff,
+    };
+  }
+
+  static SAVE_UMKCEE_STAFF_SUCCESS = '[Setup] Save UMKCEE STAFF  Success';
+
+  saveUMKCEEStaffSuccess(message): Action {
+    console.log('saveUMKCEEstaff');
+    return {
+      type: SetupActions.SAVE_UMKCEE_STAFF_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_UMKCEE_STAFF = '[Setup] UPDATE UMKCEE STAFF';
+
+  updateUMKCEEStaffs(staff): Action {
+    console.log('updateUMKCEEstaff');
+    return {
+      type: SetupActions.UPDATE_UMKCEE_STAFF,
+      payload: staff,
+    };
+  }
+
+  static UPDATE_UMKCEE_STAFF_SUCCESS = '[Setup] UPDATE UMKCEE STAFF  Success';
+
+  updateUMKCEEStaffSuccess(message): Action {
+    console.log('updateUMKCEEstaff');
+    return {
+      type: SetupActions.UPDATE_UMKCEE_STAFF_SUCCESS,
+      payload: message,
+    };
+  }
+
+  //=================================================================================//
+  //  SPM_SUBJECT_CODES                                                                 
+  //=================================================================================//
+
+  static FIND_SPM_SUBJECT_CODES = '[Setup] Find Spm Subject Codes';
+
+  findSpmSubjectCodes(): Action {
+    console.log('findSpmSubjectCodes');
+    return {
+      type: SetupActions.FIND_SPM_SUBJECT_CODES,
+    };
+  }
+
+  static FIND_SPM_SUBJECT_CODES_SUCCESS = '[Setup] Find Spm Subject Codes Success';
+
+  findSpmSubjectCodesSuccess(codes): Action {
+    console.log('findSpmSubjectCodesSuccess');
+    return {
+      type: SetupActions.FIND_SPM_SUBJECT_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_SPM_SUBJECT_CODE = '[Setup] Save Spm Subject Code';
+
+  saveSpmSubjectCode(code): Action {
+    console.log('saveSpmSubjectCode');
+    return {
+      type: SetupActions.SAVE_SPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Save Spm Subject Code Success';
+
+  saveSpmSubjectCodeSuccess(message): Action {
+    console.log('saveSpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.SAVE_SPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_SPM_SUBJECT_CODE = '[Setup] Update Spm Subject Code';
+
+  updateSpmSubjectCode(code): Action {
+    console.log('updateSpmSubjectCode');
+    return {
+      type: SetupActions.UPDATE_SPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Update Spm Subject Code  Success';
+
+  updateSpmSubjectCodeSuccess(message): Action {
+    console.log('updateSpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_SPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_SPM_SUBJECT_CODE = '[Setup] Remove Spm Subject Code';
+
+  removeSpmSubjectCode(code): Action {
+    console.log('removeSpmSubjectCode');
+    return {
+      type: SetupActions.REMOVE_SPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_SPM_SUBJECT_CODE_SUCCESS = '[Setup] Remove Spm Subject Code  Success';
+
+  removeSpmSubjectCodeSuccess(message): Action {
+    console.log('removeSpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_SPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  //=================================================================================//
+  //  STPM_SUBJECT_CODES                                                                 
+  //=================================================================================//
+
+  static FIND_STPM_SUBJECT_CODES = '[Setup] Find Stpm Subject Codes';
+
+  findStpmSubjectCodes(): Action {
+    console.log('findStpmSubjectCodes');
+    return {
+      type: SetupActions.FIND_STPM_SUBJECT_CODES,
+    };
+  }
+
+  static FIND_STPM_SUBJECT_CODES_SUCCESS = '[Setup] Find Stpm Subject Codes Success';
+
+  findStpmSubjectCodesSuccess(codes): Action {
+    console.log('findStpmSubjectCodesSuccess');
+    return {
+      type: SetupActions.FIND_STPM_SUBJECT_CODES_SUCCESS,
+      payload: codes,
+    };
+  }
+
+  static SAVE_STPM_SUBJECT_CODE = '[Setup] Save Stpm Subject Code';
+
+  saveStpmSubjectCode(code): Action {
+    console.log('saveStpmSubjectCode');
+    return {
+      type: SetupActions.SAVE_STPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static SAVE_STPM_SUBJECT_CODE_SUCCESS = '[Setup] Save Stpm Subject Code Success';
+
+  saveStpmSubjectCodeSuccess(message): Action {
+    console.log('saveStpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.SAVE_STPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static UPDATE_STPM_SUBJECT_CODE = '[Setup] Update Stpm Subject Code';
+
+  updateStpmSubjectCode(code): Action {
+    console.log('updateStpmSubjectCode');
+    return {
+      type: SetupActions.UPDATE_STPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static UPDATE_STPM_SUBJECT_CODE_SUCCESS = '[Setup] Update Stpm Subject Code  Success';
+
+  updateStpmSubjectCodeSuccess(message): Action {
+    console.log('updateStpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.UPDATE_STPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
+  static REMOVE_STPM_SUBJECT_CODE = '[Setup] Remove Stpm Subject Code';
+
+  removeStpmSubjectCode(code): Action {
+    console.log('removeStpmSubjectCode');
+    return {
+      type: SetupActions.REMOVE_STPM_SUBJECT_CODE,
+      payload: code,
+    };
+  }
+
+  static REMOVE_STPM_SUBJECT_CODE_SUCCESS = '[Setup] Remove Stpm Subject Code  Success';
+
+  removeStpmSubjectCodeSuccess(message): Action {
+    console.log('removeStpmSubjectCodeSuccess');
+    return {
+      type: SetupActions.REMOVE_STPM_SUBJECT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
 
 }
 

@@ -1,13 +1,13 @@
-import {Injectable} from "@angular/core";
-import {Effect, Actions} from '@ngrx/effects';
-import {CommonService} from "../../services/common.service";
-import {CommonActions} from "./common.action";
+import { Injectable } from "@angular/core";
+import { Effect, Actions } from '@ngrx/effects';
+import { CommonService } from "../../services/common.service";
+import { CommonActions } from "./common.action";
 
 @Injectable()
 export class CommonEffects {
   constructor(private actions$: Actions,
-              private commonActions: CommonActions,
-              private commonService: CommonService) {
+    private commonActions: CommonActions,
+    private commonService: CommonService) {
   }
 
   @Effect() findDunCodes$ = this.actions$
@@ -16,7 +16,7 @@ export class CommonEffects {
     .switchMap(() => this.commonService.findDunCodes())
     .map(codes => this.commonActions.findDunCodesSuccess(codes));
 
-     @Effect() findGradeCodes$ = this.actions$
+  @Effect() findGradeCodes$ = this.actions$
     .ofType(CommonActions.FIND_GRADE_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findGradeCodes())
@@ -57,13 +57,13 @@ export class CommonEffects {
     .map(action => action.payload)
     .switchMap(() => this.commonService.findFacultyCodes())
     .map(codes => this.commonActions.findFacultyCodesSuccess(codes));
-  
-  
+
+
   @Effect() findFieldCodes$ = this.actions$
-  .ofType(CommonActions.FIND_FIELD_CODES)
-  .map(action => action.payload)
-  .switchMap(() => this.commonService.findFieldCodes())
-  .map(codes => this.commonActions.findFieldCodesSuccess(codes));
+    .ofType(CommonActions.FIND_FIELD_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findFieldCodes())
+    .map(codes => this.commonActions.findFieldCodesSuccess(codes));
 
   @Effect() findGraduateCenters$ = this.actions$
     .ofType(CommonActions.FIND_GRADUATE_CENTERS)
@@ -76,18 +76,18 @@ export class CommonEffects {
     .map(action => action.payload)
     .switchMap(() => this.commonService.findProgramCodes())
     .map(codes => this.commonActions.findProgramCodesSuccess(codes));
-  
+
   @Effect() findProgramCodesByProgramLevel$ = this.actions$
-  .ofType(CommonActions.FIND_PROGRAM_CODES_BY_PROGRAM_LEVEL)
-  .map(action => action.payload)
-  .switchMap((code) => this.commonService.findProgramCodesByProgramLevel(code))
-  .map(codes => this.commonActions.findProgramCodesByProgramLevelSuccess(codes));
-  
+    .ofType(CommonActions.FIND_PROGRAM_CODES_BY_PROGRAM_LEVEL)
+    .map(action => action.payload)
+    .switchMap((code) => this.commonService.findProgramCodesByProgramLevel(code))
+    .map(codes => this.commonActions.findProgramCodesByProgramLevelSuccess(codes));
+
   @Effect() findProgramFieldCodesByProgramLevel$ = this.actions$
-  .ofType(CommonActions.FIND_PROGRAM_FIELD_CODES_BY_PROGRAM_LEVEL)
-  .map(action => action.payload)
-  .switchMap((code) => this.commonService.findProgramFieldCodesByProgramLevel(code))
-  .map(codes => this.commonActions.findProgramFieldCodesByProgramLevelSuccess(codes));
+    .ofType(CommonActions.FIND_PROGRAM_FIELD_CODES_BY_PROGRAM_LEVEL)
+    .map(action => action.payload)
+    .switchMap((code) => this.commonService.findProgramFieldCodesByProgramLevel(code))
+    .map(codes => this.commonActions.findProgramFieldCodesByProgramLevelSuccess(codes));
 
   @Effect() findStudyMode$ = this.actions$
     .ofType(CommonActions.FIND_STUDY_MODES)
@@ -102,10 +102,10 @@ export class CommonEffects {
     .map(codes => this.commonActions.findSupervisorCodesSuccess(codes));
 
   @Effect() findSupervisorOfferingsByProgramLevel$ = this.actions$
-  .ofType(CommonActions.FIND_SUPERVISOR_OFFERINGS_BY_PROGRAM_LEVEL)
-  .map(action => action.payload)
-  .switchMap((code) => this.commonService.findSupervisorOfferingsByProgramLevel(code))
-  .map(codes => this.commonActions.findSupervisorOfferingsByProgramLevelSuccess(codes));
+    .ofType(CommonActions.FIND_SUPERVISOR_OFFERINGS_BY_PROGRAM_LEVEL)
+    .map(action => action.payload)
+    .switchMap((code) => this.commonService.findSupervisorOfferingsByProgramLevel(code))
+    .map(codes => this.commonActions.findSupervisorOfferingsByProgramLevelSuccess(codes));
 
   @Effect() findRaceCodes$ = this.actions$
     .ofType(CommonActions.FIND_RACE_CODES)
@@ -150,52 +150,58 @@ export class CommonEffects {
     .map(codes => this.commonActions.findNationalityCodesSuccess(codes));
 
 
-    @Effect() findResidencyCodes$ = this.actions$
+  @Effect() findResidencyCodes$ = this.actions$
     .ofType(CommonActions.FIND_RESIDENCY_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findResidencyCodes())
     .map(codes => this.commonActions.findResidencyCodesSuccess(codes));
 
-    @Effect() findLanguageCodes$ = this.actions$
+  @Effect() findLanguageCodes$ = this.actions$
     .ofType(CommonActions.FIND_LANGUAGE_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findLanguageCodes())
     .map(codes => this.commonActions.findLanguageCodesSuccess(codes));
 
-     @Effect() findSubjectCodes$ = this.actions$
+  @Effect() findSubjectCodes$ = this.actions$
     .ofType(CommonActions.FIND_SUBJECT_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findSubjectCodes())
     .map(codes => this.commonActions.findSubjectCodesSuccess(codes));
 
-    @Effect() findEmploymentTypeCodes$ = this.actions$
+  @Effect() findEmploymentTypeCodes$ = this.actions$
     .ofType(CommonActions.FIND_EMPLOYMENT_TYPE_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findEmploymentTypeCodes())
     .map(codes => this.commonActions.findEmploymentTypeCodesSuccess(codes));
 
-    @Effect() findEmploymentSectorCodes$ = this.actions$
+  @Effect() findEmploymentSectorCodes$ = this.actions$
     .ofType(CommonActions.FIND_EMPLOYMENT_SECTOR_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findEmploymentSectorCodes())
     .map(codes => this.commonActions.findEmploymentSectorCodesSuccess(codes));
 
-    @Effect() findGuardianTypeCodes$ = this.actions$
+  @Effect() findGuardianTypeCodes$ = this.actions$
     .ofType(CommonActions.FIND_GUARDIAN_TYPE_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findGuardianTypeCodes())
     .map(codes => this.commonActions.findGuardianTypeCodesSuccess(codes));
 
-    @Effect() findSpmResultCodes$ = this.actions$
+  @Effect() findSpmResultCodes$ = this.actions$
     .ofType(CommonActions.FIND_SPM_RESULT_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findSpmResultCodes())
     .map(codes => this.commonActions.findSpmResultCodesSuccess(codes));
 
-    @Effect() findSpmSubjectCodes$ = this.actions$
+  @Effect() findSpmSubjectCodes$ = this.actions$
     .ofType(CommonActions.FIND_SPM_SUBJECT_CODES)
     .map(action => action.payload)
     .switchMap(() => this.commonService.findSpmSubjectCodes())
     .map(codes => this.commonActions.findSpmSubjectCodesSuccess(codes));
+
+  @Effect() findStpmSubjectCodes$ = this.actions$
+    .ofType(CommonActions.FIND_STPM_SUBJECT_CODES)
+    .map(action => action.payload)
+    .switchMap(() => this.commonService.findStpmSubjectCodes())
+    .map(codes => this.commonActions.findStpmSubjectCodesSuccess(codes));
 
 }

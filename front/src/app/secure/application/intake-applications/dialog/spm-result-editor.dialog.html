@@ -1,10 +1,10 @@
-<h2 md-dialog-title>SPM/SPM Equivalent Information</h2>
+<h2 md-dialog-title>Ubahsuai Maklumat Akademik SPM</h2>
 <md-dialog-content>
   <form [formGroup]="editForm">
    <div layout="row" class="inset" flex>
             <md-input-container flex>
               <input mdInput
-                     placeholder="Year"
+                     placeholder="Tahun"
                      formControlName="graduationYear"
                      flex/>
             </md-input-container>
@@ -18,14 +18,18 @@
                        flex/>
               </md-input-container>
         </div>  
-      
+        <div>
+          <b>Subjek : </b><b *ngIf="_spmResultCode.spmSubjectCode.description !== null">{{_spmResultCode.spmSubjectCode.description}}</b><br/>
+        </div>
         <div layout="row" class="pad-top">
             <pams-spm-subject-code-select
             [placeholder]="'Subjek'"
             [innerFormControl]="editForm.controls['spmSubjectCode']" fxFlex="calc(100%-25px)" class="pad-bottom">
             </pams-spm-subject-code-select>
         </div>
-   
+        <div>
+          <b>Gred : </b><b *ngIf="_spmResultCode.gradeCode.description !== null">{{_spmResultCode.gradeCode.description}}</b><br/>
+      </div>   
           <div layout="row" class="pad-top">
             <pams-grade-code-select
             [placeholder]="'Gred'"

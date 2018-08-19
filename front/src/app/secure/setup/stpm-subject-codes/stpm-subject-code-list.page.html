@@ -1,0 +1,7 @@
+<md-card class="">
+    <pams-stpm-subject-code-list [stpmSubjectCodes]="stpmSubjectCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+    </pams-stpm-subject-code-list>
+  </md-card>
+  <a md-fab color="accent" class="mat-fab-top-right" (click)="createDialog()">
+    <md-icon>add</md-icon>
+  </a>

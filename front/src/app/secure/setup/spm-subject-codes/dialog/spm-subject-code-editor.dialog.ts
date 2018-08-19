@@ -45,10 +45,9 @@ export class SpmSubjectCodeEditorDialog implements OnInit {
   }
 
   submit(code: SpmSubjectCode, isValid: boolean) {
-    if (confirm('Update spm subject?')) {
     if (!code.id) this.store.dispatch(this.actions.saveSpmSubjectCode(code));
     else  this.store.dispatch(this.actions.updateSpmSubjectCode(code));
     this.dialog.close();
-    };
+    
   }
 }

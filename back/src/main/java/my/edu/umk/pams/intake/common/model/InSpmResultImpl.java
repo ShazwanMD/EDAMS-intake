@@ -23,7 +23,7 @@ public class InSpmResultImpl implements InSpmResult {
 
 	@Column(name = "GRADUATION_YEAR")
 	private String graduationYear;
-
+	
 	@Column(name = "AGGREGATE")
 	private String aggregate;
 		
@@ -83,17 +83,6 @@ public class InSpmResultImpl implements InSpmResult {
 	}
 	
 	@Override
-	public String getGraduationYear() {
-		return graduationYear;
-	}
-
-	@Override
-	public void setGraduationYear(String graduationYear) {
-		this.graduationYear = graduationYear;
-
-	}
-
-	@Override
 	public String getAggregate() {
 		return aggregate;
 	}
@@ -112,14 +101,7 @@ public class InSpmResultImpl implements InSpmResult {
 	public void setSpmSubjectCode(InSpmSubjectCode spmSubjectCode) {
 		this.spmSubjectCode = spmSubjectCode;
 	}
-	@Override
-	public InIntakeApplication getApplication() {
-		return application;
-	}
-	@Override
-	public void setApplication(InIntakeApplication application) {
-		this.application = application;
-	}
+
 	@Override
 	public InResultType getResultType() {
 		return resultType;
@@ -128,13 +110,26 @@ public class InSpmResultImpl implements InSpmResult {
 	public void setResultType(InResultType resultType) {
 		this.resultType = resultType;
 	}
-	
-	
-	
 
-	
-	
-	
+	@Override
+	public InIntakeApplication getApplication() {
+		return application;
+	}
+
+	@Override
+	public void setApplication(InIntakeApplication application) {
+		this.application = application;
+	}
+
+	@Override
+	public String getGraduationYear() {
+		return graduationYear;
+	}
+
+	@Override
+	public void setGraduationYear(String graduationYear) {
+		this.graduationYear = graduationYear;
+	}
 	
 
 }

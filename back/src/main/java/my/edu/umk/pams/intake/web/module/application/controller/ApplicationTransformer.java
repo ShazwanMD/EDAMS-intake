@@ -351,13 +351,9 @@ public class ApplicationTransformer {
 		return vos;
 	}
 	
-//	
-//	//SPM RESULT
-//	publice SpmResult toSpmResultVo(InSpmResult e){
-//		SpmResult voResult = new SpmResult();
-//		vo.setId(e.getId);
-//		
-//	}
+
+	
+
 	
 	
 }

@@ -10,6 +10,8 @@ import my.edu.umk.pams.intake.application.service.ApplicationService;
 import my.edu.umk.pams.intake.common.model.InPromoCode;
 import my.edu.umk.pams.intake.common.model.InSpmResult;
 import my.edu.umk.pams.intake.common.model.InSpmResultImpl;
+import my.edu.umk.pams.intake.common.model.InStpmResult;
+import my.edu.umk.pams.intake.common.model.InStpmResultImpl;
 import my.edu.umk.pams.intake.common.service.CommonService;
 import my.edu.umk.pams.intake.core.InFlowState;
 import my.edu.umk.pams.intake.identity.model.InActor;
@@ -29,6 +31,7 @@ import my.edu.umk.pams.intake.security.service.SecurityService;
 import my.edu.umk.pams.intake.web.module.application.vo.*;
 import my.edu.umk.pams.intake.web.module.common.controller.CommonTransformer;
 import my.edu.umk.pams.intake.web.module.common.vo.SpmResult;
+import my.edu.umk.pams.intake.web.module.common.vo.StpmResult;
 import my.edu.umk.pams.intake.web.module.policy.controller.PolicyTransformer;
 import my.edu.umk.pams.intake.web.module.policy.vo.Intake;
 import my.edu.umk.pams.intake.web.module.policy.vo.ProgramOffering;
@@ -253,7 +256,7 @@ public class ApplicationController {
 		application.setPaid(vo.getProcessingFeeAttached());
 		application.setDeclared(vo.getDeclared());
 		application.setPlaceOfBirth(vo.getPlaceOfBirth());
-		
+
 		// guardian
 		application.setGuardianName(vo.getGuardianName());
 		application.setGuardianIdentityNo(vo.getGuardianIdentityNo());
@@ -261,16 +264,14 @@ public class ApplicationController {
 		application.setGuardianAddress1(vo.getGuardianAddress1());
 		application.setGuardianAddress2(vo.getGuardianAddress2());
 		application.setGuardianAddress3(vo.getGuardianAddress3());
-//		application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		// application.setGuardianType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		application.setGuardianPostcode(vo.getGuardianPostcode());
 		if (null != vo.getGuardianTypeCode())
-			application.setGuardianTypeCode(
-					commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
+			application.setGuardianTypeCode(commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
 		if (null != vo.getGuardianState())
 			application.setGuardianState(commonService.findStateCodeById(vo.getGuardianState().getId()));
 		if (null != vo.getGuardianCountryCode())
 			application.setGuardianCountryCode(commonService.findCountryCodeById(vo.getGuardianCountryCode().getId()));
-		
 
 		// employment
 		application.setPosition(vo.getPosition());
@@ -279,7 +280,7 @@ public class ApplicationController {
 		application.setEmployerAddress2(vo.getEmployerAddress2());
 		application.setEmployerAddress3(vo.getEmployerAddress3());
 		application.setEmployerNo(vo.getEmployerNo());
-		
+
 		application.setEmployerPostcode(vo.getEmployerPostcode());
 		if (null != vo.getEmployerState())
 			application.setEmployerState(commonService.findStateCodeById(vo.getEmployerState().getId()));
@@ -405,30 +406,30 @@ public class ApplicationController {
 			application.setVerified(true);
 		}
 
-			InCandidate candidate = new InCandidateImpl();
-			candidate.setSourceNo(UUID.randomUUID().toString());
-			candidate.setAuditNo(UUID.randomUUID().toString());
-			candidate.setIntake(application.getIntake());
-			candidate.setName(application.getName());
-			candidate.setIdentityNo(application.getCredentialNo());
-			candidate.setEmail(application.getEmail());
-			candidate.setStudyModeSelection(application.getStudyModeSelection());
-			candidate.setStatus(InCandidateStatus.SELECTED);
-			candidate.setProgramSelection(application.getProgramSelection());
-			candidate.setSupervisorSelection(application.getSupervisorSelection());
-			candidate.setRegistration(false);
-			candidate.setApplication(application);
-			candidate.setAuditNo(application.getIntake().getAuditNo() + application.getApplicant().getIdentityNo());
-			candidate.setReferenceNo(application.getIntake().getReferenceNo());
-			candidate.setCancelComment(application.getIntake().getCancelComment());
-			candidate.setSourceNo(application.getIntake().getSourceNo());
-			candidate.setDescriptionEn(application.getIntake().getDescriptionEn());
-			candidate.setDescriptionMs(application.getIntake().getDescriptionMs());
-			candidateDao.save(candidate, securityService.getCurrentUser());
+		InCandidate candidate = new InCandidateImpl();
+		candidate.setSourceNo(UUID.randomUUID().toString());
+		candidate.setAuditNo(UUID.randomUUID().toString());
+		candidate.setIntake(application.getIntake());
+		candidate.setName(application.getName());
+		candidate.setIdentityNo(application.getCredentialNo());
+		candidate.setEmail(application.getEmail());
+		candidate.setStudyModeSelection(application.getStudyModeSelection());
+		candidate.setStatus(InCandidateStatus.SELECTED);
+		candidate.setProgramSelection(application.getProgramSelection());
+		candidate.setSupervisorSelection(application.getSupervisorSelection());
+		candidate.setRegistration(false);
+		candidate.setApplication(application);
+		candidate.setAuditNo(application.getIntake().getAuditNo() + application.getApplicant().getIdentityNo());
+		candidate.setReferenceNo(application.getIntake().getReferenceNo());
+		candidate.setCancelComment(application.getIntake().getCancelComment());
+		candidate.setSourceNo(application.getIntake().getSourceNo());
+		candidate.setDescriptionEn(application.getIntake().getDescriptionEn());
+		candidate.setDescriptionMs(application.getIntake().getDescriptionMs());
+		candidateDao.save(candidate, securityService.getCurrentUser());
 
-			admissionService.startCandidateTask(candidate);
+		admissionService.startCandidateTask(candidate);
 
-			applicationService.selectIntakeApplication(intake, application);
+		applicationService.selectIntakeApplication(intake, application);
 
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
@@ -768,125 +769,202 @@ public class ApplicationController {
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
-//	// ====================================================================================================
-//	// RESULT
-//	// ====================================================================================================
-//
-//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.GET)
-//	public ResponseEntity<List<Result>> findResultsByIntakeApplication(@PathVariable String referenceNo) {
-//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-//		List<InResult> results = applicationService.findResults(application);
-//		return new ResponseEntity<List<Result>>(applicationTransformer.toResultVos(results), HttpStatus.OK);
-//	}
-//
-//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results", method = RequestMethod.POST)
-//	public ResponseEntity<String> addResult(@PathVariable String referenceNo, @RequestBody Result vo) {
-//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-//		InResult result = new InResultImpl();
-//		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
-//		result.setField(vo.getField());
-//		result.setName(vo.getName());
-//		result.setGraduationYear(vo.getGraduationYear());
-//		result.setMalayResult(vo.getMalayResult());
-//		result.setEnglishResult(vo.getEnglishResult());
-//		result.setResultAlphanumeric(vo.getResultAlphanumeric());
-//		result.setResultNumeric(vo.getResultNumeric());
-//		applicationService.addResult(application, result);
-//		
-//
-//		return new ResponseEntity<String>("Success", HttpStatus.OK);
-//	}
-//	
-//
-//
-//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.PUT)
-//	public ResponseEntity<Boolean> updateResult(@PathVariable String referenceNo, @PathVariable Long id,
-//			@RequestBody Result vo) {
-//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-//		InResult result = applicationService.findResultById(id);
-//		result.setResultType(InResultType.get(vo.getResultType().ordinal()));
-//		result.setField(vo.getField());
-//		result.setName(vo.getName());
-//		result.setGraduationYear(vo.getGraduationYear());
-//		result.setMalayResult(vo.getMalayResult());
-//		result.setEnglishResult(vo.getEnglishResult());
-//		result.setResultAlphanumeric(vo.getResultAlphanumeric());
-//		result.setResultNumeric(vo.getResultNumeric());
-//		applicationService.updateResult(application, result);
-//		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-//	}
-//
-//	@RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}", method = RequestMethod.DELETE)
-//	public ResponseEntity<Boolean> deleteResult(@PathVariable String referenceNo, @PathVariable Long id) {
-//		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-//		InResult result = applicationService.findResultById(id);
-//		applicationService.deleteResult(application, result);
-//		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-//	}
-	
+	// //
+	// ====================================================================================================
+	// // RESULT
+	// //
+	// ====================================================================================================
+	//
+	// @RequestMapping(value = "/intakeApplications/{referenceNo}/results",
+	// method = RequestMethod.GET)
+	// public ResponseEntity<List<Result>>
+	// findResultsByIntakeApplication(@PathVariable String referenceNo) {
+	// InIntakeApplication application =
+	// applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+	// List<InResult> results = applicationService.findResults(application);
+	// return new
+	// ResponseEntity<List<Result>>(applicationTransformer.toResultVos(results),
+	// HttpStatus.OK);
+	// }
+	//
+	// @RequestMapping(value = "/intakeApplications/{referenceNo}/results",
+	// method = RequestMethod.POST)
+	// public ResponseEntity<String> addResult(@PathVariable String referenceNo,
+	// @RequestBody Result vo) {
+	// InIntakeApplication application =
+	// applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+	// InResult result = new InResultImpl();
+	// result.setResultType(InResultType.get(vo.getResultType().ordinal()));
+	// result.setField(vo.getField());
+	// result.setName(vo.getName());
+	// result.setGraduationYear(vo.getGraduationYear());
+	// result.setMalayResult(vo.getMalayResult());
+	// result.setEnglishResult(vo.getEnglishResult());
+	// result.setResultAlphanumeric(vo.getResultAlphanumeric());
+	// result.setResultNumeric(vo.getResultNumeric());
+	// applicationService.addResult(application, result);
+	//
+	//
+	// return new ResponseEntity<String>("Success", HttpStatus.OK);
+	// }
+	//
+	//
+	//
+	// @RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}",
+	// method = RequestMethod.PUT)
+	// public ResponseEntity<Boolean> updateResult(@PathVariable String
+	// referenceNo, @PathVariable Long id,
+	// @RequestBody Result vo) {
+	// InIntakeApplication application =
+	// applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+	// InResult result = applicationService.findResultById(id);
+	// result.setResultType(InResultType.get(vo.getResultType().ordinal()));
+	// result.setField(vo.getField());
+	// result.setName(vo.getName());
+	// result.setGraduationYear(vo.getGraduationYear());
+	// result.setMalayResult(vo.getMalayResult());
+	// result.setEnglishResult(vo.getEnglishResult());
+	// result.setResultAlphanumeric(vo.getResultAlphanumeric());
+	// result.setResultNumeric(vo.getResultNumeric());
+	// applicationService.updateResult(application, result);
+	// return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+	// }
+	//
+	// @RequestMapping(value = "/intakeApplications/{referenceNo}/results/{id}",
+	// method = RequestMethod.DELETE)
+	// public ResponseEntity<Boolean> deleteResult(@PathVariable String
+	// referenceNo, @PathVariable Long id) {
+	// InIntakeApplication application =
+	// applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+	// InResult result = applicationService.findResultById(id);
+	// applicationService.deleteResult(application, result);
+	// return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+	// }
 
-	//==========================================================================================================================
+	// ==========================================================================================================================
 	// SPM RESULT
-	//==========================================================================================================================
+	// ==========================================================================================================================
 
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults", method = RequestMethod.GET)
 	public ResponseEntity<List<SpmResult>> findSpmResultByIntakeApplication(@PathVariable String referenceNo) {
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
 		List<InSpmResult> spmResults = commonService.findSpmResults(application);
-		return new ResponseEntity<List<SpmResult>>(
-				commonTransformer.toSpmResultVos(spmResults),HttpStatus.OK);
+		return new ResponseEntity<List<SpmResult>>(commonTransformer.toSpmResultVos(spmResults), HttpStatus.OK);
 
 	}
-
+	
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.GET)
 	public ResponseEntity<SpmResult> findSpmResultByCode(@PathVariable Long id) {
 		return new ResponseEntity<SpmResult>(commonTransformer.toSpmResultVo(commonService.findSpmResultById(id)),
 				HttpStatus.OK);
 	}
-	
+		
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults", method = RequestMethod.POST)
 	public ResponseEntity<String> saveSpmResult(@PathVariable String referenceNo, @RequestBody SpmResult vo) {
-		
-		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-	
 
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		
 		InSpmResult spmResult = new InSpmResultImpl();
-		spmResult.setAggregate(vo.getAggregate());
 		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setAggregate(vo.getAggregate());
 		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
 		spmResult.setSpmSubjectCode(commonService.findSpmSubjectCodeById(vo.getSpmSubjectCode().getId()));
 		spmResult.setApplication(application);
 		spmResult.setResultType(InResultType.SPM);
-		
-		commonService.saveSpmResult(spmResult);
-		
-		return new ResponseEntity<String>("Success", HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<String> updateSpmResult(@PathVariable String referenceNo, @PathVariable Long id, @RequestBody SpmResult vo) {
-		
-		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-	
 
+		commonService.saveSpmResult(spmResult);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateSpmResult(@PathVariable String referenceNo, @PathVariable Long id,
+			@RequestBody SpmResult vo) {
+
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		LOG.debug("application_update:{}",application.getName());
+		
 		InSpmResult spmResult = commonService.findSpmResultById(id);
-		spmResult.setAggregate(vo.getAggregate());
 		spmResult.setGraduationYear(vo.getGraduationYear());
+		spmResult.setAggregate(vo.getAggregate());
 		spmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
 		spmResult.setSpmSubjectCode(commonService.findSpmSubjectCodeById(vo.getSpmSubjectCode().getId()));
 		spmResult.setApplication(application);
 		spmResult.setResultType(InResultType.SPM);
-		
+
 		commonService.updateSpmResult(spmResult);
-		
+
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteSpmResult(@PathVariable Long id) {
 
 		InSpmResult spmResult = commonService.findSpmResultById(id);
 		commonService.removeSpmResult(spmResult);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	// ==========================================================================================================================
+	// STPM RESULT
+	// ==========================================================================================================================
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults", method = RequestMethod.GET)
+	public ResponseEntity<List<StpmResult>> findStpmResultByIntakeApplication(@PathVariable String referenceNo) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		List<InStpmResult> stpmResults = commonService.findStpmResults(application);
+		return new ResponseEntity<List<StpmResult>>(commonTransformer.toStpmResultVos(stpmResults), HttpStatus.OK);
+
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults/{id}", method = RequestMethod.GET)
+	public ResponseEntity<StpmResult> findStpmResultByCode(@PathVariable Long id) {
+		return new ResponseEntity<StpmResult>(commonTransformer.toStpmResultVo(commonService.findStpmResultById(id)),
+				HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults", method = RequestMethod.POST)
+	public ResponseEntity<String> saveStpmResult(@PathVariable String referenceNo, @RequestBody StpmResult vo) {
+
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+
+		InStpmResult stpmResult = new InStpmResultImpl();
+		stpmResult.setAggregate(vo.getAggregate());
+		stpmResult.setGraduationYear(vo.getGraduationYear());
+		stpmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		stpmResult.setStpmSubjectCode(commonService.findStpmSubjectCodeById(vo.getStpmSubjectCode().getId()));
+		stpmResult.setApplication(application);
+		stpmResult.setResultType(InResultType.STPM);
+
+		commonService.saveStpmResult(stpmResult);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateStpmResult(@PathVariable String referenceNo, @PathVariable Long id,
+			@RequestBody StpmResult vo) {
+
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+
+		InStpmResult stpmResult = commonService.findStpmResultById(id);
+		stpmResult.setAggregate(vo.getAggregate());
+		stpmResult.setGraduationYear(vo.getGraduationYear());
+		stpmResult.setGradeCode(commonService.findGradeCodeById(vo.getGradeCode().getId()));
+		stpmResult.setStpmSubjectCode(commonService.findStpmSubjectCodeById(vo.getStpmSubjectCode().getId()));
+		stpmResult.setApplication(application);
+		stpmResult.setResultType(InResultType.STPM);
+
+		commonService.updateStpmResult(stpmResult);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteStpmResult(@PathVariable Long id) {
+
+		InStpmResult stpmResult = commonService.findStpmResultById(id);
+		commonService.removeStpmResult(stpmResult);
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
 
@@ -943,7 +1021,7 @@ public class ApplicationController {
 		guardian.setGuardianPostcode(vo.getGuardianPostcode());
 		guardian.setGuardianNo(vo.getGuardianNo());
 		guardian.setGuardianTypeCode(commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
-		//guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		// guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		applicationService.addGuardian(application, guardian);
 
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
@@ -970,7 +1048,7 @@ public class ApplicationController {
 		guardian.setGuardianPostcode(vo.getGuardianPostcode());
 		guardian.setGuardianNo(vo.getGuardianNo());
 		guardian.setGuardianTypeCode(commonService.findGuardianTypeCodeById(vo.getGuardianTypeCode().getId()));
-		//guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
+		// guardian.setType(InGuardianType.get(vo.getGuardianType().ordinal()));
 		applicationService.updateGuardian(application, guardian);
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}

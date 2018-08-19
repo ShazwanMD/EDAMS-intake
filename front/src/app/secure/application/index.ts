@@ -1,3 +1,5 @@
+import { StpmResultCode } from './../../shared/model/common/stpm-result-code.interface';
+import { StpmResultCodesListState, stpmResultCodesListReducer } from './intake-applications/stpm-result-list.reducer';
 import { ApplicationActions } from './application.action';
 import { SpmResultCodesListState, spmResultCodesListReducer } from './intake-applications/spm-result-list.reducer';
 import {Result} from '../../shared/model/application/result.interface';
@@ -60,6 +62,7 @@ import {Attachment} from '../../shared/model/application/attachment.interface';
 import { TabIndexState, tabIndexReducer } from './intake-applications/tab-index.reducer';
 import { supervisorOfferingListReducer, SupervisorOfferingListState } from '../../common/supervisor-offerings/supervisor-offering-list.reducer';
 import { SpmResultCode } from '../../shared/model/common/spm-result-code.interface';
+import { SpmMainResultCodeState, spmMainResultCodeReducer } from './intake-applications/spm-main-result-code.reducer';
 
 export interface ApplicationModuleState {
   tabIndex: TabIndexState;
@@ -76,6 +79,7 @@ export interface ApplicationModuleState {
   intakeApplication: IntakeApplicationState;
   results: ResultListState;
   spmResultCodes: SpmResultCodesListState;
+  stpmResultCodes: StpmResultCodesListState;
 }
 ;
 
@@ -94,6 +98,7 @@ export const INITIAL_APPLICATION_STATE: ApplicationModuleState = <ApplicationMod
   intakeApplications: [],
   intakeApplication: <IntakeApplication>{},
   spmResultCodes: <SpmResultCode[]>[],
+  stpmResultCodes: <StpmResultCode[]>[],
 
 };
 
@@ -112,6 +117,7 @@ export const applicationModuleReducers = {
   intakeApplications: intakeApplicationListReducer,
   intakeApplication: intakeApplicationReducer,
   spmResultCodes: spmResultCodesListReducer,
+  stpmResultCodes: stpmResultCodesListReducer,
 };
 
 @NgModule({
