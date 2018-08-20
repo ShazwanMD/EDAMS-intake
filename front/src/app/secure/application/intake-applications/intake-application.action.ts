@@ -1165,4 +1165,83 @@ export class IntakeApplicationActions {
       payload: message,
     };
   }
+
+  //============================================================================================================================
+  //  DIPLOMA RESULTS
+  //============================================================================================================================
+
+  static FIND_DIPLOMA_RESULT_CODES = '[Intake Application] Find Application DiplomaResultCodes';
+
+  findDiplomaResultCodes(application): Action {
+    console.log("findDiplomaResultCodes");
+    return {
+      type: IntakeApplicationActions.FIND_DIPLOMA_RESULT_CODES,
+      payload: application,
+    };
+  }
+
+  static FIND_DIPLOMA_RESULT_CODES_SUCCESS = '[Intake Application] Find Application DiplomaResultCodes Success';
+
+  findDiplomaResultCodesSuccess(codes): Action {
+    console.log("findDiplomaResultCodesSuccess");
+    return {
+      type: IntakeApplicationActions.FIND_DIPLOMA_RESULT_CODES_SUCCESS,
+      payload: codes
+    };
+  }
+
+  static ADD_DIPLOMA_RESULT = '[Intake Application] Save DIPLOMA RESULT CODE';
+
+  addDiplomaResultCode(application, diplomaResultCode): Action {
+    console.log('addDiplomaResultCode');
+    return {
+      type: IntakeApplicationActions.ADD_DIPLOMA_RESULT,
+      payload: { application: application, diplomaResultCode: diplomaResultCode },
+    };
+  }
+
+  static ADD_DIPLOMA_RESULT_SUCCESS = '[Intake Application] Add DIPLOMA RESULT CODE Success';
+
+  addDiplomaResultCodeSuccess(message): Action {
+    console.log('addDiplomaResultCodeSuccess');
+    return {
+      type: IntakeApplicationActions.ADD_DIPLOMA_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static UPDATE_DIPLOMA_RESULT = '[Intake Application] Update DIPLOMA RESULT CODE Application';
+
+  updateDiplomaResultCode(application, diplomaResultCode): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_DIPLOMA_RESULT,
+      payload: { application: application, diplomaResultCode: diplomaResultCode },
+    };
+  }
+
+  static UPDATE_DIPLOMA_RESULT_SUCCESS = '[Intake Application] Update DIPLOMA RESULT CODE Success';
+
+  updateDiplomaResultCodeSuccess(message): Action {
+    return {
+      type: IntakeApplicationActions.UPDATE_DIPLOMA_RESULT_SUCCESS,
+      payload: message,
+    };
+  }
+  static DELETE_DIPLOMA_RESULT_CODE = '[Intake Application] Delete DIPLOMA RESULT CODE';
+
+  deleteDiplomaResultCode(application, diplomaResultCode) {
+    return {
+      type: IntakeApplicationActions.DELETE_DIPLOMA_RESULT_CODE,
+      payload: { application: application, diplomaResultCode: diplomaResultCode },
+    };
+  }
+
+  static DELETE_DIPLOMA_RESULT_CODE_SUCCESS = '[Intake Application] Delete DIPLOMA RESULT CODE Success';
+
+  deleteDiplomaResultCodeSucces(message) {
+    return {
+      type: IntakeApplicationActions.DELETE_DIPLOMA_RESULT_CODE_SUCCESS,
+      payload: message,
+    };
+  }
+
 }

@@ -1,3 +1,4 @@
+import { DiplomaResultCode } from './../app/shared/model/application/diploma-result.interface';
 import { MainResultCode } from './../app/shared/model/common/main-result-code.interface';
 import { StpmResultCode } from './../app/shared/model/common/stpm-result-code.interface';
 import { Result } from '../app/shared/model/application/result.interface';
@@ -475,6 +476,37 @@ export class ApplicationService {
       + application.referenceNo + '/stpmResults/' + stpmResultCode.id)
       .flatMap((res: Response) => Observable.of(res.text()));
   }
+
+  // ====================================================================================================
+  //  DIPLOMA RESULT CODES
+  // ====================================================================================================
+
+  findDiplomaResultCodes(application: IntakeApplication): Observable<DiplomaResultCode[]> {
+    console.log('findDiplomaResultCodes');
+    return this._http.get(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo + '/diplomaResults')
+      .map((res: Response) => <DiplomaResultCode[]>res.json());
+  }
+
+  addDiplomaResultCodes(application: IntakeApplication, diplomaResultCode: DiplomaResultCode): Observable<String> {
+    console.log('save diploma result codes');
+    return this._http.post(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/diplomaResults', JSON.stringify(diplomaResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  updateDiplomaResultCodes(application: IntakeApplication, diplomaResultCode: DiplomaResultCode): Observable<String> {
+    console.log('save diploma result codes');
+    return this._http.put(this.APPLICATION_API + '/intakeApplications/' + application.referenceNo
+      + '/diplomaResults/' + diplomaResultCode.id, JSON.stringify(diplomaResultCode))
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
+  deleteDiplomaResultCodes(application: IntakeApplication, diplomaResultCode: DiplomaResultCode): Observable<String> {
+    return this._http.delete(this.APPLICATION_API + '/intakeApplications/'
+      + application.referenceNo + '/diplomaResults/' + diplomaResultCode.id)
+      .flatMap((res: Response) => Observable.of(res.text()));
+  }
+
 
 
 }

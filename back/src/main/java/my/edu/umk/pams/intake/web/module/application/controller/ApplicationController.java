@@ -7,6 +7,8 @@ import my.edu.umk.pams.intake.admission.model.InCandidateStatus;
 import my.edu.umk.pams.intake.admission.service.AdmissionService;
 import my.edu.umk.pams.intake.application.model.*;
 import my.edu.umk.pams.intake.application.service.ApplicationService;
+import my.edu.umk.pams.intake.common.model.InDiplomaResult;
+import my.edu.umk.pams.intake.common.model.InDiplomaResultImpl;
 import my.edu.umk.pams.intake.common.model.InPromoCode;
 import my.edu.umk.pams.intake.common.model.InSpmResult;
 import my.edu.umk.pams.intake.common.model.InSpmResultImpl;
@@ -852,18 +854,18 @@ public class ApplicationController {
 		return new ResponseEntity<List<SpmResult>>(commonTransformer.toSpmResultVos(spmResults), HttpStatus.OK);
 
 	}
-	
+
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults/{id}", method = RequestMethod.GET)
 	public ResponseEntity<SpmResult> findSpmResultByCode(@PathVariable Long id) {
 		return new ResponseEntity<SpmResult>(commonTransformer.toSpmResultVo(commonService.findSpmResultById(id)),
 				HttpStatus.OK);
 	}
-		
+
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/spmResults", method = RequestMethod.POST)
 	public ResponseEntity<String> saveSpmResult(@PathVariable String referenceNo, @RequestBody SpmResult vo) {
 
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		
+
 		InSpmResult spmResult = new InSpmResultImpl();
 		spmResult.setGraduationYear(vo.getGraduationYear());
 		spmResult.setAggregate(vo.getAggregate());
@@ -882,8 +884,8 @@ public class ApplicationController {
 			@RequestBody SpmResult vo) {
 
 		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
-		LOG.debug("application_update:{}",application.getName());
-		
+		LOG.debug("application_update:{}", application.getName());
+
 		InSpmResult spmResult = commonService.findSpmResultById(id);
 		spmResult.setGraduationYear(vo.getGraduationYear());
 		spmResult.setAggregate(vo.getAggregate());
@@ -922,7 +924,7 @@ public class ApplicationController {
 		return new ResponseEntity<StpmResult>(commonTransformer.toStpmResultVo(commonService.findStpmResultById(id)),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/intakeApplications/{referenceNo}/stpmResults", method = RequestMethod.POST)
 	public ResponseEntity<String> saveStpmResult(@PathVariable String referenceNo, @RequestBody StpmResult vo) {
 
@@ -965,6 +967,66 @@ public class ApplicationController {
 
 		InStpmResult stpmResult = commonService.findStpmResultById(id);
 		commonService.removeStpmResult(stpmResult);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	// ==========================================================================================================================
+	// DIPLOMA RESULT
+	// ==========================================================================================================================
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/diplomaResults", method = RequestMethod.GET)
+	public ResponseEntity<List<DiplomaResult>> findDiplomaResultByIntakeApplication(@PathVariable String referenceNo) {
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+		List<InDiplomaResult> diplomaResults = commonService.findDiplomaResultsByIntakeApplication(application);
+		return new ResponseEntity<List<DiplomaResult>>(applicationTransformer.toDiplomaResultVos(diplomaResults), HttpStatus.OK);
+
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/diplomaResults/{id}", method = RequestMethod.GET)
+	public ResponseEntity<DiplomaResult> findDiplomaResultById(@PathVariable Long id) {
+		return new ResponseEntity<DiplomaResult>(applicationTransformer.toDiplomaResultVo(commonService.findDiplomaResultById(id)),
+				HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/diplomaResults", method = RequestMethod.POST)
+	public ResponseEntity<String> saveDiplomaResult(@PathVariable String referenceNo, @RequestBody DiplomaResult vo) {
+
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+
+		InDiplomaResult diplomaResult = new InDiplomaResultImpl();
+		diplomaResult.setCgpa(vo.getCgpa());
+		diplomaResult.setGraduationYear(vo.getGraduationYear());
+		diplomaResult.setApplication(application);
+		diplomaResult.setResultType(InResultType.STPM);
+		diplomaResult.setInstitution(vo.getInstitution());
+	
+		commonService.saveDiplomaResult(diplomaResult);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/diplomaResults/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateDiplomaResult(@PathVariable String referenceNo, @PathVariable Long id,
+			@RequestBody DiplomaResult vo) {
+
+		InIntakeApplication application = applicationService.findIntakeApplicationByReferenceNo(referenceNo);
+
+		InDiplomaResult diplomaResult = commonService.findDiplomaResultById(id);
+		diplomaResult.setCgpa(vo.getCgpa());
+		diplomaResult.setGraduationYear(vo.getGraduationYear());
+		diplomaResult.setApplication(application);
+		diplomaResult.setResultType(InResultType.STPM);
+		diplomaResult.setInstitution(vo.getInstitution());
+		commonService.updateDiplomaResult(diplomaResult);
+
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/intakeApplications/{referenceNo}/diplomaResults/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteDiplomaResult(@PathVariable Long id) {
+
+		InDiplomaResult diplomaResult = commonService.findDiplomaResultById(id);
+		commonService.deleteDiplomaResult(diplomaResult);
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
 

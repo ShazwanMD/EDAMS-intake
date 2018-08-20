@@ -383,6 +383,10 @@
                   <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
                   </pams-stpm-result>
 
+                  <pams-diploma-result [intakeApplication]="_intakeApplication" [diplomaResultCodes]="diplomaResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
+                  </pams-diploma-result>
+
+
                 </md-card>
           </td-expansion-panel>
           <!-- <td-expansion-panel label="Keputusan SPM (sekiranya ada)">

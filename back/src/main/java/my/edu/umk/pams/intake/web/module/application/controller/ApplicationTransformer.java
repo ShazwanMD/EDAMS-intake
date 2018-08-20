@@ -1,6 +1,7 @@
 package my.edu.umk.pams.intake.web.module.application.controller;
 
 import my.edu.umk.pams.intake.application.model.*;
+import my.edu.umk.pams.intake.common.model.InDiplomaResult;
 import my.edu.umk.pams.intake.web.module.application.vo.*;
 import my.edu.umk.pams.intake.web.module.common.controller.CommonTransformer;
 import my.edu.umk.pams.intake.web.module.common.vo.StateCode;
@@ -27,13 +28,11 @@ public class ApplicationTransformer {
 	@Autowired
 	private ApplicationTransformer applicationTransformer;
 
-	
-	public IntakeApplication toIntakeApplicationVo(InIntakeApplication e)
-	{
-		IntakeApplication vo = new IntakeApplication();	
+	public IntakeApplication toIntakeApplicationVo(InIntakeApplication e) {
+		IntakeApplication vo = new IntakeApplication();
 		vo.setId(e.getId());
 		vo.setReferenceNo(e.getReferenceNo());
-	//	vo.setPromoCode(commonTransformer.toPromoCodeVo(e.getPromoCode()));
+		// vo.setPromoCode(commonTransformer.toPromoCodeVo(e.getPromoCode()));
 		vo.setResearchTitle(e.getResearchTitle());
 		vo.setName(e.getName());
 		vo.setCredentialNo(e.getCredentialNo());
@@ -53,7 +52,7 @@ public class ApplicationTransformer {
 		vo.setMerit(e.getMerit());
 		vo.setSelfSponsored(e.isSelfSponsored());
 		vo.setPlaceOfBirth(e.getPlaceOfBirth());
-		
+
 		vo.setSpmResultAttached(e.isSpmResultAttached());
 		vo.setStpmResultAttached(e.isStpmResultAttached());
 		vo.setDiplomaResultAttached(e.isDiplomaResultAttached());
@@ -76,7 +75,7 @@ public class ApplicationTransformer {
 		vo.setApelCertificateAttached(e.isApelCertificateAttached());
 		vo.setPassportImageAttached(e.isPassportImageAttached());
 		vo.setEmploymentVerificationAttached(e.isEmploymentVerificationAttached());
-		
+
 		// address
 		vo.setMailingAddress1(e.getMailingAddress1());
 		vo.setMailingAddress2(e.getMailingAddress2());
@@ -90,7 +89,7 @@ public class ApplicationTransformer {
 		vo.setOfficialPostcode(e.getOfficialPostcode());
 		vo.setOfficialStateCode(commonTransformer.toStateCodeVo(e.getOfficialStateCode()));
 		vo.setOfficialCountryCode(commonTransformer.toCountryCodeVo(e.getOfficialCountryCode()));
-		
+
 		// employment
 		vo.setPosition(e.getPosition());
 		vo.setIncome(e.getIncome());
@@ -101,11 +100,10 @@ public class ApplicationTransformer {
 		vo.setEmployerPostcode(e.getEmployerPostcode());
 		vo.setEmployerState(commonTransformer.toStateCodeVo(e.getEmployerState()));
 		vo.setEmploymentSectorCode(commonTransformer.toEmploymentSectorCodeVo(e.getEmploymentSectorCode()));
-		vo.setEmploymentTypeCode(commonTransformer.toEmploymentTypeCodeVo(e.getEmploymentTypeCode()));			
+		vo.setEmploymentTypeCode(commonTransformer.toEmploymentTypeCodeVo(e.getEmploymentTypeCode()));
 		vo.setBidType(BidType.get(e.getBidType().ordinal()));
 		vo.setBidStatus(InCandidateStatus.get(e.getBidStatus().ordinal()));
-		
-		
+
 		vo.setGuardianName(e.getGuardianName());
 		vo.setGuardianIdentityNo(e.getGuardianIdentityNo());
 		vo.setGuardianPhoneNo(e.getGuardianPhoneNo());
@@ -117,7 +115,6 @@ public class ApplicationTransformer {
 		vo.setGuardianCountryCode(commonTransformer.toCountryCodeVo(e.getGuardianCountryCode()));
 		vo.setGuardianTypeCode(commonTransformer.toGuardianTypeCodeVo(e.getGuardianTypeCode()));
 
-				
 		vo.setGenderCode(commonTransformer.toGenderCodeVo(e.getGenderCode()));
 		vo.setRaceCode(commonTransformer.toRaceCodeVo(e.getRaceCode()));
 		vo.setReligionCode(commonTransformer.toReligionCodeVo(e.getReligionCode()));
@@ -131,8 +128,7 @@ public class ApplicationTransformer {
 		vo.setStudyModeSelection(policyTransformer.toStudyModeOfferingVo(e.getStudyModeSelection()));
 		vo.setSupervisorSelection(policyTransformer.toSupervisorOfferingVo(e.getSupervisorSelection()));
 		// vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
-	    commonTransformer.decorateMeta(e,vo);
-
+		commonTransformer.decorateMeta(e, vo);
 
 		return vo;
 	}
@@ -141,7 +137,7 @@ public class ApplicationTransformer {
 		IntakeApplication vo = new IntakeApplication();
 		vo.setId(e.getId());
 		vo.setReferenceNo(e.getReferenceNo());
-	//	vo.setPromoCode(commonTransformer.toPromoCodeVo(e.getPromoCode()));
+		// vo.setPromoCode(commonTransformer.toPromoCodeVo(e.getPromoCode()));
 		vo.setName(e.getName());
 		vo.setCredentialNo(e.getCredentialNo());
 		vo.setEmail(e.getEmail());
@@ -151,7 +147,7 @@ public class ApplicationTransformer {
 		vo.setResearchTitle(e.getResearchTitle());
 		vo.setReason(e.getReason());
 		vo.setMerit(e.getMerit());
-		
+
 		vo.setMaritalCode(commonTransformer.toMaritalCodeVo(e.getMaritalCode()));
 		vo.setNationalityCode(commonTransformer.toNationalityCodeVo(e.getNationalityCode()));
 		vo.setResidencyCode(commonTransformer.toResidencyCodeVo(e.getResidencyCode()));
@@ -160,8 +156,7 @@ public class ApplicationTransformer {
 		vo.setSupervisorSelection(policyTransformer.toSupervisorOfferingVo(e.getSupervisorSelection()));
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
 		vo.setIntake(policyTransformer.toIntakeVo(e.getIntake()));
-			
-		
+
 		// address
 		vo.setMailingAddress1(e.getMailingAddress1());
 		vo.setMailingAddress2(e.getMailingAddress2());
@@ -175,7 +170,7 @@ public class ApplicationTransformer {
 		vo.setOfficialPostcode(e.getOfficialPostcode());
 		vo.setOfficialStateCode(commonTransformer.toStateCodeVo(e.getOfficialStateCode()));
 		vo.setOfficialCountryCode(commonTransformer.toCountryCodeVo(e.getOfficialCountryCode()));
-		commonTransformer.decorateMeta(e,vo);
+		commonTransformer.decorateMeta(e, vo);
 		return vo;
 	}
 
@@ -184,36 +179,36 @@ public class ApplicationTransformer {
 				.collect(Collectors.toList());
 		return vos;
 	}
-	
+
 	public List<IntakeApplication> toIntakeApplicationVos(List<InIntakeApplication> e) {
 		List<IntakeApplication> vos = e.stream().map((e1) -> toIntakeApplicationVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
 
-	//GUARDIAN
+	// GUARDIAN
 	public Guardian toGuardianVo(InGuardian e) {
 		Guardian vo = new Guardian();
 		vo.setId(e.getId());
-//		vo.setName(e.getName());
-//		vo.setGuardianNo(e.getGuardianNo());
-//		vo.setGuardianAddress1(e.getGuardianAddress1());
-//		vo.setGuardianAddress2(e.getGuardianAddress2());
-//		vo.setGuardianAddress3(e.getGuardianAddress3());
-//		vo.setGuardianPostcode(e.getGuardianPostcode());
-//		vo.setGuardianType(GuardianType.get(e.getType().ordinal()));
-//		vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
-//		vo.setSalary(e.getSalary());
-//		vo.setIdentityNo(e.getIdentityNo());
+		// vo.setName(e.getName());
+		// vo.setGuardianNo(e.getGuardianNo());
+		// vo.setGuardianAddress1(e.getGuardianAddress1());
+		// vo.setGuardianAddress2(e.getGuardianAddress2());
+		// vo.setGuardianAddress3(e.getGuardianAddress3());
+		// vo.setGuardianPostcode(e.getGuardianPostcode());
+		// vo.setGuardianType(GuardianType.get(e.getType().ordinal()));
+		// vo.setGuardianState(commonTransformer.toStateCodeVo(e.getGuardianState()));
+		// vo.setSalary(e.getSalary());
+		// vo.setIdentityNo(e.getIdentityNo());
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
 		return vo;
 	}
-	
+
 	public List<Guardian> toGuardianVos(List<InGuardian> e) {
 		List<Guardian> vos = e.stream().map((e1) -> toGuardianVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
 
-	//GUARANTOR
+	// GUARANTOR
 	public Guarantor toGuarantorVo(InGuarantor e) {
 		Guarantor vo = new Guarantor();
 		vo.setId(e.getId());
@@ -222,7 +217,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
-	//CONTACT
+	// CONTACT
 	public Contact toContactVo(InContact e) {
 		Contact vo = new Contact();
 		vo.setId(e.getId());
@@ -231,7 +226,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
-	//ATTACHMENT
+	// ATTACHMENT
 	public Attachment toAttachmentVo(InAttachment e) {
 		Attachment vo = new Attachment();
 		vo.setId(e.getId());
@@ -241,16 +236,16 @@ public class ApplicationTransformer {
 		vo.setAttachmentType(AttachmentType.get(e.getAttachmentType().ordinal()));
 
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
-		
+
 		return vo;
 	}
-	
+
 	public List<Attachment> toAttachmentVos(List<InAttachment> e) {
 		List<Attachment> vos = e.stream().map((e1) -> toAttachmentVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
 
-	//EDUCATION
+	// EDUCATION
 	public Education toEducationVo(InEducation e) {
 		Education vo = new Education();
 		vo.setId(e.getId());
@@ -266,7 +261,7 @@ public class ApplicationTransformer {
 		return vos;
 	}
 
-	//EMPLOYMENT
+	// EMPLOYMENT
 	public Employment toEmploymentVo(InEmployment e) {
 		Employment vo = new Employment();
 		vo.setId(e.getId());
@@ -286,8 +281,8 @@ public class ApplicationTransformer {
 		List<Employment> vos = e.stream().map((e1) -> toEmploymentVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
-	
-	//LANGUAGE
+
+	// LANGUAGE
 	public Language toLanguageVo(InLanguage e) {
 		Language vo = new Language();
 		vo.setId(e.getId());
@@ -303,7 +298,7 @@ public class ApplicationTransformer {
 		return vos;
 	}
 
-	//INVOLVEMENT
+	// INVOLVEMENT
 	public Involvement toInvolvementVo(InInvolvement e) {
 		Involvement vo = new Involvement();
 		vo.setId(e.getId());
@@ -312,7 +307,7 @@ public class ApplicationTransformer {
 		return vo;
 	}
 
-	//REFEREE
+	// REFEREE
 	public Referee toRefereeVo(InReferee e) {
 		Referee vo = new Referee();
 		vo.setId(e.getId());
@@ -330,7 +325,7 @@ public class ApplicationTransformer {
 		return vos;
 	}
 
-	//RESULT
+	// RESULT
 	public Result toResultVo(InResult e) {
 		Result vo = new Result();
 		vo.setId(e.getId());
@@ -350,10 +345,24 @@ public class ApplicationTransformer {
 		List<Result> vos = e.stream().map((e1) -> toResultVo(e1)).collect(Collectors.toList());
 		return vos;
 	}
-	
 
-	
+	// DIPLOMA RESULT
+	public DiplomaResult toDiplomaResultVo(InDiplomaResult e) {
+		
+		DiplomaResult vo = new DiplomaResult();
+		vo.setId(e.getId());
+		vo.setResultType(ResultType.get(e.getResultType().ordinal()));
+		vo.setGraduationYear(e.getGraduationYear());
+		vo.setCgpa(e.getCgpa());
+		vo.setInstitution(e.getInstitution());
+		vo.setApplication(toIntakeApplicationVo(e.getApplication()));
+		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
+		return vo;
+	}
 
-	
-	
+	public List<DiplomaResult> toDiplomaResultVos(List<InDiplomaResult> e) {
+		List<DiplomaResult> vos = e.stream().map((e1) -> toDiplomaResultVo(e1)).collect(Collectors.toList());
+		return vos;
+	}
+
 }

@@ -1038,6 +1038,19 @@ public interface CommonService {
 	void updateStpmResult(InStpmResult stpmResult);
 
 	void removeStpmResult(InStpmResult stpmResult);
+	
+	// ====================================================================================================
+	// DIPLOMA RESULT
+	// ====================================================================================================
 
+	InDiplomaResult findDiplomaResultById(Long id);
+	
+	List<InDiplomaResult> findDiplomaResultsByIntakeApplication(InIntakeApplication application);
+	
+	void saveDiplomaResult(InDiplomaResult diplomaResult);
+	
+	void updateDiplomaResult(InDiplomaResult diplomaResult);
+	
+	void deleteDiplomaResult(InDiplomaResult diplomaResult);
 
 }

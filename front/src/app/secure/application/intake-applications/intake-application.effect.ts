@@ -137,6 +137,7 @@ export class IntakeApplicationEffects {
       this.intakeApplicationActions.findAttachmentsByIntakeApplication(action.payload),
       this.intakeApplicationActions.findSpmResultCodes(action.payload),
       this.intakeApplicationActions.findStpmResultCodes(action.payload),
+      this.intakeApplicationActions.findDiplomaResultCodes(action.payload),
     ]));
 
   @Effect() updateIntakeApplication$ = this.actions$
@@ -537,6 +538,45 @@ export class IntakeApplicationEffects {
     .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
     .map((state) => state[1])
     .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+
+  //================================================================================================================================
+  // DIPLOMA RESULT
+  //================================================================================================================================
+
+  @Effect() findDiplomaResultCodes$ = this.actions$
+    .ofType(IntakeApplicationActions.FIND_DIPLOMA_RESULT_CODES)
+    .map(action => action.payload)
+    .switchMap((application) => this.applicationService.findDiplomaResultCodes(application))
+    .map(codes => this.intakeApplicationActions.findDiplomaResultCodesSuccess(codes));
+
+  @Effect() addDiplomaResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.ADD_DIPLOMA_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.addDiplomaResultCodes(payload.application, payload.diplomaResultCode))
+    .map((message) => this.intakeApplicationActions.addDiplomaResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+  @Effect() updateDiplomaResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.UPDATE_DIPLOMA_RESULT)
+    .map((action) => action.payload)
+    .switchMap((payload) => this.applicationService.updateDiplomaResultCodes(payload.application, payload.diplomaResultCode))
+    .map((message) => this.intakeApplicationActions.updateDiplomaResultCodeSuccess(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
+  @Effect() deleteDiplomaResultCode$ = this.actions$
+    .ofType(IntakeApplicationActions.DELETE_DIPLOMA_RESULT_CODE)
+    .map((action) => action.payload)
+    .flatMap((payload) => this.applicationService.deleteDiplomaResultCodes(payload.application, payload.diplomaResultCode))
+    .map((message) => this.intakeApplicationActions.deleteDiplomaResultCodeSucces(message))
+    .withLatestFrom(this.store$.select(...this.INTAKE_APPLICATION))
+    .map((state) => state[1])
+    .map((application: IntakeApplication) => this.intakeApplicationActions.findIntakeApplicationByReferenceNo(application.referenceNo));
+
 
 
 

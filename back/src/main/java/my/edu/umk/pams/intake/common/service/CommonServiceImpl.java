@@ -163,6 +163,9 @@ public class CommonServiceImpl implements CommonService {
 	private InStpmResultDao stpmResultDao;
 	
 	@Autowired
+	private InDiplomaResultDao diplomaResultDao;
+	
+	@Autowired
 	private SecurityService securityService;
 
 	@Autowired
@@ -2666,6 +2669,40 @@ public class CommonServiceImpl implements CommonService {
 	public void removeStpmSubjectCode(InStpmSubjectCode stpmSubjectCode) {
 		stpmSubjectCodeDao.delete(stpmSubjectCode, securityService.getCurrentUser());
 		sessionFactory.getCurrentSession().flush();
+	}
+	
+	// ====================================================================================================
+	// DIPLOMA SUBJECT CODE
+	// ====================================================================================================
+
+	@Override
+	public InDiplomaResult findDiplomaResultById(Long id) {
+		return diplomaResultDao.findById(id);
+	}
+
+	@Override
+	public List<InDiplomaResult> findDiplomaResultsByIntakeApplication(InIntakeApplication application) {
+		return diplomaResultDao.findDiplomaResults(application);
+	}
+
+	@Override
+	public void saveDiplomaResult(InDiplomaResult diplomaResult) {
+		diplomaResultDao.save(diplomaResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+	}
+
+	@Override
+	public void updateDiplomaResult(InDiplomaResult diplomaResult) {
+		diplomaResultDao.update(diplomaResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+
+	}
+
+	@Override
+	public void deleteDiplomaResult(InDiplomaResult diplomaResult) {
+		diplomaResultDao.delete(diplomaResult, securityService.getCurrentUser());
+		sessionFactory.getCurrentSession().flush();
+
 	}
 
 }

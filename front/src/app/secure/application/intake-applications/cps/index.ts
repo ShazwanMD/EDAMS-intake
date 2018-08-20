@@ -1,3 +1,4 @@
+import { DiplomaResultCreatorDialog } from './../dialog/diploma-result-creator.dialog';
 import { SpmResultCreatorDialog } from './../dialog/spm-result-creator.dialog';
 import { StpmResultCreatorDialog } from './../dialog/stpm-result-creator.dialog';
 import { EmploymentWorkingDurationComponent } from './../component/employment-working-duration.component';
@@ -87,6 +88,7 @@ import { GuardiansTypeSelectComponent } from '../component/guardian-type-select.
     BachelorResultEditorDialog,
     MasterResultEditorDialog,
     DiplomaResultEditorDialog,
+    DiplomaResultCreatorDialog,
     PhdResultEditorDialog,
     LanguageEditorDialog,
     AttachmentCreatorDialog,
@@ -127,6 +129,7 @@ import { GuardiansTypeSelectComponent } from '../component/guardian-type-select.
     MasterResultEditorDialog,
     PhdResultEditorDialog,
     DiplomaResultEditorDialog,
+    DiplomaResultCreatorDialog,
     LanguageEditorDialog,
     AttachmentCreatorDialog,
     PromoCodeDialog,

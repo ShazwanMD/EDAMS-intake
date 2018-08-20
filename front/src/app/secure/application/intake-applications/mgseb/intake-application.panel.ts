@@ -30,6 +30,7 @@ import { PromoCodeDialog } from "../dialog/promo-code.dialog";
 import { GuardianType } from '../../../../shared/model/application/guardian-type.enum';
 import { GuardianTypeCode } from '../../../../shared/model/common/guardian-type-code.interface';
 import { StpmResultCode } from '../../../../shared/model/common/stpm-result-code.interface';
+import { DiplomaResultCode } from '../../../../shared/model/application/diploma-result.interface';
 
 @Component({
   selector: 'pams-mgseb-intake-application',
@@ -52,6 +53,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
   private ATTACHMENTS: string[] = 'applicationModuleState.attachments'.split('.');
   private SPM_RESULT_CODES: string[] = 'applicationModuleState.spmResultCodes'.split('.');
   private STPM_RESULT_CODES: string[] = 'applicationModuleState.stpmResultCodes'.split('.');
+  private DIPLOMA_RESULT_CODES: string[] = 'applicationModuleState.diplomaResultCodes'.split('.');
 
   private employments$: Observable<Employment>;
   private languages$: Observable<Language>;
@@ -63,6 +65,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
   private _intakeApplication: IntakeApplication;
   private spmResultCodes$: Observable<SpmResultCode>;
   private stpmResultCodes$: Observable<StpmResultCode>;
+  private diplomaResultCodes$: Observable<DiplomaResultCode>;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -81,6 +84,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     this.tabIndex$ = this.store.select(...this.TAB_INDEX);
     this.spmResultCodes$ = this.store.select(...this.SPM_RESULT_CODES);
     this.stpmResultCodes$ = this.store.select(...this.STPM_RESULT_CODES);
+    this.diplomaResultCodes$ = this.store.select(...this.DIPLOMA_RESULT_CODES);
   }
 
   get intakeApplication(): IntakeApplication {

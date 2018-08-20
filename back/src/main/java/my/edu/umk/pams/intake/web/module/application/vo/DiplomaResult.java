@@ -14,72 +14,61 @@ import java.util.Date;
  */
 public class DiplomaResult extends MetaObject {
 
-    private String name;
-    private Integer year;
-    private BigDecimal cgpa = BigDecimal.ZERO;
-    private ResultType resultType;
+	private String graduationYear;
+	private String cgpa;
+	private String institution;
+	private IntakeApplication application;
+	private ResultType resultType;
 
-
-    
-
-
-
-	public String getName() {
-		return name;
+	public String getGraduationYear() {
+		return graduationYear;
 	}
 
-
-
-	public void setName(String name) {
-		this.name = name;
+	public void setGraduationYear(String graduationYear) {
+		this.graduationYear = graduationYear;
 	}
 
-
-
-	public Integer getYear() {
-		return year;
-	}
-
-
-
-	public void setYear(Integer year) {
-		this.year = year;
-	}
-
-
-	public BigDecimal getCgpa() {
+	public String getCgpa() {
 		return cgpa;
 	}
 
-
-
-	public void setCgpa(BigDecimal cgpa) {
+	public void setCgpa(String cgpa) {
 		this.cgpa = cgpa;
 	}
 
+	public String getInstitution() {
+		return institution;
+	}
 
+	public void setInstitution(String institution) {
+		this.institution = institution;
+	}
+
+	public IntakeApplication getApplication() {
+		return application;
+	}
+
+	public void setApplication(IntakeApplication application) {
+		this.application = application;
+	}
 
 	public ResultType getResultType() {
 		return resultType;
 	}
 
-
-
 	public void setResultType(ResultType resultType) {
 		this.resultType = resultType;
 	}
 
-
-
 	@JsonCreator
-    public static DiplomaResult create(String jsonString) {
+	public static DiplomaResult create(String jsonString) {
 		DiplomaResult o = null;
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            o = mapper.readValue(jsonString, DiplomaResult.class);
-        } catch (IOException e) {
-            // handle
-        }
-        return o;
-    }
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			o = mapper.readValue(jsonString, DiplomaResult.class);
+		} catch (IOException e) {
+			// handle
+		}
+		return o;
+	}
 }

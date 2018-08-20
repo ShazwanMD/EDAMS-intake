@@ -12,11 +12,11 @@ import {IntakeApplication} from '../../../../shared/model/application/intake-app
 import {ResultType} from '../../../../shared/model/application/result-type.enum';
 
 @Component({
-  selector: 'pams-diploma-result-editor',
-  templateUrl: './diploma-result-editor.dialog.html',
+  selector: 'pams-diploma-result-creator',
+  templateUrl: './diploma-result-creator.dialog.html',
 })
 
-export class DiplomaResultEditorDialog implements OnInit {
+export class DiplomaResultCreatorDialog implements OnInit {
 
   private _intakeApplication: IntakeApplication;
   private editForm: FormGroup;
@@ -29,7 +29,7 @@ export class DiplomaResultEditorDialog implements OnInit {
               private viewContainerRef: ViewContainerRef,
               private store: Store<ApplicationModuleState>,
               private actions: IntakeApplicationActions,
-              private dialog: MdDialogRef<DiplomaResultEditorDialog>) {
+              private dialog: MdDialogRef<DiplomaResultCreatorDialog>) {
   }
 
   set diplomaResultCode(value: DiplomaResultCode) {
@@ -54,7 +54,7 @@ export class DiplomaResultEditorDialog implements OnInit {
   }
 
   submit(diplomaResultCode: DiplomaResultCode, isValid: boolean) {
-    this.store.dispatch(this.actions.updateDiplomaResultCode(this._intakeApplication, diplomaResultCode));
+    this.store.dispatch(this.actions.addDiplomaResultCode(this._intakeApplication, diplomaResultCode));
     this.dialog.close();
   }
 }
