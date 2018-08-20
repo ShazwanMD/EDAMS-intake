@@ -10,7 +10,7 @@
   <md-card class="">
     <md-tab-group [selectedIndex]="0">
 
-      <md-tab label="My Account">
+      <md-tab label="Maklumat Akaun Pemohon">
         <md-nav-list>
 
           <pams-applicant [applicant]="applicant$ | async">
@@ -46,7 +46,7 @@
       </md-tab>
 
 
-      <md-tab label="My Applications">
+      <md-tab label="Maklumat Borang Permohonan">
         <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
           <div *ngIf="(myIntakeApplications$ | async)?.length === 0">
             <span>You have not applied yet. Please take a look at open intakes</span>
@@ -152,7 +152,7 @@
       </md-tab> -->
 
 
-      <md-tab label="Open Intakes">
+      <md-tab label="Pengambilan">
         <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
           <div *ngIf="(publishedIntakes$ | async)?.length === 0">
             <span>There is no open intake at the moment. Please check again later</span>
