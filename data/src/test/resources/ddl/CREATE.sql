@@ -1131,6 +1131,20 @@ create table IN_ACTR (
         primary key (ID)
     ); 
     
+     create table IN_STPM_SBJT_CODE (
+        ID int8 not null,
+        CODE varchar(255) not null,
+        DESCRIPTION varchar(255),
+        C_TS timestamp,
+        C_ID int8,
+        D_TS timestamp,
+        D_ID int8,
+        M_TS timestamp,
+        M_ID int8,
+        M_ST int4,
+        primary key (ID)
+    ); 
+    
     create table IN_SBJT_CODE (
         ID int8 not null,
         CODE varchar(255) not null,
@@ -1865,4 +1879,5 @@ create table IN_ACTR (
     create sequence SQ_IN_GRDN_TYPE_CODE;
     create sequence SQ_IN_SPM_RSLT;
     create sequence SQ_IN_SPM_SBJT_CODE;
+    create sequence SQ_IN_STPM_SBJT_CODE;
     
