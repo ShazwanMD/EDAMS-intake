@@ -25,7 +25,10 @@ public enum AttachmentType {
     MASTER,
     MASTER_EQUIVALENT,
     PHD,
-    PHD_EQUIVALENT;
+    PHD_EQUIVALENT,
+	PASSPORT_IMAGE,
+	EMPLOYMENT_VERIFICATION,
+	APEL_CERTIFICATE;
 
     public static AttachmentType get(int index) {
         return values()[index];

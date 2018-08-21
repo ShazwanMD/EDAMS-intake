@@ -1,340 +1,416 @@
-
 <td-layout-card-over>
   <form [formGroup]="applicationForm" novalidate>
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
       <div>
         <md-card-title>Permohonan Pengambilan</md-card-title>
-        <md-card-subtitle><b>Pendaftaran Pengambilan Bagi Sesi {{intakeApplication?.intake?.intakeSession?.code}} </b></md-card-subtitle>
+        <md-card-subtitle>
+          <b>Pendaftaran Pengambilan Bagi Sesi {{intakeApplication?.intake?.intakeSession?.code}} </b>
+        </md-card-subtitle>
       </div>
     </div>
     <md-divider></md-divider>
-    <md-tab-group (selectChange)="onTabChange($event)"[selectedIndex]="tabIndex$ | async">
+    <md-tab-group (selectChange)="onTabChange($event)" [selectedIndex]="tabIndex$ | async">
       <md-tab>
         <template md-tab-label>Maklumat Umum</template>
 
         <td-expansion-panel label="Program Pengajian">
-         
+
           <!-- <pams-program-choice [intakeApplication]="_intakeApplication">
           </pams-program-choice> -->
 
-          <pams-study-center-choice
-          [intakeApplication]="_intakeApplication">
+          <pams-study-center-choice [intakeApplication]="_intakeApplication">
           </pams-study-center-choice>
 
           <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-          <pams-study-center-code-select [placeholder]="'Pusat Pengajian'" [innerFormControl]="applicationForm.controls.studyCenterCode"
-            fxFlex="calc(50%-25px)" class="pad-bottom">
-          </pams-study-center-code-select>
+            <pams-study-center-code-select [placeholder]="'Pusat Pengajian'" [innerFormControl]="applicationForm.controls.studyCenterCode"
+              fxFlex="calc(50%-25px)" class="pad-bottom">
+            </pams-study-center-code-select>
           </div>
 
         </td-expansion-panel>
 
         <!-- <template md-tab-label>Applicant Personal Information</template> -->
         <td-expansion-panel label="Maklumat Peribadi">
-        <div>
-        <!-- <md-card-subtitle>Applicant Personal Information</md-card-subtitle> -->
-        </div>
-        <md-divider></md-divider>
-
-        <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-            <!-- first column -->
-            
-        <md-input-container fxFlex="calc(100%-25px)">
-        <input mdInput placeholder="Nama Penuh" formControlName="name"/>
-        </md-input-container>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-        <input mdInput placeholder="Emel" formControlName="email"/>
-        </md-input-container>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-        <input mdInput formControlName="credentialNo" placeholder="No. Kad Pengenalan*">
-        </md-input-container>
-        <div class="error" class="tc-red-600"
-         *ngIf="applicationForm.get('credentialNo').invalid && applicationForm.get('credentialNo').touched">
-       Sila masukkan No Kad Pengenalan / Passport anda!
-        </div>
-        
-        <md-input-container fxFlex="calc(50%-25px)">
-        <input mdInput type="date" formControlName="birthDate" placeholder="Tarikh Lahir*"/>
-        </md-input-container>
-        <div class="error" class="tc-red-600"
-          *ngIf="applicationForm.get('birthDate').invalid && applicationForm.get('birthDate').touched">
-              Sila Masukkan tarikh lahir anda!
-        </div>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-          <input mdInput placeholder="Tempat Lahir" formControlName="placeOfBirth"/>
-        </md-input-container>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-          <input mdInput placeholder="Umur" formControlName="age"/>
-        </md-input-container>
-
-        <pams-nationality-code-select [placeholder]="'Kewarganegaraan *'"
-                                          [innerFormControl]="applicationForm.controls.nationalityCode"
-                                          fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-nationality-code-select>
-
-        <pams-residency-code-select [placeholder]="'Residen *'" 
-                                     [innerFormControl]="applicationForm.controls.residencyCode"
-                                     fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-residency-code-select>
-
-        <pams-race-code-select [placeholder]="'Kaum'" [innerFormControl]="applicationForm.controls.raceCode"
-                                   fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-race-code-select>
-
-        <pams-marital-code-select [placeholder]="'Status Perkahwinan'"
-                                      [innerFormControl]="applicationForm.controls.maritalCode"
-                                      fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-marital-code-select>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-              <input mdInput type="date" placeholder="Tarikh Luput Passport(jika ada)" formControlName="passExpDate" flex/>
-        </md-input-container>
-
-        <md-input-container fxFlex="calc(50%-25px)">
-        <input mdInput placeholder="Nombor Telefon Bimbit *" formControlName="mobile"/>
-        </md-input-container>
-          <div class="error" class="tc-red-600"
-                 *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
-              Sila masukkan nombor telefon bimbit!
+          <div>
+            <!-- <md-card-subtitle>Applicant Personal Information</md-card-subtitle> -->
           </div>
+          <md-divider></md-divider>
 
-        <md-input-container fxFlex="calc(50%-25px)">
-            <input mdInput placeholder="Nombor Telefon Rumah" formControlName="phone" flex/>
-        </md-input-container>
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+            <!-- first column -->
 
-        <md-input-container fxFlex="calc(50%-25px)">
-            <input mdInput placeholder="Nombor Fax" formControlName="fax" flex/>
-        </md-input-container>
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Nama Penuh" formControlName="name" />
+            </md-input-container>
 
-        <pams-ethnicity-code-select [placeholder]="'Etnik'" required md-maxlength="10"
-                                        [innerFormControl]="applicationForm.controls.ethnicityCode"
-                                        fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-ethnicity-code-select>
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Emel" formControlName="email" />
+            </md-input-container>
 
-        <pams-gender-code-select [placeholder]="'Jantina'"
-                                     [innerFormControl]="applicationForm.controls.genderCode"
-                                     fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-gender-code-select>
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput formControlName="credentialNo" placeholder="No. Kad Pengenalan*">
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('credentialNo').invalid && applicationForm.get('credentialNo').touched">
+              Sila masukkan No Kad Pengenalan / Passport anda!
+            </div>
 
-        <pams-religion-code-select [placeholder]="'Agama'"
-                                       [innerFormControl]="applicationForm.controls.religionCode"
-                                       fxFlex="calc(50%-25px)" class="pad-bottom">
-        </pams-religion-code-select>
-        </div>
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput type="date" formControlName="birthDate" placeholder="Tarikh Lahir*" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('birthDate').invalid && applicationForm.get('birthDate').touched">
+              Sila Masukkan tarikh lahir anda!
+            </div>
 
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Umur" formControlName="age" />
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(50%-25px)">
+                <input mdInput placeholder="Nombor Fax" formControlName="fax" flex/>
+              </md-input-container>
+
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput type="date" placeholder="Tarikh Luput Passport(jika ada)" formControlName="passExpDate" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Nombor Telefon Bimbit *" formControlName="mobile" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
+              Sila masukkan nombor telefon bimbit!
+            </div>
+
+            <md-input-container fxFlex="calc(50%-25px)">
+              <input mdInput placeholder="Nombor Telefon Rumah" formControlName="phone" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Tempat Lahir" formControlName="placeOfBirth" flex/>
+              </md-input-container>
+
+            <div flex-gt-md="100">
+              <div>
+                <b>Kewarganegaraan : </b><b *ngIf="_intakeApplication.nationalityCode !== null">{{_intakeApplication.nationalityCode.descriptionMs}}</b><br/>
+                <div>
+                  <pams-nationality-code-select [placeholder]="'Kewarganegaraan *'" 
+                  [innerFormControl]="applicationForm.controls.nationalityCode"
+                    fxFlex="calc(100%-25px)" 
+                    class="pad-bottom">
+                  </pams-nationality-code-select>
+                </div>
+              </div>
+
+              <div>
+                <b>Residen : </b><b *ngIf="_intakeApplication.residencyCode !== null">{{_intakeApplication.residencyCode.descriptionMs}}</b><br/>
+                <div>
+              <pams-residency-code-select [placeholder]="'Residen *'" 
+              [innerFormControl]="applicationForm.controls.residencyCode" 
+              fxFlex="calc(100%-25px)"
+                class="pad-bottom">
+              </pams-residency-code-select>
+                </div>
+              </div>
+
+              <div>
+                  <b>Kaum : </b><b *ngIf="_intakeApplication.raceCode !== null">{{_intakeApplication.raceCode.descriptionMs}}</b><br/>
+                  <div>
+              <pams-race-code-select [placeholder]="'Kaum'" 
+              [innerFormControl]="applicationForm.controls.raceCode" 
+              fxFlex="calc(100%-25px)"
+                class="pad-bottom">
+              </pams-race-code-select>
+                  </div>
+              </div>
+
+
+              <div>
+                  <b>Status Perkahwinan : </b><b *ngIf="_intakeApplication.maritalCode !== null">{{_intakeApplication.maritalCode.descriptionMs}}</b><br/>
+                  <div>
+              <pams-marital-code-select [placeholder]="'Status Perkahwinan'" 
+              [innerFormControl]="applicationForm.controls.maritalCode"
+                fxFlex="calc(100%-25px)" 
+                class="pad-bottom">
+              </pams-marital-code-select>
+                  </div>
+              </div>
+
+              <div>
+                  <b>Etnik : </b><b *ngIf="_intakeApplication.ethnicityCode !== null">{{_intakeApplication.ethnicityCode.descriptionMs}}</b><br/>
+                  <div>
+              <pams-ethnicity-code-select [placeholder]="'Etnik'" required md-maxlength="10" 
+              [innerFormControl]="applicationForm.controls.ethnicityCode"
+                fxFlex="calc(100%-25px)" 
+                class="pad-bottom">
+              </pams-ethnicity-code-select>
+                  </div>
+              </div>
+
+              <div>
+                  <b>Jantina : </b><b *ngIf="_intakeApplication.genderCode !== null">{{_intakeApplication.genderCode.descriptionMs}}</b><br/>
+                  <div>
+              <pams-gender-code-select [placeholder]="'Jantina'" 
+              [innerFormControl]="applicationForm.controls.genderCode" 
+              fxFlex="calc(100%-25px)"
+                class="pad-bottom">
+              </pams-gender-code-select>
+                  </div>
+              </div>
+
+              <div>
+                  <b>Agama : </b><b *ngIf="_intakeApplication.religionCode !== null">{{_intakeApplication.religionCode.descriptionMs}}</b><br/>
+                  <div>
+              <pams-religion-code-select [placeholder]="'Agama'" 
+              [innerFormControl]="applicationForm.controls.religionCode" 
+              fxFlex="calc(100%-25px)"
+                class="pad-bottom">
+              </pams-religion-code-select>
+                  </div>
+              </div>
+            </div>
+          </div>
         </td-expansion-panel>
 
         <td-expansion-panel label="Maklumat Alamat">
-            <br>
-            <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
-                <b>*Sila masukkan alamat rasmi dan alamat surat-menyurat.</b>
-            </div>
-            <br>
-            
-            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
-            Alamat Rasmi           
-            </div>
-            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Alamat *" formControlName="officialAddress1" flex/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
+          <br>
+          <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
+            <b>*Sila masukkan alamat rasmi dan alamat surat-menyurat.</b>
+          </div>
+          <br>
+
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+            Alamat Rasmi
+          </div>
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Alamat *" formControlName="officialAddress1" flex/>
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('officialAddress1').invalid && applicationForm.get('officialAddress1').touched">
               official Address 1 is required!
-             </div>
-  
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Sambungan Alamat *" formControlName="officialAddress2" flex/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Sambungan Alamat *" formControlName="officialAddress2" flex/>
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('officialAddress2').invalid && applicationForm.get('officialAddress2').touched">
               official Address 2 is required!
-             </div>
-  
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Jalan" formControlName="officialAddress3" flex/>
-              </md-input-container>
-  
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Poskod *" formControlName="officialPostcode" flex/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Jalan" formControlName="officialAddress3" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Poskod *" formControlName="officialPostcode" flex/>
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('officialPostcode').invalid && applicationForm.get('officialPostcode').touched">
               official Postcode is required!
-             </div>
-  
-              <pams-state-code-select [placeholder]="'Negeri'"
-                                      [innerFormControl]="applicationForm.controls.officialStateCode"
-                                      fxFlex="calc(50%-25px)"
-                                      class="pad-bottom">
-              </pams-state-code-select>
-  
-              <pams-country-code-select [placeholder]="'Negara'"
-                                        [innerFormControl]="applicationForm.controls.officialCountryCode"
-                                        fxFlex="calc(50%-25px)"
-                                        class="pad-bottom">
-              </pams-country-code-select>
-            </div>
-  
-            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset"> 
-            Alamat Surat-menyurat
             </div>
 
-            <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Alamat *" formControlName="mailingAddress1"/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
-             Sila masukkan alamat anda!
-             </div>
-
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Sambungan alamat *" formControlName="mailingAddress2"/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
-              Sila masukkan alamat anda!
-             </div>
-  
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Jalan" formControlName="mailingAddress3" flex/>
-              </md-input-container>
-  
-              <md-input-container fxFlex="calc(100%-25px)">
-                <input mdInput placeholder="Poskod *" formControlName="mailingPostcode"/>
-              </md-input-container>
-              <div class="error" class="tc-red-600"
-              *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
-              Sila masukkan poskod!
-             </div>
-  
-              <pams-state-code-select [placeholder]="'Negeri'"
-                                      [innerFormControl]="applicationForm.controls.mailingStateCode"
-                                      fxFlex="calc(50%-25px)"
-                                      class="pad-bottom">
-              </pams-state-code-select>
-  
-              <pams-country-code-select [placeholder]="'Negara'"
-                                        [innerFormControl]="applicationForm.controls.mailingCountryCode"
-                                        fxFlex="calc(50%-25px)"
-                                        class="pad-bottom">
-              </pams-country-code-select>
-            </div>
-          </td-expansion-panel>
-
-          <td-expansion-panel label="Maklumat Waris">
-      
-              <md-divider></md-divider>
-
-              <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
-
-                  <md-input-container fxFlex="calc(100%-25px)">
-                      <input mdInput placeholder="Nama Waris" formControlName="guardianName"/>
-                      </md-input-container>
-
-                  <md-input-container fxFlex="calc(100%-25px)">
-                    <input mdInput placeholder="Alamat Waris *" formControlName="mailingAddress1"/>
-                  </md-input-container>
-                  <div class="error" class="tc-red-600"
-                  *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
-                  Sila masukkan alamat waris!
-                 </div>
-    
-                  <md-input-container fxFlex="calc(100%-25px)">
-                    <input mdInput placeholder="Sambungan Alamat Waris *" formControlName="mailingAddress2"/>
-                  </md-input-container>
-                  <div class="error" class="tc-red-600"
-                  *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
-                  sila masukkan alamat waris!
-                 </div>
-      
-                  <md-input-container fxFlex="calc(100%-25px)">
-                    <input mdInput placeholder="Jalan" formControlName="mailingAddress3" flex/>
-                  </md-input-container>
-      
-                  <md-input-container fxFlex="calc(100%-25px)">
-                    <input mdInput placeholder="Poskod *" formControlName="mailingPostcode"/>
-                  </md-input-container>
-                  <div class="error" class="tc-red-600"
-                  *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
-                  Sila masukkan Poskod!
-                 </div>
-      
-                  <pams-state-code-select [placeholder]="'Negeri'"
-                                          [innerFormControl]="applicationForm.controls.mailingStateCode"
-                                          fxFlex="calc(50%-25px)"
-                                          class="pad-bottom">
-                  </pams-state-code-select>
-      
-                  <pams-country-code-select [placeholder]="'Negara'"
-                                            [innerFormControl]="applicationForm.controls.mailingCountryCode"
-                                            fxFlex="calc(50%-25px)"
-                                            class="pad-bottom">
-                  </pams-country-code-select>
-
-                  <!-- <pams-guardian-type-select [placeholder]="'Hubungan'"
-                        [innerFormControl]="applicationForm.controls.guardianType"
-                        fxFlex="calc(50%-25px)"
-                        class="pad-bottom">
-                  </pams-guardian-type-select>      -->
-
-                  <pams-guardian-type-code-select [placeholder]="'Hubungan'" required md-maxlength="10"
-                  [innerFormControl]="applicationForm.controls.guardianTypeCode"
-                  fxFlex="calc(50%-25px)" class="pad-bottom">
-                  </pams-guardian-type-code-select>
-                  
-                  <md-input-container fxFlex="calc(50%-25px)">
-                      <input mdInput placeholder="Nombor Telefon Waris *" formControlName="mobile"/>
-                      </md-input-container>
-                        <div class="error" class="tc-red-600"
-                               *ngIf="applicationForm.get('mobile').invalid && applicationForm.get('mobile').touched">
-                           Sila masukkan nombor telefon!
-                        </div>
-                      
+            <div flex-gt-md="100">
+                <div>
+                    <b>Negeri : </b><b *ngIf="_intakeApplication.officialStateCode !== null">{{_intakeApplication.officialStateCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-state-code-select [placeholder]="'Negeri'" [innerFormControl]="applicationForm.controls.officialStateCode" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-state-code-select>
+                    </div>
                 </div>
-      </td-expansion-panel>
+
+                <div>
+                    <b>Negara : </b><b *ngIf="_intakeApplication.officialCountryCode !== null">{{_intakeApplication.officialCountryCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-country-code-select [placeholder]="'Negara'" [innerFormControl]="applicationForm.controls.officialCountryCode" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-country-code-select>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+            Alamat Surat-menyurat
+          </div>
+
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Alamat *" formControlName="mailingAddress1" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('mailingAddress1').invalid && applicationForm.get('mailingAddress1').touched">
+              Sila masukkan alamat anda!
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Sambungan alamat *" formControlName="mailingAddress2" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('mailingAddress2').invalid && applicationForm.get('mailingAddress2').touched">
+              Sila masukkan alamat anda!
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Jalan" formControlName="mailingAddress3" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Poskod *" formControlName="mailingPostcode" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('mailingPostcode').invalid && applicationForm.get('mailingPostcode').touched">
+              Sila masukkan poskod!
+            </div>
+
+            <div flex-gt-md="100">
+                <div>
+                    <b>Negeri : </b><b *ngIf="_intakeApplication.mailingStateCode !== null">{{_intakeApplication.mailingStateCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-state-code-select [placeholder]="'Negeri'" [innerFormControl]="applicationForm.controls.mailingStateCode" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-state-code-select>
+                    </div>
+                </div>
+
+                <div>
+                    <b>Negara : </b><b *ngIf="_intakeApplication.mailingCountryCode !== null">{{_intakeApplication.mailingCountryCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-country-code-select [placeholder]="'Negara'" [innerFormControl]="applicationForm.controls.mailingCountryCode" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-country-code-select>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </td-expansion-panel>
+
+        <td-expansion-panel label="Maklumat Waris">
+
+          <md-divider></md-divider>
+
+          <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Nama Waris" formControlName="guardianName" />
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Alamat Waris *" formControlName="guardianAddress1" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('guardianAddress1').invalid && applicationForm.get('guardianAddress1').touched">
+              Sila masukkan alamat waris!
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Sambungan Alamat Waris *" formControlName="guardianAddress2" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('guardianAddress2').invalid && applicationForm.get('guardianAddress2').touched">
+              sila masukkan alamat waris!
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Jalan" formControlName="guardianAddress3" flex/>
+            </md-input-container>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Poskod *" formControlName="guardianPostcode" />
+            </md-input-container>
+            <div class="error" class="tc-red-600" *ngIf="applicationForm.get('guardianPostcode').invalid && applicationForm.get('guardianPostcode').touched">
+              Sila masukkan Poskod!
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
+                <input mdInput placeholder="Nombor Telefon Waris *" formControlName="guardianPhoneNo" />
+              </md-input-container>
+              <div class="error" class="tc-red-600" *ngIf="applicationForm.get('guardianPhoneNo').invalid && applicationForm.get('guardianPhoneNo').touched">
+                Sila masukkan nombor telefon!
+              </div>
+
+          <div flex-gt-md="100">
+              <div>
+                  <b>Negeri : </b><b *ngIf="_intakeApplication.guardianState !== null">{{_intakeApplication.guardianState.descriptionMs}}</b><br/>
+                  <div>
+            <pams-state-code-select [placeholder]="'Negeri'" [innerFormControl]="applicationForm.controls.guardianState" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-state-code-select>
+                  </div>
+              </div>
+
+              <div>
+                  <b>Negara : </b><b *ngIf="_intakeApplication.guardianCountryCode !== null">{{_intakeApplication.guardianCountryCode.descriptionMs}}</b><br/>
+                  <div>
+                      <div layout="row" class="pad-top">
+            <pams-country-code-select [placeholder]="'Negara'" [innerFormControl]="applicationForm.controls['guardianCountryCode']" fxFlex="calc(100%-25px)"
+              class="pad-bottom">
+            </pams-country-code-select>
+                      </div>
+                  </div>
+              </div>
+
+              <div>
+                  <b>Hubungan : </b><b *ngIf="_intakeApplication.guardianTypeCode !== null">{{_intakeApplication.guardianTypeCode.descriptionMs}}</b><br/>
+                  <div>
+                      <div layout="row" class="pad-top">
+            <pams-guardian-type-code-select [placeholder]="'Hubungan'" [innerFormControl]="applicationForm.controls['guardianTypeCode']"
+              fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-guardian-type-code-select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+          </div>
+        </td-expansion-panel>
       </md-tab>
 
       <md-tab>
-          <template md-tab-label >Pekerjaan</template>
+        <template md-tab-label>Pekerjaan</template>
 
-           <td-expansion-panel label="Maklumat Pekerjaan">
+        <td-expansion-panel label="Maklumat Pekerjaan">
           <br>
           <!-- <div flex class="pad inset" align="center" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">  
               <b>*Please fill in Official and Mailing Address.</b>
           </div> -->
           <br>
-          
+
           <!-- <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">           
           Official Address           
           </div> -->
           <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px" class="inset">
 
-            <pams-employment-type-code-select [placeholder]="'Kategori Jawatan'"
-              [innerFormControl]="applicationForm.controls.employmentTypeCode"
-              fxFlex="calc(50%-25px)"
-              class="pad-bottom">
+            <div flex-gt-md="100">
+                <div>
+                    <b>Kategori Jawatan : </b><b *ngIf="_intakeApplication.employmentTypeCode !== null">{{_intakeApplication.employmentTypeCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-employment-type-code-select [placeholder]="'Kategori Jawatan'" [innerFormControl]="applicationForm.controls.employmentTypeCode"
+              fxFlex="calc(100%-25px)" class="pad-bottom">
             </pams-employment-type-code-select>
+                    </div>
+                </div>
 
-            <pams-employment-sector-code-select [placeholder]="'Sektor Pekerjaan'"
-            [innerFormControl]="applicationForm.controls.employmentSectorCode"
-            fxFlex="calc(50%-25px)"
-            class="pad-bottom">
-           </pams-employment-sector-code-select>
+                <div>
+                    <b>Sektor Pekerjaan : </b><b *ngIf="_intakeApplication.employmentSectorCode !== null">{{_intakeApplication.employmentSectorCode.descriptionMs}}</b><br/>
+                    <div>
+            <pams-employment-sector-code-select [placeholder]="'Sektor Pekerjaan'" [innerFormControl]="applicationForm.controls.employmentSectorCode"
+              fxFlex="calc(100%-25px)" class="pad-bottom">
+            </pams-employment-sector-code-select>
+                    </div>
+                </div>
 
-           <md-input-container fxFlex="calc(50%-25px)">
+                <div>
+                    <b>Negeri : </b><b *ngIf="_intakeApplication.employerState !== null">{{_intakeApplication.employerState.descriptionMs}}</b><br/>
+                    <div>
+                <pams-state-code-select [placeholder]="'Negeri'" [innerFormControl]="applicationForm.controls.employerState" fxFlex="calc(100%-25px)"
+                class="pad-bottom">
+              </pams-state-code-select>
+                    </div>
+                </div>
+            </div>
+
+            <md-input-container fxFlex="calc(100%-25px)">
               <input mdInput placeholder="Pendapatan Bulanan" formControlName="income" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
               <input mdInput placeholder="Jawatan" formControlName="position" flex/>
             </md-input-container>
-                
+
             <md-input-container fxFlex="calc(100%-25px)">
               <input mdInput placeholder="Alamat Majikan *" formControlName="employerAddress1" flex/>
             </md-input-container>
@@ -350,46 +426,42 @@
             <md-input-container fxFlex="calc(100%-25px)">
               <input mdInput placeholder="Poskod *" formControlName="employerPostcode" flex/>
             </md-input-container>
-            
 
-            <pams-state-code-select [placeholder]="'Negeri'"
-                                    [innerFormControl]="applicationForm.controls.employerState"
-                                    fxFlex="calc(50%-25px)"
-                                    class="pad-bottom">
-            </pams-state-code-select>
-
-            <md-input-container fxFlex="calc(50%-25px)">
-                <input mdInput placeholder="Telefon Nombor *" formControlName="employerNo" flex/>
+            <md-input-container fxFlex="calc(100%-25px)">
+              <input mdInput placeholder="Telefon Nombor *" formControlName="employerNo" flex/>
             </md-input-container>
 
           </div>
         </td-expansion-panel>
 
         <td-expansion-panel label="Pengalaman Kerja">
-            <pams-employment-list [intakeApplication]="_intakeApplication" [employments]="employments$ | async"></pams-employment-list>
+          <pams-employment-list [intakeApplication]="_intakeApplication" [employments]="employments$ | async"></pams-employment-list>
         </td-expansion-panel>
-        </md-tab>
+      </md-tab>
 
 
-        <md-tab>
-          <template md-tab-label>Maklumat Akademik</template>
-         
-          <td-expansion-panel label="Maklumat Keputusan Akademik">
-              <md-card class="">
+      <md-tab>
+        <template md-tab-label>Maklumat Akademik</template>
 
-                  <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
-                  </pams-spm-result-code-list>
+        <td-expansion-panel label="Maklumat Keputusan Akademik">
+          <md-card class="">
 
-                  <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
-                  </pams-stpm-result>
+            <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-spm-result-code-list>
 
-                  <pams-diploma-result [intakeApplication]="_intakeApplication" [diplomaResultCodes]="diplomaResultCodes$ | async" (editDialog)="editDialog($event)" (delete)="delete($event)">
-                  </pams-diploma-result>
+            <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-stpm-result>
+
+            <pams-diploma-result [intakeApplication]="_intakeApplication" [diplomaResultCodes]="diplomaResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-diploma-result>
 
 
-                </md-card>
-          </td-expansion-panel>
-          <!-- <td-expansion-panel label="Keputusan SPM (sekiranya ada)">
+          </md-card>
+        </td-expansion-panel>
+        <!-- <td-expansion-panel label="Keputusan SPM (sekiranya ada)">
             <pams-result-list [intakeApplication]="_intakeApplication" [results]="results$ | async">
             </pams-result-list>
           </td-expansion-panel>
@@ -408,22 +480,24 @@
 
         <td-expansion-panel label="Sumber Kewangan">
           <p>
-          <md-card-subtitle>Tandakan (/) di kotak berkenaan</md-card-subtitle></p>
+            <md-card-subtitle>Tandakan (/) di kotak berkenaan</md-card-subtitle>
+          </p>
           <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
             <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
               <md-checkbox formControlName="sponsored">
                 <div layout="column" flex>
-                 Biasiswa / Pinjaman Pengajian
+                  Biasiswa / Pinjaman Pengajian
                 </div>
               </md-checkbox>
             </div>
 
-            <br><br>
+            <br>
+            <br>
 
             <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
               <md-checkbox formControlName="selfSponsored">
                 <div layout="column" flex>
-                 Biayaan Sendiri
+                  Biayaan Sendiri
                 </div>
               </md-checkbox>
             </div>
@@ -433,24 +507,28 @@
 
       <md-tab>
         <template md-tab-label>Lampiran Dokumen</template>
-       <md-card-subtitle></md-card-subtitle>
+        <md-card-subtitle></md-card-subtitle>
         <md-card-subtitle>Sila lampirkan dokumen yang diperlukan</md-card-subtitle>
-        
-        <td-expansion-panel label="Lampiran"> 
+
+        <td-expansion-panel label="Lampiran">
           <pams-attachment-list [intakeApplication]="_intakeApplication" [attachments]="attachments$ | async">
           </pams-attachment-list>
         </td-expansion-panel>
 
-        <td-expansion-panel label="Senarai Semak"><p>
-            <md-card-subtitle><b>Sila tandakan dokumen yang diperlukan</b></md-card-subtitle></p>
+        <td-expansion-panel label="Senarai Semak">
+          <p>
+            <md-card-subtitle>
+              <b>Sila tandakan dokumen yang diperlukan</b>
+            </md-card-subtitle>
+          </p>
 
-            <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
+          <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="processingFeeAttached">
                 <div layout="column" flex>
-                  Yuran proses sebanyak RM100.00 (Pembayaran boleh dibuat di mana-mana Malayan Banking Berhad(Maybank)
-                  menggunakan SLIP BILL PAYMENT (553038019271) atau wang pos atas nama ("UNIVERSITI MALAYSIA KELANTAN"))
+                  Yuran proses sebanyak RM100.00 (Pembayaran boleh dibuat di mana-mana Malayan Banking Berhad(Maybank) menggunakan SLIP BILL
+                  PAYMENT (553038019271) atau wang pos atas nama ("UNIVERSITI MALAYSIA KELANTAN"))
                 </div>
               </md-checkbox>
             </div>
@@ -486,7 +564,7 @@
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="stpmResultAttached">
                 <div layout="column" flex>
-                    Satu salinan keputusan STPM yang disahkan (jika ada)
+                  Satu salinan keputusan STPM yang disahkan (jika ada)
                 </div>
               </md-checkbox>
             </div>
@@ -498,7 +576,7 @@
                 </div>
               </md-checkbox>
             </div>
-<!-- 
+            <!-- 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="bachelorResultAttached">
                 <div layout="column" flex>
@@ -521,9 +599,8 @@
 
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="employmentVerificationAttached">
-                <div layout="column" flex>Surat asal kelulusan / perakuan / pengesahan / pelepasan daripada
-                  majikan atau pihak berkuasa berkenaan bagi mereka yang mempunyai pengalaman kerja untuk mengikuti
-                  program ini.(Wajib)
+                <div layout="column" flex>Surat asal kelulusan / perakuan / pengesahan / pelepasan daripada majikan atau pihak berkuasa berkenaan bagi
+                  mereka yang mempunyai pengalaman kerja untuk mengikuti program ini.(Wajib)
                 </div>
               </md-checkbox>
             </div>
@@ -547,13 +624,13 @@
             <div layout="row" class="pad-bottom" flex>
               <md-checkbox formControlName="apelCertificateAttached">
                 <div layout="column" flex>
-                Sijil Apel A
+                  Sijil Apel A
                 </div>
               </md-checkbox>
             </div>
           </div>
 
-          </td-expansion-panel>
+        </td-expansion-panel>
       </md-tab>
 
       <md-tab>
@@ -566,13 +643,10 @@
           <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
             <md-checkbox formControlName="declared">
               <div layout="column" flex>
-                I declare that the statements made in this application form are correct. I am fully aware that UMK
-                reserves the right to
-                reject my application or terminate my candidature if the information given above is incorrect or
-                incomplete.
+                I declare that the statements made in this application form are correct. I am fully aware that UMK reserves the right to
+                reject my application or terminate my candidature if the information given above is incorrect or incomplete.
               </div>
-              <div class="error" class="tc-red-600"
-                   *ngIf="applicationForm.get('declared').invalid && applicationForm.get('declared').touched">
+              <div class="error" class="tc-red-600" *ngIf="applicationForm.get('declared').invalid && applicationForm.get('declared').touched">
                 Please click declaration before submit the application!
               </div>
             </md-checkbox>
@@ -580,8 +654,7 @@
           <md-card-subtitle>*Please fill all the required form before submit your application</md-card-subtitle>
 
           <div layout="row" layout-align="start center">
-            <button md-raised-button color="accent" (click)="submit(applicationForm.value, applicationForm.valid)"
-                    [disabled]="!applicationForm.valid">
+            <button md-raised-button color="accent" (click)="submit(applicationForm.value, applicationForm.valid)" [disabled]="!applicationForm.valid">
               Submit
             </button>
           </div>

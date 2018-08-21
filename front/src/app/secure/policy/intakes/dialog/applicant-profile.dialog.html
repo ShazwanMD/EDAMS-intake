@@ -91,11 +91,20 @@
                           <b>Negara</b> : {{intakeApplication.officialCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
+                      <md-tab label="Alamat Waris">
+                          <div flex-gt-md="50">
+                            <b>Alamat </b> : {{intakeApplication.guardianAddress1}}&nbsp;{{intakeApplication.guardianAddress2}}&nbsp;{{intakeApplication.guardianAddress3}}<br/><br/>
+                            <b>Poskod</b> : {{intakeApplication.guardianPostcode}}<br/><br/>
+                            <b>Negeri</b> : {{intakeApplication.guardianState?.descriptionMs}}<br/><br/>
+                            <b>Negara</b> : {{intakeApplication.guardianCountryCode?.descriptionMs}}<br/><br/>
+                            <b>Jenis Waris</b> : {{intakeApplication.guardianTypeCode.descriptionMs}}
+                          </div>
+                        </md-tab>
                     </md-tab-group>
                   </md-card-content>
                 </md-card>
               </md-tab>
-              <md-tab label="Academic">
+              <md-tab label="Akademik">
                 <!--ACADEMIC INFORMATION-->
                 <md-card>
                   <div md-content flex md-scroll-y>
@@ -111,8 +120,19 @@
                   <md-card-content>
 
           <td-expansion-panel label="Keputusan">
-            <pams-result-list [intakeApplication]="intakeApplication$ | async" [results]="results$ | async">
-            </pams-result-list>
+              <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-spm-result-code-list>
+
+            <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-stpm-result>
+
+            <pams-diploma-result [intakeApplication]="_intakeApplication" [diplomaResultCodes]="diplomaResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-diploma-result>
+            <!-- <pams-result-list [intakeApplication]="intakeApplication$ | async" [results]="results$ | async">
+            </pams-result-list> -->
           </td-expansion-panel>
 
           <td-expansion-panel label="Bahasa">
@@ -135,8 +155,21 @@
                   </div>
                   <md-divider></md-divider>
                   <md-card-content>
+                    <md-tab-group>
+                      <md-tab label="Pekerjaan Semasa">
+                          <div flex-gt-md="50">
+                            <b>Alamat </b> : {{intakeApplication.employerAddress1}}&nbsp;{{intakeApplication.employerAddress2}}&nbsp;{{intakeApplication.employerAddress3}}<br/><br/>
+                            <b>Poskod</b> : {{intakeApplication.employerPostcode}}<br/><br/>
+                            <b>Negeri</b> : {{intakeApplication.employerState?.descriptionMs}}<br/><br/>
+                            <b>Sektor Pekerjaan</b> : {{intakeApplication.employmentSectorCode.descriptionMs}}<br/><br/>
+                            <b>Kategori Jawatan</b> : {{intakeApplication.employmentTypeCode.descriptionMs}}
+                          </div>
+                        </md-tab>
+                      <md-tab label="Pengalaman Pekerjaan">
                     <pams-employment-list [intakeApplication]="intakeApplication$ | async" [employments]="employments$ | async">
                     </pams-employment-list>
+                  </md-tab>
+                </md-tab-group>
                   </md-card-content>
                 </md-card>
               </md-tab>

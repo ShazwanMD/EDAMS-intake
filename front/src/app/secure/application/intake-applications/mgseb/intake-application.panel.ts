@@ -99,7 +99,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
     this.applicationForm = this.formBuilder.group({
       id: [undefined],
       referenceNo: [''],
-      researchTitle: ['', Validators.required],
+      researchTitle:'N/A',
       promoCode: [''],
       rank: [0],
       merit: [0],
@@ -124,7 +124,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       employerAddress2 : [''],
       employerAddress3 : [''],
       employerPostcode : [''],
-      employerState : [<StateCode>{}, Validators.required],
+      employerState : <StateCode>{},
       employerNo : [''],
 
 
@@ -135,8 +135,8 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       guardianAddress2 : [''],
       guardianAddress3 : [''],
       guardianPostcode : [''],
-      guardianState : [<StateCode>{}, Validators.required],
-      guardianCountryCode: [<CountryCode>{}, Validators.required],
+      guardianState : <StateCode>{},
+      guardianCountryCode: <CountryCode>{},
       guardianTypeCode: [<GuardianTypeCode>{}, Validators.required],
 
       mailingAddress1: ['', Validators.required],
@@ -149,7 +149,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       officialPostcode: ['', Validators.required],
       genderCode: [<GenderCode>{}, Validators.required],
       maritalCode: [<MaritalCode>{}, Validators.required],
-      disabilityCode: [<DisabilityCode>{}, Validators.required],
+      disabilityCode: <DisabilityCode>{},
       ethnicityCode: [<EthnicityCode>{}, Validators.required],
       raceCode: [<RaceCode>{}, Validators.required],
       religionCode: [<ReligionCode>{}, Validators.required],
