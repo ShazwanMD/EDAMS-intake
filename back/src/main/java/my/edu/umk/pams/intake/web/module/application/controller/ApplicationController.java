@@ -997,7 +997,7 @@ public class ApplicationController {
 		diplomaResult.setCgpa(vo.getCgpa());
 		diplomaResult.setGraduationYear(vo.getGraduationYear());
 		diplomaResult.setApplication(application);
-		diplomaResult.setResultType(InResultType.STPM);
+		diplomaResult.setResultType(InResultType.DIPLOMA);
 		diplomaResult.setInstitution(vo.getInstitution());
 	
 		commonService.saveDiplomaResult(diplomaResult);
@@ -1015,7 +1015,7 @@ public class ApplicationController {
 		diplomaResult.setCgpa(vo.getCgpa());
 		diplomaResult.setGraduationYear(vo.getGraduationYear());
 		diplomaResult.setApplication(application);
-		diplomaResult.setResultType(InResultType.STPM);
+		diplomaResult.setResultType(InResultType.DIPLOMA);
 		diplomaResult.setInstitution(vo.getInstitution());
 		commonService.updateDiplomaResult(diplomaResult);
 

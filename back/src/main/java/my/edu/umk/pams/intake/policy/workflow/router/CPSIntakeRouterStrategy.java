@@ -96,6 +96,23 @@ public class CPSIntakeRouterStrategy extends RouterStrategySupport {
     public List<String> findRegisterCandidates() {
         return Arrays.asList("GRP_PGW_FCTY_A01", "GRP_KRN_ADM_A09", "GRP_PGW_ADM_A09", "GRP_ADM");   //fakulti-pegawai-A01 , root
     }
+
+	@Override
+	public List<String> findCreatorCandidates() {
+	        return Arrays.asList("GRP_PGW_ADM_UMKCEE","GRP_KRN_ADM_UMKCEE", 
+					"GRP_PGW_FCTY_A01", "GRP_KRN_FCTY_A01",
+					"GRP_KRN_FCTY_A02", "GRP_PGW_FCTY_A02", 
+					"GRP_KRN_FCTY_A04", "GRP_PGW_FCTY_A04",
+					"GRP_KRN_FCTY_A05", "GRP_PGW_FCTY_A05",
+					"GRP_KRN_FCTY_A06", "GRP_PGW_FCTY_A06",
+					"GRP_KRN_FCTY_A07", "GRP_PGW_FCTY_A07",
+					"GRP_KRN_FCTY_A08", "GRP_PGW_FCTY_A08",
+					"GRP_KRN_FCTY_A11", "GRP_PGW_FCTY_A11",
+					"GRP_KRN_FCTY_A12", "GRP_PGW_FCTY_A12",
+					"GRP_KRN_FCTY_A13", "GRP_PGW_FCTY_A13",
+					"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM");
+	    
+	}
     
     
 }

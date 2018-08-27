@@ -78,25 +78,26 @@
                       <md-tab label="Alamat Surat-menyurat">
                         <div flex-gt-md="50">
                           <b>Alamat </b> : {{intakeApplication.mailingAddress1}}&nbsp;{{intakeApplication.mailingAddress2}}&nbsp;{{intakeApplication.mailingAddress3}}<br/><br/>
-                          <b>Poskod</b> : {{intakeApplication.mailingPostcode}}<br/><br/>
-                          <b>Negeri</b> : {{intakeApplication.mailingStateCode?.descriptionMs}}<br/><br/>
-                          <b>Negara</b> : {{intakeApplication.mailingCountryCode?.descriptionMs}}
+                          <b>Poskod</b>  : {{intakeApplication.mailingPostcode}}<br/><br/>
+                          <b>Negeri</b>  : {{intakeApplication.mailingStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b>  : {{intakeApplication.mailingCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
                       <md-tab label="Alamat Rasmi">
                         <div flex-gt-md="50">
                           <b>Alamat </b> : {{intakeApplication.officialAddress1}}&nbsp;{{intakeApplication.officialAddress2}}&nbsp;{{intakeApplication.officialAddress3}}<br/><br/>
-                          <b>Poskod</b> : {{intakeApplication.officialPostcode}}<br/><br/>
-                          <b>Negeri</b> : {{intakeApplication.officialStateCode?.descriptionMs}}<br/><br/>
-                          <b>Negara</b> : {{intakeApplication.officialCountryCode?.descriptionMs}}
+                          <b>Poskod</b>  : {{intakeApplication.officialPostcode}}<br/><br/>
+                          <b>Negeri</b>  : {{intakeApplication.officialStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b>  : {{intakeApplication.officialCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
                       <md-tab label="Alamat Waris">
                           <div flex-gt-md="50">
+                            <b>Nama   </b> : {{intakeApplication.guardianName}}<br/><br/>
                             <b>Alamat </b> : {{intakeApplication.guardianAddress1}}&nbsp;{{intakeApplication.guardianAddress2}}&nbsp;{{intakeApplication.guardianAddress3}}<br/><br/>
-                            <b>Poskod</b> : {{intakeApplication.guardianPostcode}}<br/><br/>
-                            <b>Negeri</b> : {{intakeApplication.guardianState?.descriptionMs}}<br/><br/>
-                            <b>Negara</b> : {{intakeApplication.guardianCountryCode?.descriptionMs}}<br/><br/>
+                            <b>Poskod</b>  : {{intakeApplication.guardianPostcode}}<br/><br/>
+                            <b>Negeri</b>  : {{intakeApplication.guardianState?.descriptionMs}}<br/><br/>
+                            <b>Negara</b>  : {{intakeApplication.guardianCountryCode?.descriptionMs}}<br/><br/>
                             <b>Jenis Waris</b> : {{intakeApplication.guardianTypeCode.descriptionMs}}
                           </div>
                         </md-tab>

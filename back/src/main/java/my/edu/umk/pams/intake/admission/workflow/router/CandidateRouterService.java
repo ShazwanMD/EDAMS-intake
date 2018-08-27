@@ -32,27 +32,23 @@ public class CandidateRouterService extends RouterServiceSupport {
     private static Map<String, RouterStrategy> strategies = new HashMap<String, RouterStrategy>();
 
     static {
-        strategies.put("MGSEB", new MGSEBCandidateRouterStrategy());
+//        strategies.put("MGSEB", new MGSEBCandidateRouterStrategy());
         strategies.put("UMKCEE", new CPSCandidateRouterStrategy());
     }
 
     @Autowired
     private AdmissionService admissionService;
-
+    
     public List<String> findCreatorCandidates(Long candidateId) {
         Validate.notNull(candidateId, "Id must not be null");
-        String candidate1 = null;
-        String candidate2 = null;
-        String candidate3 = null;
         
         InCandidate candidate = admissionService.findCandidateById(candidateId);
-        InGraduateCenter center = candidate.getIntake().getGraduateCenter();
+
+		InGraduateCenter center = candidate.getIntake().getGraduateCenter();
+        RouterStrategy strategy = strategies.get(center.getCode());
+        List<String> candidates = strategy.findCreatorCandidates();
         
-        candidate1 = "GRP_ADM";
-        candidate2 = "GRP_PGW_ADM_UMKCEE";
-        candidate3 = "GRP_KRN_ADM_UMKCEE"; 
-	
-        return Arrays.asList(candidate1, candidate2, candidate3);
+        return candidates;
     }
     
     public List<String> findVerifierCandidates(Long candidateId) {
