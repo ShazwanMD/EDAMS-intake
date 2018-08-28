@@ -814,8 +814,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Override
 	public void submitNotification(InIntakeApplication application) {
+		LOG.debug("Start submit email");
 		//Log In
-		 SecurityContext sc = loginAsSystem();    
+//		 SecurityContext sc = loginAsSystem();    
 		 
 		 //Create email body
 		 InEmailQueue email = new InEmailQueueImpl();
@@ -831,14 +832,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 		 email.setQueueStatus(InEmailQueueStatus.QUEUED);
 		 systemService.saveEmailQueue(email);
 		 
+		 LOG.debug("Email Queue:{}",email.getTo());
+		 
 		 //Logout
-		 logoutAsSystem(sc);
+//		 logoutAsSystem(sc);
 
 	}
 	
     private SecurityContext loginAsSystem() {
         SecurityContext savedCtx = SecurityContextHolder.getContext();
-        InAutoLoginToken authenticationToken = new InAutoLoginToken("system");
+        InAutoLoginToken authenticationToken = new InAutoLoginToken("root");
         Authentication authed = authenticationManager.authenticate(authenticationToken);
         SecurityContext system = new NonSerializableSecurityContext();
         system.setAuthentication(authed);
