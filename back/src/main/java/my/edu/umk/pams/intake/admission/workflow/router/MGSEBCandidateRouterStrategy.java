@@ -95,7 +95,12 @@ public class MGSEBCandidateRouterStrategy extends RouterStrategySupport {
     @Override
     public List<String> findRegisterCandidates() {
         return Arrays.asList("GRP_PGW_FCTY_A01", "GRP_KRN_ADM_A10", "GRP_PGW_ADM_A10", "GRP_ADM");   //fakulti-pegawai-A01 , root
-    }    
+    }
+
+	@Override
+	public List<String> findCreatorCandidates() {
+		return Arrays.asList("GRP_KRN_ADM_A10", "GRP_PGW_ADM_A10", "GRP_ADM");
+	}    
 
 }
 
