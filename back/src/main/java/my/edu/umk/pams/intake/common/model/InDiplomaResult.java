@@ -18,6 +18,10 @@ public interface InDiplomaResult extends InMetaObject {
 	
 	void setInstitution(String institution);
 	
+	String getProgram();
+	
+	void setProgram(String program);
+	
 	InResultType getResultType();
 
 	void setResultType(InResultType resultType);

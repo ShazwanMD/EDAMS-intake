@@ -10,4 +10,5 @@ export interface DiplomaResultCode extends MetaObject{
     application: IntakeApplication;
     resultType: ResultType;
     institution: string;
+    program: string;
 }

@@ -23,6 +23,7 @@ export class DiplomaResultComponent implements OnChanges {
   private columns: any[] = [
     {name: 'graduationYear', label: 'Tahun'},
     {name: 'institution', label: 'Institusi'},
+    {name: 'program', label: 'Program'},
     {name: 'cgpa', label: 'Keputusan/cgpa'},
     {name: 'resultType', label: 'Jenis'},
     {name: 'action', label: ''}

@@ -999,6 +999,7 @@ public class ApplicationController {
 		diplomaResult.setApplication(application);
 		diplomaResult.setResultType(InResultType.DIPLOMA);
 		diplomaResult.setInstitution(vo.getInstitution());
+		diplomaResult.setProgram(vo.getProgram());
 	
 		commonService.saveDiplomaResult(diplomaResult);
 
@@ -1017,6 +1018,7 @@ public class ApplicationController {
 		diplomaResult.setApplication(application);
 		diplomaResult.setResultType(InResultType.DIPLOMA);
 		diplomaResult.setInstitution(vo.getInstitution());
+		diplomaResult.setProgram(vo.getProgram());
 		commonService.updateDiplomaResult(diplomaResult);
 
 		return new ResponseEntity<String>("Success", HttpStatus.OK);

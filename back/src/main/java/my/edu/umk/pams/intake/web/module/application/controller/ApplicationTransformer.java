@@ -357,6 +357,7 @@ public class ApplicationTransformer {
 		vo.setInstitution(e.getInstitution());
 		vo.setApplication(toIntakeApplicationVo(e.getApplication()));
 		vo.setMetaState(MetaState.get(e.getMetadata().getState().ordinal()));
+		vo.setProgram(e.getProgram());
 		return vo;
 	}
 
