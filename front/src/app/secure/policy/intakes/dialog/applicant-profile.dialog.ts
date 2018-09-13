@@ -17,6 +17,7 @@ import {IntakeActions} from '../intake.action';
 import { SpmResultCode } from '../../../../shared/model/common/spm-result-code.interface';
 import { StpmResultCode } from '../../../../shared/model/common/stpm-result-code.interface';
 import { DiplomaResultCode } from '../../../../shared/model/application/diploma-result.interface';
+import { ReportActions } from '../../../../shared/report/report.action';
 
 @Component({
   selector: 'pams-applicant-profile',
@@ -51,6 +52,7 @@ export class ApplicantProfileDialog implements OnInit {
 
   @Input() intakeApplication: IntakeApplication;
 
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
@@ -58,6 +60,7 @@ export class ApplicantProfileDialog implements OnInit {
               private actions: IntakeApplicationActions,
               private intakeActions: IntakeActions,
               private dialog: MdDialog,
+              private reportActions: ReportActions,
               private editorDialog: MdDialogRef<ApplicantProfileDialog>,
               private editorDialogRef: MdDialogRef<ApplicantProfileRejectDialog>,
               private snackBar: MdSnackBar,
@@ -111,6 +114,11 @@ export class ApplicantProfileDialog implements OnInit {
       this.store.dispatch(this.intakeActions.findIntakeByReferenceNoAndBidStatus(intakeApplication.intake.referenceNo));
 
     });
+  }
+
+  downloadReport(reportId,parameterReport: IntakeApplication): void {   
+    let repParam = reportId+'&reference_no='+ parameterReport.referenceNo;
+    this.store.dispatch(this.reportActions.downloadReport(repParam));
   }
 
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Edams" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45c7f3ef-8c19-47d1-b113-6b764f77e6e6">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Edams" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45c7f3ef-8c19-47d1-b113-6b764f77e6e6">
 	<property name="ireport.zoom" value="1.9965000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1836"/>
+	<property name="ireport.y" value="1503"/>
 	<subDataset name="spm" uuid="fcbb4936-ae8a-4569-8b46-c4d346b3b190">
 		<parameter name="application_id" class="java.lang.String"/>
 		<queryString>
@@ -183,10 +183,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -436,10 +436,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -680,10 +680,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -933,10 +933,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -1181,10 +1181,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -1507,10 +1507,10 @@ FROM
 		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -1889,10 +1889,10 @@ FROM
 	<field name="in_intk_apln_reference_no" class="java.lang.String"/>
 	<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_research_title" class="java.lang.String"/>
-	<field name="in_intk_apln_self_sponsored" class="java.lang.String"/>
+	<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-	<field name="in_intk_apln_sponsored" class="java.lang.String"/>
+	<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
 	<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
@@ -2739,14 +2739,14 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 			<componentElement>
 				<reportElement x="0" y="70" width="555" height="20" uuid="f9240b44-1307-41f5-9f86-e0bea9c847de"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="spm" uuid="d4323437-241b-43ae-b989-c694e3b2b2e7">
+					<datasetRun subDataset="spm" uuid="93d7fe7e-cee0-421a-8fa1-1c59923d649b">
 						<datasetParameter name="application_id">
 							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:listContents height="20" width="555">
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="238" y="0" width="240" height="20" uuid="44e8c559-7449-4861-820f-ee2797630857"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -2760,7 +2760,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_spm_sbjt_code_description}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="478" y="0" width="77" height="20" uuid="5e25f7f4-3aa9-4d28-977c-8b7a6e0049af"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -2774,7 +2774,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_grde_code_description}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="181" y="0" width="57" height="20" uuid="d30c6854-9036-4a4f-b530-b55c7aeed42c"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -2802,7 +2802,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="36" y="0" width="62" height="20" uuid="4a2ea29c-39b5-41b7-a584-5077434d8421"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -2816,7 +2816,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_spm_rslt_graduation_year}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="98" y="0" width="83" height="20" uuid="88935ad7-002b-4c17-b4e7-85036b4fbcb3"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -2936,35 +2936,35 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 	<summary>
 		<band height="802" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="277" width="555" height="14" backcolor="#CCCCCC" uuid="3ee96a04-d145-4ff8-a0bc-d81671b8f0cf"/>
+				<reportElement mode="Opaque" x="0" y="246" width="555" height="14" backcolor="#CCCCCC" uuid="3ee96a04-d145-4ff8-a0bc-d81671b8f0cf"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[D.  MAKLUMAT WARIS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="291" width="75" height="20" uuid="d2cc4b11-7426-41b9-a3ab-8045c157cd95"/>
+				<reportElement x="5" y="260" width="75" height="20" uuid="d2cc4b11-7426-41b9-a3ab-8045c157cd95"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Nama Waris]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="305" width="75" height="20" uuid="126c5737-f113-4467-9177-f8695f94a74c"/>
+				<reportElement x="5" y="274" width="75" height="20" uuid="126c5737-f113-4467-9177-f8695f94a74c"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Alamat Waris]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="93" y="292" width="6" height="20" uuid="97c405b3-496d-4abd-aa9a-5e4e8797a5bd"/>
+				<reportElement x="93" y="261" width="6" height="20" uuid="97c405b3-496d-4abd-aa9a-5e4e8797a5bd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="93" y="305" width="6" height="20" uuid="80ef9c0b-b3c9-4ab3-b915-c19f20ad1a44"/>
+				<reportElement x="93" y="274" width="6" height="20" uuid="80ef9c0b-b3c9-4ab3-b915-c19f20ad1a44"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -3116,49 +3116,49 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[CACATAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="180" width="396" height="17" uuid="3557dff2-e4df-4d07-9b31-9a2ca7138e40"/>
+				<reportElement x="0" y="132" width="396" height="17" uuid="3557dff2-e4df-4d07-9b31-9a2ca7138e40"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DIPLOMA ATAU KELAYAKAN LAIN ( NYATAKAN )]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="433" y="297" width="8" height="13" uuid="4953f717-643c-4c49-8e5e-e8d40b26a2cf"/>
+				<reportElement x="433" y="266" width="8" height="13" uuid="4953f717-643c-4c49-8e5e-e8d40b26a2cf"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="297" width="74" height="13" uuid="bd62b01d-3f76-4a26-a4e2-ab65d94bfd36"/>
+				<reportElement x="359" y="266" width="74" height="13" uuid="bd62b01d-3f76-4a26-a4e2-ab65d94bfd36"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[No.Telefon]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="310" width="74" height="13" uuid="5c4e8ef4-1bd2-4222-af5e-53f3d87916df"/>
+				<reportElement x="359" y="279" width="74" height="13" uuid="5c4e8ef4-1bd2-4222-af5e-53f3d87916df"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Hubungan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="433" y="310" width="8" height="13" uuid="ddda403f-944b-4e81-99b2-7442543eacf8"/>
+				<reportElement x="433" y="279" width="8" height="13" uuid="ddda403f-944b-4e81-99b2-7442543eacf8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="-1" y="416" width="555" height="14" backcolor="#CCCCCC" uuid="d7511013-0ef9-4227-8035-387eb562455a"/>
+				<reportElement mode="Opaque" x="0" y="374" width="555" height="14" backcolor="#CCCCCC" uuid="d7511013-0ef9-4227-8035-387eb562455a"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[E.  SUMBER KEWANGAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="433" width="84" height="20" uuid="c80fe5ec-8992-4d40-a590-edf6f918e0c2"/>
+				<reportElement x="4" y="391" width="84" height="20" uuid="c80fe5ec-8992-4d40-a590-edf6f918e0c2"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -3181,7 +3181,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:listContents height="15" width="556">
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="92" y="0" width="63" height="15" uuid="743e25ed-24e2-4d73-860f-328cf8d688db"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3195,7 +3195,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_stpm_sbjt_code_code}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="155" y="0" width="293" height="15" uuid="783900d2-f456-4da7-b3e9-f97ac569c9d5"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3223,7 +3223,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="36" y="0" width="56" height="15" uuid="dca6806d-a347-4a46-a1c2-1bb67863ce72"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3237,7 +3237,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_stpm_rslt_graduation_year}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="448" y="0" width="108" height="15" uuid="5f5e0d15-0d08-45c2-8d89-9f937f1b7cd2"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3269,7 +3269,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[BIL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="159" width="296" height="11" uuid="d34594ad-753f-483b-a9df-0394a2e49736"/>
+				<reportElement x="-1" y="111" width="296" height="11" uuid="d34594ad-753f-483b-a9df-0394a2e49736"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -3332,7 +3332,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[TAHUN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="55" y="198" width="242" height="27" backcolor="#CCCCCC" uuid="c620d093-eb4e-4e64-a447-456b8b902d48"/>
+				<reportElement mode="Opaque" x="55" y="150" width="242" height="27" backcolor="#CCCCCC" uuid="c620d093-eb4e-4e64-a447-456b8b902d48"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -3346,7 +3346,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[PROGRAM / KURSUS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="198" width="55" height="27" backcolor="#CCCCCC" uuid="850e5c2c-6202-4b59-b44d-bb238749a32d"/>
+				<reportElement mode="Opaque" x="0" y="150" width="55" height="27" backcolor="#CCCCCC" uuid="850e5c2c-6202-4b59-b44d-bb238749a32d"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -3360,7 +3360,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[TAHUN DIANUGERAHKAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="490" y="198" width="66" height="27" backcolor="#CCCCCC" uuid="8514d50b-ffc4-458f-ad56-44976513ef06"/>
+				<reportElement mode="Opaque" x="490" y="150" width="66" height="27" backcolor="#CCCCCC" uuid="8514d50b-ffc4-458f-ad56-44976513ef06"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -3374,7 +3374,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[PMK / CGPA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="297" y="198" width="193" height="27" backcolor="#CCCCCC" uuid="89ff5233-d322-4ff4-bd8a-381a397f9925"/>
+				<reportElement mode="Opaque" x="297" y="150" width="193" height="27" backcolor="#CCCCCC" uuid="89ff5233-d322-4ff4-bd8a-381a397f9925"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -3388,7 +3388,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				<text><![CDATA[INSTITUSI]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="0" y="225" width="556" height="21" uuid="c11dcc5b-efa0-4499-931c-cd1f48dccd7a"/>
+				<reportElement x="0" y="177" width="556" height="21" uuid="c11dcc5b-efa0-4499-931c-cd1f48dccd7a"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="diploma" uuid="e4a60fba-b9ab-4a33-a287-ed122d596549">
 						<datasetParameter name="application_id">
@@ -3411,7 +3411,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_dip_rslt_graduation_year}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="297" y="0" width="193" height="20" uuid="dbd9f2bc-0e28-4835-a930-2c8a3288e41a"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3425,7 +3425,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_dip_rslt_institution}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="490" y="0" width="65" height="20" uuid="0ab1dd3f-460a-4444-ae10-a8c2baadaba7"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3439,7 +3439,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 							</textElement>
 							<textFieldExpression><![CDATA[$F{in_dip_rslt_cgpa}]]></textFieldExpression>
 						</textField>
-						<textField>
+						<textField isBlankWhenNull="true">
 							<reportElement x="55" y="0" width="242" height="20" uuid="c7a12fc2-748d-4066-84ac-fcea4864dccf"/>
 							<box>
 								<pen lineWidth="0.5"/>
@@ -3457,7 +3457,7 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				</jr:list>
 			</componentElement>
 			<textField>
-				<reportElement x="444" y="297" width="100" height="11" uuid="797fc988-8800-4753-babc-c01d44f393c3"/>
+				<reportElement x="444" y="266" width="100" height="11" uuid="797fc988-8800-4753-babc-c01d44f393c3"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -3592,7 +3592,7 @@ $F{in_empt_employmeny_type}.equals( "2" )? "Sendiri":"Lain-lain"
 				</graphicElement>
 			</rectangle>
 			<componentElement>
-				<reportElement x="104" y="295" width="240" height="87" uuid="fb541c63-327d-45db-b824-bd50ecf227ca"/>
+				<reportElement x="104" y="264" width="240" height="87" uuid="fb541c63-327d-45db-b824-bd50ecf227ca"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="guardian" uuid="79b9d546-1290-4f61-9674-ff68bfa8d296">
 						<datasetParameter name="application_id">
@@ -3647,7 +3647,7 @@ $F{in_empt_employmeny_type}.equals( "2" )? "Sendiri":"Lain-lain"
 				</jr:list>
 			</componentElement>
 			<textField>
-				<reportElement x="444" y="310" width="98" height="12" uuid="3594378d-ad99-43ab-8745-70258b368010"/>
+				<reportElement x="444" y="279" width="98" height="12" uuid="3594378d-ad99-43ab-8745-70258b368010"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -3663,7 +3663,7 @@ $F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
 )]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="87" y="433" width="292" height="20" uuid="550e4766-9480-4d3a-bf7d-eced5e48cbe5"/>
+				<reportElement x="93" y="408" width="267" height="28" uuid="550e4766-9480-4d3a-bf7d-eced5e48cbe5"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="sponsored" uuid="d689efb8-bfdf-4975-b66d-84c1f72295a4">
 						<datasetParameter name="application_id">
@@ -3671,29 +3671,65 @@ $F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:listContents height="20" width="292">
-						<textField pattern="" isBlankWhenNull="true">
-							<reportElement x="14" y="0" width="80" height="20" uuid="23c6a53b-5370-43d8-9afe-2be0baa89f2d"/>
-							<textElement>
+					<jr:listContents height="28" width="267">
+						<textField>
+							<reportElement x="133" y="1" width="133" height="20" uuid="45d13b01-3b22-4da8-a144-dc42b134279d"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
 								<font size="8"/>
 							</textElement>
-							<textFieldExpression><![CDATA[(
-$F{in_intk_apln_self_sponsored}.equals("TRUE")? "Biayaan_Sendiri":"Biayaan_Sendiri"
-
-)]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$F{in_intk_apln_sponsored}]]></textFieldExpression>
 						</textField>
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
-			<textField isBlankWhenNull="true">
-				<reportElement x="181" y="433" width="100" height="20" uuid="1eda27b6-d699-4658-a72d-0026d3a8887c"/>
-				<textElement>
+			<staticText>
+				<reportElement mode="Opaque" x="226" y="392" width="133" height="17" forecolor="#000000" backcolor="#CCCCCC" uuid="a3c6514f-1f60-4b21-bb95-1df5a5b5723c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Biasiswa / Pinjaman Pengajian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="93" y="392" width="133" height="17" forecolor="#000000" backcolor="#CCCCCC" uuid="117a7e6d-5f3f-436d-bd40-2b7761c5415b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Biayaan Sendiri]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="409" width="133" height="20" uuid="4a093e4f-f60d-413c-9566-67c193876c62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[(
-$F{in_intk_apln_sponsored}.equals("TRUE")? "Biasiswa":"Biasiswa"
-
-)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_self_sponsored}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

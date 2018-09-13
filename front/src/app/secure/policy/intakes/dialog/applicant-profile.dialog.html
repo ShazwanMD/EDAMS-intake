@@ -3,6 +3,7 @@
   <md-card-title>Maklumat Peribadi Pemohon</md-card-title>
   <md-card-subtitle>Pilih Pemohon</md-card-subtitle>
   <md-divider></md-divider>
+
   <md-card-content>
     <!--Tab Section Here-->
     <md-tab-group>
@@ -55,6 +56,8 @@
             </div>
 
             <br/><br/><br/>
+
+            
 
             <!--TAB OTHERS INFORMATION-->
             <md-tab-group>
@@ -211,10 +214,20 @@
             </md-tab-group>
           </md-card-content>
         </md-card>
+
+     
+        
+
         <md-card *ngIf="intakeApplication.bidStatus != 'SELECTED'">
           
         <button md-raised-button color="accent" (click)="select(intakeApplication)">Pilih</button>
         <button md-raised-button color="accent" (click)="reject(intakeApplication)">Tolak</button>
+
+        <button md-button class="md-icon-button" (click)="downloadReport('edms_0004.jrxml&report.pdf',intakeApplication)">
+        <md-icon class="md-24 tc-grey-300">print</md-icon>
+         Cetak Maklumat Pemohon
+        </button>
+
         </md-card>
       </md-tab>
     </md-tab-group>
@@ -222,3 +235,4 @@
   </md-card-content>
   <md-divider></md-divider>
 </md-card>
+
