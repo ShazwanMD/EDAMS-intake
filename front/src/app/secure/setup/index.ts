@@ -235,7 +235,7 @@ export interface SetupModuleState {
 
 export const INITIAL_SETUP_STATE: SetupModuleState =
   <SetupModuleState>{
-    title: 'Setup Codes',
+    title: 'Senarai Kod Tetapan',
     bankCodes: <BankCode[]>[],
     venueCodes: <VenueCode[]>[],
     graduateCenters: <GraduateCenter[]>[],

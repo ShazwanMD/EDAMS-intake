@@ -8,47 +8,52 @@
     <div layout-gt-xs="row" layout-align-gt-xs="center center">
       <div layout-gt-sm="row" flex-gt-xs="100" layout-margin layout-padding>
         <div flex>
-          <p class="md-title tc-grey-900">Take your time filling up the application</p>
-          <p class="md-body-2 tc-grey-900">Be sure to have all the information you need close at hand. Review your responses and check
-            for accuracy. If after applying you discover an error, you can make changes to your application.
+          <p class="md-title tc-grey-900">Ambil Masa untuk mengisi borang permohonan</p>
+          <p class="md-body-2 tc-grey-900">Sila pastikan anda menyediakan semua maklumat yang diperlukan.
+            Kegagalan mematuhi perkara (1) - (10) akan menyebabkan borang permohonan tidak lengkap dan ia tidak akan
+          dapat dipertimbangkan.
           </p>
         </div>
         <div flex>
-          <p class="md-title tc-grey-900">About this intake</p>
+          <p class="md-title tc-grey-900">Maklumat Pengambilan</p>
           <p class="md-body-2 tc-grey-900">
             {{(intake$| async)?.referenceNo}}
           </p>
           <p class="md-body-2 tc-grey-900">
-            StartDate: {{(intake$| async)?.startDate}}
+            Tarikh Mula : {{(intake$| async)?.startDate}}
           </p>
           <p class="md-body-2 tc-grey-900">
-            End Date: {{(intake$| async)?.endDate}}
+            Tarikh Tamat : {{(intake$| async)?.endDate}}
           </p>
         </div>
         <div flex>
-          <p class="md-title tc-grey-900">Please prepare all this document below</p>
+          <p class="md-title tc-grey-900">Sila Sediakan Dokumen Berikut:</p>
         <p class="md-body-2 tc-grey-900">
-           1. Processing fees Receipt<br>
-           2. Language Result<br>
-           3. TOEFL (Foreign Only)<br>
-           4. IELTS Result (Foreign Only)<br>
-           5. SPM Result or<br>
-           6. STPM Result or<br>
-           7. Diploma Result or<br>
-           8. Bachelor Result<br>
-           9. Master Result<br>
-          10. Letter From Sponsor or<br>
-          11. Bank Statement<br>
-          12. Research Proposal<br>
+           1. Resit yuran proses sebanyak rm100.00 (pembayaran boleh dibuat di mana-mana Malayan Banking Berhad(Maybank)
+           menggunakan SLIP BILL PAYMENt (553038019271) atau wang pos atas nama ("Universiti Malaysia Kelantan")<br>
+           2. Dua keping gambar berukuran passport yang TERKINI<br>
+           3. Salinan kad pengenalan<br>
+           4. Salinan keputusan SPM yang disahkan<br>
+           5. Salinan keputusan STPM yang disahkan (JIKA ADA)<br>
+           6. Salinan keputusan Diploma dan Transkrip yang disahkan (JIKA ADA)<br>
+           7. Salinan sijil akademik lain yang disahkan (JIKA ADA)<br>
+           8. Surat kelulusan/perakuan/pengesahan/pelepasan daripada majikan atau pihak berkuasa berkenaan bagi mereka yang 
+              mempunyai pengalaman kerja untuk mengikuti program ini.(WAJIB)<br>         
+           9.Surat Pengesahan biasiswa/hadiah latihan/pinjaman pengajian (JIKA ADA)<br>
+           10. Sijil Apel A (JIKA ADA)<br>
           <!-- 13. Referee Form <a href= "assets\attachment\cps_referee_form.pdf" target="_blank">Download</a><br> -->
-          
+          <!-- <p class="md-body-2 tc-grey-900"><b> 
+            * Kegagalan mematuhi perkara (1)- (10) akan menyebabkan borang permohonan tidak lengkap dan ia tidak akan
+             dapat dipertimbangkan.</b>
+          </p> -->
+         
           </p>
         </div>
         <div flex>
-          <p class="md-title tc-grey-900">Browser recommendations</p>
+          <p class="md-title tc-grey-900">Cadangan pelayar</p>
           <p class="md-body-2 tc-grey-900">
-            The UC online application functions with versions of Firefox, Internet Explorer 8 or higher,
-            Chrome 6 or higher and Safari 5 or higher.<br> You can download one of these browsers from the list below: <br>
+            Sistem ini berfungsi dengan Firefox, Internet Explorer 8 dan ke atas,
+            Chrome 6 atau lebih dan Safari 5 ke atas.<br> Anda boleh muat turun salah satu daripada pelayar ini:<br></p>
           <p>
             1. <a href= "https://www.mozilla.org/en-US/firefox/new/" target="_blank"> Mozilla Firefox</a><br>
             2. <a href= "https://www.microsoft.com/en-us/download/internet-explorer-11-for-windows-7-details.aspx" target="_blank"> Internet Explorer</a><br>

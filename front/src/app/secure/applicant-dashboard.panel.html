@@ -25,14 +25,14 @@
 
 
           <div *ngIf="(intakeApplications$ | async)?.length === 0">
-            <span>You have not filled and submitted an address in your intake application</span>
+            <span>ALAMAT : Anda masih belum mengisi atau menghantar alamat di dalam permohonan kemasukan pelajar</span>
           </div>
           <template let-application let-last="last" ngFor [ngForOf]="intakeApplications$ | async ">
 
             <div class="md-padding" *ngIf="application.bidStatus === 'SUBMITTED'">
               <a md-list-item (click)="editDialog(application)">
                 <md-icon md-list-avatar>home</md-icon>
-                <h3 md-line>Mailing Address : </h3>
+                <h3 md-line>Alamat Surat-Menyurat : </h3>
                 <h3 md-line>{{application.mailingAddress1}},</h3>
                 <h3 md-line>{{application.mailingAddress2}},</h3>
                 <h3 md-line>{{application?.mailingAddress3}},</h3>

@@ -55,7 +55,7 @@ export class PasswordChangerDialog implements OnInit {
 // } 
 
 submit(change: PasswordChange, valid: boolean) {
-   let snackBarRef = this.snackBar.open('Confirm to change your password?', 'Ok');
+   let snackBarRef = this.snackBar.open('Tukar Kata Laluan?', 'Ok');
     snackBarRef.afterDismissed().subscribe(() => {
       if(!change.newPassword)this.store.dispatch(this.actions.saveUser(change));
     this.store.dispatch(this.actions.changeUserPassword(change));

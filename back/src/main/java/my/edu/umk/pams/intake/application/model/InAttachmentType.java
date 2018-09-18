@@ -26,9 +26,9 @@ public enum InAttachmentType {
 	MASTER_EQUIVALENT("MasterEquivalent"), //19
 	PHD("PHD"),  //20
 	PHD_EQUIVALENT("PhdEquivalent"),  //21
-	PASSPORT_IMAGE("PassportImage"),
-	EMPLOYMENT_VERIFICATION("EmploymentVerification"),
-	APEL_CERTIFICATE("ApelCertificate");
+	PASSPORT_IMAGE("PassportImage"), //22
+	EMPLOYMENT_VERIFICATION("EmploymentVerification"), //23
+	APEL_CERTIFICATE("ApelCertificate"); //24
 	
     private String code;
 

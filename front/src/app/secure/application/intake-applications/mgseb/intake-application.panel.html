@@ -557,32 +557,30 @@
       </md-tab>
 
       <md-tab>
-        <template md-tab-label>Submit Application</template>
+        <template md-tab-label>Hantar Permohonan</template>
         <div flex class="pad inset" tdMediaToggle="gt-xs" [mediaClasses]="['pad-sm']">
           <div class="push-top-sm"></div>
-          <md-card-title>Declaration</md-card-title>
+          <md-card-title>Pengakuan</md-card-title>
 
-          <md-card-subtitle>Submit Application for Intake September 2017</md-card-subtitle>
+          <md-card-subtitle>Hantar Permohonan untuk Pengambilan Sesi {{intakeApplication?.intake?.intakeSession?.code}}</md-card-subtitle>
           <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
             <md-checkbox formControlName="declared">
               <div layout="column" flex>
-                I declare that the statements made in this application form are correct. I am fully aware that UMK
-                reserves the right to
-                reject my application or terminate my candidature if the information given above is incorrect or
-                incomplete.
+                saya mengaku semua keterangan di atas adalah benar dan Universiti Malaysia Kelantan berhak menolak permohonan ini
+                sekiranya keterangan tersebut didapati palsu dan / atau tidak lengkap.
               </div>
               <div class="error" class="tc-red-600"
                    *ngIf="applicationForm.get('declared').invalid && applicationForm.get('declared').touched">
-                Please click declaration before submit the application!
+                Sila klik pengakuan sebelum hantar permohonan!
               </div>
             </md-checkbox>
           </div>
-          <md-card-subtitle>*Please fill all the required form before submit your application</md-card-subtitle>
+          <md-card-subtitle>*Sila isikan semua maklumat yang diperlukan sebelum menghantar permohonan</md-card-subtitle>
 
           <div layout="row" layout-align="start center">
             <button md-raised-button color="accent" (click)="submit(applicationForm.value, applicationForm.valid)"
                     [disabled]="!applicationForm.valid">
-              Submit
+              Hantar
             </button>
           </div>
         </div>

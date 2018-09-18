@@ -38,7 +38,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@JoinColumn(name = "PROMO_CODE_ID", unique = true)
 	private InPromoCode promoCode;
 
-	@NotNull
 	@Column(name = "RESEARCH_TITLE", nullable = false)
 	private String researchTitle = "N/A";
 
@@ -66,7 +65,6 @@ public class InIntakeApplicationImpl implements InIntakeApplication {
 	@Column(name = "OKU_NO")
 	private String okuNo;
 
-	@NotNull
 	@Column(name = "PAYMENT_SOURCE_NO")
 	private String paymentSourceNo;
 

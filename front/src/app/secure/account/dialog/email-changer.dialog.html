@@ -1,21 +1,21 @@
-<h2 md-dialog-title>Enter Your New Email Address</h2>
+<h2 md-dialog-title>Masukkan alamat emel yang baru</h2>
 <md-dialog-content>
   <form [formGroup]="emailChangerForm" novalidate>
     <div layout="row" class="inset" layout-wrap hide-xs hide-sm class="push-sm">
       <div layout="column" class="pad-right" flex>
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Current Email" formControlName="currentEmail" flex readonly/>
+            <input mdInput placeholder="Emel Semasa" formControlName="currentEmail" flex readonly/>
           </md-input-container>
         </div>
 
         <div layout="row">
           <md-input-container flex>
-            <input mdInput placeholder="Enter New Email" formControlName="newEmail" flex/>
+            <input mdInput placeholder="Masukkan alamat Emel yang baru" formControlName="newEmail" flex/>
           </md-input-container>
           <div class="error" class="tc-red-600"
                    *ngIf="emailChangerForm.get('newEmail').invalid && emailChangerForm.get('newEmail').touched">
-                   Please insert a valid email format!(e.g:ali@gmail.com)
+                   Sila masukkan alamat emel format yang sah!(e.g:ali@gmail.com)
               </div>
         </div>       
       </div>
@@ -25,6 +25,6 @@
    <md-dialog-actions>
       <button md-raised-button color="accent" 
                (click)="submit(emailChangerForm.value, emailChangerForm.valid)" 
-               [disabled] = "!emailChangerForm.valid">Change Email
+               [disabled] = "!emailChangerForm.valid">Tukar Emel
       </button>
     </md-dialog-actions>
