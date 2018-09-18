@@ -78,6 +78,8 @@ public interface RouterStrategy {
 
 	public List<String> findRegisterCandidates();
 
+	List<String> findCreatorCandidates();
+
 
 }
 

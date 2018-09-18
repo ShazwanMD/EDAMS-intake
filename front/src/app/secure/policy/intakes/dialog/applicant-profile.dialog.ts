@@ -14,6 +14,10 @@ import {ApplicationModuleState} from '../../../application/index';
 import {MdSnackBar, MdDialogRef, MdDialogConfig, MdDialog} from '@angular/material';
 import {ApplicantProfileRejectDialog} from './applicant-profile-reject.dialog';
 import {IntakeActions} from '../intake.action';
+import { SpmResultCode } from '../../../../shared/model/common/spm-result-code.interface';
+import { StpmResultCode } from '../../../../shared/model/common/stpm-result-code.interface';
+import { DiplomaResultCode } from '../../../../shared/model/application/diploma-result.interface';
+import { ReportActions } from '../../../../shared/report/report.action';
 
 @Component({
   selector: 'pams-applicant-profile',
@@ -30,6 +34,9 @@ export class ApplicantProfileDialog implements OnInit {
   private REFEREES: string[] = 'applicationModuleState.referees'.split('.');
   private ATTACHMENTS: string[] = 'applicationModuleState.attachments'.split('.');
   private RESULTS: string[] = 'applicationModuleState.results'.split('.');
+  private SPM_RESULT_CODES: string[] = 'applicationModuleState.spmResultCodes'.split('.');
+  private STPM_RESULT_CODES: string[] = 'applicationModuleState.stpmResultCodes'.split('.');
+  private DIPLOMA_RESULT_CODES: string[] = 'applicationModuleState.diplomaResultCodes'.split('.');
 
   private intakeApplication$: Observable<IntakeApplication>;
   private employments$: Observable<Employment>;
@@ -39,8 +46,12 @@ export class ApplicantProfileDialog implements OnInit {
   private attachments$: Observable<Attachment>;
   private applicationForm: FormGroup;
   private _intakeApplications: IntakeApplication;
+  private spmResultCodes$: Observable<SpmResultCode>;
+  private stpmResultCodes$: Observable<StpmResultCode>;
+  private diplomaResultCodes$: Observable<DiplomaResultCode>;
 
   @Input() intakeApplication: IntakeApplication;
+
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -49,6 +60,7 @@ export class ApplicantProfileDialog implements OnInit {
               private actions: IntakeApplicationActions,
               private intakeActions: IntakeActions,
               private dialog: MdDialog,
+              private reportActions: ReportActions,
               private editorDialog: MdDialogRef<ApplicantProfileDialog>,
               private editorDialogRef: MdDialogRef<ApplicantProfileRejectDialog>,
               private snackBar: MdSnackBar,
@@ -59,7 +71,10 @@ export class ApplicantProfileDialog implements OnInit {
     this.languages$ = this.store.select(...this.LANGUAGES);
     this.referees$ = this.store.select(...this.REFEREES);
     this.attachments$ = this.store.select(...this.ATTACHMENTS);
-    this.results$ = this.store.select(...this.RESULTS); 
+    this.results$ = this.store.select(...this.RESULTS);
+    this.spmResultCodes$ = this.store.select(...this.SPM_RESULT_CODES);
+    this.stpmResultCodes$ = this.store.select(...this.STPM_RESULT_CODES);
+    this.diplomaResultCodes$ = this.store.select(...this.DIPLOMA_RESULT_CODES); 
   }
 
   set intakeApplications(value: IntakeApplication) {
@@ -99,6 +114,11 @@ export class ApplicantProfileDialog implements OnInit {
       this.store.dispatch(this.intakeActions.findIntakeByReferenceNoAndBidStatus(intakeApplication.intake.referenceNo));
 
     });
+  }
+
+  downloadReport(reportId,parameterReport: IntakeApplication): void {   
+    let repParam = reportId+'&reference_no='+ parameterReport.referenceNo;
+    this.store.dispatch(this.reportActions.downloadReport(repParam));
   }
 
 }

@@ -47,6 +47,7 @@ export class DiplomaResultEditorDialog implements OnInit {
       graduationYear: 0,
       cgpa:'',
       institution:'',
+      program:'',
       resultType: ResultType.DIPLOMA,
 
     });

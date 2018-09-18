@@ -3,6 +3,7 @@
   <md-card-title>Maklumat Peribadi Pemohon</md-card-title>
   <md-card-subtitle>Pilih Pemohon</md-card-subtitle>
   <md-divider></md-divider>
+
   <md-card-content>
     <!--Tab Section Here-->
     <md-tab-group>
@@ -56,6 +57,8 @@
 
             <br/><br/><br/>
 
+            
+
             <!--TAB OTHERS INFORMATION-->
             <md-tab-group>
               <md-tab label="Address">
@@ -78,24 +81,34 @@
                       <md-tab label="Alamat Surat-menyurat">
                         <div flex-gt-md="50">
                           <b>Alamat </b> : {{intakeApplication.mailingAddress1}}&nbsp;{{intakeApplication.mailingAddress2}}&nbsp;{{intakeApplication.mailingAddress3}}<br/><br/>
-                          <b>Poskod</b> : {{intakeApplication.mailingPostcode}}<br/><br/>
-                          <b>Negeri</b> : {{intakeApplication.mailingStateCode?.descriptionMs}}<br/><br/>
-                          <b>Negara</b> : {{intakeApplication.mailingCountryCode?.descriptionMs}}
+                          <b>Poskod</b>  : {{intakeApplication.mailingPostcode}}<br/><br/>
+                          <b>Negeri</b>  : {{intakeApplication.mailingStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b>  : {{intakeApplication.mailingCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
                       <md-tab label="Alamat Rasmi">
                         <div flex-gt-md="50">
                           <b>Alamat </b> : {{intakeApplication.officialAddress1}}&nbsp;{{intakeApplication.officialAddress2}}&nbsp;{{intakeApplication.officialAddress3}}<br/><br/>
-                          <b>Poskod</b> : {{intakeApplication.officialPostcode}}<br/><br/>
-                          <b>Negeri</b> : {{intakeApplication.officialStateCode?.descriptionMs}}<br/><br/>
-                          <b>Negara</b> : {{intakeApplication.officialCountryCode?.descriptionMs}}
+                          <b>Poskod</b>  : {{intakeApplication.officialPostcode}}<br/><br/>
+                          <b>Negeri</b>  : {{intakeApplication.officialStateCode?.descriptionMs}}<br/><br/>
+                          <b>Negara</b>  : {{intakeApplication.officialCountryCode?.descriptionMs}}
                         </div>
                       </md-tab>
+                      <md-tab label="Alamat Waris">
+                          <div flex-gt-md="50">
+                            <b>Nama   </b> : {{intakeApplication.guardianName}}<br/><br/>
+                            <b>Alamat </b> : {{intakeApplication.guardianAddress1}}&nbsp;{{intakeApplication.guardianAddress2}}&nbsp;{{intakeApplication.guardianAddress3}}<br/><br/>
+                            <b>Poskod</b>  : {{intakeApplication.guardianPostcode}}<br/><br/>
+                            <b>Negeri</b>  : {{intakeApplication.guardianState?.descriptionMs}}<br/><br/>
+                            <b>Negara</b>  : {{intakeApplication.guardianCountryCode?.descriptionMs}}<br/><br/>
+                            <b>Jenis Waris</b> : {{intakeApplication.guardianTypeCode.descriptionMs}}
+                          </div>
+                        </md-tab>
                     </md-tab-group>
                   </md-card-content>
                 </md-card>
               </md-tab>
-              <md-tab label="Academic">
+              <md-tab label="Akademik">
                 <!--ACADEMIC INFORMATION-->
                 <md-card>
                   <div md-content flex md-scroll-y>
@@ -111,8 +124,19 @@
                   <md-card-content>
 
           <td-expansion-panel label="Keputusan">
-            <pams-result-list [intakeApplication]="intakeApplication$ | async" [results]="results$ | async">
-            </pams-result-list>
+              <pams-spm-result-code-list [intakeApplication]="_intakeApplication" [spmResultCodes]="spmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-spm-result-code-list>
+
+            <pams-stpm-result [intakeApplication]="_intakeApplication" [stpmResultCodes]="stpmResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-stpm-result>
+
+            <pams-diploma-result [intakeApplication]="_intakeApplication" [diplomaResultCodes]="diplomaResultCodes$ | async" (editDialog)="editDialog($event)"
+              (delete)="delete($event)">
+            </pams-diploma-result>
+            <!-- <pams-result-list [intakeApplication]="intakeApplication$ | async" [results]="results$ | async">
+            </pams-result-list> -->
           </td-expansion-panel>
 
           <td-expansion-panel label="Bahasa">
@@ -135,8 +159,21 @@
                   </div>
                   <md-divider></md-divider>
                   <md-card-content>
+                    <md-tab-group>
+                      <md-tab label="Pekerjaan Semasa">
+                          <div flex-gt-md="50">
+                            <b>Alamat </b> : {{intakeApplication.employerAddress1}}&nbsp;{{intakeApplication.employerAddress2}}&nbsp;{{intakeApplication.employerAddress3}}<br/><br/>
+                            <b>Poskod</b> : {{intakeApplication.employerPostcode}}<br/><br/>
+                            <b>Negeri</b> : {{intakeApplication.employerState?.descriptionMs}}<br/><br/>
+                            <b>Sektor Pekerjaan</b> : {{intakeApplication.employmentSectorCode.descriptionMs}}<br/><br/>
+                            <b>Kategori Jawatan</b> : {{intakeApplication.employmentTypeCode.descriptionMs}}
+                          </div>
+                        </md-tab>
+                      <md-tab label="Pengalaman Pekerjaan">
                     <pams-employment-list [intakeApplication]="intakeApplication$ | async" [employments]="employments$ | async">
                     </pams-employment-list>
+                  </md-tab>
+                </md-tab-group>
                   </md-card-content>
                 </md-card>
               </md-tab>
@@ -177,10 +214,20 @@
             </md-tab-group>
           </md-card-content>
         </md-card>
+
+     
+        
+
         <md-card *ngIf="intakeApplication.bidStatus != 'SELECTED'">
           
         <button md-raised-button color="accent" (click)="select(intakeApplication)">Pilih</button>
         <button md-raised-button color="accent" (click)="reject(intakeApplication)">Tolak</button>
+
+        <button md-button class="md-icon-button" (click)="downloadReport('edms_0004.jrxml&report.pdf',intakeApplication)">
+        <md-icon class="md-24 tc-grey-300">print</md-icon>
+         Cetak Maklumat Pemohon
+        </button>
+
         </md-card>
       </md-tab>
     </md-tab-group>
@@ -188,3 +235,4 @@
   </md-card-content>
   <md-divider></md-divider>
 </md-card>
+

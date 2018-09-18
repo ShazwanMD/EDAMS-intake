@@ -6,6 +6,10 @@ import org.joda.time.Period;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,10 +42,16 @@ import my.edu.umk.pams.intake.application.model.InResult;
 import my.edu.umk.pams.intake.application.model.InResultType;
 import my.edu.umk.pams.intake.common.model.InPromoCode;
 import my.edu.umk.pams.intake.identity.model.InApplicant;
+import my.edu.umk.pams.intake.identity.model.InUser;
 import my.edu.umk.pams.intake.policy.model.InIntake;
 import my.edu.umk.pams.intake.policy.model.InProgramOffering;
 import my.edu.umk.pams.intake.policy.service.PolicyService;
+import my.edu.umk.pams.intake.security.integration.InAutoLoginToken;
+import my.edu.umk.pams.intake.security.integration.NonSerializableSecurityContext;
 import my.edu.umk.pams.intake.security.service.SecurityService;
+import my.edu.umk.pams.intake.system.model.InEmailQueue;
+import my.edu.umk.pams.intake.system.model.InEmailQueueImpl;
+import my.edu.umk.pams.intake.system.model.InEmailQueueStatus;
 import my.edu.umk.pams.intake.system.service.SystemService;
 
 /**
@@ -64,6 +74,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Autowired
 	private SystemService systemService;
+	
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -797,5 +810,47 @@ public class ApplicationServiceImpl implements ApplicationService {
 		this.updateIntakeApplication(application);
 
 	}
+
+
+	@Override
+	public void submitNotification(InIntakeApplication application) {
+		LOG.debug("Start submit email");
+		//Log In
+//		 SecurityContext sc = loginAsSystem();    
+		 
+		 //Create email body
+		 InEmailQueue email = new InEmailQueueImpl();
+		 String subject = "Email Notification";
+		 String body = "Your application has been submitted and will be process, Thank you.";
+		 email.setTo(application.getEmail());
+		 email.setSubject(subject);
+		 email.setBody(body);
+		 
+		 //Sent Email
+		 
+		 email.setCode("EQ/" + System.currentTimeMillis());
+		 email.setQueueStatus(InEmailQueueStatus.QUEUED);
+		 systemService.saveEmailQueue(email);
+		 
+		 LOG.debug("Email Queue:{}",email.getTo());
+		 
+		 //Logout
+//		 logoutAsSystem(sc);
+
+	}
+	
+    private SecurityContext loginAsSystem() {
+        SecurityContext savedCtx = SecurityContextHolder.getContext();
+        InAutoLoginToken authenticationToken = new InAutoLoginToken("root");
+        Authentication authed = authenticationManager.authenticate(authenticationToken);
+        SecurityContext system = new NonSerializableSecurityContext();
+        system.setAuthentication(authed);
+        SecurityContextHolder.setContext(system);
+        return savedCtx;
+    }
+
+    private void logoutAsSystem(SecurityContext context) {
+        SecurityContextHolder.setContext(context);
+    }
 
 }

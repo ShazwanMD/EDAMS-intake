@@ -204,6 +204,10 @@ public interface ApplicationService {
 
 //	void changeAddress(InIntakeApplication application);
 	
-	
+    //====================================================================================================
+    // NOTIFICATION MESSAGE
+    //====================================================================================================
+
+	void submitNotification(InIntakeApplication application);
 }
 

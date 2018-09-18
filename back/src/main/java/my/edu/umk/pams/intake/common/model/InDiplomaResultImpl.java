@@ -35,6 +35,9 @@ public class InDiplomaResultImpl implements InDiplomaResult {
 	
 	@Column(name = "INSTITUTION")
 	private String institution;
+	
+	@Column(name = "PROGRAM")
+	private String program;
 			
     @ManyToOne(targetEntity = InIntakeApplicationImpl.class)
     @JoinColumn(name = "APPLICATION_ID")
@@ -117,6 +120,14 @@ public class InDiplomaResultImpl implements InDiplomaResult {
 	@Override
 	public void setApplication(InIntakeApplication application) {
 		this.application = application;
+	}
+	@Override
+	public String getProgram() {
+		return program;
+	}
+	@Override
+	public void setProgram(String program) {
+		this.program = program;
 	}
 
 

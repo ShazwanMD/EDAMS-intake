@@ -12,7 +12,9 @@
       ({{intakeApplication?.studyModeSelection?.studyMode.code}}) </p>
     <button md-raised-button color="accent" class="push-bottom" (click)="showStudyModeSelectionDialog()">Pilih</button>
     <div class="push-top-sm"></div>
-    <p class="md-title tc-grey-600">Pilih Pusat Pengajian :</p>
+    <p class="md-title tc-grey-600">Pilih Pusat Pengajian :
+      <b *ngIf="intakeApplication.studyCenterCode !== null">{{intakeApplication.studyCenterCode.descriptionMs}}</b>
+    </p>
     <div fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="25px">
      <!-- <pams-study-center-code-select [placeholder]="'Study Center'" [innerFormControl]="applicationForm.controls.studyCenterCode"
                 fxFlex="calc(70%-25px)" class="push-bottom">

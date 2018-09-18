@@ -18,6 +18,7 @@ public class DiplomaResult extends MetaObject {
 	private String cgpa;
 	private String institution;
 	private IntakeApplication application;
+	private String program;
 	private ResultType resultType;
 
 	public String getGraduationYear() {
@@ -58,6 +59,14 @@ public class DiplomaResult extends MetaObject {
 
 	public void setResultType(ResultType resultType) {
 		this.resultType = resultType;
+	}
+	
+	public String getProgram() {
+		return program;
+	}
+
+	public void setProgram(String program) {
+		this.program = program;
 	}
 
 	@JsonCreator
