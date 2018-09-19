@@ -1014,24 +1014,12 @@ public class IdentityServiceImpl implements IdentityService {
     
     @Override
     public void changeEmail(InApplicant applicant, String newEmail) {
-    	SecurityContext sc = loginAsSystem();
-    	
-    	applicant.setEmail(newEmail);
+        SecurityContext sc = loginAsSystem();
+        
+        applicant.setEmail(newEmail);
         applicantDao.update(applicant, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().flush();
         
-        InIntakeApplication intakeApplication = applicationService.findIntakeApplicationByApplicant(applicant);
-        intakeApplication.setEmail(newEmail);
-        intakeApplicationDao.update(intakeApplication, securityService.getCurrentUser());
-        
-        
-        
-        InCandidate candidate = admissionService.findCandidateByIntakeApplication(intakeApplication);
-        candidate.setEmail(newEmail);
-        candidateDao.update(candidate, securityService.getCurrentUser());
-        LOG.debug("Candidate in change email :{}",candidate.getEmail());
-        
-
         //must find actor
         InActor actor = this.findApplicantById(applicant.getId());
         actor.setEmail(newEmail);
@@ -1058,9 +1046,8 @@ public class IdentityServiceImpl implements IdentityService {
         userVerificationDao.save(verification, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().flush();
         
-    	if (applicant == null) LOG.debug("ApplicantB is null");
-    	if (applicant.getEmail() == null) LOG.debug("Email is null");
-
+        if (applicant == null) LOG.debug("ApplicantB is null");
+        if (applicant.getEmail() == null) LOG.debug("Email is null");
         String applicationUrl= systemService.findConfigurationByKey("application.url").getValue();
         InEmailQueue email= new InEmailQueueImpl();
         String subject = "Email verification";

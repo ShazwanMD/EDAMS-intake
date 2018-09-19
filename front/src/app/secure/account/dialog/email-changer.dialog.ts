@@ -49,7 +49,7 @@ export class EmailChangerDialog implements OnInit {
 
   submit(change: EmailChange, valid: boolean) {
     console.log('submit address change: ', change);
-    let snackBarRef = this.snackBar.open('Please verify your new email before login', 'Ok');
+    let snackBarRef = this.snackBar.open('Sila sahkan emel baru anda sebelum log masuk', 'Ok');
     snackBarRef.afterDismissed().subscribe(() => {
     this.store.dispatch(this.actions.changeApplicantEmail(change));
     this.dialog.close();

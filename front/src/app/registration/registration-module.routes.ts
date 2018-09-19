@@ -3,7 +3,7 @@ import {RegistrationPage} from "./registration.page";
 import {VerificationPage} from "./verification.page";
 import {RegistrationInformationPage} from "./registration-information.page";
 import {ForgetPasswordInformationPage} from "../login/forget-password-information.page";
-import { ChangeEmailVerificationPage } from "./change-email-verification";
+import { ChangeEmailVerificationPage } from "./change-email-verification.page";
 
 export const registrationModuleRoutes: Routes = [
   {path: 'registration', component: RegistrationPage},
