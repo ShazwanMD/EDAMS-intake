@@ -1050,8 +1050,8 @@ public class IdentityServiceImpl implements IdentityService {
         if (applicant.getEmail() == null) LOG.debug("Email is null");
         String applicationUrl= systemService.findConfigurationByKey("application.url").getValue();
         InEmailQueue email= new InEmailQueueImpl();
-        String subject = "Email verification";
-        String body = "Please verify your email address upon 7 days from your registration day by clicking this url : "+applicationUrl+"/changeEmailVerification/"+ token;
+        String subject = "PENGESAHAN EMEL";
+        String body = "Sila sahkan alamat emel anda dalam masa 7 hari daripada hari pendaftaran dengan menekan url ini : "+applicationUrl+"/changeEmailVerification/"+ token;
         //verification.getToken();
         email.setTo(user.getEmail());
         email.setSubject(subject);
