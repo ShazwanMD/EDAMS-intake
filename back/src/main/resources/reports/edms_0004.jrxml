@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Edams" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45c7f3ef-8c19-47d1-b113-6b764f77e6e6">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="1488"/>
 	<subDataset name="spm" uuid="fcbb4936-ae8a-4569-8b46-c4d346b3b190">
 		<parameter name="applicant_id" class="java.lang.Long" isForPrompting="false"/>
 		<queryString>
@@ -1146,7 +1146,9 @@ FROM
      in_empt_sctr_code."id" AS in_empt_sctr_code_id,
      in_empt_sctr_code."description_ms" AS in_empt_sctr_code_description_ms,
      in_empt_type_code."id" AS in_empt_type_code_id,
-     in_empt_type_code."description_ms" AS in_empt_type_code_description_ms
+     in_empt_type_code."description_ms" AS in_empt_type_code_description_ms,
+     in_grdn_type_code."id" AS in_grdn_type_code_id,
+     in_grdn_type_code."description_ms" AS in_grdn_type_code_description_ms
 FROM
      "public"."in_intk_sesn" in_intk_sesn INNER JOIN "public"."in_intk" in_intk ON in_intk_sesn."id" = in_intk."session_id"
      INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_intk."id" = in_intk_apln."intake_id"
@@ -1161,14 +1163,15 @@ FROM
      INNER JOIN "public"."in_mrtl_code" in_mrtl_code ON in_intk_apln."marital_code_id" = in_mrtl_code."id"
      INNER JOIN "public"."in_empt" in_empt ON in_intk_apln."id" = in_empt."application_id"
      INNER JOIN "public"."in_stte_code" in_stte_code ON in_intk_apln."mailing_state_code_id" = in_stte_code."id"
+     AND in_stte_code."id" = in_intk_apln."official_state_code_id"
      AND in_stte_code."id" = in_intk_apln."employer_state_id"
      AND in_stte_code."id" = in_intk_apln."guardian_state_id"
-     AND in_stte_code."id" = in_intk_apln."official_state_code_id"
      LEFT OUTER JOIN "public"."in_cnty_code" in_cnty_code ON in_intk_apln."mailing_country_code_id" = in_cnty_code."id"
-     AND in_cnty_code."id" = in_intk_apln."guardian_country_code_id"
      AND in_cnty_code."id" = in_intk_apln."official_country_code_id"
+     AND in_cnty_code."id" = in_intk_apln."guardian_country_code_id"
      INNER JOIN "public"."in_empt_sctr_code" in_empt_sctr_code ON in_intk_apln."employment_sector_code_id" = in_empt_sctr_code."id"
      INNER JOIN "public"."in_empt_type_code" in_empt_type_code ON in_intk_apln."employment_type_code_id" = in_empt_type_code."id"
+     INNER JOIN "public"."in_grdn_type_code" in_grdn_type_code ON in_intk_apln."guardian_type_code_id" = in_grdn_type_code."id"
      AND in_empt_sctr_code."id" = in_empt."sector_code_id"]]>
 	</queryString>
 	<field name="in_intk_sesn_id" class="java.lang.Long"/>
@@ -1319,6 +1322,8 @@ FROM
 	<field name="in_empt_sctr_code_description_ms" class="java.lang.String"/>
 	<field name="in_empt_type_code_id" class="java.lang.Long"/>
 	<field name="in_empt_type_code_description_ms" class="java.lang.String"/>
+	<field name="in_grdn_type_code_id" class="java.lang.Long"/>
+	<field name="in_grdn_type_code_description_ms" class="java.lang.String"/>
 	<filterExpression><![CDATA[$F{in_intk_apln_reference_no}.equals( $P{reference_no} )]]></filterExpression>
 	<group name="header baru">
 		<groupExpression><![CDATA[$F{in_intk_id}]]></groupExpression>
@@ -1338,7 +1343,7 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="519" splitType="Stretch">
+		<band height="520" splitType="Stretch">
 			<rectangle>
 				<reportElement x="2" y="206" width="546" height="24" uuid="4e90fa3b-bb07-4aff-aab4-717e3c3465ef"/>
 				<graphicElement>
@@ -2839,22 +2844,6 @@ $F{in_empt_employmeny_type}.equals( "2" )? "Sendiri":"Lain-lain"
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</rectangle>
-			<textField>
-				<reportElement x="444" y="279" width="98" height="12" uuid="3594378d-ad99-43ab-8745-70258b368010"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[(
-$F{in_intk_apln_guardian_type_code_id}.equals( "1" )? "Ibu":
-$F{in_intk_apln_guardian_type_code_id}.equals( "2" )? "Ayah":
-$F{in_intk_apln_guardian_type_code_id}.equals( "3" )? "Penjaga":
-$F{in_intk_apln_guardian_type_code_id}.equals( "4" )? "Adik-Beradik":
-$F{in_intk_apln_guardian_type_code_id}.equals( "5" )? "Tidak_Berkaitan":
-$F{in_intk_apln_guardian_type_code_id}.equals( "6" )? "Isteri":
-$F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
-
-)]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="226" y="392" width="133" height="17" forecolor="#000000" backcolor="#CCCCCC" uuid="a3c6514f-1f60-4b21-bb95-1df5a5b5723c"/>
 				<box>
@@ -2959,6 +2948,13 @@ $F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[(($F{in_intk_apln_guardian_address3}==null)? "-": $F{in_intk_apln_guardian_address3})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="280" width="103" height="13" uuid="d21317c3-a3fb-4493-8aa7-7da5c3be03e2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_grdn_type_code_description_ms}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
