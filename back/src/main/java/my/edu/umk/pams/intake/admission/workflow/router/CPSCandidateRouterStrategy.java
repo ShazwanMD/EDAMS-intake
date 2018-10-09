@@ -65,7 +65,13 @@ public class CPSCandidateRouterStrategy extends RouterStrategySupport {
 				"GRP_KRN_FCTY_A11", "GRP_PGW_FCTY_A11",
 				"GRP_KRN_FCTY_A12", "GRP_PGW_FCTY_A12",
 				"GRP_KRN_FCTY_A13", "GRP_PGW_FCTY_A13",
-				"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM");
+				"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM",
+				"GRP_DKN_FCTY_A01", "GRP_TDKN_FCTY_A01", "GRP_DKN_FCTY_A02", "GRP_TDKN_FCTY_A02",
+				"GRP_DKN_FCTY_A04", "GRP_TDKN_FCTY_A04", "GRP_DKN_FCTY_A05", "GRP_TDKN_FCTY_A05",
+				"GRP_DKN_FCTY_A06", "GRP_TDKN_FCTY_A06", "GRP_DKN_FCTY_A07", "GRP_TDKN_FCTY_A07",
+				"GRP_DKN_FCTY_A08", "GRP_TDKN_FCTY_A08", "GRP_DKN_FCTY_A11", "GRP_TDKN_FCTY_A11",
+				"GRP_DKN_FCTY_A12", "GRP_TDKN_FCTY_A12", "GRP_DKN_FCTY_A13", "GRP_TDKN_FCTY_A13",
+				"GRP_DKN_FCTY_A14", "GRP_TDKN_FCTY_A14");
     }
     
 
@@ -82,7 +88,13 @@ public class CPSCandidateRouterStrategy extends RouterStrategySupport {
         						"GRP_KRN_FCTY_A11", "GRP_PGW_FCTY_A11",
         						"GRP_KRN_FCTY_A12", "GRP_PGW_FCTY_A12",
         						"GRP_KRN_FCTY_A13", "GRP_PGW_FCTY_A13",
-        						"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM");
+        						"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM",
+        						"GRP_DKN_FCTY_A01", "GRP_TDKN_FCTY_A01", "GRP_DKN_FCTY_A02", "GRP_TDKN_FCTY_A02",
+        						"GRP_DKN_FCTY_A04", "GRP_TDKN_FCTY_A04", "GRP_DKN_FCTY_A05", "GRP_TDKN_FCTY_A05",
+        						"GRP_DKN_FCTY_A06", "GRP_TDKN_FCTY_A06", "GRP_DKN_FCTY_A07", "GRP_TDKN_FCTY_A07",
+        						"GRP_DKN_FCTY_A08", "GRP_TDKN_FCTY_A08", "GRP_DKN_FCTY_A11", "GRP_TDKN_FCTY_A11",
+        						"GRP_DKN_FCTY_A12", "GRP_TDKN_FCTY_A12", "GRP_DKN_FCTY_A13", "GRP_TDKN_FCTY_A13",
+        						"GRP_DKN_FCTY_A14", "GRP_TDKN_FCTY_A14");
     }
 
     @Override
@@ -98,7 +110,13 @@ public class CPSCandidateRouterStrategy extends RouterStrategySupport {
 								"GRP_KRN_FCTY_A11", "GRP_PGW_FCTY_A11",
 								"GRP_KRN_FCTY_A12", "GRP_PGW_FCTY_A12",
 								"GRP_KRN_FCTY_A13", "GRP_PGW_FCTY_A13",
-								"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM");   
+								"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM",
+								"GRP_DKN_FCTY_A01", "GRP_TDKN_FCTY_A01", "GRP_DKN_FCTY_A02", "GRP_TDKN_FCTY_A02",
+								"GRP_DKN_FCTY_A04", "GRP_TDKN_FCTY_A04", "GRP_DKN_FCTY_A05", "GRP_TDKN_FCTY_A05",
+								"GRP_DKN_FCTY_A06", "GRP_TDKN_FCTY_A06", "GRP_DKN_FCTY_A07", "GRP_TDKN_FCTY_A07",
+								"GRP_DKN_FCTY_A08", "GRP_TDKN_FCTY_A08", "GRP_DKN_FCTY_A11", "GRP_TDKN_FCTY_A11",
+								"GRP_DKN_FCTY_A12", "GRP_TDKN_FCTY_A12", "GRP_DKN_FCTY_A13", "GRP_TDKN_FCTY_A13",
+								"GRP_DKN_FCTY_A14", "GRP_TDKN_FCTY_A14");   
     }
     
 //    @Override
@@ -119,7 +137,13 @@ public class CPSCandidateRouterStrategy extends RouterStrategySupport {
 								"GRP_KRN_FCTY_A11", "GRP_PGW_FCTY_A11",
 								"GRP_KRN_FCTY_A12", "GRP_PGW_FCTY_A12",
 								"GRP_KRN_FCTY_A13", "GRP_PGW_FCTY_A13",
-								"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM");   //cps-pegawai , io-pegawai, root
+								"GRP_KRN_FCTY_A14", "GRP_PGW_FCTY_A14", "GRP_ADM",
+								"GRP_DKN_FCTY_A01", "GRP_TDKN_FCTY_A01", "GRP_DKN_FCTY_A02", "GRP_TDKN_FCTY_A02",
+								"GRP_DKN_FCTY_A04", "GRP_TDKN_FCTY_A04", "GRP_DKN_FCTY_A05", "GRP_TDKN_FCTY_A05",
+								"GRP_DKN_FCTY_A06", "GRP_TDKN_FCTY_A06", "GRP_DKN_FCTY_A07", "GRP_TDKN_FCTY_A07",
+								"GRP_DKN_FCTY_A08", "GRP_TDKN_FCTY_A08", "GRP_DKN_FCTY_A11", "GRP_TDKN_FCTY_A11",
+								"GRP_DKN_FCTY_A12", "GRP_TDKN_FCTY_A12", "GRP_DKN_FCTY_A13", "GRP_TDKN_FCTY_A13",
+								"GRP_DKN_FCTY_A14", "GRP_TDKN_FCTY_A14");   //cps-pegawai , io-pegawai, root
     }
 
     @Override
