@@ -2,8 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer letter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc959bd2-627c-4620-bf05-51189df59de5">
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="629"/>
+	<property name="ireport.y" value="253"/>
 	<parameter name="reference_no" class="java.lang.String"/>
+	<parameter name="pathImage" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
 		<![CDATA[SELECT
      in_intk."id" AS in_intk_id,
@@ -298,49 +299,97 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="144" splitType="Stretch">
+		<band height="215" splitType="Stretch">
 			<textField>
-				<reportElement x="32" y="10" width="505" height="20" uuid="b0b2f758-b342-4b8e-9516-482ec00c2103"/>
+				<reportElement x="32" y="101" width="505" height="20" uuid="b0b2f758-b342-4b8e-9516-482ec00c2103"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_apln_name}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="30" width="505" height="20" uuid="dd4890ff-b6c3-45c2-b9ff-69500a4b307f"/>
+				<reportElement x="32" y="116" width="505" height="20" uuid="dd4890ff-b6c3-45c2-b9ff-69500a4b307f"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address1}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="50" width="505" height="20" uuid="4fc48987-816e-4ba8-a99a-4524eb5f63ec"/>
+				<reportElement x="32" y="131" width="505" height="20" uuid="4fc48987-816e-4ba8-a99a-4524eb5f63ec"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address2}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="70" width="505" height="20" uuid="beb9fc50-389c-4228-9b23-83b3c14e6674"/>
+				<reportElement x="32" y="146" width="505" height="20" uuid="beb9fc50-389c-4228-9b23-83b3c14e6674"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[(($F{in_intk_apln_mailing_address3}==null)? "-": $F{in_intk_apln_mailing_address3}.toUpperCase())]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="88" width="505" height="20" uuid="c4fcee2b-84a3-4f37-8a9a-8d4422aee813"/>
+				<reportElement x="32" y="162" width="505" height="20" uuid="c4fcee2b-84a3-4f37-8a9a-8d4422aee813"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_postcode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="108" width="505" height="20" uuid="f2482a32-6866-4d4c-b274-9a896923adb7"/>
+				<reportElement x="32" y="177" width="505" height="20" uuid="f2482a32-6866-4d4c-b274-9a896923adb7"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_stte_code_description_en}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="304" y="0" width="251" height="20" forecolor="#003366" uuid="58d683ed-0e55-418a-9248-49737bb9a58e"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Pusat Pengajian Siswazah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="52" width="55" height="8" uuid="a80cfd68-ac4d-480a-bede-1802c2d346a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MALAYSIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="17" width="200" height="20" uuid="10c1667d-4c8a-4169-96e3-ab2b23bbfc6e"/>
+				<textElement textAlignment="Right">
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Centre for Postgraduate Studies]]></text>
+			</staticText>
+			<line>
+				<reportElement x="27" y="60" width="31" height="1" forecolor="#FF6600" uuid="e0b3813f-13f8-457c-a61b-fc6ff371aaf8"/>
+			</line>
+			<image>
+				<reportElement x="25" y="11" width="34" height="46" uuid="fa4251e2-607b-43c2-9a5a-eac801045ed1"/>
+				<imageExpression><![CDATA[$P{pathImage}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="63" y="33" width="492" height="1" forecolor="#CC3300" uuid="e7fc862e-7d01-4699-bf56-79e4ba02eea1"/>
+			</line>
+			<staticText>
+				<reportElement x="15" y="70" width="55" height="8" uuid="02136395-d958-4e39-adc1-c82b39e93266"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="27" y="69" width="31" height="1" forecolor="#FF6600" uuid="03e58121-9949-4e7d-b377-48730a4cdd97"/>
+			</line>
+			<staticText>
+				<reportElement x="15" y="61" width="55" height="8" uuid="e1911fc3-3429-4c64-9f95-7a9313f9560a"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KELANTAN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -348,23 +397,23 @@ FROM
 			<staticText>
 				<reportElement x="32" y="0" width="100" height="20" uuid="fa2291f2-5c88-40de-b1cd-a67ee8f972ef"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tuan/Puan,]]></text>
+				<text><![CDATA[Sir/Madam,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="20" width="505" height="21" uuid="fccf6744-a5f0-4faa-b880-410e1627381a"/>
+				<reportElement x="32" y="24" width="505" height="21" uuid="fccf6744-a5f0-4faa-b880-410e1627381a"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[OFFER OF PART TIME STUDIES PROGRAM UNIVERSITI MALAYSIA KELANTAN ]]></text>
+				<text><![CDATA[OFFER OF PART TIME STUDIES PROGRAM UNIVERSITI MALAYSIA KELANTAN FOR]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="32" y="41" width="505" height="20" uuid="57938e41-ea0f-4f9e-8ab4-1378e09b3bab"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["FOR "+$F{in_intk_sesn_description_en}.toUpperCase()+" "+$F{in_intk_sesn_label}.toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_intk_sesn_description_en}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="32" y="73" width="315" height="20" uuid="4a8aeb73-e347-4a91-9df5-8f5d32cb55d1"/>
@@ -376,270 +425,312 @@ FROM
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="509" splitType="Stretch">
+		<band height="494" splitType="Stretch">
 			<staticText>
-				<reportElement x="32" y="12" width="505" height="20" uuid="9637b07c-80e5-4c4a-9384-763363d04206"/>
+				<reportElement x="32" y="3" width="505" height="20" uuid="9637b07c-80e5-4c4a-9384-763363d04206"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<text><![CDATA[Congratulations, please be informed that the application sir / madam for Part-Time Study Program]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="32" width="505" height="20" uuid="44b7c14a-63f4-4fa8-891e-b7bc3da62995"/>
+				<reportElement x="32" y="19" width="505" height="20" uuid="44b7c14a-63f4-4fa8-891e-b7bc3da62995"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Universiti Malaysia Kelantan has SUCCESSFUL following:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="64" width="136" height="15" uuid="bab91906-dacd-4343-9130-3a396727938f"/>
+				<reportElement x="63" y="43" width="136" height="15" uuid="bab91906-dacd-4343-9130-3a396727938f"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Programme Code          ]]></text>
+				<text><![CDATA[Programme          ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="119" width="136" height="15" uuid="a39d9834-90c8-4c1d-9081-456e015d38b2"/>
+				<reportElement x="63" y="98" width="136" height="15" uuid="a39d9834-90c8-4c1d-9081-456e015d38b2"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Faculty         ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="134" width="136" height="15" uuid="de3e4ff4-41b3-4f25-9d36-484380f5f845"/>
+				<reportElement x="63" y="113" width="136" height="15" uuid="de3e4ff4-41b3-4f25-9d36-484380f5f845"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Semester of Admission          ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="149" width="136" height="15" uuid="9fe00a09-2452-4952-b3d7-08d998b1c385"/>
+				<reportElement x="63" y="128" width="136" height="15" uuid="9fe00a09-2452-4952-b3d7-08d998b1c385"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Duration Of Study]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="207" width="136" height="15" uuid="9303f5a8-17d6-4bf8-b60d-08448c7ae9bc"/>
+				<reportElement x="63" y="143" width="136" height="15" uuid="9303f5a8-17d6-4bf8-b60d-08448c7ae9bc"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fee Payable]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="218" y="90" width="184" height="15" uuid="b63f05a6-1a56-4980-8d66-51f89f8937f1"/>
+				<reportElement x="218" y="69" width="184" height="15" uuid="b63f05a6-1a56-4980-8d66-51f89f8937f1"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{in_prgm_code_code})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_prgm_code_code}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="218" y="119" width="323" height="15" uuid="3730faf6-1812-421c-a77c-4071c6131854"/>
+				<reportElement x="218" y="98" width="323" height="15" uuid="3730faf6-1812-421c-a77c-4071c6131854"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{in_fcty_code_description_ms}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_fcty_code_description_en}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="200" y="207" width="25" height="15" uuid="181a59fb-e71f-4561-8bed-c5bb873dfdd0"/>
+				<reportElement x="200" y="143" width="25" height="15" uuid="181a59fb-e71f-4561-8bed-c5bb873dfdd0"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="149" width="25" height="15" uuid="aa92b6cd-453e-4c9e-bc3b-e28b576b6f03"/>
+				<reportElement x="200" y="128" width="25" height="15" uuid="aa92b6cd-453e-4c9e-bc3b-e28b576b6f03"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="134" width="25" height="15" uuid="dcbe13f0-8d3e-4205-9e24-046fa963c3a4"/>
+				<reportElement x="200" y="113" width="25" height="15" uuid="dcbe13f0-8d3e-4205-9e24-046fa963c3a4"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="119" width="25" height="15" uuid="351d1d11-2fdd-483d-91a2-1b918f7ed3fb"/>
+				<reportElement x="200" y="98" width="25" height="15" uuid="351d1d11-2fdd-483d-91a2-1b918f7ed3fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="64" width="25" height="15" uuid="45c80432-6d2f-4671-bfee-27823932d43e"/>
+				<reportElement x="200" y="43" width="25" height="15" uuid="45c80432-6d2f-4671-bfee-27823932d43e"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="218" y="134" width="323" height="15" uuid="bb9e7dd9-0601-467e-b569-0ce26c5c5a86"/>
+				<reportElement x="218" y="113" width="323" height="15" uuid="bb9e7dd9-0601-467e-b569-0ce26c5c5a86"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{in_intk_sesn_description_ms}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_intk_sesn_description_en}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="149" width="323" height="15" uuid="238f8814-46e4-471e-8929-ae3cfc5c2292"/>
+				<reportElement x="218" y="128" width="323" height="15" uuid="238f8814-46e4-471e-8929-ae3cfc5c2292"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[04 Tahun]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="63" y="164" width="136" height="15" uuid="ba548616-1c48-4d1d-bda4-2b2935fea2bd"/>
+				<reportElement x="63" y="174" width="136" height="15" uuid="ba548616-1c48-4d1d-bda4-2b2935fea2bd"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Registration Date]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="164" width="25" height="15" uuid="bfddbe78-1a7d-4b7f-85d4-48a25179d1fd"/>
+				<reportElement x="200" y="174" width="25" height="15" uuid="bfddbe78-1a7d-4b7f-85d4-48a25179d1fd"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
-			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="218" y="164" width="45" height="15" isPrintWhenDetailOverflows="true" uuid="bbb48bd2-e5a3-463e-97ab-d3ee17fc7ed1"/>
-				<textElement>
-					<font fontName="SansSerif" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{in_venu_code_registration_date}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="63" y="193" width="136" height="15" uuid="42006688-c69b-488f-b509-e4316fd1299c"/>
+				<reportElement x="63" y="203" width="136" height="15" uuid="42006688-c69b-488f-b509-e4316fd1299c"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Registration Vanue]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="192" width="25" height="15" uuid="d749400d-d5ff-4213-8f69-0a8159325cc9"/>
+				<reportElement x="200" y="202" width="25" height="15" uuid="d749400d-d5ff-4213-8f69-0a8159325cc9"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="218" y="192" width="323" height="13" isPrintWhenDetailOverflows="true" uuid="5c233ebf-242d-4135-9904-5ff7d8e56fbb"/>
+				<reportElement stretchType="RelativeToTallestObject" x="218" y="202" width="323" height="40" isPrintWhenDetailOverflows="true" uuid="5c233ebf-242d-4135-9904-5ff7d8e56fbb"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_venu_code_registration_location}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="63" y="222" width="136" height="15" uuid="6ee19c13-4519-4d20-b756-e831075da6c3"/>
+				<reportElement x="63" y="158" width="136" height="15" uuid="6ee19c13-4519-4d20-b756-e831075da6c3"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Residential College Facility]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="222" width="25" height="15" uuid="7327782f-0b37-45c8-82a9-06bc015e59a6"/>
+				<reportElement x="200" y="158" width="25" height="15" uuid="7327782f-0b37-45c8-82a9-06bc015e59a6"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="222" width="169" height="15" uuid="d64bea7e-ba17-4d9b-89a3-fbb2987f9dcb"/>
+				<reportElement x="218" y="158" width="169" height="15" uuid="d64bea7e-ba17-4d9b-89a3-fbb2987f9dcb"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Not Provided]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="218" y="43" width="305" height="40" uuid="556c4334-c978-4e55-85c3-c1eadbb6d70b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_prgm_code_description_en}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="32" y="259" width="207" height="15" uuid="3d7efa70-745b-4ad8-b82d-7118502335cf"/>
+				<reportElement x="63" y="83" width="136" height="15" uuid="15a79e72-304d-4e7d-b972-094bd8828571"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="83" width="25" height="15" uuid="3c0daafe-bb0d-4c9f-ac03-c7dc423357ec"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="83" width="305" height="15" uuid="84652ebe-fb65-4abf-86f4-968de4da0fa7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_sesn_label}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="218" y="143" width="102" height="15" uuid="3ed1a29d-2bf0-433c-b95e-b11c01e33931"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[As Enclosed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="68" width="136" height="15" uuid="a8414e4c-2118-48f4-8921-094562dec1f8"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programme Code          ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="68" width="25" height="15" uuid="c2de9233-2bac-49b7-abd1-3e59527cf4be"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="250" width="207" height="15" uuid="3d7efa70-745b-4ad8-b82d-7118502335cf"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Residential College Facility]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="275" width="366" height="15" uuid="0dbb50b3-d350-4bb4-b040-5a82081c3e9d"/>
+				<reportElement x="27" y="266" width="366" height="15" uuid="0dbb50b3-d350-4bb4-b040-5a82081c3e9d"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[You are required to pay the first semester fee as follows:]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="32" y="302" width="488" height="174" uuid="06ca7e70-6117-4460-ad3d-635c978ac952"/>
+				<reportElement x="27" y="293" width="488" height="174" uuid="06ca7e70-6117-4460-ad3d-635c978ac952"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Solid"/>
 				</graphicElement>
 			</rectangle>
 			<line>
-				<reportElement x="32" y="315" width="488" height="1" uuid="ef650fa1-02f1-4121-b10f-c52547670541"/>
+				<reportElement x="27" y="306" width="488" height="1" uuid="ef650fa1-02f1-4121-b10f-c52547670541"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="32" y="329" width="488" height="1" uuid="c8109e84-00e8-407e-9210-ab04fad2a6e5"/>
+				<reportElement x="27" y="320" width="488" height="1" uuid="c8109e84-00e8-407e-9210-ab04fad2a6e5"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="200" y="302" width="1" height="28" uuid="b9d77c20-43be-4fbd-b992-3a2060b7e9a7"/>
+				<reportElement x="195" y="293" width="1" height="28" uuid="b9d77c20-43be-4fbd-b992-3a2060b7e9a7"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="363" y="302" width="1" height="28" uuid="b778c59d-1919-49c3-bacf-2bdb10a69827"/>
+				<reportElement x="358" y="293" width="1" height="28" uuid="b778c59d-1919-49c3-bacf-2bdb10a69827"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="35" y="301" width="162" height="15" uuid="b423bf40-877c-4c8b-b364-b9b7ba680671"/>
+				<reportElement x="30" y="292" width="162" height="15" uuid="b423bf40-877c-4c8b-b364-b9b7ba680671"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Registration fees]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="209" y="301" width="153" height="15" uuid="29603e50-7962-40f1-b577-885d4a93baa8"/>
+				<reportElement x="204" y="292" width="153" height="15" uuid="29603e50-7962-40f1-b577-885d4a93baa8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Study Fees]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="362" y="301" width="158" height="15" uuid="98459505-1fa8-450b-a50d-45c7ea6f23ce"/>
+				<reportElement x="357" y="292" width="158" height="15" uuid="98459505-1fa8-450b-a50d-45c7ea6f23ce"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Services fees]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="35" y="316" width="162" height="13" uuid="1c97257b-e55d-495b-9b81-4a7edafcb342"/>
+				<reportElement x="30" y="307" width="162" height="13" uuid="1c97257b-e55d-495b-9b81-4a7edafcb342"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[RM 100.00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="208" y="316" width="152" height="13" uuid="0b55a506-3a7a-419a-ac81-1f138ae07fb4"/>
+				<reportElement x="203" y="307" width="152" height="13" uuid="0b55a506-3a7a-419a-ac81-1f138ae07fb4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[RM 160/ kredit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="362" y="316" width="158" height="13" uuid="3731c951-8e2c-4984-80fb-e2f13b8001c7"/>
+				<reportElement x="357" y="307" width="158" height="13" uuid="3731c951-8e2c-4984-80fb-e2f13b8001c7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
 				<text><![CDATA[RM 305.00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="25" y="336" width="493" height="54" uuid="b0fcba79-2919-4978-9184-0406a0a97485"/>
+				<reportElement x="20" y="327" width="493" height="54" uuid="b0fcba79-2919-4978-9184-0406a0a97485"/>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
@@ -648,7 +739,7 @@ FROM
             2. All fees need to be settled before the semester ends.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="58" y="398" width="460" height="78" uuid="9a5d136a-0afe-44d7-8ab4-05792ddc9d30"/>
+				<reportElement x="53" y="389" width="460" height="78" uuid="9a5d136a-0afe-44d7-8ab4-05792ddc9d30"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="false"/>
 				</textElement>
@@ -658,74 +749,46 @@ FROM
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="38" y="330" width="55" height="15" uuid="83041160-a6f3-4d46-bd70-56265ad52a62"/>
+				<reportElement x="35" y="325" width="55" height="15" uuid="83041160-a6f3-4d46-bd70-56265ad52a62"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nota :     ]]></text>
+				<text><![CDATA[Note :     ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="38" y="380" width="55" height="15" uuid="e829ccf4-3a8a-44e4-a781-7701f0e0ad06"/>
+				<reportElement x="35" y="374" width="55" height="15" uuid="e829ccf4-3a8a-44e4-a781-7701f0e0ad06"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Mustahak :]]></text>
+				<text><![CDATA[Important :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="72" y="481" width="411" height="15" uuid="780725b8-497f-4fde-b894-ac8a34a6841a"/>
+				<reportElement x="67" y="472" width="411" height="15" uuid="780725b8-497f-4fde-b894-ac8a34a6841a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ Welcome to Universiti Malaysia kelantan.]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="218" y="64" width="305" height="45" uuid="556c4334-c978-4e55-85c3-c1eadbb6d70b"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="218" y="174" width="100" height="15" uuid="fe7cfec5-4783-404e-961d-d0c5f0cf1de9"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{in_prgm_code_description_ms}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_venu_code_registration_date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="218" y="179" width="323" height="20" uuid="e818bf0e-7ae7-44d7-8f9f-610b86377582"/>
+				<reportElement x="218" y="189" width="323" height="20" uuid="cd0d0860-38e7-4522-b598-e56934196dc6"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{in_venu_code_start_time_ms}+ "a.m" + " - " +$F{in_venu_code_end_time_ms}+ "p.m"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{in_venu_code_start_time_en}+" - "+$F{in_venu_code_end_time_en}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="63" y="104" width="136" height="15" uuid="15a79e72-304d-4e7d-b972-094bd8828571"/>
-				<textElement>
-					<font fontName="SansSerif" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Year]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="200" y="104" width="25" height="15" uuid="3c0daafe-bb0d-4c9f-ac03-c7dc423357ec"/>
-				<textElement textAlignment="Center">
-					<font fontName="SansSerif" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="218" y="104" width="305" height="15" uuid="84652ebe-fb65-4abf-86f4-968de4da0fa7"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{in_intk_sesn_label}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="218" y="207" width="102" height="15" uuid="3ed1a29d-2bf0-433c-b95e-b11c01e33931"/>
-				<textElement>
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[As Enclosed]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<summary>
-		<band height="381" splitType="Stretch">
+		<band height="802" splitType="Stretch">
 			<staticText>
-				<reportElement x="32" y="132" width="488" height="193" uuid="ebcd5d02-283a-410f-9f55-497049fb8ca1"/>
+				<reportElement x="27" y="143" width="488" height="193" uuid="ebcd5d02-283a-410f-9f55-497049fb8ca1"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="false" isStrikeThrough="false"/>
 				</textElement>
@@ -748,34 +811,82 @@ Universiti Malaysia Kelantan
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="14" width="488" height="46" forecolor="#000000" uuid="84b8dbd0-4464-48c2-aed8-516d89174741"/>
+				<reportElement x="27" y="12" width="488" height="46" forecolor="#000000" uuid="84b8dbd0-4464-48c2-aed8-516d89174741"/>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<text><![CDATA[3.	This entry offer is subject to the University Act and Regulations. All payment of tuition fees must be made by depositing the amount of fees charged into the Malayan Banking Berhad (Maybank) account in the name of Universiti Malaysia Kelantan. Bank account number is 553038019271.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="73" width="488" height="51" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
+				<reportElement x="27" y="75" width="488" height="51" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<text><![CDATA[4.	Dear Sir / Madam required to enroll on the date as specified above. For further inquiries regarding this offer, please contact En. Zainuzzi bin Ismail in 09-7717050 or En. Mohd Azrul bin Zakaria at 09-7717053.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="257" width="242" height="15" uuid="8c93b58f-a76f-49f5-a685-fe759f61192a"/>
+				<reportElement x="27" y="268" width="242" height="15" uuid="8c93b58f-a76f-49f5-a685-fe759f61192a"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PROF. DR. MOHAMED DAHLAN BIN IBRAHIM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="144" width="200" height="41" uuid="686f651f-aa1a-422b-a1de-8d420d79bd65"/>
+				<reportElement x="27" y="155" width="200" height="41" uuid="686f651f-aa1a-422b-a1de-8d420d79bd65"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[
 “RAJA BERDAULAT, NEGERI BERKAT”
 ”BERKHIDMAT UNTUK NEGARA”]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="776" width="274" height="20" forecolor="#003366" uuid="2f1cd380-a8e3-4bb3-bb38-193d53fe0c73"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITI MALAYSIA KELANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="448" width="555" height="20" uuid="63e5a769-51f0-4d37-96bc-b0358b051a82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[THIS IS A COMPUTER GENERATED FORM, SIGNATURE IS NOT REQUIRED]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="758" width="81" height="30" forecolor="#003366" uuid="3ace4bfd-7c43-4bf2-bdd2-293204374bf0"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tel    : 609 771 7145   Fax   : 609 771 7162     ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="748" width="72" height="20" forecolor="#003366" uuid="66a09938-f40f-4532-ab3b-7d17468b36eb"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City Campus]]></text>
+			</staticText>
+			<line>
+				<reportElement x="274" y="765" width="1" height="31" forecolor="#003366" uuid="992f636b-987f-46d7-a5d7-b64930263fea"/>
+			</line>
+			<line>
+				<reportElement x="431" y="765" width="1" height="31" forecolor="#003366" uuid="552acc6f-9987-4f0d-bc4a-4bccc5e72f21"/>
+			</line>
+			<staticText>
+				<reportElement x="281" y="760" width="147" height="38" forecolor="#003366" uuid="df7ae00f-8edd-4b53-8aed-041b5727acf0"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Karung Berkunci (Locked Bag) 36, Pengkalan Chepa, 16100 Kota Bharu,KELANTAN,MALAYSIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="778" width="117" height="20" forecolor="#003366" uuid="6d39e5d2-092b-4f65-98a7-1314bb868709"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email: siswazah@umk.edu.my]]></text>
 			</staticText>
 		</band>
 	</summary>

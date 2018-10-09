@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="in_profile_mgseb" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8487c2f1-9b4b-43ae-8b91-9ecd14499eb1">
+	<property name="ireport.zoom" value="1.9487171000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="reference_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     in_intk_sesn."description_en" AS in_intk_sesn_description_en,
+     in_intk."id" AS in_intk_id,
+     in_intk."audit_no" AS in_intk_audit_no,
+     in_intk."cancel_comment" AS in_intk_cancel_comment,
+     in_intk."description_en" AS in_intk_description_en,
+     in_intk."description_ms" AS in_intk_description_ms,
+     in_intk."end_date" AS in_intk_end_date,
+     in_intk."projection" AS in_intk_projection,
+     in_intk."reference_no" AS in_intk_reference_no,
+     in_intk."remove_comment" AS in_intk_remove_comment,
+     in_intk."source_no" AS in_intk_source_no,
+     in_intk."start_date" AS in_intk_start_date,
+     in_intk."graduate_center_id" AS in_intk_graduate_center_id,
+     in_intk."program_level_id" AS in_intk_program_level_id,
+     in_intk."session_id" AS in_intk_session_id,
+     in_intk_apln."id" AS in_intk_apln_id,
+     in_intk_apln."age" AS in_intk_apln_age,
+     in_intk_apln."bachelor_result_attached" AS in_intk_apln_bachelor_result_attached,
+     in_intk_apln."bank_statement_attached" AS in_intk_apln_bank_statement_attached,
+     in_intk_apln."bid_response" AS in_intk_apln_bid_response,
+     in_intk_apln."bid_status" AS in_intk_apln_bid_status,
+     in_intk_apln."bid_type" AS in_intk_apln_bid_type,
+     in_intk_apln."birth_date" AS in_intk_apln_birth_date,
+     in_intk_apln."copy_addressed" AS in_intk_apln_copy_addressed,
+     in_intk_apln."credential_no" AS in_intk_apln_credential_no,
+     in_intk_apln."declared" AS in_intk_apln_declared,
+     in_intk_apln."diploma_result_attached" AS in_intk_apln_diploma_result_attached,
+     in_intk_apln."email" AS in_intk_apln_email,
+     in_intk_apln."fax" AS in_intk_apln_fax,
+     in_intk_apln."ic_copy_attached" AS in_intk_apln_ic_copy_attached,
+     in_intk_apln."ielts_result_attached" AS in_intk_apln_ielts_result_attached,
+     in_intk_apln."language_result_attached" AS in_intk_apln_language_result_attached,
+     in_intk_apln."mailing_address1" AS in_intk_apln_mailing_address1,
+     in_intk_apln."mailing_address2" AS in_intk_apln_mailing_address2,
+     in_intk_apln."mailing_address3" AS in_intk_apln_mailing_address3,
+     in_intk_apln."mailing_postcode" AS in_intk_apln_mailing_postcode,
+     in_intk_apln."merit" AS in_intk_apln_merit,
+     in_intk_apln."mobile" AS in_intk_apln_mobile,
+     in_intk_apln."muet_result_attached" AS in_intk_apln_muet_result_attached,
+     in_intk_apln."name" AS in_intk_apln_name,
+     in_intk_apln."official_address1" AS in_intk_apln_official_address1,
+     in_intk_apln."official_address2" AS in_intk_apln_official_address2,
+     in_intk_apln."official_address3" AS in_intk_apln_official_address3,
+     in_intk_apln."official_postcode" AS in_intk_apln_official_postcode,
+     in_intk_apln."oku_no" AS in_intk_apln_oku_no,
+     in_intk_apln."paid" AS in_intk_apln_paid,
+     in_intk_apln."passport_expdate" AS in_intk_apln_passport_expdate,
+     in_intk_apln."passport_no" AS in_intk_apln_passport_no,
+     in_intk_apln."passport_copy_attached" AS in_intk_apln_passport_copy_attached,
+     in_intk_apln."payment_source_no" AS in_intk_apln_payment_source_no,
+     in_intk_apln."phone" AS in_intk_apln_phone,
+     in_intk_apln."processing_fee_attached" AS in_intk_apln_processing_fee_attached,
+     in_intk_apln."rank" AS in_intk_apln_rank,
+     in_intk_apln."reason" AS in_intk_apln_reason,
+     in_intk_apln."referee_form_attached" AS in_intk_apln_referee_form_attached,
+     in_intk_apln."reference_no" AS in_intk_apln_reference_no,
+     in_intk_apln."research_proposal_attached" AS in_intk_apln_research_proposal_attached,
+     in_intk_apln."research_title" AS in_intk_apln_research_title,
+     in_intk_apln."self_sponsored" AS in_intk_apln_self_sponsored,
+     in_intk_apln."spm_result_attached" AS in_intk_apln_spm_result_attached,
+     in_intk_apln."sponsor_letter_attached" AS in_intk_apln_sponsor_letter_attached,
+     in_intk_apln."sponsored" AS in_intk_apln_sponsored,
+     in_intk_apln."stam_result_attached" AS in_intk_apln_stam_result_attached,
+     in_intk_apln."stpm_result_attached" AS in_intk_apln_stpm_result_attached,
+     in_intk_apln."toefl_result_attached" AS in_intk_apln_toefl_result_attached,
+     in_intk_apln."verified" AS in_intk_apln_verified,
+     in_intk_apln."visa_type" AS in_intk_apln_visa_type,
+     in_intk_apln."applicant_id" AS in_intk_apln_applicant_id,
+     in_intk_apln."bank_code_id" AS in_intk_apln_bank_code_id,
+     in_intk_apln."disability_code_id" AS in_intk_apln_disability_code_id,
+     in_intk_apln."ethnicity_code_id" AS in_intk_apln_ethnicity_code_id,
+     in_intk_apln."gender_code_id" AS in_intk_apln_gender_code_id,
+     in_intk_apln."intake_id" AS in_intk_apln_intake_id,
+     in_intk_apln."mailing_country_code_id" AS in_intk_apln_mailing_country_code_id,
+     in_intk_apln."mailing_state_code_id" AS in_intk_apln_mailing_state_code_id,
+     in_intk_apln."marital_code_id" AS in_intk_apln_marital_code_id,
+     in_intk_apln."nationality_code_id" AS in_intk_apln_nationality_code_id,
+     in_intk_apln."official_country_code_id" AS in_intk_apln_official_country_code_id,
+     in_intk_apln."official_state_code_id" AS in_intk_apln_official_state_code_id,
+     in_intk_apln."program_selection_id" AS in_intk_apln_program_selection_id,
+     in_intk_apln."promo_code_id" AS in_intk_apln_promo_code_id,
+     in_intk_apln."race_code_id" AS in_intk_apln_race_code_id,
+     in_intk_apln."religion_code_id" AS in_intk_apln_religion_code_id,
+     in_intk_apln."residency_code_id" AS in_intk_apln_residency_code_id,
+     in_intk_apln."study_center_code_id" AS in_intk_apln_study_center_code_id,
+     in_intk_apln."study_mode_selection_id" AS in_intk_apln_study_mode_selection_id,
+     in_intk_apln."supervisor_selection_id" AS in_intk_apln_supervisor_selection_id,
+     in_intk_apln."master_result_attached" AS in_intk_apln_master_result_attached,
+     in_intk_apln."phd_result_attached" AS in_intk_apln_phd_result_attached,
+     in_prgm_ofrg."id" AS in_prgm_ofrg_id,
+     in_prgm_ofrg."general_criteria" AS in_prgm_ofrg_general_criteria,
+     in_prgm_ofrg."interview" AS in_prgm_ofrg_interview,
+     in_prgm_ofrg."c_ts" AS in_prgm_ofrg_c_ts,
+     in_prgm_ofrg."c_id" AS in_prgm_ofrg_c_id,
+     in_prgm_ofrg."d_ts" AS in_prgm_ofrg_d_ts,
+     in_prgm_ofrg."d_id" AS in_prgm_ofrg_d_id,
+     in_prgm_ofrg."m_ts" AS in_prgm_ofrg_m_ts,
+     in_prgm_ofrg."m_id" AS in_prgm_ofrg_m_id,
+     in_prgm_ofrg."m_st" AS in_prgm_ofrg_m_st,
+     in_prgm_ofrg."projection" AS in_prgm_ofrg_projection,
+     in_prgm_ofrg."specific_criteria" AS in_prgm_ofrg_specific_criteria,
+     in_prgm_ofrg."intake_id" AS in_prgm_ofrg_intake_id,
+     in_prgm_ofrg."prgm_fild_code_id" AS in_prgm_ofrg_prgm_fild_code_id,
+     in_prgm_ofrg."study_center_code_id" AS in_prgm_ofrg_study_center_code_id
+FROM
+     "public"."in_intk_sesn" in_intk_sesn INNER JOIN "public"."in_intk" in_intk ON in_intk_sesn."id" = in_intk."session_id"
+     INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_intk."id" = in_intk_apln."intake_id"
+     LEFT OUTER JOIN "public"."in_prgm_ofrg" in_prgm_ofrg ON in_intk."id" = in_prgm_ofrg."intake_id"
+     AND in_prgm_ofrg."id" = in_intk_apln."program_selection_id"]]>
+	</queryString>
+	<field name="in_intk_sesn_description_en" class="java.lang.String"/>
+	<field name="in_intk_id" class="java.lang.Long"/>
+	<field name="in_intk_audit_no" class="java.lang.String"/>
+	<field name="in_intk_cancel_comment" class="java.lang.String"/>
+	<field name="in_intk_description_en" class="java.lang.String"/>
+	<field name="in_intk_description_ms" class="java.lang.String"/>
+	<field name="in_intk_end_date" class="java.sql.Timestamp"/>
+	<field name="in_intk_projection" class="java.lang.Integer"/>
+	<field name="in_intk_reference_no" class="java.lang.String"/>
+	<field name="in_intk_remove_comment" class="java.lang.String"/>
+	<field name="in_intk_source_no" class="java.lang.String"/>
+	<field name="in_intk_start_date" class="java.sql.Timestamp"/>
+	<field name="in_intk_graduate_center_id" class="java.lang.Long"/>
+	<field name="in_intk_program_level_id" class="java.lang.Long"/>
+	<field name="in_intk_session_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_age" class="java.lang.Integer"/>
+	<field name="in_intk_apln_bachelor_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_bank_statement_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_bid_response" class="java.lang.Integer"/>
+	<field name="in_intk_apln_bid_status" class="java.lang.Integer"/>
+	<field name="in_intk_apln_bid_type" class="java.lang.Integer"/>
+	<field name="in_intk_apln_birth_date" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_copy_addressed" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_credential_no" class="java.lang.String"/>
+	<field name="in_intk_apln_declared" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_diploma_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_email" class="java.lang.String"/>
+	<field name="in_intk_apln_fax" class="java.lang.String"/>
+	<field name="in_intk_apln_ic_copy_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_ielts_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_language_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_mailing_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_mailing_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_merit" class="java.math.BigDecimal"/>
+	<field name="in_intk_apln_mobile" class="java.lang.String"/>
+	<field name="in_intk_apln_muet_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_name" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address1" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address2" class="java.lang.String"/>
+	<field name="in_intk_apln_official_address3" class="java.lang.String"/>
+	<field name="in_intk_apln_official_postcode" class="java.lang.String"/>
+	<field name="in_intk_apln_oku_no" class="java.lang.String"/>
+	<field name="in_intk_apln_paid" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_passport_expdate" class="java.sql.Timestamp"/>
+	<field name="in_intk_apln_passport_no" class="java.lang.String"/>
+	<field name="in_intk_apln_passport_copy_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_payment_source_no" class="java.lang.String"/>
+	<field name="in_intk_apln_phone" class="java.lang.String"/>
+	<field name="in_intk_apln_processing_fee_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_rank" class="java.lang.Integer"/>
+	<field name="in_intk_apln_reason" class="java.lang.String"/>
+	<field name="in_intk_apln_referee_form_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_reference_no" class="java.lang.String"/>
+	<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_research_title" class="java.lang.String"/>
+	<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_verified" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_visa_type" class="java.lang.Integer"/>
+	<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_ethnicity_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_gender_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_intake_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_mailing_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_mailing_state_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_marital_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_nationality_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_official_country_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_official_state_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_program_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_promo_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_race_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_religion_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_residency_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_study_center_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_study_mode_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_supervisor_selection_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_master_result_attached" class="java.lang.Boolean"/>
+	<field name="in_intk_apln_phd_result_attached" class="java.lang.Boolean"/>
+	<field name="in_prgm_ofrg_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_general_criteria" class="java.lang.String"/>
+	<field name="in_prgm_ofrg_interview" class="java.lang.Boolean"/>
+	<field name="in_prgm_ofrg_c_ts" class="java.sql.Timestamp"/>
+	<field name="in_prgm_ofrg_c_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_d_ts" class="java.sql.Timestamp"/>
+	<field name="in_prgm_ofrg_d_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_m_ts" class="java.sql.Timestamp"/>
+	<field name="in_prgm_ofrg_m_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_m_st" class="java.lang.Integer"/>
+	<field name="in_prgm_ofrg_projection" class="java.lang.Integer"/>
+	<field name="in_prgm_ofrg_specific_criteria" class="java.lang.String"/>
+	<field name="in_prgm_ofrg_intake_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_prgm_fild_code_id" class="java.lang.Long"/>
+	<field name="in_prgm_ofrg_study_center_code_id" class="java.lang.Long"/>
+	<filterExpression><![CDATA[$F{in_intk_apln_reference_no}.equals( $P{reference_no} )]]></filterExpression>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="479" splitType="Stretch">
+			<staticText>
+				<reportElement x="54" y="0" width="385" height="20" uuid="c5df7309-0376-4100-aae1-fd9800313cb7"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MALAYSIAN GRADUATE SCHOOL OF ENTREPNEURSHIP & BUSINESS (MGSEB)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="9" width="385" height="20" uuid="02e0086c-a300-4db4-b093-ef9de589d851"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITI  MALAYSIA KELANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="18" width="385" height="20" uuid="8109c944-ddbc-4711-93e6-da875a19268d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KARUNG BERKUNCI 36, PENGKALAN CHEPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="27" width="385" height="20" uuid="1d2c5aa7-5ed6-4ec6-a1fd-c11da7188e7b"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[16100 KOTA BHARU, KELANTAN, DARULNAIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="38" width="385" height="20" uuid="36a1636c-35c9-4f2a-98de-e213a69d38a3"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL: 09-7717028	FAKS: 09-7717162]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="69" width="145" height="19" uuid="7b1112a7-1354-492a-9168-a50a51f04bbb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPLICATION FORM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="108" width="66" height="20" uuid="a9485744-2a6a-4163-a14f-0106c403f7a5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Programe Level ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="136" width="555" height="16" backcolor="#CCCCCC" uuid="25559316-5a48-441d-b62f-7253d909fd66"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  A.  DETAIL OF CANDIDATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="167" width="72" height="19" uuid="53ae0362-5a48-47a6-901c-8af08a080662"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Centre Of Study ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="167" width="7" height="19" uuid="b2de071f-0abe-470a-a09a-17f6ed5475e2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="108" width="7" height="20" uuid="b334e486-59d9-4a14-97bc-ec43fa081a86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="167" width="70" height="19" uuid="1b4f814f-2615-4053-aeab-c663a23a299b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Type Of Classes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="167" width="7" height="19" uuid="564289f7-23a4-4514-84fb-766d38c9d57c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="227" width="554" height="15" backcolor="#CCCCCC" uuid="fb54e799-f641-4c07-ac71-172c7f12ba8c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  B.  PERSONAL DETAILS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="261" width="47" height="19" uuid="0012b979-2317-4dbc-9a36-2a5a91674621"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Full Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="261" width="7" height="19" uuid="282a2f85-258b-4f2a-8383-1f70fe143822"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="280" width="47" height="19" uuid="e42991b2-718a-4e1f-a306-9b8683aebaf1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="280" width="7" height="19" uuid="48a7a0d1-f397-42da-bd2b-a9d7f66f3117"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="299" width="47" height="19" uuid="f57e2e14-b5b0-416d-8e44-e42b64e9d274"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Passport No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="318" width="47" height="19" uuid="a9372e24-9f16-44b5-9aae-0eeee272e094"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="337" width="47" height="19" uuid="697c17fb-7fe1-43dd-a0a9-f335a0ebce6a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Race]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="298" width="7" height="19" uuid="6bc39391-1caa-4a77-a3d4-eead33a7be15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="318" width="7" height="19" uuid="f73f5027-032c-42fa-8b67-252840613265"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="337" width="7" height="19" uuid="96d14b89-86eb-44ef-acb9-506765f2f2a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="265" width="32" height="19" uuid="c74e04d3-9cc8-44fe-b02c-1f119874a739"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gender ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="283" width="95" height="19" uuid="6876e4f8-7a74-48b6-aabf-312744a9b91a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correspondence Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="356" width="95" height="19" uuid="b291274d-a93e-4df9-8800-856365d751fd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Permanent Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="375" width="95" height="39" uuid="ccc814c5-2386-4412-ab86-6e5d9f07547a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(if difference from correspondence address)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="356" width="47" height="19" uuid="e8eb7030-f0ec-43f0-8b71-2f7cb86981b0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Citizenship]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="375" width="47" height="19" uuid="8aa21c7d-3747-4ffe-9300-8c3f621bc944"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Religion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="357" width="7" height="19" uuid="4727ba78-0236-46ba-bebe-a789063ecde3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="376" width="7" height="19" uuid="0f54ccb5-0595-46d5-a68e-e9dce853f076"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="395" width="7" height="19" uuid="2c889f1e-2e3b-444d-a3fc-9f454cce40f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="394" width="53" height="19" uuid="5b475354-50f7-4767-9054-c7d441a0fa8b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Marital Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="413" width="53" height="19" uuid="7d73749b-f194-4ba2-8ef0-68676ea4c495"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Contact No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="429" width="105" height="20" uuid="61ed1a1e-44a5-4961-b8ab-b0afb6133cba"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Working Experience]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="459" width="195" height="20" backcolor="#CCCCCC" uuid="808e8fb3-118b-4324-b159-287bbc0f6000"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="195" y="459" width="160" height="20" backcolor="#CCCCCC" uuid="a14831fc-a0b9-4f80-9459-acd4dcabadcc"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="355" y="459" width="107" height="20" backcolor="#CCCCCC" uuid="8aafd3e5-28ad-440f-83e6-a082ca053d98"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From ( Year )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="462" y="459" width="93" height="20" backcolor="#CCCCCC" uuid="b1409158-3531-4aed-ac54-bb1c614349d0"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ To ( Year )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="413" width="7" height="19" uuid="a8b16e08-2b85-4ddb-8a90-0c946641c730"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="283" width="7" height="19" uuid="d47f9ba0-9351-4b36-98a6-7e04a43b090d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="265" width="7" height="19" uuid="abf45e2f-1181-4af1-b735-39c29fc4bf52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="357" width="7" height="19" uuid="469a3c24-73ef-4481-a1ca-889fc74de60d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="170" width="100" height="14" uuid="84aeb8d0-3a45-4f45-9910-2ff2c009b2aa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stdy_cntr_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="169" width="100" height="14" uuid="8f85a817-c591-49bd-813e-1fca29c593fe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stdy_mode_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="264" width="195" height="14" uuid="3d48917e-d83a-4a71-9459-9442735f3c66"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="283" width="171" height="14" uuid="0b2742d6-b717-43cc-ae00-0d4d3da9bd2b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_credential_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="302" width="171" height="14" uuid="fb1ae7e3-bbb0-483b-886f-2959403c6406"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_passport_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="77" y="322" width="170" height="14" uuid="3e96b0e6-937c-488c-8ad5-58e332f98f7a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_birth_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="342" width="169" height="14" uuid="d4702dc9-09aa-40ca-9f92-cc54087e694a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_race_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="360" width="169" height="14" uuid="7978070f-ff7f-48ad-a54d-d9f31eca13a5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_rscy_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="380" width="168" height="14" uuid="f2e006d9-f0f7-470a-85b0-e22eed5c8ee2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_rlgn_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="399" width="169" height="14" uuid="a2b72281-0d19-41e3-b9c7-21450c0d4586"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_mrtl_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="417" width="166" height="14" uuid="72faf469-c07d-4940-872b-a690ab1b9c06"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="268" width="156" height="14" uuid="011671b6-13d2-4d23-8ad4-f626c8219486"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_gndr_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="288" width="156" height="11" uuid="8a25a6ee-ce2e-46b9-bc21-433d822c2f16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="309" width="157" height="15" uuid="210a55b2-7a90-4d1d-b03e-4be6c66d19cd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_postcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="297" width="156" height="15" uuid="a2f2e304-946b-4857-a85f-85ad69be788e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="323" width="157" height="14" uuid="7eaa39b4-df93-4cf8-8ca1-ecf0297979b6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stte_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="335" width="156" height="14" uuid="c6a1ddf6-11e5-45ea-a39e-cde2d6fe7699"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_cnty_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="359" width="156" height="14" uuid="12127416-54f5-42ad-877b-c151dba4dfff"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_official_address1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="373" width="156" height="14" uuid="e19338c3-f0a4-4579-877f-06d48cc3fd23"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_official_address2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="387" width="156" height="14" uuid="0120e1e4-f42e-44f7-90be-87a885cc8332"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_official_postcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="402" width="156" height="14" uuid="da5eb237-f7e9-4a40-ae67-ba602f5a1c20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stte_code_description_en}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="416" width="156" height="14" uuid="8a33dd31-75ee-4145-84b1-aa472b0d860e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_cnty_code_description_en}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="195" height="20" uuid="fde846a4-cf47-40c0-83a0-630e49ffefb4"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_employer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="160" height="20" uuid="d539c7f5-991e-4ec2-a251-1eb8cbc91c7a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="107" height="20" uuid="07e21479-80f7-45f1-bd6c-6036e34ccf2a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_start_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="0" width="93" height="20" uuid="365a328d-faa5-4686-8aeb-d880683827fc"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_end_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="24"/>
+	</columnFooter>
+	<summary>
+		<band height="625" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="16" backcolor="#CCCCCC" uuid="ad1bd2db-5d9b-45db-8f86-8ad9ea643425"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  C. ACADEMIC QUALIFICATIONS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="100" height="37" uuid="2a85857e-a5e9-4394-a371-a918197afc79"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Qualification ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="32" width="172" height="37" uuid="0e4af38a-62f8-438b-b066-c3c387618f35"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Name of School/ College / University]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="32" width="52" height="37" uuid="d7d8411a-16d6-4db8-a0c3-714d024679cc"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Year of Graduation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="32" width="171" height="37" uuid="4ffb2cdf-57b4-4f92-84f7-edb7a3467ffb"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name of Bachelor Degree / Master]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="32" width="60" height="37" uuid="c57d90db-e155-4dd9-be3a-bb8681eab484"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade/CGPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="69" width="100" height="51" uuid="0696ac58-544e-448f-a4bc-60afb97df90d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Sijil Pelajaran Malaysia ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="82" width="68" height="38" uuid="0e1a4305-2535-4865-9953-1dabb5fa7792"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*For Local Applicant Only]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="100" height="51" uuid="5c2506e8-07a4-430c-ae42-24d49110f68f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Bachelor Degree]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="171" width="100" height="51" uuid="a1aa5b2a-f2a4-41cc-a770-49eeb7442448"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Master ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="184" width="99" height="38" uuid="258ad5e1-ad8c-4ae6-b199-78c4d454dd39"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*For DBA Applicantion Only]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="238" width="100" height="20" uuid="1e35f25c-b3a3-4d41-b61e-2119546fea7e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Important Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="254" width="448" height="20" uuid="45ca88ae-a895-4585-a816-89193d5c7f71"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Kindly attached all related documents with Certified true Copy as below :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="266" width="366" height="20" uuid="fa6ac383-3dad-49d6-a46f-2c86580eb833"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Original copy of academic certification]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="275" width="366" height="20" uuid="56c4fd47-b5da-42f5-a29d-863d75e974c0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Original copy of academic certification]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="314" width="310" height="20" uuid="9e42d933-029e-4524-830b-9c5d6d69840d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Examination ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="314" width="129" height="20" uuid="7cd7b3fb-57d2-47c0-95f4-62174d31073d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="314" width="116" height="20" uuid="b9f56776-4451-46c8-a3b5-24bb020a5f4b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="334" width="310" height="20" uuid="080a6379-fa87-4168-b719-0647dbc71b7b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  Malay Language (SPM)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="354" width="310" height="20" uuid="f934c038-ca1e-411f-9c7a-28b6c1acc994"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  English Language (SPM)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="374" width="310" height="20" uuid="67e06423-d82e-4495-b85b-83afd5566099"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  English Test (MUET)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="394" width="310" height="20" uuid="cd57a5f9-2d9c-4ec0-8863-357d6e17a056"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  TOEFL ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="414" width="310" height="20" uuid="b062159e-5d4d-4f56-9bd1-a98c445f7ddd"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  IELTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="434" width="366" height="20" uuid="16cd29ca-21a7-4691-9eb1-d38f25e212de"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*Foreign applicant  need to submit TOEFL / IELTS result together with the application form]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

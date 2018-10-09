@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Edams" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45c7f3ef-8c19-47d1-b113-6b764f77e6e6">
-	<property name="ireport.zoom" value="1.9965000000000006"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1503"/>
+	<property name="ireport.y" value="1488"/>
 	<subDataset name="spm" uuid="fcbb4936-ae8a-4569-8b46-c4d346b3b190">
-		<parameter name="application_id" class="java.lang.String"/>
+		<parameter name="applicant_id" class="java.lang.Long" isForPrompting="false"/>
 		<queryString>
 			<![CDATA[SELECT
      in_intk_apln."id" AS in_intk_apln_id,
@@ -201,7 +201,7 @@ FROM
 		<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
 		<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type" class="java.lang.String"/>
+		<field name="in_intk_apln_guardian_type" class="java.lang.Integer"/>
 		<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
@@ -237,9 +237,9 @@ FROM
 		<field name="in_intk_apln_position" class="java.lang.String"/>
 		<field name="in_intk_apln_employer_state_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_employment_sector_code_id" class="java.lang.String"/>
-		<field name="in_intk_apln_employment_type_code_id" class="java.lang.String"/>
+		<field name="in_intk_apln_employment_type_code_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.String"/>
+		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.Long"/>
 		<field name="in_grde_code_id" class="java.lang.Long"/>
 		<field name="in_grde_code_code" class="java.lang.String"/>
 		<field name="in_grde_code_description" class="java.lang.String"/>
@@ -254,9 +254,10 @@ FROM
 		<field name="in_spm_rslt_grade_code_id" class="java.lang.Long"/>
 		<field name="in_spm_rslt_application_id" class="java.lang.Long"/>
 		<field name="in_spm_rslt_result_type" class="java.lang.Long"/>
+		<filterExpression><![CDATA[$P{applicant_id}.equals( $F{in_spm_rslt_id} )]]></filterExpression>
 	</subDataset>
 	<subDataset name="stpm" uuid="0dbc29b6-fc7c-4bed-b585-9915317883fd">
-		<parameter name="application_id" class="java.lang.String"/>
+		<parameter name="applicant_id" class="java.lang.Long"/>
 		<queryString>
 			<![CDATA[SELECT
      in_intk_apln."id" AS in_intk_apln_id,
@@ -508,9 +509,10 @@ FROM
 		<field name="in_grde_code_code" class="java.lang.String"/>
 		<field name="in_grde_code_description" class="java.lang.String"/>
 		<field name="in_grde_code_ordinal" class="java.lang.Integer"/>
+		<filterExpression><![CDATA[$P{applicant_id}.equals( $F{in_stpm_rslt_id} )]]></filterExpression>
 	</subDataset>
 	<subDataset name="diploma" uuid="a50f566d-36c9-4e2a-80ed-e05c47e6fd71">
-		<parameter name="application_id" class="java.lang.String"/>
+		<parameter name="applicant_id" class="java.lang.Long"/>
 		<queryString>
 			<![CDATA[SELECT
      in_intk_apln."id" AS in_intk_apln_id,
@@ -744,9 +746,10 @@ FROM
 		<field name="in_dip_rslt_program" class="java.lang.String"/>
 		<field name="in_dip_rslt_result_type" class="java.lang.Integer"/>
 		<field name="in_dip_rslt_application_id" class="java.lang.Long"/>
+		<filterExpression><![CDATA[$P{applicant_id}.equals( $F{in_dip_rslt_id} )]]></filterExpression>
 	</subDataset>
 	<subDataset name="job" uuid="6324e925-5cf3-4f04-a2f9-bb7f2fe4fe5a">
-		<parameter name="application_id" class="java.lang.String"/>
+		<parameter name="application_id" class="java.lang.Long"/>
 		<queryString>
 			<![CDATA[SELECT
      in_empt."id" AS in_empt_id,
@@ -990,605 +993,19 @@ FROM
 		<field name="in_intk_apln_employment_type_code_id" class="java.lang.String"/>
 		<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
 		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.String"/>
-	</subDataset>
-	<subDataset name="employer" uuid="c32ab7ff-bea3-4081-b650-de250ffb0cfb">
-		<parameter name="application_id" class="java.lang.String"/>
-		<queryString>
-			<![CDATA[SELECT
-     in_intk_apln."id" AS in_intk_apln_id,
-     in_intk_apln."age" AS in_intk_apln_age,
-     in_intk_apln."bachelor_result_attached" AS in_intk_apln_bachelor_result_attached,
-     in_intk_apln."bank_statement_attached" AS in_intk_apln_bank_statement_attached,
-     in_intk_apln."bid_response" AS in_intk_apln_bid_response,
-     in_intk_apln."bid_status" AS in_intk_apln_bid_status,
-     in_intk_apln."bid_type" AS in_intk_apln_bid_type,
-     in_intk_apln."birth_date" AS in_intk_apln_birth_date,
-     in_intk_apln."copy_addressed" AS in_intk_apln_copy_addressed,
-     in_intk_apln."credential_no" AS in_intk_apln_credential_no,
-     in_intk_apln."declared" AS in_intk_apln_declared,
-     in_intk_apln."diploma_result_attached" AS in_intk_apln_diploma_result_attached,
-     in_intk_apln."email" AS in_intk_apln_email,
-     in_intk_apln."fax" AS in_intk_apln_fax,
-     in_intk_apln."ic_copy_attached" AS in_intk_apln_ic_copy_attached,
-     in_intk_apln."ielts_result_attached" AS in_intk_apln_ielts_result_attached,
-     in_intk_apln."language_result_attached" AS in_intk_apln_language_result_attached,
-     in_intk_apln."mailing_address1" AS in_intk_apln_mailing_address1,
-     in_intk_apln."mailing_address2" AS in_intk_apln_mailing_address2,
-     in_intk_apln."mailing_address3" AS in_intk_apln_mailing_address3,
-     in_intk_apln."mailing_postcode" AS in_intk_apln_mailing_postcode,
-     in_intk_apln."merit" AS in_intk_apln_merit,
-     in_intk_apln."c_ts" AS in_intk_apln_c_ts,
-     in_intk_apln."c_id" AS in_intk_apln_c_id,
-     in_intk_apln."d_ts" AS in_intk_apln_d_ts,
-     in_intk_apln."d_id" AS in_intk_apln_d_id,
-     in_intk_apln."m_ts" AS in_intk_apln_m_ts,
-     in_intk_apln."m_id" AS in_intk_apln_m_id,
-     in_intk_apln."m_st" AS in_intk_apln_m_st,
-     in_intk_apln."mobile" AS in_intk_apln_mobile,
-     in_intk_apln."muet_result_attached" AS in_intk_apln_muet_result_attached,
-     in_intk_apln."name" AS in_intk_apln_name,
-     in_intk_apln."official_address1" AS in_intk_apln_official_address1,
-     in_intk_apln."official_address2" AS in_intk_apln_official_address2,
-     in_intk_apln."official_address3" AS in_intk_apln_official_address3,
-     in_intk_apln."official_postcode" AS in_intk_apln_official_postcode,
-     in_intk_apln."oku_no" AS in_intk_apln_oku_no,
-     in_intk_apln."paid" AS in_intk_apln_paid,
-     in_intk_apln."passport_expdate" AS in_intk_apln_passport_expdate,
-     in_intk_apln."passport_no" AS in_intk_apln_passport_no,
-     in_intk_apln."passport_copy_attached" AS in_intk_apln_passport_copy_attached,
-     in_intk_apln."payment_source_no" AS in_intk_apln_payment_source_no,
-     in_intk_apln."phone" AS in_intk_apln_phone,
-     in_intk_apln."processing_fee_attached" AS in_intk_apln_processing_fee_attached,
-     in_intk_apln."rank" AS in_intk_apln_rank,
-     in_intk_apln."reason" AS in_intk_apln_reason,
-     in_intk_apln."referee_form_attached" AS in_intk_apln_referee_form_attached,
-     in_intk_apln."reference_no" AS in_intk_apln_reference_no,
-     in_intk_apln."research_proposal_attached" AS in_intk_apln_research_proposal_attached,
-     in_intk_apln."research_title" AS in_intk_apln_research_title,
-     in_intk_apln."self_sponsored" AS in_intk_apln_self_sponsored,
-     in_intk_apln."spm_result_attached" AS in_intk_apln_spm_result_attached,
-     in_intk_apln."sponsor_letter_attached" AS in_intk_apln_sponsor_letter_attached,
-     in_intk_apln."sponsored" AS in_intk_apln_sponsored,
-     in_intk_apln."stam_result_attached" AS in_intk_apln_stam_result_attached,
-     in_intk_apln."stpm_result_attached" AS in_intk_apln_stpm_result_attached,
-     in_intk_apln."toefl_result_attached" AS in_intk_apln_toefl_result_attached,
-     in_intk_apln."verified" AS in_intk_apln_verified,
-     in_intk_apln."visa_type" AS in_intk_apln_visa_type,
-     in_intk_apln."guardian_name" AS in_intk_apln_guardian_name,
-     in_intk_apln."guardian_phone_no" AS in_intk_apln_guardian_phone_no,
-     in_intk_apln."guardian_identity_no" AS in_intk_apln_guardian_identity_no,
-     in_intk_apln."guardian_address1" AS in_intk_apln_guardian_address1,
-     in_intk_apln."guardian_address2" AS in_intk_apln_guardian_address2,
-     in_intk_apln."guardian_address3" AS in_intk_apln_guardian_address3,
-     in_intk_apln."guardian_postcode" AS in_intk_apln_guardian_postcode,
-     in_intk_apln."guardian_state_code_id" AS in_intk_apln_guardian_state_code_id,
-     in_intk_apln."guardian_country_code_id" AS in_intk_apln_guardian_country_code_id,
-     in_intk_apln."guardian_type" AS in_intk_apln_guardian_type,
-     in_intk_apln."applicant_id" AS in_intk_apln_applicant_id,
-     in_intk_apln."bank_code_id" AS in_intk_apln_bank_code_id,
-     in_intk_apln."disability_code_id" AS in_intk_apln_disability_code_id,
-     in_intk_apln."ethnicity_code_id" AS in_intk_apln_ethnicity_code_id,
-     in_intk_apln."gender_code_id" AS in_intk_apln_gender_code_id,
-     in_intk_apln."intake_id" AS in_intk_apln_intake_id,
-     in_intk_apln."mailing_country_code_id" AS in_intk_apln_mailing_country_code_id,
-     in_intk_apln."mailing_state_code_id" AS in_intk_apln_mailing_state_code_id,
-     in_intk_apln."marital_code_id" AS in_intk_apln_marital_code_id,
-     in_intk_apln."nationality_code_id" AS in_intk_apln_nationality_code_id,
-     in_intk_apln."official_country_code_id" AS in_intk_apln_official_country_code_id,
-     in_intk_apln."official_state_code_id" AS in_intk_apln_official_state_code_id,
-     in_intk_apln."program_selection_id" AS in_intk_apln_program_selection_id,
-     in_intk_apln."promo_code_id" AS in_intk_apln_promo_code_id,
-     in_intk_apln."race_code_id" AS in_intk_apln_race_code_id,
-     in_intk_apln."religion_code_id" AS in_intk_apln_religion_code_id,
-     in_intk_apln."residency_code_id" AS in_intk_apln_residency_code_id,
-     in_intk_apln."study_center_code_id" AS in_intk_apln_study_center_code_id,
-     in_intk_apln."study_mode_selection_id" AS in_intk_apln_study_mode_selection_id,
-     in_intk_apln."supervisor_selection_id" AS in_intk_apln_supervisor_selection_id,
-     in_intk_apln."apel_certificate_attached" AS in_intk_apln_apel_certificate_attached,
-     in_intk_apln."employer_address1" AS in_intk_apln_employer_address1,
-     in_intk_apln."employer_address2" AS in_intk_apln_employer_address2,
-     in_intk_apln."employer_address3" AS in_intk_apln_employer_address3,
-     in_intk_apln."employer_no" AS in_intk_apln_employer_no,
-     in_intk_apln."employer_postcode" AS in_intk_apln_employer_postcode,
-     in_intk_apln."employment_verification_attached" AS in_intk_apln_employment_verification_attached,
-     in_intk_apln."income" AS in_intk_apln_income,
-     in_intk_apln."master_result_attached" AS in_intk_apln_master_result_attached,
-     in_intk_apln."passport_image_attached" AS in_intk_apln_passport_image_attached,
-     in_intk_apln."phd_result_attached" AS in_intk_apln_phd_result_attached,
-     in_intk_apln."place_of_birth" AS in_intk_apln_place_of_birth,
-     in_intk_apln."position" AS in_intk_apln_position,
-     in_intk_apln."employer_state_id" AS in_intk_apln_employer_state_id,
-     in_intk_apln."employment_sector_code_id" AS in_intk_apln_employment_sector_code_id,
-     in_intk_apln."employment_type_code_id" AS in_intk_apln_employment_type_code_id,
-     in_intk_apln."guardian_state_id" AS in_intk_apln_guardian_state_id,
-     in_intk_apln."guardian_type_code_id" AS in_intk_apln_guardian_type_code_id,
-     in_stte_code."id" AS in_stte_code_id,
-     in_stte_code."code" AS in_stte_code_code,
-     in_stte_code."description_en" AS in_stte_code_description_en,
-     in_stte_code."description_ms" AS in_stte_code_description_ms,
-     in_stte_code."c_ts" AS in_stte_code_c_ts,
-     in_stte_code."c_id" AS in_stte_code_c_id,
-     in_stte_code."d_ts" AS in_stte_code_d_ts,
-     in_stte_code."d_id" AS in_stte_code_d_id,
-     in_stte_code."m_ts" AS in_stte_code_m_ts,
-     in_stte_code."m_id" AS in_stte_code_m_id,
-     in_stte_code."m_st" AS in_stte_code_m_st,
-     in_stte_code."country_code_id" AS in_stte_code_country_code_id,
-     in_cnty_code."id" AS in_cnty_code_id,
-     in_cnty_code."code" AS in_cnty_code_code,
-     in_cnty_code."description_en" AS in_cnty_code_description_en,
-     in_cnty_code."description_ms" AS in_cnty_code_description_ms,
-     in_cnty_code."c_ts" AS in_cnty_code_c_ts,
-     in_cnty_code."c_id" AS in_cnty_code_c_id,
-     in_cnty_code."d_ts" AS in_cnty_code_d_ts,
-     in_cnty_code."d_id" AS in_cnty_code_d_id,
-     in_cnty_code."m_ts" AS in_cnty_code_m_ts,
-     in_cnty_code."m_id" AS in_cnty_code_m_id,
-     in_cnty_code."m_st" AS in_cnty_code_m_st
-FROM
-     "public"."in_stte_code" in_stte_code INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_stte_code."id" = in_intk_apln."employer_state_id"
-     INNER JOIN "public"."in_cnty_code" in_cnty_code ON in_intk_apln."mailing_country_code_id" = in_cnty_code."id"
-     AND in_cnty_code."id" = in_intk_apln."official_country_code_id"
-     AND in_cnty_code."id" = in_intk_apln."guardian_country_code_id"]]>
-		</queryString>
-		<field name="in_intk_apln_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_age" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bachelor_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_bank_statement_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_bid_response" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bid_status" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bid_type" class="java.lang.Integer"/>
-		<field name="in_intk_apln_birth_date" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_copy_addressed" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_credential_no" class="java.lang.String"/>
-		<field name="in_intk_apln_declared" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_diploma_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_email" class="java.lang.String"/>
-		<field name="in_intk_apln_fax" class="java.lang.String"/>
-		<field name="in_intk_apln_ic_copy_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_ielts_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_language_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_mailing_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_merit" class="java.math.BigDecimal"/>
-		<field name="in_intk_apln_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_c_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_d_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_m_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_m_st" class="java.lang.Integer"/>
-		<field name="in_intk_apln_mobile" class="java.lang.String"/>
-		<field name="in_intk_apln_muet_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_name" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_official_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_oku_no" class="java.lang.String"/>
-		<field name="in_intk_apln_paid" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_passport_expdate" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_passport_no" class="java.lang.String"/>
-		<field name="in_intk_apln_passport_copy_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_payment_source_no" class="java.lang.String"/>
-		<field name="in_intk_apln_phone" class="java.lang.String"/>
-		<field name="in_intk_apln_processing_fee_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_rank" class="java.lang.Integer"/>
-		<field name="in_intk_apln_reason" class="java.lang.String"/>
-		<field name="in_intk_apln_referee_form_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
-		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_verified" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_visa_type" class="java.lang.Integer"/>
-		<field name="in_intk_apln_guardian_name" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_phone_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_identity_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type" class="java.lang.String"/>
-		<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_ethnicity_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_gender_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_intake_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_mailing_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_mailing_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_marital_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_nationality_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_official_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_official_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_program_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_promo_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_race_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_religion_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_residency_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_study_center_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_study_mode_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_supervisor_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_apel_certificate_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_employer_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_no" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_employment_verification_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_income" class="java.lang.String"/>
-		<field name="in_intk_apln_master_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_passport_image_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_phd_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_place_of_birth" class="java.lang.String"/>
-		<field name="in_intk_apln_position" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_employment_sector_code_id" class="java.lang.String"/>
-		<field name="in_intk_apln_employment_type_code_id" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.String"/>
-		<field name="in_stte_code_id" class="java.lang.Long"/>
-		<field name="in_stte_code_code" class="java.lang.String"/>
-		<field name="in_stte_code_description_en" class="java.lang.String"/>
-		<field name="in_stte_code_description_ms" class="java.lang.String"/>
-		<field name="in_stte_code_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_c_id" class="java.lang.Long"/>
-		<field name="in_stte_code_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_d_id" class="java.lang.Long"/>
-		<field name="in_stte_code_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_m_id" class="java.lang.Long"/>
-		<field name="in_stte_code_m_st" class="java.lang.Integer"/>
-		<field name="in_stte_code_country_code_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_code" class="java.lang.String"/>
-		<field name="in_cnty_code_description_en" class="java.lang.String"/>
-		<field name="in_cnty_code_description_ms" class="java.lang.String"/>
-		<field name="in_cnty_code_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_c_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_d_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_m_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_m_st" class="java.lang.Integer"/>
-	</subDataset>
-	<subDataset name="guardian" uuid="f2b4338b-99a5-4f9d-9a2d-a085d1264d22">
-		<parameter name="application_id" class="java.lang.String"/>
-		<queryString>
-			<![CDATA[SELECT
-     in_intk_apln."id" AS in_intk_apln_id,
-     in_intk_apln."guardian_address1" AS in_intk_apln_guardian_address1,
-     in_intk_apln."guardian_identity_no" AS in_intk_apln_guardian_identity_no,
-     in_intk_apln."guardian_phone_no" AS in_intk_apln_guardian_phone_no,
-     in_intk_apln."guardian_name" AS in_intk_apln_guardian_name,
-     in_intk_apln."guardian_address2" AS in_intk_apln_guardian_address2,
-     in_intk_apln."guardian_address3" AS in_intk_apln_guardian_address3,
-     in_intk_apln."guardian_postcode" AS in_intk_apln_guardian_postcode,
-     in_intk_apln."guardian_state_code_id" AS in_intk_apln_guardian_state_code_id,
-     in_intk_apln."guardian_country_code_id" AS in_intk_apln_guardian_country_code_id,
-     in_intk_apln."guardian_type" AS in_intk_apln_guardian_type,
-     in_intk_apln."guardian_state_id" AS in_intk_apln_guardian_state_id,
-     in_intk_apln."guardian_type_code_id" AS in_intk_apln_guardian_type_code_id,
-     in_stte_code."id" AS in_stte_code_id,
-     in_stte_code."code" AS in_stte_code_code,
-     in_stte_code."description_en" AS in_stte_code_description_en,
-     in_stte_code."description_ms" AS in_stte_code_description_ms,
-     in_stte_code."c_ts" AS in_stte_code_c_ts,
-     in_stte_code."c_id" AS in_stte_code_c_id,
-     in_stte_code."d_ts" AS in_stte_code_d_ts,
-     in_stte_code."d_id" AS in_stte_code_d_id,
-     in_stte_code."m_ts" AS in_stte_code_m_ts,
-     in_stte_code."m_id" AS in_stte_code_m_id,
-     in_stte_code."m_st" AS in_stte_code_m_st,
-     in_stte_code."country_code_id" AS in_stte_code_country_code_id,
-     in_cnty_code."id" AS in_cnty_code_id,
-     in_cnty_code."code" AS in_cnty_code_code,
-     in_cnty_code."description_en" AS in_cnty_code_description_en,
-     in_cnty_code."description_ms" AS in_cnty_code_description_ms,
-     in_cnty_code."c_ts" AS in_cnty_code_c_ts,
-     in_cnty_code."c_id" AS in_cnty_code_c_id,
-     in_cnty_code."d_ts" AS in_cnty_code_d_ts,
-     in_cnty_code."d_id" AS in_cnty_code_d_id,
-     in_cnty_code."m_ts" AS in_cnty_code_m_ts,
-     in_cnty_code."m_id" AS in_cnty_code_m_id,
-     in_cnty_code."m_st" AS in_cnty_code_m_st
-FROM
-     "public"."in_stte_code" in_stte_code INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_stte_code."id" = in_intk_apln."guardian_state_id"
-     INNER JOIN "public"."in_cnty_code" in_cnty_code ON in_intk_apln."guardian_country_code_id" = in_cnty_code."id"]]>
-		</queryString>
-		<field name="in_intk_apln_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_identity_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_phone_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_name" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.String"/>
-		<field name="in_stte_code_id" class="java.lang.Long"/>
-		<field name="in_stte_code_code" class="java.lang.String"/>
-		<field name="in_stte_code_description_en" class="java.lang.String"/>
-		<field name="in_stte_code_description_ms" class="java.lang.String"/>
-		<field name="in_stte_code_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_c_id" class="java.lang.Long"/>
-		<field name="in_stte_code_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_d_id" class="java.lang.Long"/>
-		<field name="in_stte_code_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_stte_code_m_id" class="java.lang.Long"/>
-		<field name="in_stte_code_m_st" class="java.lang.Integer"/>
-		<field name="in_stte_code_country_code_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_code" class="java.lang.String"/>
-		<field name="in_cnty_code_description_en" class="java.lang.String"/>
-		<field name="in_cnty_code_description_ms" class="java.lang.String"/>
-		<field name="in_cnty_code_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_c_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_d_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_cnty_code_m_id" class="java.lang.Long"/>
-		<field name="in_cnty_code_m_st" class="java.lang.Integer"/>
-	</subDataset>
-	<subDataset name="sponsored" uuid="fd56d8f0-2d64-4d54-bd97-7dc1ee853652">
-		<parameter name="application_id" class="java.lang.String"/>
-		<queryString>
-			<![CDATA[SELECT
-     in_intk_apln."id" AS in_intk_apln_id,
-     in_intk_apln."age" AS in_intk_apln_age,
-     in_intk_apln."bachelor_result_attached" AS in_intk_apln_bachelor_result_attached,
-     in_intk_apln."bank_statement_attached" AS in_intk_apln_bank_statement_attached,
-     in_intk_apln."bid_response" AS in_intk_apln_bid_response,
-     in_intk_apln."bid_status" AS in_intk_apln_bid_status,
-     in_intk_apln."bid_type" AS in_intk_apln_bid_type,
-     in_intk_apln."birth_date" AS in_intk_apln_birth_date,
-     in_intk_apln."copy_addressed" AS in_intk_apln_copy_addressed,
-     in_intk_apln."credential_no" AS in_intk_apln_credential_no,
-     in_intk_apln."declared" AS in_intk_apln_declared,
-     in_intk_apln."diploma_result_attached" AS in_intk_apln_diploma_result_attached,
-     in_intk_apln."email" AS in_intk_apln_email,
-     in_intk_apln."fax" AS in_intk_apln_fax,
-     in_intk_apln."ic_copy_attached" AS in_intk_apln_ic_copy_attached,
-     in_intk_apln."ielts_result_attached" AS in_intk_apln_ielts_result_attached,
-     in_intk_apln."language_result_attached" AS in_intk_apln_language_result_attached,
-     in_intk_apln."mailing_address1" AS in_intk_apln_mailing_address1,
-     in_intk_apln."mailing_address2" AS in_intk_apln_mailing_address2,
-     in_intk_apln."mailing_address3" AS in_intk_apln_mailing_address3,
-     in_intk_apln."mailing_postcode" AS in_intk_apln_mailing_postcode,
-     in_intk_apln."merit" AS in_intk_apln_merit,
-     in_intk_apln."c_ts" AS in_intk_apln_c_ts,
-     in_intk_apln."c_id" AS in_intk_apln_c_id,
-     in_intk_apln."d_ts" AS in_intk_apln_d_ts,
-     in_intk_apln."d_id" AS in_intk_apln_d_id,
-     in_intk_apln."m_ts" AS in_intk_apln_m_ts,
-     in_intk_apln."m_id" AS in_intk_apln_m_id,
-     in_intk_apln."m_st" AS in_intk_apln_m_st,
-     in_intk_apln."mobile" AS in_intk_apln_mobile,
-     in_intk_apln."muet_result_attached" AS in_intk_apln_muet_result_attached,
-     in_intk_apln."name" AS in_intk_apln_name,
-     in_intk_apln."official_address1" AS in_intk_apln_official_address1,
-     in_intk_apln."official_address2" AS in_intk_apln_official_address2,
-     in_intk_apln."official_address3" AS in_intk_apln_official_address3,
-     in_intk_apln."official_postcode" AS in_intk_apln_official_postcode,
-     in_intk_apln."oku_no" AS in_intk_apln_oku_no,
-     in_intk_apln."paid" AS in_intk_apln_paid,
-     in_intk_apln."passport_expdate" AS in_intk_apln_passport_expdate,
-     in_intk_apln."passport_no" AS in_intk_apln_passport_no,
-     in_intk_apln."passport_copy_attached" AS in_intk_apln_passport_copy_attached,
-     in_intk_apln."payment_source_no" AS in_intk_apln_payment_source_no,
-     in_intk_apln."phone" AS in_intk_apln_phone,
-     in_intk_apln."processing_fee_attached" AS in_intk_apln_processing_fee_attached,
-     in_intk_apln."rank" AS in_intk_apln_rank,
-     in_intk_apln."reason" AS in_intk_apln_reason,
-     in_intk_apln."referee_form_attached" AS in_intk_apln_referee_form_attached,
-     in_intk_apln."reference_no" AS in_intk_apln_reference_no,
-     in_intk_apln."research_proposal_attached" AS in_intk_apln_research_proposal_attached,
-     in_intk_apln."research_title" AS in_intk_apln_research_title,
-     in_intk_apln."self_sponsored" AS in_intk_apln_self_sponsored,
-     in_intk_apln."spm_result_attached" AS in_intk_apln_spm_result_attached,
-     in_intk_apln."sponsor_letter_attached" AS in_intk_apln_sponsor_letter_attached,
-     in_intk_apln."sponsored" AS in_intk_apln_sponsored,
-     in_intk_apln."stam_result_attached" AS in_intk_apln_stam_result_attached,
-     in_intk_apln."stpm_result_attached" AS in_intk_apln_stpm_result_attached,
-     in_intk_apln."toefl_result_attached" AS in_intk_apln_toefl_result_attached,
-     in_intk_apln."verified" AS in_intk_apln_verified,
-     in_intk_apln."visa_type" AS in_intk_apln_visa_type,
-     in_intk_apln."guardian_name" AS in_intk_apln_guardian_name,
-     in_intk_apln."guardian_phone_no" AS in_intk_apln_guardian_phone_no,
-     in_intk_apln."guardian_identity_no" AS in_intk_apln_guardian_identity_no,
-     in_intk_apln."guardian_address1" AS in_intk_apln_guardian_address1,
-     in_intk_apln."guardian_address2" AS in_intk_apln_guardian_address2,
-     in_intk_apln."guardian_address3" AS in_intk_apln_guardian_address3,
-     in_intk_apln."guardian_postcode" AS in_intk_apln_guardian_postcode,
-     in_intk_apln."guardian_state_code_id" AS in_intk_apln_guardian_state_code_id,
-     in_intk_apln."guardian_country_code_id" AS in_intk_apln_guardian_country_code_id,
-     in_intk_apln."guardian_type" AS in_intk_apln_guardian_type,
-     in_intk_apln."applicant_id" AS in_intk_apln_applicant_id,
-     in_intk_apln."bank_code_id" AS in_intk_apln_bank_code_id,
-     in_intk_apln."disability_code_id" AS in_intk_apln_disability_code_id,
-     in_intk_apln."ethnicity_code_id" AS in_intk_apln_ethnicity_code_id,
-     in_intk_apln."gender_code_id" AS in_intk_apln_gender_code_id,
-     in_intk_apln."intake_id" AS in_intk_apln_intake_id,
-     in_intk_apln."mailing_country_code_id" AS in_intk_apln_mailing_country_code_id,
-     in_intk_apln."mailing_state_code_id" AS in_intk_apln_mailing_state_code_id,
-     in_intk_apln."marital_code_id" AS in_intk_apln_marital_code_id,
-     in_intk_apln."nationality_code_id" AS in_intk_apln_nationality_code_id,
-     in_intk_apln."official_country_code_id" AS in_intk_apln_official_country_code_id,
-     in_intk_apln."official_state_code_id" AS in_intk_apln_official_state_code_id,
-     in_intk_apln."program_selection_id" AS in_intk_apln_program_selection_id,
-     in_intk_apln."promo_code_id" AS in_intk_apln_promo_code_id,
-     in_intk_apln."race_code_id" AS in_intk_apln_race_code_id,
-     in_intk_apln."religion_code_id" AS in_intk_apln_religion_code_id,
-     in_intk_apln."residency_code_id" AS in_intk_apln_residency_code_id,
-     in_intk_apln."study_center_code_id" AS in_intk_apln_study_center_code_id,
-     in_intk_apln."study_mode_selection_id" AS in_intk_apln_study_mode_selection_id,
-     in_intk_apln."supervisor_selection_id" AS in_intk_apln_supervisor_selection_id,
-     in_intk_apln."apel_certificate_attached" AS in_intk_apln_apel_certificate_attached,
-     in_intk_apln."employer_address1" AS in_intk_apln_employer_address1,
-     in_intk_apln."employer_address2" AS in_intk_apln_employer_address2,
-     in_intk_apln."employer_address3" AS in_intk_apln_employer_address3,
-     in_intk_apln."employer_no" AS in_intk_apln_employer_no,
-     in_intk_apln."employer_postcode" AS in_intk_apln_employer_postcode,
-     in_intk_apln."employment_verification_attached" AS in_intk_apln_employment_verification_attached,
-     in_intk_apln."income" AS in_intk_apln_income,
-     in_intk_apln."master_result_attached" AS in_intk_apln_master_result_attached,
-     in_intk_apln."passport_image_attached" AS in_intk_apln_passport_image_attached,
-     in_intk_apln."phd_result_attached" AS in_intk_apln_phd_result_attached,
-     in_intk_apln."place_of_birth" AS in_intk_apln_place_of_birth,
-     in_intk_apln."position" AS in_intk_apln_position,
-     in_intk_apln."employer_state_id" AS in_intk_apln_employer_state_id,
-     in_intk_apln."employment_sector_code_id" AS in_intk_apln_employment_sector_code_id,
-     in_intk_apln."employment_type_code_id" AS in_intk_apln_employment_type_code_id,
-     in_intk_apln."guardian_state_id" AS in_intk_apln_guardian_state_id,
-     in_intk_apln."guardian_type_code_id" AS in_intk_apln_guardian_type_code_id
-FROM
-     "public"."in_intk_apln" in_intk_apln]]>
-		</queryString>
-		<field name="in_intk_apln_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_age" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bachelor_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_bank_statement_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_bid_response" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bid_status" class="java.lang.Integer"/>
-		<field name="in_intk_apln_bid_type" class="java.lang.Integer"/>
-		<field name="in_intk_apln_birth_date" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_copy_addressed" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_credential_no" class="java.lang.String"/>
-		<field name="in_intk_apln_declared" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_diploma_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_email" class="java.lang.String"/>
-		<field name="in_intk_apln_fax" class="java.lang.String"/>
-		<field name="in_intk_apln_ic_copy_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_ielts_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_language_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_mailing_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_mailing_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_merit" class="java.math.BigDecimal"/>
-		<field name="in_intk_apln_c_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_c_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_d_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_d_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_m_ts" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_m_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_m_st" class="java.lang.Integer"/>
-		<field name="in_intk_apln_mobile" class="java.lang.String"/>
-		<field name="in_intk_apln_muet_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_name" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_official_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_official_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_oku_no" class="java.lang.String"/>
-		<field name="in_intk_apln_paid" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_passport_expdate" class="java.sql.Timestamp"/>
-		<field name="in_intk_apln_passport_no" class="java.lang.String"/>
-		<field name="in_intk_apln_passport_copy_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_payment_source_no" class="java.lang.String"/>
-		<field name="in_intk_apln_phone" class="java.lang.String"/>
-		<field name="in_intk_apln_processing_fee_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_rank" class="java.lang.Integer"/>
-		<field name="in_intk_apln_reason" class="java.lang.String"/>
-		<field name="in_intk_apln_referee_form_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_reference_no" class="java.lang.String"/>
-		<field name="in_intk_apln_research_proposal_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_research_title" class="java.lang.String"/>
-		<field name="in_intk_apln_self_sponsored" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_spm_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsor_letter_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_sponsored" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_stam_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_stpm_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_toefl_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_verified" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_visa_type" class="java.lang.Integer"/>
-		<field name="in_intk_apln_guardian_name" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_phone_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_identity_no" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type" class="java.lang.Integer"/>
-		<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_ethnicity_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_gender_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_intake_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_mailing_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_mailing_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_marital_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_nationality_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_official_country_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_official_state_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_program_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_promo_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_race_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_religion_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_residency_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_study_center_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_study_mode_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_supervisor_selection_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_apel_certificate_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_employer_address1" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_address2" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_address3" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_no" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_postcode" class="java.lang.String"/>
-		<field name="in_intk_apln_employment_verification_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_income" class="java.lang.String"/>
-		<field name="in_intk_apln_master_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_passport_image_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_phd_result_attached" class="java.lang.Boolean"/>
-		<field name="in_intk_apln_place_of_birth" class="java.lang.String"/>
-		<field name="in_intk_apln_position" class="java.lang.String"/>
-		<field name="in_intk_apln_employer_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_employment_sector_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_employment_type_code_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
-		<field name="in_intk_apln_guardian_type_code_id" class="java.lang.Long"/>
+		<filterExpression><![CDATA[$P{application_id}.equals( $F{in_empt_id} )]]></filterExpression>
 	</subDataset>
 	<parameter name="reference_no" class="java.lang.String"/>
+	<parameter name="pathImage" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
 		<![CDATA[SELECT
-     in_intk."id" AS in_intk_id,
-     in_intk."audit_no" AS in_intk_audit_no,
-     in_intk."cancel_comment" AS in_intk_cancel_comment,
-     in_intk."description_en" AS in_intk_description_en,
-     in_intk."description_ms" AS in_intk_description_ms,
-     in_intk."end_date" AS in_intk_end_date,
-     in_intk."projection" AS in_intk_projection,
-     in_intk."reference_no" AS in_intk_reference_no,
-     in_intk."remove_comment" AS in_intk_remove_comment,
-     in_intk."source_no" AS in_intk_source_no,
-     in_intk."start_date" AS in_intk_start_date,
-     in_intk."graduate_center_id" AS in_intk_graduate_center_id,
-     in_intk."program_level_id" AS in_intk_program_level_id,
-     in_intk."session_id" AS in_intk_session_id,
      in_intk_sesn."id" AS in_intk_sesn_id,
      in_intk_sesn."code" AS in_intk_sesn_code,
-     in_intk_sesn."current_" AS in_intk_sesn_current_,
-     in_intk_sesn."description_en" AS in_intk_sesn_description_en,
      in_intk_sesn."description_ms" AS in_intk_sesn_description_ms,
-     in_intk_sesn."label" AS in_intk_sesn_label,
-     in_intk_sesn."year" AS in_intk_sesn_year,
+     in_intk."description_ms" AS in_intk_description_ms,
+     in_intk."id" AS in_intk_id,
+     in_intk."reference_no" AS in_intk_reference_no,
+     in_intk."session_id" AS in_intk_session_id,
      in_intk_apln."id" AS in_intk_apln_id,
      in_intk_apln."age" AS in_intk_apln_age,
      in_intk_apln."bachelor_result_attached" AS in_intk_apln_bachelor_result_attached,
@@ -1689,163 +1106,81 @@ FROM
      in_intk_apln."employment_type_code_id" AS in_intk_apln_employment_type_code_id,
      in_intk_apln."guardian_state_id" AS in_intk_apln_guardian_state_id,
      in_intk_apln."guardian_type_code_id" AS in_intk_apln_guardian_type_code_id,
-     in_race_code."id" AS in_race_code_id,
-     in_race_code."code" AS in_race_code_code,
-     in_race_code."description_en" AS in_race_code_description_en,
-     in_race_code."description_ms" AS in_race_code_description_ms,
      in_prgm_ofrg."id" AS in_prgm_ofrg_id,
-     in_prgm_ofrg."general_criteria" AS in_prgm_ofrg_general_criteria,
-     in_prgm_ofrg."interview" AS in_prgm_ofrg_interview,
-     in_prgm_ofrg."c_ts" AS in_prgm_ofrg_c_ts,
-     in_prgm_ofrg."c_id" AS in_prgm_ofrg_c_id,
-     in_prgm_ofrg."d_ts" AS in_prgm_ofrg_d_ts,
-     in_prgm_ofrg."d_id" AS in_prgm_ofrg_d_id,
-     in_prgm_ofrg."m_ts" AS in_prgm_ofrg_m_ts,
-     in_prgm_ofrg."m_id" AS in_prgm_ofrg_m_id,
-     in_prgm_ofrg."m_st" AS in_prgm_ofrg_m_st,
-     in_prgm_ofrg."projection" AS in_prgm_ofrg_projection,
-     in_prgm_ofrg."specific_criteria" AS in_prgm_ofrg_specific_criteria,
      in_prgm_ofrg."intake_id" AS in_prgm_ofrg_intake_id,
      in_prgm_ofrg."prgm_code_id" AS in_prgm_ofrg_prgm_code_id,
      in_prgm_code."id" AS in_prgm_code_id,
-     in_prgm_code."code" AS in_prgm_code_code,
-     in_prgm_code."description_en" AS in_prgm_code_description_en,
      in_prgm_code."description_ms" AS in_prgm_code_description_ms,
-     in_prgm_code."c_ts" AS in_prgm_code_c_ts,
-     in_prgm_code."c_id" AS in_prgm_code_c_id,
-     in_prgm_code."d_ts" AS in_prgm_code_d_ts,
-     in_prgm_code."d_id" AS in_prgm_code_d_id,
-     in_prgm_code."m_ts" AS in_prgm_code_m_ts,
-     in_prgm_code."m_id" AS in_prgm_code_m_id,
-     in_prgm_code."m_st" AS in_prgm_code_m_st,
-     in_prgm_code."graduate_center_id" AS in_prgm_code_graduate_center_id,
-     in_prgm_code."program_level_id" AS in_prgm_code_program_level_id,
-     in_prgm_code."faculty_code_id" AS in_prgm_code_faculty_code_id,
+     in_race_code."id" AS in_race_code_id,
+     in_race_code."description_ms" AS in_race_code_description_ms,
      in_rlgn_code."id" AS in_rlgn_code_id,
-     in_rlgn_code."code" AS in_rlgn_code_code,
-     in_rlgn_code."description_en" AS in_rlgn_code_description_en,
      in_rlgn_code."description_ms" AS in_rlgn_code_description_ms,
-     in_rlgn_code."c_ts" AS in_rlgn_code_c_ts,
-     in_rlgn_code."c_id" AS in_rlgn_code_c_id,
-     in_rlgn_code."d_ts" AS in_rlgn_code_d_ts,
-     in_rlgn_code."d_id" AS in_rlgn_code_d_id,
-     in_rlgn_code."m_ts" AS in_rlgn_code_m_ts,
-     in_rlgn_code."m_id" AS in_rlgn_code_m_id,
-     in_rlgn_code."m_st" AS in_rlgn_code_m_st,
      in_gndr_code."id" AS in_gndr_code_id,
-     in_gndr_code."code" AS in_gndr_code_code,
-     in_gndr_code."description_en" AS in_gndr_code_description_en,
      in_gndr_code."description_ms" AS in_gndr_code_description_ms,
-     in_gndr_code."c_ts" AS in_gndr_code_c_ts,
-     in_gndr_code."c_id" AS in_gndr_code_c_id,
-     in_gndr_code."d_ts" AS in_gndr_code_d_ts,
-     in_gndr_code."d_id" AS in_gndr_code_d_id,
-     in_gndr_code."m_ts" AS in_gndr_code_m_ts,
-     in_gndr_code."m_id" AS in_gndr_code_m_id,
-     in_gndr_code."m_st" AS in_gndr_code_m_st,
      in_rscy_code."id" AS in_rscy_code_id,
-     in_rscy_code."code" AS in_rscy_code_code,
-     in_rscy_code."description_en" AS in_rscy_code_description_en,
      in_rscy_code."description_ms" AS in_rscy_code_description_ms,
-     in_rscy_code."c_ts" AS in_rscy_code_c_ts,
-     in_rscy_code."c_id" AS in_rscy_code_c_id,
-     in_rscy_code."d_ts" AS in_rscy_code_d_ts,
-     in_rscy_code."d_id" AS in_rscy_code_d_id,
-     in_rscy_code."m_ts" AS in_rscy_code_m_ts,
-     in_rscy_code."m_id" AS in_rscy_code_m_id,
-     in_rscy_code."m_st" AS in_rscy_code_m_st,
      in_mrtl_code."id" AS in_mrtl_code_id,
-     in_mrtl_code."code" AS in_mrtl_code_code,
-     in_mrtl_code."description_en" AS in_mrtl_code_description_en,
      in_mrtl_code."description_ms" AS in_mrtl_code_description_ms,
-     in_mrtl_code."c_ts" AS in_mrtl_code_c_ts,
-     in_mrtl_code."c_id" AS in_mrtl_code_c_id,
-     in_mrtl_code."d_ts" AS in_mrtl_code_d_ts,
-     in_mrtl_code."d_id" AS in_mrtl_code_d_id,
-     in_mrtl_code."m_ts" AS in_mrtl_code_m_ts,
-     in_mrtl_code."m_id" AS in_mrtl_code_m_id,
-     in_mrtl_code."m_st" AS in_mrtl_code_m_st,
      in_stdy_cntr_code."id" AS in_stdy_cntr_code_id,
-     in_stdy_cntr_code."code" AS in_stdy_cntr_code_code,
-     in_stdy_cntr_code."description_en" AS in_stdy_cntr_code_description_en,
      in_stdy_cntr_code."description_ms" AS in_stdy_cntr_code_description_ms,
-     in_stdy_cntr_code."c_ts" AS in_stdy_cntr_code_c_ts,
-     in_stdy_cntr_code."c_id" AS in_stdy_cntr_code_c_id,
-     in_stdy_cntr_code."d_ts" AS in_stdy_cntr_code_d_ts,
-     in_stdy_cntr_code."d_id" AS in_stdy_cntr_code_d_id,
-     in_stdy_cntr_code."m_ts" AS in_stdy_cntr_code_m_ts,
-     in_stdy_cntr_code."m_id" AS in_stdy_cntr_code_m_id,
-     in_stdy_cntr_code."m_st" AS in_stdy_cntr_code_m_st,
      in_empt."id" AS in_empt_id,
      in_empt."active" AS in_empt_active,
      in_empt."designation" AS in_empt_designation,
      in_empt."employer" AS in_empt_employer,
      in_empt."employmeny_type" AS in_empt_employmeny_type,
      in_empt."end_date" AS in_empt_end_date,
-     in_empt."c_ts" AS in_empt_c_ts,
-     in_empt."c_id" AS in_empt_c_id,
-     in_empt."d_ts" AS in_empt_d_ts,
-     in_empt."d_id" AS in_empt_d_id,
-     in_empt."m_ts" AS in_empt_m_ts,
-     in_empt."m_id" AS in_empt_m_id,
-     in_empt."m_st" AS in_empt_m_st,
-     in_empt."start_date" AS in_empt_start_date,
      in_empt."application_id" AS in_empt_application_id,
-     in_empt."field_code_id" AS in_empt_field_code_id,
-     in_empt."level_code_id" AS in_empt_level_code_id,
-     in_empt."sector_code_id" AS in_empt_sector_code_id,
      in_empt."working_duration" AS in_empt_working_duration,
-     in_cnty_code."id" AS in_cnty_code_id,
-     in_cnty_code."code" AS in_cnty_code_code,
-     in_cnty_code."description_en" AS in_cnty_code_description_en,
-     in_cnty_code."description_ms" AS in_cnty_code_description_ms,
-     in_cnty_code."c_ts" AS in_cnty_code_c_ts,
-     in_cnty_code."c_id" AS in_cnty_code_c_id,
-     in_cnty_code."d_ts" AS in_cnty_code_d_ts,
-     in_cnty_code."d_id" AS in_cnty_code_d_id,
-     in_cnty_code."m_ts" AS in_cnty_code_m_ts,
-     in_cnty_code."m_id" AS in_cnty_code_m_id,
-     in_cnty_code."m_st" AS in_cnty_code_m_st,
      in_stte_code."id" AS in_stte_code_id,
      in_stte_code."code" AS in_stte_code_code,
+     in_cnty_code."id" AS in_cnty_code_id,
+     in_cnty_code."description_ms" AS in_cnty_code_description_ms,
+     in_cnty_code."code" AS in_cnty_code_code,
+     in_intk_sesn."description_en" AS in_intk_sesn_description_en,
+     in_intk_sesn."year" AS in_intk_sesn_year,
+     in_intk."program_level_id" AS in_intk_program_level_id,
+     in_intk_sesn."label" AS in_intk_sesn_label,
+     in_prgm_code."code" AS in_prgm_code_code,
      in_stte_code."description_en" AS in_stte_code_description_en,
-     in_stte_code."description_ms" AS in_stte_code_description_ms
+     in_stte_code."description_ms" AS in_stte_code_description_ms,
+     in_empt_sctr_code."id" AS in_empt_sctr_code_id,
+     in_empt_sctr_code."description_ms" AS in_empt_sctr_code_description_ms,
+     in_empt_type_code."id" AS in_empt_type_code_id,
+     in_empt_type_code."description_ms" AS in_empt_type_code_description_ms,
+     in_grdn_type_code."id" AS in_grdn_type_code_id,
+     in_grdn_type_code."description_ms" AS in_grdn_type_code_description_ms
 FROM
      "public"."in_intk_sesn" in_intk_sesn INNER JOIN "public"."in_intk" in_intk ON in_intk_sesn."id" = in_intk."session_id"
      INNER JOIN "public"."in_intk_apln" in_intk_apln ON in_intk."id" = in_intk_apln."intake_id"
      INNER JOIN "public"."in_prgm_ofrg" in_prgm_ofrg ON in_intk."id" = in_prgm_ofrg."intake_id"
+     AND in_prgm_ofrg."id" = in_intk_apln."program_selection_id"
      INNER JOIN "public"."in_prgm_code" in_prgm_code ON in_prgm_ofrg."prgm_code_id" = in_prgm_code."id"
+     RIGHT OUTER JOIN "public"."in_stdy_cntr_code" in_stdy_cntr_code ON in_intk_apln."study_center_code_id" = in_stdy_cntr_code."id"
      INNER JOIN "public"."in_race_code" in_race_code ON in_intk_apln."race_code_id" = in_race_code."id"
      INNER JOIN "public"."in_rlgn_code" in_rlgn_code ON in_intk_apln."religion_code_id" = in_rlgn_code."id"
      INNER JOIN "public"."in_gndr_code" in_gndr_code ON in_intk_apln."gender_code_id" = in_gndr_code."id"
      INNER JOIN "public"."in_rscy_code" in_rscy_code ON in_intk_apln."residency_code_id" = in_rscy_code."id"
      INNER JOIN "public"."in_mrtl_code" in_mrtl_code ON in_intk_apln."marital_code_id" = in_mrtl_code."id"
-     INNER JOIN "public"."in_stdy_cntr_code" in_stdy_cntr_code ON in_intk_apln."study_center_code_id" = in_stdy_cntr_code."id"
      INNER JOIN "public"."in_empt" in_empt ON in_intk_apln."id" = in_empt."application_id"
-     INNER JOIN "public"."in_cnty_code" in_cnty_code ON in_intk_apln."mailing_country_code_id" = in_cnty_code."id"
-     INNER JOIN "public"."in_stte_code" in_stte_code ON in_intk_apln."mailing_state_code_id" = in_stte_code."id"]]>
+     INNER JOIN "public"."in_stte_code" in_stte_code ON in_intk_apln."mailing_state_code_id" = in_stte_code."id"
+     AND in_stte_code."id" = in_intk_apln."official_state_code_id"
+     AND in_stte_code."id" = in_intk_apln."employer_state_id"
+     AND in_stte_code."id" = in_intk_apln."guardian_state_id"
+     LEFT OUTER JOIN "public"."in_cnty_code" in_cnty_code ON in_intk_apln."mailing_country_code_id" = in_cnty_code."id"
+     AND in_cnty_code."id" = in_intk_apln."official_country_code_id"
+     AND in_cnty_code."id" = in_intk_apln."guardian_country_code_id"
+     INNER JOIN "public"."in_empt_sctr_code" in_empt_sctr_code ON in_intk_apln."employment_sector_code_id" = in_empt_sctr_code."id"
+     INNER JOIN "public"."in_empt_type_code" in_empt_type_code ON in_intk_apln."employment_type_code_id" = in_empt_type_code."id"
+     INNER JOIN "public"."in_grdn_type_code" in_grdn_type_code ON in_intk_apln."guardian_type_code_id" = in_grdn_type_code."id"
+     AND in_empt_sctr_code."id" = in_empt."sector_code_id"]]>
 	</queryString>
-	<field name="in_intk_id" class="java.lang.Long"/>
-	<field name="in_intk_audit_no" class="java.lang.String"/>
-	<field name="in_intk_cancel_comment" class="java.lang.String"/>
-	<field name="in_intk_description_en" class="java.lang.String"/>
-	<field name="in_intk_description_ms" class="java.lang.String"/>
-	<field name="in_intk_end_date" class="java.sql.Timestamp"/>
-	<field name="in_intk_projection" class="java.lang.Integer"/>
-	<field name="in_intk_reference_no" class="java.lang.String"/>
-	<field name="in_intk_remove_comment" class="java.lang.String"/>
-	<field name="in_intk_source_no" class="java.lang.String"/>
-	<field name="in_intk_start_date" class="java.sql.Timestamp"/>
-	<field name="in_intk_graduate_center_id" class="java.lang.Long"/>
-	<field name="in_intk_program_level_id" class="java.lang.Long"/>
-	<field name="in_intk_session_id" class="java.lang.Long"/>
 	<field name="in_intk_sesn_id" class="java.lang.Long"/>
 	<field name="in_intk_sesn_code" class="java.lang.String"/>
-	<field name="in_intk_sesn_current_" class="java.lang.Boolean"/>
-	<field name="in_intk_sesn_description_en" class="java.lang.String"/>
 	<field name="in_intk_sesn_description_ms" class="java.lang.String"/>
-	<field name="in_intk_sesn_label" class="java.lang.String"/>
-	<field name="in_intk_sesn_year" class="java.lang.Integer"/>
+	<field name="in_intk_description_ms" class="java.lang.String"/>
+	<field name="in_intk_id" class="java.lang.Long"/>
+	<field name="in_intk_reference_no" class="java.lang.String"/>
+	<field name="in_intk_session_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_age" class="java.lang.Integer"/>
 	<field name="in_intk_apln_bachelor_result_attached" class="java.lang.Boolean"/>
@@ -1907,7 +1242,7 @@ FROM
 	<field name="in_intk_apln_guardian_postcode" class="java.lang.String"/>
 	<field name="in_intk_apln_guardian_state_code_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_guardian_country_code_id" class="java.lang.Long"/>
-	<field name="in_intk_apln_guardian_type" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_type" class="java.lang.Integer"/>
 	<field name="in_intk_apln_applicant_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_bank_code_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_disability_code_id" class="java.lang.Long"/>
@@ -1942,131 +1277,53 @@ FROM
 	<field name="in_intk_apln_place_of_birth" class="java.lang.String"/>
 	<field name="in_intk_apln_position" class="java.lang.String"/>
 	<field name="in_intk_apln_employer_state_id" class="java.lang.Long"/>
-	<field name="in_intk_apln_employment_sector_code_id" class="java.lang.String"/>
-	<field name="in_intk_apln_employment_type_code_id" class="java.lang.String"/>
+	<field name="in_intk_apln_employment_sector_code_id" class="java.lang.Long"/>
+	<field name="in_intk_apln_employment_type_code_id" class="java.lang.Long"/>
 	<field name="in_intk_apln_guardian_state_id" class="java.lang.Long"/>
-	<field name="in_intk_apln_guardian_type_code_id" class="java.lang.String"/>
-	<field name="in_race_code_id" class="java.lang.Long"/>
-	<field name="in_race_code_code" class="java.lang.String"/>
-	<field name="in_race_code_description_en" class="java.lang.String"/>
-	<field name="in_race_code_description_ms" class="java.lang.String"/>
+	<field name="in_intk_apln_guardian_type_code_id" class="java.lang.Long"/>
 	<field name="in_prgm_ofrg_id" class="java.lang.Long"/>
-	<field name="in_prgm_ofrg_general_criteria" class="java.lang.String"/>
-	<field name="in_prgm_ofrg_interview" class="java.lang.Boolean"/>
-	<field name="in_prgm_ofrg_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_ofrg_c_id" class="java.lang.Long"/>
-	<field name="in_prgm_ofrg_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_ofrg_d_id" class="java.lang.Long"/>
-	<field name="in_prgm_ofrg_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_ofrg_m_id" class="java.lang.Long"/>
-	<field name="in_prgm_ofrg_m_st" class="java.lang.Integer"/>
-	<field name="in_prgm_ofrg_projection" class="java.lang.Integer"/>
-	<field name="in_prgm_ofrg_specific_criteria" class="java.lang.String"/>
 	<field name="in_prgm_ofrg_intake_id" class="java.lang.Long"/>
 	<field name="in_prgm_ofrg_prgm_code_id" class="java.lang.Long"/>
 	<field name="in_prgm_code_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_code" class="java.lang.String"/>
-	<field name="in_prgm_code_description_en" class="java.lang.String"/>
 	<field name="in_prgm_code_description_ms" class="java.lang.String"/>
-	<field name="in_prgm_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_code_c_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_code_d_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_prgm_code_m_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_m_st" class="java.lang.Integer"/>
-	<field name="in_prgm_code_graduate_center_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_program_level_id" class="java.lang.Long"/>
-	<field name="in_prgm_code_faculty_code_id" class="java.lang.Long"/>
+	<field name="in_race_code_id" class="java.lang.Long"/>
+	<field name="in_race_code_description_ms" class="java.lang.String"/>
 	<field name="in_rlgn_code_id" class="java.lang.Long"/>
-	<field name="in_rlgn_code_code" class="java.lang.String"/>
-	<field name="in_rlgn_code_description_en" class="java.lang.String"/>
 	<field name="in_rlgn_code_description_ms" class="java.lang.String"/>
-	<field name="in_rlgn_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_rlgn_code_c_id" class="java.lang.Long"/>
-	<field name="in_rlgn_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_rlgn_code_d_id" class="java.lang.Long"/>
-	<field name="in_rlgn_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_rlgn_code_m_id" class="java.lang.Long"/>
-	<field name="in_rlgn_code_m_st" class="java.lang.Integer"/>
 	<field name="in_gndr_code_id" class="java.lang.Long"/>
-	<field name="in_gndr_code_code" class="java.lang.String"/>
-	<field name="in_gndr_code_description_en" class="java.lang.String"/>
 	<field name="in_gndr_code_description_ms" class="java.lang.String"/>
-	<field name="in_gndr_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_gndr_code_c_id" class="java.lang.Long"/>
-	<field name="in_gndr_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_gndr_code_d_id" class="java.lang.Long"/>
-	<field name="in_gndr_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_gndr_code_m_id" class="java.lang.Long"/>
-	<field name="in_gndr_code_m_st" class="java.lang.Integer"/>
 	<field name="in_rscy_code_id" class="java.lang.Long"/>
-	<field name="in_rscy_code_code" class="java.lang.String"/>
-	<field name="in_rscy_code_description_en" class="java.lang.String"/>
 	<field name="in_rscy_code_description_ms" class="java.lang.String"/>
-	<field name="in_rscy_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_rscy_code_c_id" class="java.lang.Long"/>
-	<field name="in_rscy_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_rscy_code_d_id" class="java.lang.Long"/>
-	<field name="in_rscy_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_rscy_code_m_id" class="java.lang.Long"/>
-	<field name="in_rscy_code_m_st" class="java.lang.Integer"/>
 	<field name="in_mrtl_code_id" class="java.lang.Long"/>
-	<field name="in_mrtl_code_code" class="java.lang.String"/>
-	<field name="in_mrtl_code_description_en" class="java.lang.String"/>
 	<field name="in_mrtl_code_description_ms" class="java.lang.String"/>
-	<field name="in_mrtl_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_mrtl_code_c_id" class="java.lang.Long"/>
-	<field name="in_mrtl_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_mrtl_code_d_id" class="java.lang.Long"/>
-	<field name="in_mrtl_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_mrtl_code_m_id" class="java.lang.Long"/>
-	<field name="in_mrtl_code_m_st" class="java.lang.Integer"/>
 	<field name="in_stdy_cntr_code_id" class="java.lang.Long"/>
-	<field name="in_stdy_cntr_code_code" class="java.lang.String"/>
-	<field name="in_stdy_cntr_code_description_en" class="java.lang.String"/>
 	<field name="in_stdy_cntr_code_description_ms" class="java.lang.String"/>
-	<field name="in_stdy_cntr_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_stdy_cntr_code_c_id" class="java.lang.Long"/>
-	<field name="in_stdy_cntr_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_stdy_cntr_code_d_id" class="java.lang.Long"/>
-	<field name="in_stdy_cntr_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_stdy_cntr_code_m_id" class="java.lang.Long"/>
-	<field name="in_stdy_cntr_code_m_st" class="java.lang.Integer"/>
 	<field name="in_empt_id" class="java.lang.Long"/>
 	<field name="in_empt_active" class="java.lang.Boolean"/>
 	<field name="in_empt_designation" class="java.lang.String"/>
 	<field name="in_empt_employer" class="java.lang.String"/>
 	<field name="in_empt_employmeny_type" class="java.lang.Integer"/>
 	<field name="in_empt_end_date" class="java.sql.Timestamp"/>
-	<field name="in_empt_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_empt_c_id" class="java.lang.Long"/>
-	<field name="in_empt_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_empt_d_id" class="java.lang.Long"/>
-	<field name="in_empt_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_empt_m_id" class="java.lang.Long"/>
-	<field name="in_empt_m_st" class="java.lang.Integer"/>
-	<field name="in_empt_start_date" class="java.sql.Timestamp"/>
 	<field name="in_empt_application_id" class="java.lang.Long"/>
-	<field name="in_empt_field_code_id" class="java.lang.Long"/>
-	<field name="in_empt_level_code_id" class="java.lang.Long"/>
-	<field name="in_empt_sector_code_id" class="java.lang.Long"/>
 	<field name="in_empt_working_duration" class="java.lang.Integer"/>
-	<field name="in_cnty_code_id" class="java.lang.Long"/>
-	<field name="in_cnty_code_code" class="java.lang.String"/>
-	<field name="in_cnty_code_description_en" class="java.lang.String"/>
-	<field name="in_cnty_code_description_ms" class="java.lang.String"/>
-	<field name="in_cnty_code_c_ts" class="java.sql.Timestamp"/>
-	<field name="in_cnty_code_c_id" class="java.lang.Long"/>
-	<field name="in_cnty_code_d_ts" class="java.sql.Timestamp"/>
-	<field name="in_cnty_code_d_id" class="java.lang.Long"/>
-	<field name="in_cnty_code_m_ts" class="java.sql.Timestamp"/>
-	<field name="in_cnty_code_m_id" class="java.lang.Long"/>
-	<field name="in_cnty_code_m_st" class="java.lang.Integer"/>
 	<field name="in_stte_code_id" class="java.lang.Long"/>
 	<field name="in_stte_code_code" class="java.lang.String"/>
+	<field name="in_cnty_code_id" class="java.lang.Long"/>
+	<field name="in_cnty_code_description_ms" class="java.lang.String"/>
+	<field name="in_cnty_code_code" class="java.lang.String"/>
+	<field name="in_intk_sesn_description_en" class="java.lang.String"/>
+	<field name="in_intk_sesn_year" class="java.lang.Integer"/>
+	<field name="in_intk_program_level_id" class="java.lang.Long"/>
+	<field name="in_intk_sesn_label" class="java.lang.String"/>
+	<field name="in_prgm_code_code" class="java.lang.String"/>
 	<field name="in_stte_code_description_en" class="java.lang.String"/>
 	<field name="in_stte_code_description_ms" class="java.lang.String"/>
+	<field name="in_empt_sctr_code_id" class="java.lang.Long"/>
+	<field name="in_empt_sctr_code_description_ms" class="java.lang.String"/>
+	<field name="in_empt_type_code_id" class="java.lang.Long"/>
+	<field name="in_empt_type_code_description_ms" class="java.lang.String"/>
+	<field name="in_grdn_type_code_id" class="java.lang.Long"/>
+	<field name="in_grdn_type_code_description_ms" class="java.lang.String"/>
 	<filterExpression><![CDATA[$F{in_intk_apln_reference_no}.equals( $P{reference_no} )]]></filterExpression>
 	<group name="header baru">
 		<groupExpression><![CDATA[$F{in_intk_id}]]></groupExpression>
@@ -2086,7 +1343,7 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="496" splitType="Stretch">
+		<band height="520" splitType="Stretch">
 			<rectangle>
 				<reportElement x="2" y="206" width="546" height="24" uuid="4e90fa3b-bb07-4aff-aab4-717e3c3465ef"/>
 				<graphicElement>
@@ -2505,7 +1762,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{in_intk_apln_mailing_address2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="441" width="172" height="15" uuid="53a940b7-c463-4cfa-96e0-d896b7ecc06b"/>
+				<reportElement x="100" y="456" width="195" height="15" uuid="53a940b7-c463-4cfa-96e0-d896b7ecc06b"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -2610,120 +1867,25 @@ FROM
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="466" width="171" height="12" uuid="6ae6bd99-a4ec-46bd-8f3f-a5c9fa38d4d7"/>
+				<reportElement x="100" y="480" width="171" height="12" uuid="6ae6bd99-a4ec-46bd-8f3f-a5c9fa38d4d7"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_cnty_code_description_ms}]]></textFieldExpression>
 			</textField>
-			<componentElement>
-				<reportElement x="374" y="311" width="180" height="156" uuid="7ca48758-3366-43a7-8eae-4ac9bab392e7"/>
-				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="employer" uuid="c02c7a43-6ebd-4e14-8b60-fb641af60319">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
-						</datasetParameter>
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:listContents height="156" width="180">
-						<textField>
-							<reportElement x="0" y="87" width="180" height="12" uuid="b13dae91-d509-4189-b5c6-1c6a22628f1d"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_employer_postcode}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="50" width="180" height="15" uuid="a8bf9549-6c53-4d25-a51a-c42dca654816"/>
-							<textElement verticalAlignment="Middle">
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_employer_no}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="65" width="180" height="16" uuid="d7f4dfbb-2d3c-470c-b46b-513afa54630b"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_employer_address1}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="76" width="179" height="12" uuid="9d34ff54-48c3-4f31-920e-ccb00178e182"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_employer_address2}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="14" width="179" height="13" uuid="b0736624-1854-40ab-a452-a97eabdc0ad4"/>
-							<textElement verticalAlignment="Top">
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_position}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="110" width="179" height="14" uuid="55320386-0a7e-47d5-8bef-4b99c35bf15e"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_cnty_code_description_ms}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="37" width="179" height="13" uuid="29615624-4f43-4567-829e-97183939d27a"/>
-							<textElement verticalAlignment="Middle">
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_income}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="26" width="179" height="13" uuid="298ef45f-1f6d-4e71-bc97-669480e244a1"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[(
-$F{in_intk_apln_employment_type_code_id}.equals( "1" )? "Tetap":
-$F{in_intk_apln_employment_type_code_id}.equals( "2" )? "Kontrak":
-$F{in_intk_apln_employment_type_code_id}.equals( "3" )? "Sambilan":
-$F{in_intk_apln_employment_type_code_id}.equals( "4" )? "Tidak_berkaitan":
-"LAIN-LAIN"
-
-)]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="99" width="179" height="12" uuid="c3355ea1-6ac5-4bef-9fa2-20aa13b839aa"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_stte_code_description_ms}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="1" width="179" height="12" uuid="688106d7-b24e-4bd0-b9ff-674ab78e47f2"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[(
-$F{in_intk_apln_employment_sector_code_id}.equals( "1" )? "Kerajaan":
-$F{in_intk_apln_employment_sector_code_id}.equals( "2" )? "Swasta":
-$F{in_intk_apln_employment_sector_code_id}.equals( "3" )? "Sendiri":
-$F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain"
-)]]></textFieldExpression>
-						</textField>
-					</jr:listContents>
-				</jr:list>
-			</componentElement>
 			<textField>
-				<reportElement x="99" y="454" width="173" height="12" uuid="26894ad1-2ada-4a30-b188-e008a03e3710"/>
+				<reportElement x="100" y="468" width="173" height="12" uuid="26894ad1-2ada-4a30-b188-e008a03e3710"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_stte_code_description_ms}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="283" y="311" width="60" height="13" uuid="e7b4fa9c-a147-414b-9315-5dd857df5724"/>
+				<reportElement x="283" y="311" width="75" height="13" uuid="e7b4fa9c-a147-414b-9315-5dd857df5724"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Pekerjaan]]></text>
+				<text><![CDATA[Kategori Pekerjaan]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="360" y="310" width="8" height="13" uuid="d631e716-6a0c-4db0-8017-14d7f8f9e2e6"/>
@@ -2732,6 +1894,94 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="374" y="324" width="174" height="13" uuid="598777f1-e801-4902-9d94-c9a32ff0c66b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_position}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="347" width="181" height="13" uuid="2335fc3c-6ac8-41aa-ad66-433997d08fe4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_income}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="360" width="180" height="14" uuid="5667c01c-eecf-4fe2-979f-12b2b28ca3eb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_employer_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="373" width="182" height="15" uuid="53429a37-d939-4348-b428-0cd889b36c1f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_employer_address1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="385" width="182" height="20" uuid="b4026e1e-7fc4-4b79-bcac-880108c5d8af"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_employer_address2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="398" width="181" height="20" uuid="51fc206a-90be-4134-a643-2310fbeb84a6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{in_intk_apln_employer_address3}==null)? "-": $F{in_intk_apln_employer_address3})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="412" width="183" height="20" uuid="cc0a6d0a-6d98-4866-a068-e7a236cf13d8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_employer_postcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="424" width="183" height="20" uuid="812c224b-3c26-4ae2-854d-5742d4ff1c49"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stte_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="436" width="178" height="20" uuid="acc28b58-70ef-4b1d-89ce-d3a886326837"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_cnty_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="311" width="176" height="13" uuid="b3e4fabb-3751-49ef-be64-b5ba32a93017"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_sctr_code_description_ms}.substring(0, 1)+$F{in_empt_sctr_code_description_ms}.substring(1, $F{in_empt_sctr_code_description_ms}.length()).toLowerCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="336" width="177" height="14" uuid="cc3ad6c8-ec68-4712-88c1-60d97993db9d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_empt_type_code_description_ms}.substring(0, 1)+$F{in_empt_type_code_description_ms}.substring(1, $F{in_empt_type_code_description_ms}.length()).toLowerCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="443" width="173" height="12" uuid="01ae5c07-1f6d-40e4-a68b-5322d90d63dd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{in_intk_apln_mailing_address3}==null)? "-": $F{in_intk_apln_mailing_address3})]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="263" y="3" width="34" height="32" uuid="6da2e9dc-9334-4198-8752-ddde86640296"/>
+				<imageExpression><![CDATA[$P{pathImage}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
@@ -2739,9 +1989,9 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 			<componentElement>
 				<reportElement x="0" y="70" width="555" height="20" uuid="f9240b44-1307-41f5-9f86-e0bea9c847de"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="spm" uuid="93d7fe7e-cee0-421a-8fa1-1c59923d649b">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
+					<datasetRun subDataset="spm" uuid="bfcc1bba-a797-4614-bde4-228f6c26457d">
+						<datasetParameter name="applicant_id">
+							<datasetParameterExpression><![CDATA[$F{in_intk_apln_id}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
@@ -3174,9 +2424,9 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 			<componentElement>
 				<reportElement x="0" y="43" width="556" height="15" uuid="4c087dee-8bd6-47a5-880e-8ca1e7f0b69c"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="stpm" uuid="ba5c6fa6-6e68-467c-8596-b5f63565aed9">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
+					<datasetRun subDataset="stpm" uuid="6f5f0cd6-934d-4403-99c6-509f89ea2f25">
+						<datasetParameter name="applicant_id">
+							<datasetParameterExpression><![CDATA[$F{in_intk_apln_id}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
@@ -3390,9 +2640,9 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 			<componentElement>
 				<reportElement x="0" y="177" width="556" height="21" uuid="c11dcc5b-efa0-4499-931c-cd1f48dccd7a"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="diploma" uuid="e4a60fba-b9ab-4a33-a287-ed122d596549">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
+					<datasetRun subDataset="diploma" uuid="c4252985-a9ae-430f-aece-8ece531e4f1d">
+						<datasetParameter name="applicant_id">
+							<datasetParameterExpression><![CDATA[$F{in_intk_apln_id}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
@@ -3466,7 +2716,10 @@ $F{in_intk_apln_employment_sector_code_id}.equals( "4" )? "Lain-lain":"Lain-lain
 			<componentElement>
 				<reportElement x="0" y="613" width="555" height="21" uuid="f20af40f-84fa-449c-a45e-dfcaa0001f42"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="job" uuid="0f19e168-18f8-4e17-a9f8-2f0589544b9d">
+					<datasetRun subDataset="job" uuid="facb68bb-dac1-4aed-beb7-f0d8212e56c4">
+						<datasetParameter name="application_id">
+							<datasetParameterExpression><![CDATA[$F{in_intk_apln_id}]]></datasetParameterExpression>
+						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:listContents height="21" width="555">
@@ -3591,104 +2844,6 @@ $F{in_empt_employmeny_type}.equals( "2" )? "Sendiri":"Lain-lain"
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</rectangle>
-			<componentElement>
-				<reportElement x="104" y="264" width="240" height="87" uuid="fb541c63-327d-45db-b824-bd50ecf227ca"/>
-				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="guardian" uuid="79b9d546-1290-4f61-9674-ff68bfa8d296">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
-						</datasetParameter>
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:listContents height="87" width="240">
-						<textField>
-							<reportElement x="0" y="59" width="225" height="13" uuid="9dd0d4a6-9e1e-4799-b017-0a9594ac2261"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_cnty_code_description_ms}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="15" width="225" height="15" uuid="1f2a0db3-2daf-4104-b994-28510ed14c51"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_address1}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="26" width="225" height="12" uuid="3f69780f-fd16-406e-a56e-d8455b62544c"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_address2}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="0" width="225" height="13" uuid="f18c1609-61bb-44fb-a605-0e372636ec06"/>
-							<textElement verticalAlignment="Middle">
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_name}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="49" width="225" height="11" uuid="6a89e817-0fcd-4dfe-902b-8d92236ea7b6"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_stte_code_description_ms}]]></textFieldExpression>
-						</textField>
-						<textField>
-							<reportElement x="0" y="38" width="225" height="16" uuid="9cd6f671-4e56-4191-9886-63f3f07e2aca"/>
-							<textElement>
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_postcode}]]></textFieldExpression>
-						</textField>
-					</jr:listContents>
-				</jr:list>
-			</componentElement>
-			<textField>
-				<reportElement x="444" y="279" width="98" height="12" uuid="3594378d-ad99-43ab-8745-70258b368010"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[(
-$F{in_intk_apln_guardian_type_code_id}.equals( "1" )? "Ibu":
-$F{in_intk_apln_guardian_type_code_id}.equals( "2" )? "Ayah":
-$F{in_intk_apln_guardian_type_code_id}.equals( "3" )? "Penjaga":
-$F{in_intk_apln_guardian_type_code_id}.equals( "4" )? "Adik-Beradik":
-$F{in_intk_apln_guardian_type_code_id}.equals( "5" )? "Tidak_Berkaitan":
-$F{in_intk_apln_guardian_type_code_id}.equals( "6" )? "Isteri":
-$F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
-
-)]]></textFieldExpression>
-			</textField>
-			<componentElement>
-				<reportElement x="93" y="408" width="267" height="28" uuid="550e4766-9480-4d3a-bf7d-eced5e48cbe5"/>
-				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-					<datasetRun subDataset="sponsored" uuid="d689efb8-bfdf-4975-b66d-84c1f72295a4">
-						<datasetParameter name="application_id">
-							<datasetParameterExpression><![CDATA[$F{in_intk_id}]]></datasetParameterExpression>
-						</datasetParameter>
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:listContents height="28" width="267">
-						<textField>
-							<reportElement x="133" y="1" width="133" height="20" uuid="45d13b01-3b22-4da8-a144-dc42b134279d"/>
-							<box>
-								<pen lineWidth="0.5"/>
-								<topPen lineWidth="0.5"/>
-								<leftPen lineWidth="0.5"/>
-								<bottomPen lineWidth="0.5"/>
-								<rightPen lineWidth="0.5"/>
-							</box>
-							<textElement textAlignment="Center" verticalAlignment="Middle">
-								<font size="8"/>
-							</textElement>
-							<textFieldExpression><![CDATA[$F{in_intk_apln_sponsored}]]></textFieldExpression>
-						</textField>
-					</jr:listContents>
-				</jr:list>
-			</componentElement>
 			<staticText>
 				<reportElement mode="Opaque" x="226" y="392" width="133" height="17" forecolor="#000000" backcolor="#CCCCCC" uuid="a3c6514f-1f60-4b21-bb95-1df5a5b5723c"/>
 				<box>
@@ -3718,6 +2873,20 @@ $F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
 				<text><![CDATA[Biayaan Sendiri]]></text>
 			</staticText>
 			<textField>
+				<reportElement x="226" y="409" width="133" height="20" uuid="45d13b01-3b22-4da8-a144-dc42b134279d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_sponsored}]]></textFieldExpression>
+			</textField>
+			<textField>
 				<reportElement x="93" y="409" width="133" height="20" uuid="4a093e4f-f60d-413c-9566-67c193876c62"/>
 				<box>
 					<pen lineWidth="0.5"/>
@@ -3730,6 +2899,62 @@ $F{in_intk_apln_guardian_type_code_id}.equals( "7" )? "Suami":"Lain-lain"
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{in_intk_apln_self_sponsored}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="264" width="225" height="13" uuid="f18c1609-61bb-44fb-a605-0e372636ec06"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="326" width="225" height="11" uuid="6a89e817-0fcd-4dfe-902b-8d92236ea7b6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_stte_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="314" width="225" height="16" uuid="9cd6f671-4e56-4191-9886-63f3f07e2aca"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_postcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="339" width="225" height="13" uuid="9dd0d4a6-9e1e-4799-b017-0a9594ac2261"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_cnty_code_description_ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="279" width="225" height="15" uuid="1f2a0db3-2daf-4104-b994-28510ed14c51"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_address1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="290" width="225" height="12" uuid="3f69780f-fd16-406e-a56e-d8455b62544c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_intk_apln_guardian_address2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="302" width="223" height="12" uuid="fef2f456-f5da-49b1-8250-394dccf33e20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{in_intk_apln_guardian_address3}==null)? "-": $F{in_intk_apln_guardian_address3})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="280" width="103" height="13" uuid="d21317c3-a3fb-4493-8aa7-7da5c3be03e2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_grdn_type_code_description_ms}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
