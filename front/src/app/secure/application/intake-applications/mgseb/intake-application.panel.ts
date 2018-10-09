@@ -118,8 +118,8 @@ export class MgsebIntakeApplicationPanel implements OnInit {
 
       income: [''],
       position: [''],
-      employmentSectorCode: [<EmploymentSectorCode>{}, Validators.required],
-      employmentTypeCode: [<EmploymentTypeCode>{}, Validators.required],
+      employmentSectorCode:<EmploymentSectorCode>{},
+      employmentTypeCode:<EmploymentTypeCode>{},
       employerAddress1 : [''],
       employerAddress2 : [''],
       employerAddress3 : [''],
@@ -137,7 +137,7 @@ export class MgsebIntakeApplicationPanel implements OnInit {
       guardianPostcode : [''],
       guardianState : <StateCode>{},
       guardianCountryCode: <CountryCode>{},
-      guardianTypeCode: [<GuardianTypeCode>{}, Validators.required],
+      guardianTypeCode: <GuardianTypeCode>{},
 
       mailingAddress1: ['', Validators.required],
       mailingAddress2: ['', Validators.required],

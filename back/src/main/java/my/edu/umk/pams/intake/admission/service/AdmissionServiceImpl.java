@@ -513,13 +513,56 @@ public class AdmissionServiceImpl implements AdmissionService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		InFacultyCode facultyCode = candidate.getProgramSelection().getProgramCode().getFacultyCode();
 		InIntakeSession session = candidate.getProgramSelection().getIntake().getSession();
+		
+		String intakeLevel = null;
+		
+		Boolean Apel = candidate.getApplication().isApelCertificateAttached();
+		Boolean Diploma = candidate.getApplication().isDiplomaResultAttached();
+		Boolean Spm = candidate.getApplication().isSpmResultAttached();
+		Boolean Stpm = candidate.getApplication().isStpmResultAttached();
+		Boolean Stam = candidate.getApplication().isStamResultAttached();
+
+		if(Apel == true){
+			intakeLevel = "F";
+			
+		}else if(Apel == true && Diploma == true && Spm == true && Stpm == true || Stam == true){
+			intakeLevel = "F";
+			
+		}else if(Apel == true && Diploma == true){
+			intakeLevel = "F";
+			
+		}else if(Apel == true && Spm == true){
+			intakeLevel ="F";
+			
+		}else if(Apel == true && Stpm == true){
+			intakeLevel = "F";
+			
+		}else if(Diploma == true){
+			intakeLevel = "B";
+			
+		}else if(Diploma == true && Spm == true && Stpm == true || Stam == true){
+			intakeLevel = "B";
+			
+		}else if(Diploma == true && Stpm == true){
+			intakeLevel = "B";
+			
+		}else if(Diploma == true && Spm == true){
+			intakeLevel = "B";
+			
+		}else if(Spm == true || Stpm == true){
+			intakeLevel = "A";
+			
+		}else{
+			LOG.debug("not Attach");
+			intakeLevel = "NA";
+		}
 
 		InProgramLevel programLevel = candidate.getProgramSelection().getProgramCode().getProgramLevel();
 		InStudyMode studyMode =  candidate.getStudyModeSelection().getStudyMode();
 
 		map.put("facultyCode", facultyCode);
 		map.put("studyMode", studyMode);
-		map.put("programLevel", programLevel);
+		map.put("intakeLevel", intakeLevel);
 		map.put("intakeSession", session);
 
 		String generatedMatricNo = systemService.generateFormattedReferenceNo(IntakeConstants.CANDIDATE_MATRIC_NO, map);
