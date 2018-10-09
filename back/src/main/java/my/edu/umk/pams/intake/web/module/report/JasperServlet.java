@@ -57,6 +57,7 @@ public class JasperServlet extends HttpServlet {
             }
 
             // report and image path
+            map.put("pathImage", getServletContext().getRealPath("/img/umk_v0.png"));
             String reportName = req.getParameter(PARAM_REPORT);
             String path = "/reports/" + reportName;
             ClassPathResource resource = new ClassPathResource(path);

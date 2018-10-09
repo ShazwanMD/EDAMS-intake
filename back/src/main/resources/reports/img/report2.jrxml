@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="397d205e-5151-444d-9d1b-3d3a43f81127">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     in_empt."id" AS in_empt_id,
+     in_empt."active" AS in_empt_active,
+     in_empt."designation" AS in_empt_designation,
+     in_empt."employer" AS in_empt_employer,
+     in_empt."employmeny_type" AS in_empt_employmeny_type,
+     in_empt."end_date" AS in_empt_end_date,
+     in_empt."c_ts" AS in_empt_c_ts,
+     in_empt."c_id" AS in_empt_c_id,
+     in_empt."d_ts" AS in_empt_d_ts,
+     in_empt."d_id" AS in_empt_d_id,
+     in_empt."m_ts" AS in_empt_m_ts,
+     in_empt."m_id" AS in_empt_m_id,
+     in_empt."m_st" AS in_empt_m_st,
+     in_empt."start_date" AS in_empt_start_date,
+     in_empt."application_id" AS in_empt_application_id,
+     in_empt."field_code_id" AS in_empt_field_code_id,
+     in_empt."level_code_id" AS in_empt_level_code_id,
+     in_empt."sector_code_id" AS in_empt_sector_code_id
+FROM
+     "public"."in_empt" in_empt]]>
+	</queryString>
+	<field name="in_empt_id" class="java.lang.Long"/>
+	<field name="in_empt_active" class="java.lang.Boolean"/>
+	<field name="in_empt_designation" class="java.lang.String"/>
+	<field name="in_empt_employer" class="java.lang.String"/>
+	<field name="in_empt_employmeny_type" class="java.lang.Integer"/>
+	<field name="in_empt_end_date" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

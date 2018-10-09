@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bedc73c2-6192-4c7d-b211-44c468fa9149">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     in_edcn."id" AS in_edcn_id,
+     in_edcn."active" AS in_edcn_active,
+     in_edcn."end_date" AS in_edcn_end_date,
+     in_edcn."c_ts" AS in_edcn_c_ts,
+     in_edcn."c_id" AS in_edcn_c_id,
+     in_edcn."d_ts" AS in_edcn_d_ts,
+     in_edcn."d_id" AS in_edcn_d_id,
+     in_edcn."m_ts" AS in_edcn_m_ts,
+     in_edcn."m_id" AS in_edcn_m_id,
+     in_edcn."m_st" AS in_edcn_m_st,
+     in_edcn."provider" AS in_edcn_provider,
+     in_edcn."start_date" AS in_edcn_start_date,
+     in_edcn."application_id" AS in_edcn_application_id,
+     in_edcn."level_code_id" AS in_edcn_level_code_id,
+     in_edcn."sector_code_id" AS in_edcn_sector_code_id
+FROM
+     "public"."in_edcn" in_edcn]]>
+	</queryString>
+	<field name="in_edcn_id" class="java.lang.Long"/>
+	<field name="in_edcn_active" class="java.lang.Boolean"/>
+	<field name="in_edcn_end_date" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
