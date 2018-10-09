@@ -47,7 +47,7 @@ public class CandidateCompleteTask extends BpmnActivityBehavior
         admissionService.updateSelectedCandidate(candidate);
         LOG.debug("Ghost1");
         //Integration
-        //admissionService.registerCandidate(candidate);
+        admissionService.registerCandidate(candidate);
         LOG.debug("Ghost");
     }
 }
