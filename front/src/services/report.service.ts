@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Response, RequestOptions, ResponseContentType} from '@angular/http';
 import {HttpInterceptorService} from '@covalent/http';
 import {Observable} from 'rxjs';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class ReportService {

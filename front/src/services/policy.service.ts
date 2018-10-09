@@ -3,7 +3,6 @@ import {Response} from '@angular/http';
 import {HttpInterceptorService} from '@covalent/http';
 import {Intake} from '../app/shared/model/policy/intake.interface';
 import {Observable} from 'rxjs';
-import {environment} from '../environments/environment';
 import {IntakeTask} from '../app/shared/model/policy/intake-task.interface';
 import {ProgramOffering} from '../app/shared/model/policy/program-offering.interface';
 import {SupervisorOffering} from '../app/shared/model/policy/supervisor-offering.interface';
@@ -11,6 +10,7 @@ import {StudyModeOffering} from '../app/shared/model/policy/study-mode-offering.
 import {IntakeSession} from '../app/shared/model/policy/intake-session.interface';
 import {ProgramLevel} from '../app/shared/model/policy/program-level.interface';
 import {IntakeApplication} from '../app/shared/model/application/intake-application.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class PolicyService {

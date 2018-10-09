@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Response} from '@angular/http';
 import {HttpInterceptorService} from '@covalent/http';
-import {environment} from '../environments/environment';
 import {Observable} from 'rxjs';
 import {UserRegistration} from '../app/shared/model/registration/user-registration.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class RegistrationService {

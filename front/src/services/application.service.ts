@@ -9,7 +9,6 @@ import { Response, ResponseContentType, RequestOptions, Headers } from '@angular
 import { HttpInterceptorService } from '@covalent/http';
 import { IntakeApplication } from '../app/shared/model/application/intake-application.interface';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../environments/environment';
 import { Education } from '../app/shared/model/application/education.interface';
 import { Employment } from '../app/shared/model/application/employment.interface';
 import { Intake } from '../app/shared/model/policy/intake.interface';
@@ -21,6 +20,7 @@ import { AttachmentType } from '../app/shared/model/application/attachment-type.
 import { ProgramLevel } from '../app/shared/model/policy/program-level.interface';
 import { Candidate } from "../app/shared/model/admission/candidate.interface";
 import { SpmResultCode } from '../app/shared/model/common/spm-result-code.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class ApplicationService {

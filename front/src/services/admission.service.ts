@@ -3,10 +3,10 @@ import {Injectable} from '@angular/core';
 import {Response} from '@angular/http';
 import {HttpInterceptorService} from '@covalent/http';
 import {Observable} from 'rxjs/Observable';
-import {environment} from '../environments/environment';
 import {IntakeTask} from '../app/shared/model/policy/intake-task.interface';
 import {Candidate} from '../app/shared/model/admission/candidate.interface';
 import {Intake} from '../app/shared/model/policy/intake.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class AdmissionService {

@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {Response} from '@angular/http';
 import {HttpInterceptorService} from '@covalent/http';
 import {Observable} from 'rxjs';
-import {environment} from '../environments/environment';
 import {Module} from '../app/shared/model/system/module.interface';
 import {AuthenticatedUser} from '../app/shared/model/identity/authenticated-user.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class SystemService {

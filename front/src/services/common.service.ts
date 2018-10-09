@@ -20,7 +20,6 @@ import { Response } from '@angular/http';
 import { HttpInterceptorService } from '@covalent/http';
 import { Observable } from 'rxjs';
 import { FacultyCode } from '../app/shared/model/common/faculty-code.interface';
-import { environment } from '../environments/environment';
 import { ProgramCode } from '../app/shared/model/common/program-code.interface';
 import { GraduateCenter } from '../app/shared/model/common/graduate-center.interface';
 import { MaritalCode } from '../app/shared/model/common/marital-code.interface';
@@ -39,6 +38,7 @@ import { ProgramFieldCode } from "../app/shared/model/common/program-field-code.
 import { FieldCode } from "../app/shared/model/common/field-code.interface";
 import { GuardianTypeCode } from '../app/shared/model/common/guardian-type-code.interface';
 import { SpmSubjectCode } from '../app/shared/model/common/spm-subject-code.interface';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class CommonService {

@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpInterceptorService } from '@covalent/http';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../environments/environment';
 import { IntakeApplication } from '../app/shared/model/application/intake-application.interface';
 import { Applicant } from '../app/secure/identity/applicant.interface';
 import { Intake } from '../app/shared/model/policy/intake.interface';
 import { User } from '../app/secure/identity/user.interface';
 import { PasswordChange } from "../app/shared/model/identity/password-change.interface";
 import { EmailChange } from "../app/shared/model/identity/email-change.interface";
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class AccountService {
