@@ -16,7 +16,7 @@
             <form #loginForm="ngForm" [ngClass]="{ 'has-error': loginForm.submitted && !username.valid }">
               <div layout="row">
                 <md-input-container flex>
-                  <input mdInput #userElement #userControl="ngModel" placeholder="Username" type="text" maxlength="30"
+                  <input mdInput #userElement #userControl="ngModel" placeholder="Username" type="text" maxlength="100"
                          name="username" [(ngModel)]="username" required>
                   <span md-prefix><md-icon>person</md-icon></span>
                   <md-hint align="start">
