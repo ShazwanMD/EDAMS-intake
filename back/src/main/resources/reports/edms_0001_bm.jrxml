@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer letter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc959bd2-627c-4620-bf05-51189df59de5">
-	<property name="ireport.zoom" value="1.652892561983471"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="720"/>
+	<property name="ireport.zoom" value="2.4200000000000004"/>
+	<property name="ireport.x" value="301"/>
+	<property name="ireport.y" value="2008"/>
 	<parameter name="reference_no" class="java.lang.String"/>
 	<parameter name="pathImage" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
@@ -522,13 +522,6 @@ FROM
 				<textFieldExpression><![CDATA[$F{in_intk_sesn_description_ms}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="149" width="323" height="15" uuid="238f8814-46e4-471e-8929-ae3cfc5c2292"/>
-				<textElement>
-					<font fontName="SansSerif" isBold="true"/>
-				</textElement>
-				<text><![CDATA[04 Tahun]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="63" y="194" width="136" height="15" uuid="ba548616-1c48-4d1d-bda4-2b2935fea2bd"/>
 				<textElement>
 					<font fontName="SansSerif" isBold="true"/>
@@ -773,6 +766,13 @@ FROM
 				</textElement>
 				<text><![CDATA[Seluruh warga kampus mengalu-alukan kedatangan anda ke Universiti Malaysia Kelantan.]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="218" y="150" width="216" height="15" uuid="ff0a7463-7d8c-47ad-a8a9-2fd358b64dc8"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[09 Semester]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<summary>
@@ -802,15 +802,15 @@ Universiti Malaysia Kelantan
 			</staticText>
 			<staticText>
 				<reportElement x="32" y="14" width="488" height="59" forecolor="#000000" uuid="84b8dbd0-4464-48c2-aed8-516d89174741"/>
-				<textElement textAlignment="Justified">
+				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<text><![CDATA[3.	Tawaran kemasukan ini adalah tertakluk kepada Akta dan Peraturan Universiti. Semua pembayaran yuran pengajian perlu dibuat dengan mendepositkan jumlah yuran yang dikenakan ke dalam akaun Malayan Banking Berhad (Maybank) atas nama Universiti Malaysia Kelantan. Nombor akaun bank ialah 553038019271.
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="73" width="488" height="51" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
-				<textElement textAlignment="Justified">
+				<reportElement x="32" y="73" width="488" height="82" uuid="0307d78e-e8db-4158-9aa0-3a4ab5944316"/>
+				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<text><![CDATA[4.	Tuan/ Puan dikehendaki mendaftarkan diri pada tarikh sebagaimana yang dinyatakan di atas. Sebarang pertanyaan lanjut mengenai tawaran ini, sila hubungi  En. Zainuzzi bin Ismail ditalian 09-7717050 atau En. Mohd Azrul bin Zakaria di talian 09-7717053.]]></text>
