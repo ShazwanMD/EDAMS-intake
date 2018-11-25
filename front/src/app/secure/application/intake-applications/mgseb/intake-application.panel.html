@@ -112,9 +112,9 @@
               </div>
 
               <div>
-                  <b>Kaum : </b><b *ngIf="_intakeApplication.raceCode !== null">{{_intakeApplication.raceCode.descriptionMs}}</b><br/>
+                  <b>Bangsa : </b><b *ngIf="_intakeApplication.raceCode !== null">{{_intakeApplication.raceCode.descriptionMs}}</b><br/>
                   <div>
-              <pams-race-code-select [placeholder]="'Kaum'" 
+              <pams-race-code-select [placeholder]="'Bangsa'" 
               [innerFormControl]="applicationForm.controls.raceCode" 
               fxFlex="calc(100%-25px)"
                 class="pad-bottom">
@@ -196,7 +196,7 @@
             </div>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Jalan" formControlName="officialAddress3" flex/>
+              <input mdInput placeholder="Daerah" formControlName="officialAddress3" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
@@ -247,7 +247,7 @@
             </div>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Jalan" formControlName="mailingAddress3" flex/>
+              <input mdInput placeholder="Daerah" formControlName="mailingAddress3" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
@@ -304,7 +304,7 @@
             </div>
 
             <md-input-container fxFlex="calc(100%-25px)">
-              <input mdInput placeholder="Jalan" formControlName="guardianAddress3" flex/>
+              <input mdInput placeholder="Daerah" formControlName="guardianAddress3" flex/>
             </md-input-container>
 
             <md-input-container fxFlex="calc(100%-25px)">
